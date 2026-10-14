@@ -92,6 +92,34 @@ hermes cron add &quot;0 10 * * 1&quot;  --name &quot;[bot:archivessa] publish&qu
 <h2>8. Что нужно решить вам</h2>
 <ol><li><strong>Имена ботов.</strong> Решено: профили <code>archivessa</code> (Хранительница архива) и <code>chartessa</code> (Собирательница стеков) уже созданы, аватарки выбраны вами.</li><li><strong>Агрессивность.</strong> Сколько новых записей в неделю считаем нормой: спокойно (3–5) или настойчиво (10+)?</li><li><strong>Уведомления.</strong> Куда присылать дайджест-алерты: только в этот чат, или ещё в мессенджер (Telegram и т.д.)?</li></ol>
 <p>Скажете «поехали» — и я начну с итерации 1: два профиля, скрипт скана и список наблюдения.</p>
+<h2>9. Рутина конвейера: scan → очередь → триаж → публикация</h2>
+<p>Ниже — фактический порядок от 14.10.2026, проверенный запуском (не проект, а то, что реально работает). Сканер — <code>hubd</code> (<code>/home/lain/.hermes/profiles/libraressa/workspace/hubd</code>), музей читается только на чтение.</p>
+<p><strong>1. Список наблюдения собирается из архива, а не пишется руками.</strong></p>
+<pre><code>cd /home/lain/.hermes/profiles/libraressa/workspace/hubd
+python3 -m hubd watchlist --museum ../lost-tech-museum --out watchlist.json
+# источников: 47 (уникальных адресов: 47) → watchlist.json</code></pre>
+<p>В список попадают статусы и ленты изменений RFC, на которые ссылается архив, первоисточники записей и сам сайт музея. Хосты вне «архивного» списка (вики, новости, копии докладов с учебных кафедр) пропускаются — поэтому мёртвые ссылки из записей сюда не попадают (см. п. 7).</p>
+<p><strong>2. Обход и очередь кандидатов.</strong></p>
+<pre><code>python3 -m hubd serve --store data/hub.json --port 8765 --retry-interval 5   # отдельным терминалом
+python3 -m hubd scan --watchlist watchlist.json --state data/scan.json \
+    --queue data/candidates.jsonl --hub http://127.0.0.1:8765 --once        # или --every 300
+python3 -m hubd candidates --file data/candidates.jsonl --status new --show-sample</code></pre>
+<p>Кандидат — это (тема, адрес, отпечаток содержимого). Первый обход источника — знакомство, а не новость: событие появляется только когда отпечаток реально изменился. Возврат источника к уже разобранной версии публикуется подписчикам, но дубля в очереди не создаёт.</p>
+<p><strong>3. Триаж — работа хранителя, не скрипта.</strong> Для каждого кандидата: прочитать первоисточник, выписать дословные цитаты с URL и решить — это правка записи, дубликат или отказ.</p>
+<pre><code>python3 -m hubd candidates --file data/candidates.jsonl --accept &lt;id кандидата&gt;
+python3 -m hubd candidates --file data/candidates.jsonl --reject &lt;id кандидата&gt;</code></pre>
+<p>Оговорка, проверенная запуском: опции <code>--reason</code> у CLI <strong>нет</strong> (<code>hubd: error: unrecognized arguments</code>, код 2), и в строке очереди нет поля причины — статус ставится без неё. Поэтому причина отказа живёт в журнале <code>docs/triage-log.md</code>, а строка очереди получает её отдельным шагом (поле <code>note</code>). Отказ не удаляет кандидата: статус <code>rejected</code> + причина — принцип «архив не удаляет» действует и здесь.</p>
+<p><strong>4. Правка архива.</strong> <code>data/*.json</code> — единственный писатель Archivessa; у каждого источника, на который опирается утверждение, поле <code>q</code> с дословной цитатой. Если источник заменён — в тексте записи остаётся пометка, что источник менялся.</p>
+<p><strong>5. Проверки перед публикацией (все три обязаны быть зелёными).</strong></p>
+<pre><code>python3 scripts/quotes.py --fetch      # каждая цитата против скачанного первоисточника; код 1 — публиковать нельзя
+python3 scripts/build.py               # сборка сайта + проверка страниц
+python3 scripts/lint_stacks.py         # целостность стеков</code></pre>
+<p><strong>6. Публикация.</strong></p>
+<pre><code>git add -A &amp;&amp; git commit -m &quot;digest: …&quot; &amp;&amp; git push     # Pages обновляется сам</code></pre>
+<p><strong>7. Сторож и замкнутый контур.</strong> Среди 47 источников есть сам сайт музея. После публикации его ETag меняется, сканер кладёт кандидата <code>museum/site</code>, и триаж отклоняет его с причиной «наша же публикация, находки нет». Это не шум, а подтверждение, что робот действительно видит наш сайт.</p>
+<p><strong>Чего рутина не делает (и что заменяет пробел).</strong> Сканер ловит только <em>изменения</em> источников. Утверждение без цитаты и мёртвая ссылка изменениями не являются — их ловит аудит записей: обход адресов из <code>data/*.json</code> (включая те, что не попали в список наблюдения) с <code>--fail-on-error</code>, чтобы cron получал код 1.</p>
+<pre><code>python3 -m hubd check --watchlist watchlist-audit.json --state data/scan-audit.json --fail-on-error</code></pre>
+<p><strong>Cron не заведён.</strong> Расписание из §2.3 остаётся проектом: постоянные рутины не создаются без отдельного подтверждения владельца.</p>
   <div class="actions">
     <a href="source.md">Исходный Markdown</a>
     <a href="https://github.com/kostyk348/lost-tech-museum">Репозиторий</a>
