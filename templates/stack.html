@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITLE__ — стек · Музей потерянных идей</title>
+<meta name="description" content="__BLURB__">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--soft:#111722;--cy:#22d3ee;--am:#f0b429;--gr:#3fb950;--lp:#a78bfa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--cy);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 56px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.eyebrow .who{color:var(--lp);letter-spacing:.06em}
+h1{font-size:28px;line-height:1.14;margin:.25em 0 .3em;letter-spacing:-.01em}
+.lede{color:var(--mut);max-width:78ch;margin:0 0 14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.meta span{font-size:12.5px;color:var(--mut);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:5px 11px}
+.meta b{color:var(--fg);font-weight:600}
+.layout{display:grid;grid-template-columns:262px minmax(0,1fr);gap:16px;align-items:start}
+.nav{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:11px;position:sticky;top:14px}
+.nav input[type=search]{width:100%;background:var(--soft);border:1px solid var(--line);color:var(--fg);border-radius:9px;padding:7px 10px;font-size:13.5px;margin-bottom:9px}
+.stackbox__CLAMPCSS__
+.nl{display:block;width:100%;text-align:left;cursor:pointer;background:transparent;border:1px solid transparent;border-radius:10px;padding:7px 9px;color:var(--mut);font-size:13.5px;line-height:1.4;font-family:inherit}
+.nl:hover{background:var(--soft);border-color:var(--line)}
+.nl.on{background:var(--soft);border-color:var(--line);color:var(--fg)}
+.nl .nbin{display:block;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut);letter-spacing:.04em;margin-top:2px}
+.navfoot{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:grid;gap:5px;font-size:12.5px}
+.leg{font:11.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 20px;min-height:380px}
+.shead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px}
+.shead h2{margin:0 0 5px;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.shead .sub{color:var(--mut);font-size:13px}
+.bgchip{font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--lp);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.gap{display:inline-flex;gap:3px;align-items:center;font-size:11px;color:var(--mut)}
+.gap i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.gap i.on{background:var(--am)}
+.fld{margin:15px 0 0}
+.fld .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:3px}
+.fld .val{margin:0;font-size:14.3px;color:var(--fg)}
+.fld .to{display:inline-block;margin-top:5px;font-size:12px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:2px 9px;color:var(--cy);cursor:pointer}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:11px;margin-top:15px}
+.cols .fld{margin:0;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.cols .fld:nth-child(1){border-left:3px solid var(--am)}
+.cols .fld:nth-child(2){border-left:3px solid #e5484d}
+.cols .fld:nth-child(3){border-left:3px solid var(--gr)}
+.cols .fld:nth-child(4){border-left:3px solid var(--cy)}
+.rows{margin-top:15px;display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rows .r{display:grid;grid-template-columns:230px minmax(0,1fr);border-top:1px solid var(--line)}
+.rows .r:first-child{border-top:0}
+.rows .k{padding:10px 12px;background:var(--soft);font-size:13.2px;font-weight:600;border-right:1px solid var(--line)}
+.rows .v{padding:10px 12px;font-size:13.6px;color:var(--fg)}
+.sect{margin-top:20px;border-top:1px dashed var(--line);padding-top:13px}
+.sect .h{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:7px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lk{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;text-align:left;color:var(--fg);font-family:inherit;font-size:13.2px;max-width:100%}
+.lk:hover{border-color:var(--cy)}
+.lk b{font-weight:600}
+.lk .wy{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.acts{display:grid;gap:9px}
+.act{display:grid;gap:6px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.act .top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between}
+.act .tools{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.act .prompt{font-size:12.6px;color:var(--mut);margin:0}
+.btn{cursor:pointer;font-size:13px;color:var(--fg);background:var(--soft);border:1px solid var(--cy);border-radius:999px;padding:6px 13px;font-family:inherit}
+.btn:hover{background:var(--cy);color:#04141a}
+.srcs{display:grid;gap:4px}
+.srcs a{font-size:12.5px;color:var(--mut)}
+.srcs a::before{content:"↗ ";color:var(--mut)}
+.srcs a.r::before{content:"✓ ";color:var(--gr)}
+.srcs a.k-archive::before{content:"⌗ ";color:var(--cy)}
+.plain{color:var(--mut);font-size:13.5px}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+footer p{margin:.45em 0}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.nav{position:static}.rows .r{grid-template-columns:1fr}.rows .k{border-right:0}}
+__THEME__
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Музей потерянных идей · стек карточек · автор <span class="who">Chartessa</span></div>
+  <h1>__TITLE__</h1>
+  <p class="lede">__SUBTITLE__</p>
+  <div class="meta">
+    <span>карточек: <b id="m-cards">0</b></span>
+    <span>связей: <b id="m-links">0</b></span>
+    <span>источников: <b id="m-src">0</b></span>
+    <span>записей архива: <b id="m-arch">0</b></span>
+    <span>собрано: <b>__DATE__</b></span>
+  </div>
+
+  <div class="layout">
+    <aside class="nav">
+      <input type="search" id="q" placeholder="фильтр: fipa, tuple space…">
+      <div id="navlist"></div>
+      <div class="navfoot">
+        <a id="archlink" href="#">Весь архив находок →</a>
+        <span class="leg">← → листать · Esc — витрина стека</span>
+      </div>
+    </aside>
+    <main class="stage" id="stage"></main>
+  </div>
+
+  <footer>
+    <p><b>Методология.</b> Факты в карточках взяты из проверенных записей архива музея — ссылка «архив» на карточке ведёт
+    на запись, метки <span class="leg">✓</span> (страница прочитана целиком) и <span class="leg">↗</span> (источник уровня
+    поискового индекса) унаследованы из архива. Оценка «зазор» и блоки «что внедрить» — суждение агента Chartessa, а не цитата.</p>
+    <p><b>Кнопки.</b> Действие на карточке — ограниченный промпт с белым списком инструментов, а не произвольный код:
+    в чате с агентом кнопка отправляет промпт, на сайте — копирует его в буфер обмена.</p>
+    <p><b>Фоны карточек</b> (шаблоны) — <span class="leg" id="bglist"></span>.</p>
+    <p>__FOOTERREPO__</p>
+    <p class="leg">Собрано автоматически: <code>scripts/build.py</code> из <code>stacks/__SLUG__/stack.json</code>.</p>
+  </footer>
+</div>
+
+<script>
+const STACK = __STACK__;
+const HOME = (STACK.cards[0]||{}).id;
+const HAS_HERMES = !!(window.hermes && typeof window.hermes.send === "function");
+const CARDS = STACK.cards;
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function byId(id){return CARDS.find(c=>c.id===id);}
+function incoming(id){return CARDS.filter(c=>(c.links||[]).some(l=>l.to===id));}
+function hash(id){return "#c-"+id;}
+function current(){
+  const m=(location.hash||"").match(/^#c-(.+)$/);
+  return (m && byId(m[1])) ? m[1] : HOME;
+}
+function archiveHref(entryId){
+  const a=STACK.archive||{};
+  return "../../digests/"+a.slug+"/#c-"+entryId;
+}
+
+function boot(){
+  document.getElementById("m-cards").textContent = CARDS.length;
+  document.getElementById("m-links").textContent = CARDS.reduce((n,c)=>n+(c.links||[]).length,0);
+  document.getElementById("m-src").textContent = CARDS.reduce((n,c)=>n+(c.sources||[]).length,0);
+  document.getElementById("m-arch").textContent = CARDS.reduce((n,c)=>n+(c.archive||[]).length,0);
+  const a=STACK.archive||{};
+  document.getElementById("archlink").href = "../../digests/"+a.slug+"/";
+  document.getElementById("archlink").textContent = "Архив: "+a.title+" →";
+  document.getElementById("bglist").textContent = Object.keys(STACK.backgrounds||{})
+    .map(k=>k+" — "+STACK.backgrounds[k].name).join(" · ");
+  document.getElementById("q").oninput = e=>{filter=e.target.value.toLowerCase();nav();render();};
+  window.addEventListener("hashchange",()=>{nav();render();});
+  document.addEventListener("keydown",ev=>{
+    if(ev.target.tagName==="INPUT"){if(ev.key==="Escape")ev.target.blur();return;}
+    if(ev.key==="Escape"){go(HOME);}
+    if(ev.key==="ArrowRight"||ev.key==="ArrowLeft"){
+      const list=visible(); const i=list.indexOf(current());
+      const j=ev.key==="ArrowRight"?i+1:i-1;
+      if(j>=0&&j<list.length){go(list[j]);}
+    }
+  });
+  nav();render();
+}
+let filter="";
+function visible(){
+  const q=filter;
+  return CARDS.filter(c=>!q||(c.title+" "+(c.subtitle||"")+" "+c.id+" "+(c.fields||[]).map(f=>f.lbl+" "+f.val).join(" ")).toLowerCase().includes(q)).map(c=>c.id);
+}
+function nav(){
+  const cur=current(), list=visible();
+  document.getElementById("navlist").innerHTML = list.map(id=>{
+    const c=byId(id), bg=(STACK.backgrounds||{})[c.bg]||{};
+    const kind = id===HOME ? "витрина" : (bg.name||c.bg);
+    return `<button class="nl ${id===cur?"on":""}" data-card="${id}"><span class="nbin">${esc(kind)}</span>${esc(c.title)}</button>`;
+  }).join("") || '<p class="plain">Ничего не нашлось.</p>';
+  document.querySelectorAll("[data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+}
+function go(id){ if(location.hash===hash(id)){nav();render();} else {location.hash=hash(id);} }
+
+function fieldHtml(f){
+  const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ карточка: ${esc(byId(f.to).title)}</span>` : "";
+  return `<div class="fld"><div class="lbl">${esc(f.lbl)}</div><p class="val">${esc(f.val)}</p>${to}</div>`;
+}
+function fieldsHtml(c){
+  const bg=(STACK.backgrounds||{})[c.bg]||{}, layout=bg.layout||"list", fs=c.fields||[];
+  if(!fs.length) return "";
+  if(layout==="cols") return `<div class="cols">${fs.map(fieldHtml).join("")}</div>`;
+  if(layout==="table") return `<div class="rows">${fs.map(f=>{
+      const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ ${esc(byId(f.to).title)}</span>` : "";
+      return `<div class="r"><div class="k">${esc(f.lbl)}</div><div class="v">${esc(f.val)}${to}</div></div>`;
+    }).join("")}</div>`;
+  return fs.map(fieldHtml).join("");
+}
+function linksHtml(c){
+  const out=(c.links||[]).map(l=>{const t=byId(l.to); if(!t) return ""; return `<button class="lk" data-card="${l.to}"><b>${esc(t.title)}</b><span class="wy">${esc(l.why||"")}</span></button>`;}).join("");
+  const back=incoming(c.id).map(x=>`<button class="lk" data-card="${x.id}"><b>${esc(x.title)}</b><span class="wy">ссылается сюда</span></button>`).join("");
+  const arch=(c.archive||[]).map(id=>`<a class="lk" href="${archiveHref(id)}" style="text-decoration:none"><b>⌗ запись архива: ${esc(id)}</b><span class="wy">проверенная карточка музея с источниками</span></a>`).join("");
+  if(!out&&!back&&!arch) return "";
+  return `<div class="sect"><div class="h">Связи</div><div class="links">${arch}${out}${back}</div></div>`;
+}
+function actsHtml(c){
+  const acts=c.actions||[]; if(!acts.length) return "";
+  return `<div class="sect"><div class="h">Действия — ограниченный промпт, не код</div><div class="acts">`+
+    acts.map((a,i)=>{
+      const tools=(a.tools||[]).length? a.tools.join(", ") : "без инструментов";
+      const prompt=`[Стек «${STACK.title}» → карточка «${c.title}»] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые инструменты: ${a.tools.join(", ")}.`:"\nИнструменты не требуются.");
+      const attr=HAS_HERMES?` data-hermes-send="${esc(prompt)}"`:"";
+      return `<div class="act"><div class="top"><button class="btn" data-idx="${i}" data-card="${c.id}"${attr}>${esc(a.t)}</button>
+        <span class="tools">инструменты: ${esc(tools)}</span></div><p class="prompt">${esc(a.p)}</p></div>`;
+    }).join("")+`</div></div>`;
+}
+function srcsHtml(c){
+  const s=c.sources||[]; if(!s.length) return "";
+  return `<div class="sect"><div class="h">Источники (✓ прочитан целиком · ↗ индекс поиска · ⌗ запись архива)</div><div class="srcs">`+
+    s.map(x=>`<a class="${x.r?"r":""} ${x.kind==="archive"?"k-archive":""}" href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")+`</div></div>`;
+}
+function render(){
+  const c=byId(current())||CARDS[0], bg=(STACK.backgrounds||{})[c.bg]||{};
+  const dots=Array.from({length:5},(_,i)=>`<i class="${i<(c.gap||0)?"on":""}"></i>`).join("");
+  document.getElementById("stage").innerHTML =
+    `<div class="shead"><div><h2>${esc(c.title)}</h2><div class="sub">${esc(c.subtitle||"")}</div></div>
+      <div style="text-align:right"><span class="bgchip">фон: ${esc(bg.name||c.bg)}</span>
+      <div class="gap" title="насколько идея недожата — оценка агента" style="margin-top:8px;justify-content:flex-end"><span>зазор</span>${dots}</div></div></div>
+     ${fieldsHtml(c)}${linksHtml(c)}${actsHtml(c)}${srcsHtml(c)}`;
+  document.querySelectorAll("#stage [data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+  document.querySelectorAll("#stage .btn").forEach(b=>{
+    if(b.hasAttribute("data-hermes-send")) return;   // в чате отправляет мост Hermes
+    b.onclick=()=>{
+      const a=(byId(b.dataset.card).actions||[])[+b.dataset.idx];
+      const text=`[Стек «${STACK.title}» → карточка «${byId(b.dataset.card).title}»] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые инструменты: ${a.tools.join(", ")}.`:"\nИнструменты не требуются.");
+      const done=()=>{const old=b.textContent;b.textContent="промпт скопирован ✓";setTimeout(()=>b.textContent=old,1800);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}else{done();}
+    };
+  });
+  nav();
+}
+boot();
+</script>
+</body>
+</html>

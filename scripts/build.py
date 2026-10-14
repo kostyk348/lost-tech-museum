@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Сборка сайта «Музей потерянных идей» (GitHub Pages).
 
-    python scripts/build.py                # index.html + digests/*/index.html + docs/*/index.html
+    python scripts/build.py                # index.html + digests/*/index.html + docs/*/index.html + stacks/*/index.html
     python scripts/build.py --widget OUT   # компактный виджет дайджеста для чата
+    python scripts/build.py --widget OUT <slug>   # slug — дайджест или стек
 
 Источники правды:
-    data/<slug>.json   — находки дайджеста (title, subtitle, pitches, entries)
-    docs/<slug>.md     — документы (концепты, заметки) в безопасном подмножестве Markdown
-Шаблоны: templates/dashboard.html, templates/doc.html, templates/index.html
+    data/<slug>.json         — находки дайджеста (title, subtitle, pitches, entries)
+    docs/<slug>.md           — документы (концепты, заметки) в безопасном подмножестве Markdown
+    stacks/<slug>/stack.json — стек карточек: карточки, фоны, связи, действия, источники
+Шаблоны: templates/dashboard.html, templates/doc.html, templates/stack.html, templates/index.html
 HTML всегда генерируется из данных; руками не правится.
 """
 import html
@@ -47,6 +49,26 @@ DOCS = [
         "tags": ["архитектура", "агенты", "автоматизация"],
     },
 ]
+
+# Стеки карточек (Chartessa). Источник правды — stacks/<slug>/stack.json, здесь только витрина.
+STACKS = [
+    {
+        "slug": "agent-protocols",
+        "title": "Стек: агентные протоколы, которые уже были решены",
+        "blurb": "8 карточек поверх архива музея: язык агентов FIPA-ACL/KQML, мобильный код Telescript, tuple space, "
+                 "личный дата-хаб HailStorm, урок проигранного стандарта OSI, слой вывода Fifth Generation — "
+                 "и чек-лист «чего не хватает вашему агентному протоколу».",
+        "tags": ["стеки", "агенты", "протоколы"],
+    },
+]
+
+# Тема виджета: в чате страница живёт в теме приложения — берём её переменные, а не свои цвета.
+STACK_THEME_WIDGET = (
+    ":root{--bg:transparent;--card:var(--card,#141a24);--line:var(--border,#242d3d);"
+    "--fg:var(--foreground,#e6edf7);--mut:var(--muted-foreground,#8b98ad);--soft:rgba(127,127,127,.10);"
+    "--cy:var(--accent,#22d3ee);--lp:var(--muted-foreground,#a78bfa)}\n"
+    "body{background:transparent}\n"
+)
 
 
 def _inline(s):
@@ -142,6 +164,37 @@ def _read(path):
         return fh.read()
 
 
+def _js_json(obj):
+    """JSON для вставки внутрь <script>: данные не должны уметь закрыть тег."""
+    return json.dumps(obj, ensure_ascii=False).replace("</", "<\\/")
+
+
+def stack_data(slug):
+    return json.loads(_read("stacks/%s/stack.json" % slug))
+
+
+def stack_refs(archive_slug):
+    """Обратные ссылки: id записи архива -> карточки стеков, которые на неё опираются.
+
+    Двусторонность: каждая карточка стека ссылается на запись архива, а та же запись
+    в дайджесте показывает, в каких стеках она используется.
+    """
+    refs = {}
+    for meta in STACKS:
+        st = stack_data(meta["slug"])
+        if (st.get("archive") or {}).get("slug") != archive_slug:
+            continue
+        for card in st.get("cards", []):
+            for eid in card.get("archive", []):
+                refs.setdefault(eid, []).append({
+                    "slug": meta["slug"],
+                    "title": meta["title"],
+                    "card": card["id"],
+                    "card_title": card["title"],
+                })
+    return refs
+
+
 def render_dashboard(d, mode="page"):
     tpl = _read("templates/dashboard.html")
     footer = ('Часть архива «Музей потерянных идей» · '
@@ -155,8 +208,9 @@ def render_dashboard(d, mode="page"):
             .replace("__DATE__", d.get("generated", ""))
             .replace("__SLUG__", d["slug"])
             .replace("__FOOTERREPO__", footer.format(repo=REPO_PATH))
-            .replace("__DATA__", json.dumps({"entries": d["entries"]}, ensure_ascii=False))
-            .replace("__PITCHES__", json.dumps(d["pitches"], ensure_ascii=False)))
+            .replace("__STACKREFS__", _js_json(stack_refs(d["slug"])))
+            .replace("__DATA__", _js_json({"entries": d["entries"]}))
+            .replace("__PITCHES__", _js_json(d["pitches"])))
 
 
 def render_portfolio(d, mode="page"):
@@ -172,8 +226,8 @@ def render_portfolio(d, mode="page"):
             .replace("__DATE__", d.get("generated", ""))
             .replace("__SLUG__", d["slug"])
             .replace("__FOOTERREPO__", footer.format(repo=REPO_PATH))
-            .replace("__DATA__", json.dumps({"entries": d["entries"]}, ensure_ascii=False))
-            .replace("__PITCHES__", json.dumps(d["pitches"], ensure_ascii=False)))
+            .replace("__DATA__", _js_json(d["entries"]))
+            .replace("__PITCHES__", _js_json(d["pitches"])))
 
 
 def renderer_for(kind):
@@ -189,6 +243,23 @@ def render_doc(meta, date):
                .replace("__SLUG__", meta["slug"])
                .replace("__REPO__", REPO_PATH)
                .replace("__BODY__", body))
+
+
+def render_stack(meta, st, mode="page"):
+    tpl = _read("templates/stack.html")
+    footer = ('Часть архива «Музей потерянных идей» · '
+              '<a href="https://github.com/{repo}">данные и генератор на GitHub</a>')
+    return (tpl
+            .replace(".stackbox__CLAMPCSS__",
+                     "#navlist{max-height:46vh;overflow:auto}" if mode == "widget" else "")
+            .replace("__THEME__", STACK_THEME_WIDGET if mode == "widget" else "")
+            .replace("__TITLE__", st["title"])
+            .replace("__SUBTITLE__", st.get("subtitle", ""))
+            .replace("__BLURB__", html.escape(meta["blurb"], quote=True))
+            .replace("__DATE__", st.get("generated", ""))
+            .replace("__SLUG__", st["slug"])
+            .replace("__FOOTERREPO__", footer.format(repo=REPO_PATH))
+            .replace("__STACK__", _js_json(st)))
 
 
 def _card(href, title, blurb, stats, go):
@@ -215,9 +286,21 @@ def render_hub(date):
                      "%d источников" % src, " · ".join(dg["tags"])]
             go = "Открыть дайджест →"
         dcards.append(_card("digests/%s/" % dg["slug"], dg["title"], dg["blurb"], stats, go))
+    scards = []
+    for meta in STACKS:
+        st = stack_data(meta["slug"])
+        cards = st.get("cards", [])
+        stats = ["%d карточек" % len(cards),
+                 "%d связей" % sum(len(c.get("links", [])) for c in cards),
+                 "%d источников" % sum(len(c.get("sources", [])) for c in cards),
+                 "%d кнопок" % sum(len(c.get("actions", [])) for c in cards),
+                 " · ".join(meta["tags"])]
+        scards.append(_card("stacks/%s/" % meta["slug"], st["title"], meta["blurb"], stats,
+                            "Открыть стек карточек →"))
     mcards = [_card("docs/%s/" % m["slug"], m["title"], m["blurb"], list(m["tags"]), "Читать концепт →")
               for m in DOCS]
-    sections = ("  <h2>Дайджесты</h2>\n  " + "\n  ".join(dcards)
+    sections = ("  <h2>Стеки карточек <small>— инструменты, собранные из архива</small></h2>\n  " + "\n  ".join(scards)
+                + "\n\n  <h2>Дайджесты <small>— проверенные находки</small></h2>\n  " + "\n  ".join(dcards)
                 + "\n\n  <h2>Концепты и архитектура</h2>\n  " + "\n  ".join(mcards))
     return (tpl.replace("__SECTIONS__", sections)
                .replace("__DATE__", date)
@@ -228,13 +311,22 @@ def main():
     args = sys.argv[1:]
     if args and args[0] == "--widget":
         out = args[1] if len(args) > 1 else os.path.join(ROOT, "widget.html")
-        dg = next((g for g in DIGESTS if len(args) > 2 and g["slug"] == args[2]), DIGESTS[0])
+        want = args[2] if len(args) > 2 else None
+        for meta in STACKS:
+            if want == meta["slug"]:
+                st = stack_data(meta["slug"])
+                open(out, "w", encoding="utf-8").write(render_stack(meta, st, mode="widget"))
+                print("widget:", out, os.path.getsize(out), "| stack:", meta["slug"])
+                return
+        dg = next((g for g in DIGESTS if want and g["slug"] == want), DIGESTS[0])
         d = json.loads(_read("data/%s.json" % dg["slug"]))
         open(out, "w", encoding="utf-8").write(renderer_for(dg.get("kind"))(d, mode="widget"))
         print("widget:", out, os.path.getsize(out), "| digest:", dg["slug"])
         return
 
-    date = max([json.loads(_read("data/%s.json" % dg["slug"])).get("generated", "") for dg in DIGESTS] + ["2026-01-01"])
+    dates = [json.loads(_read("data/%s.json" % dg["slug"])).get("generated", "") for dg in DIGESTS]
+    dates += [stack_data(s["slug"]).get("generated", "") for s in STACKS]
+    date = max(dates + ["2026-01-01"])
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(render_hub(date))
     print("hub: index.html")
     for dg in DIGESTS:
@@ -250,6 +342,13 @@ def main():
         open(os.path.join(outdir, "index.html"), "w", encoding="utf-8").write(render_doc(meta, date))
         shutil.copy(os.path.join(ROOT, "docs", meta["slug"] + ".md"), os.path.join(outdir, "source.md"))
         print("doc: docs/%s/index.html" % meta["slug"])
+    for meta in STACKS:
+        st = stack_data(meta["slug"])
+        outdir = os.path.join(ROOT, "stacks", meta["slug"])
+        os.makedirs(outdir, exist_ok=True)
+        open(os.path.join(outdir, "index.html"), "w", encoding="utf-8").write(render_stack(meta, st))
+        refs = sum(len(c.get("archive", [])) for c in st.get("cards", []))
+        print("stack: stacks/%s/index.html %d cards, %d archive refs" % (meta["slug"], len(st["cards"]), refs))
     open(os.path.join(ROOT, ".nojekyll"), "w").write("")
     print("done")
 

@@ -11,21 +11,37 @@
 |---|---|
 | [lost-ideas-1980s-2000s](digests/lost-ideas-1980s-2000s/) | 35 идей 1980–2006: TRON/BTRON, Fifth Generation, i-mode, FeliCa, ucode, Minitel, Telescript, FIPA-ACL, Xanadu, Plan 9/Inferno, BeOS, Transputer/Occam, Linda/Jini, Self, iAPX 432, Workplace OS, WinFS, HailStorm, NeWS, OSI, Usenet, Gopher, Setun, OGAS, HyperCard, Newton Soup, calm technology |
 
+## Стеки карточек
+
+Стек — инструмент, собранный поверх архива: карточки, фоны (шаблоны), двусторонние связи и кнопки-действия.
+Собирает агент **Chartessa**; в `stacks/` пишет только он, в `data/` — только Archivessa. Связи двусторонние:
+карточка стека ссылается на запись архива, а запись показывает, в каких стеках используется (🧩).
+
+| Стек | Что внутри |
+|---|---|
+| [agent-protocols](stacks/agent-protocols/) | 8 карточек: FIPA-ACL/KQML, Telescript, Linda/Jini, HailStorm, OSI, Fifth Generation + чек-лист «чего не хватает вашему агентному протоколу»; 6 записей архива, кнопки с белым списком инструментов |
+
 ## Структура
 
 ```
-data/<slug>.json          данные дайджеста: находки + питчи (единственный источник правды)
-templates/dashboard.html  шаблон страницы дайджеста (page / widget режимы)
-templates/index.html      шаблон главной страницы-хаба
-scripts/build.py          сборка: index.html + digests/<slug>/index.html (+ --widget)
-digests/<slug>/index.html результат сборки, его не правят руками
+data/<slug>.json           данные дайджеста: находки + питчи (единственный источник правды)
+stacks/<slug>/stack.json   данные стека: карточки, фоны, связи, действия, источники
+templates/dashboard.html   шаблон страницы дайджеста (page / widget режимы)
+templates/stack.html       шаблон страницы стека (карточки-фоны page / widget)
+templates/index.html       шаблон главной страницы-хаба
+scripts/build.py           сборка: index.html + digests/<slug>/ + docs/<slug>/ + stacks/<slug>/ (+ --widget)
+scripts/lint_stacks.py     проверка целостности стеков: связи, фон, источники, белый список инструментов
+digests/<slug>/index.html  результат сборки, его не правят руками
+stacks/<slug>/index.html   результат сборки, его не правят руками
 ```
 
 ## Как обновлять
 
 ```bash
 python scripts/build.py            # пересобрать весь сайт
-python scripts/build.py --widget /path/widget.html   # компактный виджет для чата
+python scripts/lint_stacks.py      # проверить стеки (код 1 — публиковать нельзя)
+python scripts/build.py --widget /path/widget.html            # компактный виджет дайджеста для чата
+python scripts/build.py --widget /path/widget.html <slug>     # дайджест или стек
 git add -A && git commit -m "digest: ..." && git push
 ```
 
@@ -43,6 +59,29 @@ git add -A && git commit -m "digest: ..." && git push
 
 `gap` (1–5) и `pitch` — оценка и рекомендация агента, а не цитата. `r: 1` — источник прочитан целиком (`✓` в интерфейсе),
 `r: 0` — взят из индекса поиска (`↗`).
+
+## Формат карточки стека
+
+```json
+{
+  "slug": "agent-protocols",
+  "title": "…", "subtitle": "…", "generated": "YYYY-MM-DD",
+  "archive": { "slug": "lost-ideas-1980s-2000s", "title": "…" },
+  "backgrounds": { "fact": { "name": "карточка факта", "layout": "list", "note": "…" } },
+  "cards": [{
+    "id": "fipa", "title": "FIPA-ACL / KQML", "subtitle": "1993 — 2005", "bg": "fact", "gap": 5,
+    "fields": [{ "lbl": "Что это было", "val": "…", "to": "checklist" }],
+    "archive": ["fipa"],
+    "links": [{ "to": "osi", "why": "почему правильный стандарт не принимают" }],
+    "actions": [{ "t": "Сравнить с MCP", "p": "текст промпта", "tools": ["web_search", "read_file"] }],
+    "sources": [{ "u": "https://…", "t": "…", "r": 1, "kind": "archive|inherited|self" }]
+  }]
+}
+```
+
+`bg` — фон-шаблон из `backgrounds` (`list`, `cols`, `table`). `links` задаются в одну сторону, обратная сторона
+(«сюда ведут») считается сборкой — поэтому связь всегда двусторонняя. `tools` — белый список инструментов действия
+(пустой список = «без инструментов»); произвольный код в действии запрещён и ловится линтером.
 
 ## Принципы
 
