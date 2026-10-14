@@ -27,6 +27,15 @@ DIGESTS = [
         "blurb": "35 находок: TRON и BTRON, Fifth Generation, i-mode, FeliCa, FIPA-ACL, Minitel, Xanadu, Plan 9, BeOS, "
                  "Transputer, Linda/Jini, iAPX 432, Setun, OGAS, HyperCard, Weiser и другие.",
         "tags": ["Япония", "ОС", "протоколы", "агенты", "железо", "сообщества"],
+        "kind": "dashboard",
+    },
+    {
+        "slug": "portfolio-review",
+        "kind": "portfolio",
+        "title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+        "blurb": "33 проекта из 83 публичных репозиториев: что уже работает у автора, чего не хватает до продукта "
+                 "и что стоит выпустить первым.",
+        "tags": ["портфель", "продукты", "GitHub"],
     },
 ]
 
@@ -150,6 +159,27 @@ def render_dashboard(d, mode="page"):
             .replace("__PITCHES__", json.dumps(d["pitches"], ensure_ascii=False)))
 
 
+def render_portfolio(d, mode="page"):
+    tpl = _read("templates/portfolio.html")
+    footer = ('Часть архива «Музей потерянных идей» · '
+              '<a href="https://github.com/{repo}">данные и генератор на GitHub</a>')
+    return (tpl
+            .replace(".gridbox__CLAMPCSS__",
+                     ".gridbox{max-height:64vh;overflow:auto;padding-right:6px}" if mode == "widget" else ".gridbox")
+            .replace("__OPEN__", "false" if mode == "widget" else "true")
+            .replace("__TITLE__", d["title"])
+            .replace("__SUBTITLE__", d["subtitle"])
+            .replace("__DATE__", d.get("generated", ""))
+            .replace("__SLUG__", d["slug"])
+            .replace("__FOOTERREPO__", footer.format(repo=REPO_PATH))
+            .replace("__DATA__", json.dumps({"entries": d["entries"]}, ensure_ascii=False))
+            .replace("__PITCHES__", json.dumps(d["pitches"], ensure_ascii=False)))
+
+
+def renderer_for(kind):
+    return render_portfolio if kind == "portfolio" else render_dashboard
+
+
 def render_doc(meta, date):
     tpl = _read("templates/doc.html")
     body = md_to_html(_read("docs/%s.md" % meta["slug"]))
@@ -172,12 +202,19 @@ def render_hub(date):
     dcards = []
     for dg in DIGESTS:
         d = json.loads(_read("data/%s.json" % dg["slug"]))
-        jp = sum(1 for e in d["entries"] if e["reg"] == "jp")
-        src = sum(len(e["src"]) for e in d["entries"])
-        dcards.append(_card("digests/%s/" % dg["slug"], dg["title"], dg["blurb"],
-                            ["%d находок" % len(d["entries"]), "японских: %d" % jp,
-                             "%d источников" % src, " · ".join(dg["tags"])],
-                            "Открыть дайджест →"))
+        if dg.get("kind") == "portfolio":
+            stats = ["%d проектов" % len(d["entries"]),
+                     "кластеров: %d" % len({e["cluster"] for e in d["entries"]}),
+                     "★%d" % sum(e["stars"] for e in d["entries"]),
+                     " · ".join(dg["tags"])]
+            go = "Открыть разбор →"
+        else:
+            jp = sum(1 for e in d["entries"] if e["reg"] == "jp")
+            src = sum(len(e["src"]) for e in d["entries"])
+            stats = ["%d находок" % len(d["entries"]), "японских: %d" % jp,
+                     "%d источников" % src, " · ".join(dg["tags"])]
+            go = "Открыть дайджест →"
+        dcards.append(_card("digests/%s/" % dg["slug"], dg["title"], dg["blurb"], stats, go))
     mcards = [_card("docs/%s/" % m["slug"], m["title"], m["blurb"], list(m["tags"]), "Читать концепт →")
               for m in DOCS]
     sections = ("  <h2>Дайджесты</h2>\n  " + "\n  ".join(dcards)
@@ -191,9 +228,10 @@ def main():
     args = sys.argv[1:]
     if args and args[0] == "--widget":
         out = args[1] if len(args) > 1 else os.path.join(ROOT, "widget.html")
-        d = json.loads(_read("data/%s.json" % DIGESTS[0]["slug"]))
-        open(out, "w", encoding="utf-8").write(render_dashboard(d, mode="widget"))
-        print("widget:", out, os.path.getsize(out))
+        dg = next((g for g in DIGESTS if len(args) > 2 and g["slug"] == args[2]), DIGESTS[0])
+        d = json.loads(_read("data/%s.json" % dg["slug"]))
+        open(out, "w", encoding="utf-8").write(renderer_for(dg.get("kind"))(d, mode="widget"))
+        print("widget:", out, os.path.getsize(out), "| digest:", dg["slug"])
         return
 
     date = max([json.loads(_read("data/%s.json" % dg["slug"])).get("generated", "") for dg in DIGESTS] + ["2026-01-01"])
@@ -203,7 +241,7 @@ def main():
         outdir = os.path.join(ROOT, "digests", dg["slug"])
         os.makedirs(outdir, exist_ok=True)
         d = json.loads(_read("data/%s.json" % dg["slug"]))
-        open(os.path.join(outdir, "index.html"), "w", encoding="utf-8").write(render_dashboard(d))
+        open(os.path.join(outdir, "index.html"), "w", encoding="utf-8").write(renderer_for(dg.get("kind"))(d))
         shutil.copy(os.path.join(ROOT, "data", dg["slug"] + ".json"), os.path.join(outdir, "data.json"))
         print("digest: digests/%s/index.html %d entries" % (dg["slug"], len(d["entries"])))
     for meta in DOCS:
