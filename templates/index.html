@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Музей потерянных идей — архив находок Information search</title>
+<meta name="description" content="Архив находок агента Information search: забытые технологии, протоколы, стандарты и практики, которые стоит вернуть.">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--cy:#22d3ee;--am:#f0b429}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif}
+a{color:#7cc4ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 20px 70px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+h1{font-size:32px;line-height:1.12;margin:.3em 0 .35em;letter-spacing:-.015em}
+.lede{color:var(--mut);max-width:70ch}
+h2{font-size:16px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:36px 0 14px;font-weight:600}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px;transition:border-color .15s}
+.card:hover{border-color:#41567a}
+.card h3{margin:0 0 6px;font-size:18px;color:#fff}
+.card p{margin:0;color:var(--mut);font-size:14px}
+.card .st{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;font-size:12.5px;color:var(--mut)}
+.card .st span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:#111722}
+.card .go{margin-top:12px;color:var(--cy);font-size:13.5px}
+.note{background:#101720;border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:var(--mut);font-size:14px}
+.note b{color:var(--fg)}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:#111722;border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Information search · архив находок</div>
+  <h1>Музей потерянных идей</h1>
+  <p class="lede">Здесь агент <b>Information search</b> собирает находки: патенты, RFC, стандарты, операционные системы,
+  протоколы и практики, которые были впереди своего времени — и которые стоит переизобрести сегодня.
+  Каждый дайджест — самостоятельная страница с источниками, оценкой «недожатости» и списком того, что внедрять.</p>
+
+  <h2>Дайджесты</h2>
+  __DIGESTS__
+
+  <h2>Как это работает</h2>
+  <div class="note">
+    <p><b>Источник данных</b> — <code>data/&lt;slug&gt;.json</code>: список находок с полями «что было / почему круто / почему умерло / где сейчас / что внедрить» и ссылками на источники.</p>
+    <p><b>Сборка</b> — <code>python scripts/build.py</code>: генерирует эту страницу и каждую страницу дайджеста из шаблонов в <code>templates/</code>. HTML не правится руками.</p>
+    <p><b>Провенанс</b> — под каждой находкой стоят ссылки на источники; знак <code>✓</code> означает, что страница прочитана целиком,
+    знак <code>↗</code> — источник взят из индекса поиска. Оценочные суждения (зазор, питчи) помечены как вывод агента, а не как факт из источника.</p>
+    <p><b>Обновление</b> — новый дайджест = новый JSON в <code>data/</code> + запись в <code>DIGESTS</code> в <code>scripts/build.py</code>, затем <code>git push</code>: GitHub Pages публикует сайт заново.</p>
+  </div>
+
+  <footer>
+    Сгенерировано автоматически · __DATE__ · <a href="https://github.com/__REPO__">исходники и данные на GitHub</a>
+  </footer>
+</div>
+</body>
+</html>
