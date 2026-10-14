@@ -231,13 +231,15 @@ python3 -m hubd candidates --file data/candidates.jsonl --status new --show-samp
 дословные цитаты с URL и решить — это правка записи, дубликат или отказ.
 
 ```bash
-python3 -m hubd candidates --file data/candidates.jsonl --accept <id кандидата>
-python3 -m hubd candidates --file data/candidates.jsonl --reject <id кандидата>
+python3 -m hubd candidates --file data/candidates.jsonl --accept <ключ кандидата> --reason "«…» подтверждено цитатой"
+python3 -m hubd candidates --file data/candidates.jsonl --reject <ключ кандидата> --reason "наша же публикация"
 ```
 
-Оговорка, проверенная запуском: опции `--reason` у CLI **нет** (`hubd: error: unrecognized arguments`,
-код 2), и в строке очереди нет поля причины — статус ставится без неё. Поэтому причина отказа живёт
-в журнале `docs/triage-log.md`, а строка очереди получает её отдельным шагом (поле `note`).
+Оговорка, проверенная запуском (состояние на 14.10.2026): в первой версии CLI опции `--reason` не было —
+теперь она есть (hubd `adfc8d9`): `--accept/--reject <ключ> --reason "…"`
+возвращает код 0 и кладёт причину в поле `note` строки очереди вместе с отметкой времени.
+Одиночный `--reason` без решения по-прежнему отвергается кодом 2 — причина обязана объяснять решение.
+Причина отказа также ведётся в журнале `docs/triage-log.md`.
 Отказ не удаляет кандидата: статус `rejected` + причина — принцип «архив не удаляет» действует и здесь.
 
 **4. Правка архива.** `data/*.json` — единственный писатель Archivessa; у каждого источника, на который
