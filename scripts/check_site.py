@@ -8,6 +8,7 @@ JS, который падает в рантайме и оставляет пус
     python scripts/check_site.py            # проверить все страницы
     python scripts/check_site.py --fix-hint # + подсказка, где искать
 """
+import glob
 import json
 import os
 import re
@@ -17,15 +18,22 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PLACEHOLDER = re.compile(r"__[A-Z][A-Z0-9_]*__")
 
 # страница -> (ожидаемый первый символ JSON-данных, обязательные маркеры)
-PAGES = [
+PAGES: list[tuple[str, str | None, list[str]]] = [
     ("index.html", None, ["<h2>", "card"]),
-    ("digests/lost-ideas-1980s-2000s/index.html", "{", ["const DATA", "DATA.entries"]),
-    ("digests/portfolio-review/index.html", "{", ["const DATA", "DATA.entries"]),
-    ("digests/lost-ideas-1980s-2000s/widget.html", "{", ["const DATA", "DATA.entries"]),
-    ("digests/portfolio-review/widget.html", "{", ["const DATA", "DATA.entries"]),
     ("stacks/agent-protocols/index.html", None, ["<script"]),
     ("docs/museum-bots/index.html", None, ["<h2>"]),
 ]
+
+# Страницы дайджестов и виджетов находим сами: добавил data/<slug>.json и собрал —
+# проверка подхватит страницу без правки этого файла.
+for _d in sorted(glob.glob(os.path.join(ROOT, "digests", "*"))):
+    if not os.path.isdir(_d):
+        continue
+    _slug = os.path.basename(_d)
+    if os.path.exists(os.path.join(_d, "index.html")):
+        PAGES.append(("digests/%s/index.html" % _slug, "{", ["const DATA", "DATA.entries"]))
+    if os.path.exists(os.path.join(_d, "widget.html")):
+        PAGES.append(("digests/%s/widget.html" % _slug, "{", ["const DATA", "DATA.entries"]))
 
 
 def main():
@@ -56,8 +64,12 @@ def main():
         else:
             print("  OK    %-46s %d КБ" % (rel, len(html) // 1024))
     # данные дайджестов: количество записей должно совпадать с JSON
-    for slug in ("lost-ideas-1980s-2000s", "portfolio-review"):
-        data = json.load(open(os.path.join(ROOT, "data", slug + ".json"), encoding="utf-8"))
+    # (список слаг'ов — из data/*.json, а не жёстко: новый дайджест проверяется сам)
+    for _path in sorted(glob.glob(os.path.join(ROOT, "data", "*.json"))):
+        slug = os.path.splitext(os.path.basename(_path))[0]
+        if not os.path.exists(os.path.join(ROOT, "digests", slug, "index.html")):
+            continue
+        data = json.load(open(_path, encoding="utf-8"))
         page = open(os.path.join(ROOT, "digests", slug, "index.html"), encoding="utf-8").read()
         ok = (data["title"][:30] in page)
         print("  %s  данные %-30s записей: %d, заголовок в странице: %s" %

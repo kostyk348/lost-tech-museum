@@ -61,6 +61,8 @@ details>summary::-webkit-details-marker{display:none}
 .srcbox a:hover{text-decoration:underline}
 .srcbox a::before{content:"↗ ";color:var(--mut)}
 .srcbox a.r::before{content:"✓ ";color:var(--gr)}
+.quo{margin:4px 0 8px;padding:6px 10px;border-left:2px solid #2a4a56;background:rgba(34,211,238,.05);border-radius:0 8px 8px 0;font-size:12.5px;line-height:1.55;color:#a9bdd4;font-style:italic}
+.quo b{font-style:normal;font-weight:600;color:var(--cy);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-right:7px}
 .stkbox{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);display:grid;gap:4px}
 .stkbox a{font-size:12.5px;color:var(--cy)}
 .stkbox a::before{content:"🧩 ";}
@@ -84,7 +86,7 @@ footer p{margin:.4em 0}
     <span>собрано: <b>2026-10-14</b></span>
   </div>
 
-  <h2>С чего начать: 8 архитектурных питчей <small>— синтез по всему списку, кликайте по карточке</small></h2>
+  <h2>С чего начать: <span id="pitch-n">0</span> архитектурных питчей <small>— синтез по всему списку, кликайте по карточке</small></h2>
   <div class="pitches" id="pitches"></div>
 
   <h2>Все находки <small>— фильтры и поиск</small></h2>
@@ -110,8 +112,9 @@ footer p{margin:.4em 0}
   <footer>
     <p><b>Методология.</b> Факты (годы, цифры, названия) взяты из источников, перечисленных под каждой карточкой.
     Знак <span class="leg">✓</span> — страница прочитана целиком, знак <span class="leg">↗</span> — источник найден в индексе поиска
-    (использован для деталей второго порядка). Оценка «зазор» и блок «Что внедрить» — интерпретация и рекомендации
-    агента Information search, а не цитата из источника.</p>
+    (использован для деталей второго порядка). Абзац со меткой <span class="leg">цитата</span> — дословный фрагмент
+    первоисточника (переносы строк нормализованы, «…» — сокращение); всё, что вне такой рамки, — пересказ и суждение
+    агента. Оценка «зазор» и блок «Что внедрить» — интерпретация и рекомендации агента Information search, а не цитата из источника.</p>
     <p>Значок <span class="leg">🧩</span> под находкой ведёт в стек карточек — инструмент, собранный из архива:
     карточки, сравнения и кнопки с ограниченными промптами. Стеки собирает агент Chartessa, связи двусторонние:
     стек знает, на какие записи архива он опирается, а запись знает, в каких стеках она используется.</p>
@@ -126,7 +129,7 @@ const PITCHES = [{"t": "Права как ссылки, а не bearer-токе�
 const STACKREFS = {"fipa": [{"slug": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "fipa", "card_title": "FIPA-ACL / KQML — язык агентов, который был"}], "genmagic": [{"slug": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "genmagic", "card_title": "Telescript — агент, у которого было место жительства"}], "linda": [{"slug": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "linda", "card_title": "Linda и tuple space — связь без адресов"}], "hailstorm": [{"slug": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "hailstorm", "card_title": "HailStorm — ваш контекст как сервис вендора"}], "osi": [{"slug": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "osi", "card_title": "OSI: как проигрывает формально лучший стандарт"}], "fgcs": [{"slug": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "fgcs", "card_title": "Fifth Generation — слой вывода, которого нет у LLM-агентов"}]};
 const REGNAME = {jp:"🇯🇵 Япония", other:"🌍 Мир"};
 const DOMNAME = {os:"ОС и системы", net:"Сеть и протоколы", ui:"Интерфейс и данные", ai:"ИИ и агенты", hw:"Железо", soc:"Сообщества и контент"};
-const ERANAME = {"80":"1980-е", "90":"1990-е", "00":"2000-е"};
+const ERANAME = {"80":"1980-е", "90":"1990-е", "00":"2000-е", "10":"2010-е"};
 const state = {reg:"all", era:"all", dom:"all", q:"", sort:"gap"};
 
 function years(e){const m=String(e.years).match(/\d{4}/g)||["9999"];return parseInt(m[0],10);}
@@ -136,13 +139,14 @@ function boot(){
   document.getElementById("m-total").textContent = DATA.entries.length;
   document.getElementById("m-jp").textContent = DATA.entries.filter(e=>e.reg==="jp").length;
   document.getElementById("m-src").textContent = DATA.entries.reduce((a,e)=>a+e.src.length,0);
+  document.getElementById("pitch-n").textContent = PITCHES.length;
   document.getElementById("pitches").innerHTML = PITCHES.map((p,i)=>
     `<div class="pitch"><div class="n">0${i+1}</div><b>${esc(p.t)}</b><p>${esc(p.d)}</p>
      <div class="lk">${p.k.map(id=>{const e=DATA.entries.find(x=>x.id===id);return e?`<button data-go="${id}">${esc(e.name)}</button>`:"";}).join("")}</div></div>`).join("");
   document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>jump(b.dataset.go));
   document.getElementById("pitches").addEventListener("click",ev=>{const b=ev.target.closest("[data-go]");if(b)jump(b.dataset.go);});
   buildChips("f-reg","reg",[{v:"all",n:"Все регионы"},{v:"jp",n:"🇯🇵 Япония"},{v:"other",n:"🌍 Мир"}]);
-  buildChips("f-era","era",[{v:"all",n:"Все годы"},{v:"80",n:"1980-е"},{v:"90",n:"1990-е"},{v:"00",n:"2000-е"}]);
+  buildChips("f-era","era",[{v:"all",n:"Все годы"}].concat(Object.keys(ERANAME).map(k=>({v:k,n:ERANAME[k]}))));
   buildChips("f-dom","dom",[{v:"all",n:"Все темы"}].concat(Object.keys(DOMNAME).map(k=>({v:k,n:DOMNAME[k]}))));
   document.getElementById("q").oninput = e=>{state.q=e.target.value.toLowerCase();render();};
   document.getElementById("sort").onchange = e=>{state.sort=e.target.value;render();};
@@ -190,7 +194,7 @@ function card(e){
      <div class="lbl">Почему не выжило</div><p>${esc(e.death)}</p>
      <div class="lbl">Где это сейчас</div><p>${esc(e.now)}</p>
      <div class="pbox"><div class="lbl">⚡ Что внедрить сегодня</div><p>${esc(e.pitch)}</p></div>
-     <div class="srcbox">${e.src.map(s=>`<a class="${s.r?"r":""}" href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a>`).join("")}</div>
+     <div class="srcbox">${e.src.map(s=>`<div><a class="${s.r?"r":""}" href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a>${s.q?`<div class="quo"><b>цитата</b>${esc(s.q)}</div>`:""}</div>`).join("")}</div>
     ${stackBox(e)}
    </div></details></div>`;
 }

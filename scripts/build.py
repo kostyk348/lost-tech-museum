@@ -39,6 +39,15 @@ DIGESTS = [
                  "и что стоит выпустить первым.",
         "tags": ["портфель", "продукты", "GitHub"],
     },
+    {
+        "slug": "rfc-graveyard",
+        "title": "RFC-кладбище: протоколы, описанные до последней запятой",
+        "blurb": "15 находок: кандидаты в IPv6 (TUBA, CATNIP, SIPP, Nimrod), IP multicast и MBone, RSVP/IntServ, "
+                 "WHOIS++ и CRISP, мосты X.400/MIXER, IP поверх ATM, POP2, Time Protocol, SET, публичный UDDI, "
+                 "Web Intents, PubSubHubbub → WebSub. У каждой записи — дословная цитата из первоисточника.",
+        "tags": ["RFC", "стандарты", "протоколы", "кладбище", "агенты"],
+        "kind": "dashboard",
+    },
 ]
 
 DOCS = [

@@ -10,6 +10,7 @@
 | Дайджест | Что внутри |
 |---|---|
 | [lost-ideas-1980s-2000s](digests/lost-ideas-1980s-2000s/) | 35 идей 1980–2006: TRON/BTRON, Fifth Generation, i-mode, FeliCa, ucode, Minitel, Telescript, FIPA-ACL, Xanadu, Plan 9/Inferno, BeOS, Transputer/Occam, Linda/Jini, Self, iAPX 432, Workplace OS, WinFS, HailStorm, NeWS, OSI, Usenet, Gopher, Setun, OGAS, HyperCard, Newton Soup, calm technology |
+| [rfc-graveyard](digests/rfc-graveyard/) | 15 протоколов и стандартов, описанных до последней запятой и не прижившихся: кандидаты в IPv6 (TUBA, CATNIP, SIPP, Nimrod), IP multicast/MBone, RSVP/IntServ, WHOIS++/CRISP, мосты X.400/MIXER, Classical IP over ATM, POP2, Time Protocol, SET, UDDI, Web Intents, PubSubHubbub → WebSub. У каждой записи — дословная цитата из первоисточника и сверенный статус RFC |
 
 ## Стеки карточек
 
@@ -38,8 +39,9 @@ stacks/<slug>/index.html   результат сборки, его не прав
 ## Как обновлять
 
 ```bash
-python scripts/build.py            # пересобрать весь сайт
+python scripts/build.py            # пересобрать весь сайт (+ проверка страниц внутри)
 python scripts/lint_stacks.py      # проверить стеки (код 1 — публиковать нельзя)
+python scripts/quotes.py --fetch    # скачать первоисточники и вытащить дословные цитаты (сверка провенанса)
 python scripts/build.py --widget /path/widget.html            # компактный виджет дайджеста для чата
 python scripts/build.py --widget /path/widget.html <slug>     # дайджест или стек
 git add -A && git commit -m "digest: ..." && git push
@@ -59,6 +61,12 @@ git add -A && git commit -m "digest: ..." && git push
 
 `gap` (1–5) и `pitch` — оценка и рекомендация агента, а не цитата. `r: 1` — источник прочитан целиком (`✓` в интерфейсе),
 `r: 0` — взят из индекса поиска (`↗`).
+
+**Дословная цитата — обязательна для факта.** У источника может быть поле `q`: фрагмент первоисточника слово в слово
+(переносы строк нормализованы, многоточие `…` означает сокращение). Интерфейс показывает такие фрагменты отдельным блоком
+с меткой «цитата» — чтобы читатель видел, что является фактом, а что пересказом. Сверить цитаты с первоисточниками:
+`python scripts/quotes.py --fetch` (скачивает тексты в `cache/quotes/` и проверяет, что каждая цитата действительно
+есть в первоисточнике; код 1 — публиковать нельзя).
 
 ## Формат карточки стека
 
