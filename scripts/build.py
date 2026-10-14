@@ -352,7 +352,16 @@ def main():
         print("stack: stacks/%s/index.html %d cards, %d archive refs" % (meta["slug"], len(st["cards"]), refs))
     open(os.path.join(ROOT, ".nojekyll"), "w").write("")
     print("done")
+    # страховка: собранные страницы обязаны быть согласованы с шаблонами
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import check_site
+        print("\nпроверка страниц:")
+        return check_site.main()
+    except Exception as exc:                      # проверка никогда не должна ломать сборку
+        print("check_site не выполнен:", exc)
+        return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
