@@ -84,7 +84,7 @@ def md_to_html(text):
 
         m = re.match(r"^(#{1,6})\s+(.*)$", line)
         if m:
-            lvl = min(len(m.group(1)) + 1, 6)
+            lvl = min(len(m.group(1)), 6)      # "#" = заголовок страницы, в тело не дублируется
             if lvl >= 2:
                 out.append("<h%d>%s</h%d>" % (lvl, _inline(m.group(2)), lvl))
             i += 1
