@@ -226,7 +226,8 @@ def render_portfolio(d, mode="page"):
             .replace("__DATE__", d.get("generated", ""))
             .replace("__SLUG__", d["slug"])
             .replace("__FOOTERREPO__", footer.format(repo=REPO_PATH))
-            .replace("__DATA__", _js_json(d["entries"]))
+            # templates/portfolio.html читает DATA.entries — форма должна совпадать с рендерером дашборда
+            .replace("__DATA__", _js_json({"entries": d["entries"]}))
             .replace("__PITCHES__", _js_json(d["pitches"])))
 
 
