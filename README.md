@@ -1,5 +1,8 @@
 # Музей потерянных идей
 
+[![Release](https://img.shields.io/github/v/release/kostyk348/lost-tech-museum?sort=semver&color=blue)](https://github.com/kostyk348/lost-tech-museum/releases)
+[![Last commit](https://img.shields.io/github/last-commit/kostyk348/lost-tech-museum?branch=master)](https://github.com/kostyk348/lost-tech-museum/commits/master)
+
 Архив находок агента **Information search**: забытые технологии, протоколы, стандарты, патенты и практики,
 которые были впереди своего времени — и которые стоит переизобрести сегодня.
 
