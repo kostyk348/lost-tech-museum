@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Инженерный инструмент на egui и электротехнический слой в CAD — Музей потерянных идей</title>
+<meta name="description" content="Практики egui для плотных инженерных интерфейсов, три варианта дизайна аналога Modbus Poll и что делает EPLAN незаменимым — плюс чего в CAD делать не надо">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--cy:#22d3ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15.5px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif}
+a{color:#7cc4ff;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:26px 20px 70px}
+.crumb{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.crumb a{color:var(--mut)}
+h1{font-size:30px;line-height:1.18;margin:.4em 0 .3em;letter-spacing:-.015em}
+h2{font-size:20px;margin:1.9em 0 .5em;padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:16.5px;margin:1.5em 0 .4em;color:#cfe0f5}
+p{margin:.75em 0;color:#cfd9e8}
+ul,ol{margin:.7em 0 .7em 1.2em;padding:0;color:#cfd9e8}
+li{margin:.32em 0}
+strong{color:#fff}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:#111722;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:#bfe9f2}
+pre{background:#0e141d;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto}
+pre code{background:none;border:none;padding:0;color:#c7d6e8}
+blockquote{margin:1em 0;padding:.4em 0 .4em 16px;border-left:3px solid var(--cy);color:var(--mut)}
+table{width:100%;border-collapse:collapse;margin:1em 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#111722;color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#101620}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--mut);font-size:13.5px;margin:0 0 26px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+.actions{margin:26px 0 0}
+.actions a{display:inline-block;font-size:13.5px;border:1px solid var(--line);background:#111722;border-radius:999px;padding:7px 14px;color:#bfe9f2;margin-right:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumb"><a href="../../">← Музей потерянных идей</a></div>
+  <h1>Инженерный инструмент на egui и электротехнический слой в CAD</h1>
+  <p class="meta">Практики egui для плотных инженерных интерфейсов, три варианта дизайна аналога Modbus Poll и что делает EPLAN незаменимым — плюс чего в CAD делать не надо · концепт, собрано 2026-10-14</p>
+  <p>Две связанные темы, обе про то, как превратить уже написанное ядро в продукт: (1) как правильно строить плотный инженерный интерфейс на egui — на примере аналога Modbus Poll, (2) чего не хватает CAD-редактору, чтобы им пользовался электрик, а не только чертёжник. Здесь — практики с источниками, варианты дизайна и честный список того, что делать не надо.</p>
+<hr>
+<h2>1. egui: правила, которые определяют, будет ли инструмент тормозить</h2>
+<p>egui — immediate mode: интерфейс строится заново каждый кадр. Из этого следует всё остальное: <strong>нельзя строить виджеты, которых не видно, и нельзя делать тяжёлой работы внутри кадра</strong> (<a href="https://app.studyraid.com/en/read/105424/4737052/structuring-a-complex-egui-application">структура приложения</a>, <a href="https://app.studyraid.com/en/read/105424/4737053/performance-considerations-and-optimization">производительность</a>).</p>
+<table><thead><tr><th>Практика</th><th>Инженерный смысл</th></tr></thead><tbody><tr><td>Состояние отдельно от отрисовки (<code>struct App</code> + UI-независимое ядро)</td><td>ядро тестируется без окна; интерфейс можно менять свободно</td></tr><tr><td>Таблицы виртуализируются: <code>egui_extras::TableBuilder</code> + <code>body.rows(h, n, …)</code> (<a href="https://docs.rs/egui_extras/latest/egui_extras/struct.TableBuilder.html">док</a>)</td><td>окно на 10 000 регистров стоит столько же, сколько на 30</td></tr><tr><td>Никаких <code>format!</code> и поисков по хэш-таблицам в горячем цикле</td><td>форматирование значения — самое частое действие в Modbus-инструменте</td></tr><tr><td>Стабильные <code>Id</code> у строк (<code>ui.push_id(addr, …)</code>)</td><td>иначе выделение мыши «переезжает» на чужую строку после прокрутки</td></tr><tr><td>Панели, а не одно полотно: <code>egui_dock</code> (вкладки-доки, отрыв в отдельное окно), <code>egui_tiles</code></td><td>замена MDI-окон, но без оконной системы MFC</td></tr><tr><td>Графики отдельным крейтом (<code>egui_plot</code>), а не своим циклом рисования</td><td>курсор, комбинированные кривые, экспорт — из коробки</td></tr><tr><td>UI-тесты: <code>egui_kittest</code> — <code>Harness::new_ui</code>, клики по AccessKit-узлам, снапшоты (<a href="https://docs.rs/egui_kittest/latest/egui_kittest/">док</a>)</td><td>UI ломается чаще логики; тестировать надо его, а не только ядро</td></tr><tr><td>Тёмная/светлая тема, сохранение геометрии окна</td><td>мелочи, по которым судят о «взрослости» инструмента</td></tr></tbody></table>
+<p><strong>Порядок работ важнее красоты.</strong> Сначала кэш строк и виртуализация, потом визуал: обратный порядок даёт красивый интерфейс, который умирает на 500 регистрах.</p>
+<h2>2. Три варианта дизайна инженерного инструмента</h2>
+<p>Modbus Poll — не «таблица», а <strong>MDI</strong>: каждое окно = одно определение опроса (slave ID, функция, диапазон, формат), окон может быть много одновременно, в ячейках можно писать произвольный текст (Alias), F1 даёт справку по любому диалогу (<a href="http://modbustools.com/quickstart.html">quick start</a>). Именно поэтому её не бросают: пусконаладчик держит рядом два диапазона, трафик и посылку кадра.</p>
+<table><thead><tr><th>Вариант</th><th>Как выглядит</th><th>Чем плох</th></tr></thead><tbody><tr><td><strong>A. Вкладки</strong></td><td>одна сетка + переключатели Grid/Scada/Chart/Traffic</td><td>нельзя посмотреть два диапазона или два slave рядом — главный сценарий пусконаладки</td></tr><tr><td><strong>B. Доки</strong></td><td><code>egui_dock</code>: панель на каждое определение опроса; любую можно оторвать в отдельное окно</td><td>нужен крейт и аккуратная модель состояния панелей</td></tr><tr><td><strong>C. Дашборд-первым</strong></td><td>на старте плитки SCADA, таблицы по кнопке</td><td>пусконаладка идёт по числам; как единственный режим не годится</td></tr></tbody></table>
+<p><strong>Рекомендация: B, а C — как равноправный режим, а не замена.</strong> Стартовая раскладка — доки с одной панелью таблиц; «Дашборд» открывается на весь экран; Traffic и Test Center — док-панели рядом с сеткой.</p>
+<h2>3. Электротехнический слой в CAD: что делает EPLAN незаменимым</h2>
+<p>Чертёжное ядро (геометрия, слои, привязки) — решённая задача, конкурировать там нечем. Незаменимость EPLAN Electric P8 — в <strong>данных поверх чертежа</strong>: обозначение устройства, кросс-ссылки, нумерация проводов, клеммники, каталог изделий. Список функций, которые и создают эту незаменимость:</p>
+<ol><li><strong>Проект = набор страниц с нумерацией</strong>, а не один файл. Геометрия — следствие, модель данных — ссылки.</li><li><strong>Device tag</strong> (<code>-K1</code>, <code>-M1</code>, <code>-X1:3</code>) с правилом автоматической нумерации и привязкой к символу.</li><li><strong>Кросс-ссылки катушка ↔ контакты</strong>, пересчитываемые при любом переносе, с переходом в один клик.</li><li><strong>Автонумерация проводов и адресация цепей</strong> с пересчётом при вставке элемента.</li><li><strong>Клеммники и кабели</strong>: таблица клемм и кабельный журнал генерируются из схемы, а не ведутся отдельно.</li><li><strong>Каталог изделий и спецификация (BOM)</strong>: символ → артикул/производитель, выгрузка в CSV/XLSX.</li><li><strong>Экспорт по страницам</strong>: PDF/DXF, маркировка клемм под печать.</li><li><strong>Проверки проекта (ERC)</strong>: неподключённые контакты, дубли обозначений, отсутствующие артикулы,</li></ol>
+<p>превышение лимита контактов — отчёт, который блокирует выпуск.</p>
+<p><strong>Чего делать не надо:</strong> управление проектами предприятия (PLM), встраивание в чужие форматы и любую совместимость с проприетарными форматами EPLAN — только clean-room модель данных и открытые обменные форматы. Enterprise-функции — это не продукт для инженера, а отдельный рынок с отдельными продавцами.</p>
+<h2>4. Что уже проверено на практике</h2>
+<ul><li><strong>Виртуализация сетки</strong> аналога Modbus Poll: чистая функция видимого диапазона + 5 тестов, включая</li></ul>
+<p>«100 000 строк ⇒ строим меньше 30»; шапка таблицы вынесена из области прокрутки.</p>
+<ul><li><strong>Найден настоящий дефект сборки:</strong> тестовый набор не компилировался на свежем клоне (<code>include_str!</code> на</li></ul>
+<p>отсутствующий файл демо-проекта). Демо теперь воспроизводимо генератором, тесты проходят целиком — то есть «зелёные тесты» в README перестали быть обещанием.</p>
+<ul><li><strong>Урок инструментария:</strong> проверка формы данных на страницах (сгенерированных, а не написанных) обязана быть</li></ul>
+<p>частью сборки: валидный JSON и пустая страница — это один и тот же класс отказа, который не ловится ни компилятором, ни линтером.</p>
+  <div class="actions">
+    <a href="source.md">Исходный Markdown</a>
+    <a href="https://github.com/kostyk348/lost-tech-museum">Репозиторий</a>
+  </div>
+  <footer>Документ сгенерирован из <code>docs/instrumentation-on-egui.md</code> скриптом <code>scripts/build.py</code>. HTML руками не правится.</footer>
+</div>
+</body>
+</html>
