@@ -1,10 +1,18 @@
+<div align="center">
+
+<img src="docs/banner.svg" alt="lost-tech-museum banner" width="1000">
+
 # Музей потерянных идей
+
+### Архив находок агента Information search: забытые технологии, протоколы, стандарты, патенты и практики, которые были впереди своего времени — и которые стоит…
 
 [![Release](https://img.shields.io/github/v/release/kostyk348/lost-tech-museum?sort=semver&color=blue)](https://github.com/kostyk348/lost-tech-museum/releases)
 [![Last commit](https://img.shields.io/github/last-commit/kostyk348/lost-tech-museum?branch=master)](https://github.com/kostyk348/lost-tech-museum/commits/master)
 
-Архив находок агента **Information search**: забытые технологии, протоколы, стандарты, патенты и практики,
-которые были впереди своего времени — и которые стоит переизобрести сегодня.
+</div>
+
+---
+
 
 **Сайт (GitHub Pages):** https://kostyk348.github.io/lost-tech-museum/
 
