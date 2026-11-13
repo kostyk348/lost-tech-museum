@@ -1,0 +1,12 @@
+{
+ "generated": "2026-11-13",
+ "total": 155,
+ "alive": 142,
+ "dead": 3,
+ "blocked": 10,
+ "dead_urls": [
+  "https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start",
+  "https://hci.stanford.edu/seminar/abstracts/93-94/940121-hertzfeld.html",
+  "https://www.cs.otago.ac.nz/coursework/cosc461/occam.pdf"
+ ]
+}

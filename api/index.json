@@ -10,17 +10,17 @@
   "quote": "дословная цитата из источника (src[].q), сверяется scripts/quotes.py",
   "quote_audit": {
    "generated": "2026-11-13",
-   "checked": 48,
-   "confirmed": 48,
+   "checked": 68,
+   "confirmed": 68,
    "failed": [],
    "missing": []
   },
   "link_audit": {
    "generated": "2026-11-13",
-   "total": 151,
-   "alive": 138,
-   "dead": 4,
-   "blocked": 9
+   "total": 155,
+   "alive": 142,
+   "dead": 3,
+   "blocked": 10
   }
  },
  "digests": [
@@ -33,10 +33,10 @@
    "data_url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/data.json",
    "entries": 35,
    "pitches": 8,
-   "sources": 75,
-   "sources_read": 40,
-   "quotes": 14,
-   "entries_with_quote": 14
+   "sources": 79,
+   "sources_read": 44,
+   "quotes": 34,
+   "entries_with_quote": 30
   },
   {
    "slug": "portfolio-review",
@@ -68,6 +68,11 @@
   }
  ],
  "docs": [
+  {
+   "slug": "glossary",
+   "title": "Глоссарий: capability, tuple space, performatives и другие термины архива",
+   "url": "https://kostyk348.github.io/lost-tech-museum/docs/glossary/"
+  },
   {
    "slug": "roadmap",
    "title": "Куда развивать музей: состояние, долг по цитатам и что начать дальше",

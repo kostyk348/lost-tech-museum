@@ -128,6 +128,17 @@ def check_machine():
     bad += note(os.path.exists(robots) and "Sitemap:" in open(robots, encoding="utf-8").read(),
                 "robots.txt ссылается на sitemap")
 
+    # Экспорт для исследователя: BibTeX и CSV
+    for rel, marker, min_lines in (("api/museum.bib", "@misc{", 80), ("api/entries.csv", "digest,id,name", 80)):
+        path = os.path.join(ROOT, rel)
+        if not os.path.exists(path):
+            bad += note(False, "%s отсутствует" % rel)
+            continue
+        body = open(path, encoding="utf-8").read()
+        n = body.count("\n")
+        bad += note(marker in body and n >= min_lines,
+                    "%s: %d строк, маркер на месте" % (rel, n))
+
     bad += note(os.path.exists(os.path.join(ROOT, "provenance", "index.html")),
                 "страница провенанса собрана")
 

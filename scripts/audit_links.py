@@ -120,6 +120,14 @@ def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:
         json.dump(report, fh, ensure_ascii=False, indent=1)
+    # История аудитов: снимок за дату, чтобы видеть тренд «сколько ссылок умерло», а не только текущее число.
+    hist = os.path.join(ROOT, "data", "audit-history")
+    os.makedirs(hist, exist_ok=True)
+    snapshot = {"generated": report["generated"], "total": report["total"], "alive": report["alive"],
+                "dead": report["dead"], "blocked": report["blocked"],
+                "dead_urls": sorted(u for u, v in links.items() if v.get("state") == "dead")}
+    with open(os.path.join(hist, report["generated"] + ".json"), "w", encoding="utf-8") as fh:
+        json.dump(snapshot, fh, ensure_ascii=False, indent=1)
     print("\nитого: %d ссылок · живых %d · мёртвых %d · закрыто бот-стеной %d\nотчёт: data/link-audit.json"
           % (report["total"], report["alive"], report["dead"], report["blocked"]))
     return 1 if report["dead"] else 0

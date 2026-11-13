@@ -19,6 +19,7 @@ import glob
 import html
 import json
 import os
+import re
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -209,6 +210,45 @@ def robots():
             "Sitemap: %s/sitemap.xml\n" % SITE)
 
 
+def bibtex(rows):
+    """BibTeX для исследователя: каждая находка — запись с адресом первоисточника."""
+    def esc(s):
+        return re.sub(r"[{}]", "", str(s or "")).replace("&", r"\&")
+    out = ["% Музей потерянных идей — экспорт для библиографии. Сгенерировано " + time.strftime("%Y-%m-%d") + ".",
+           "% «gap» и «pitch» — суждение агента; факты — со ссылкой на источник.", ""]
+    for r in rows:
+        year = re.search(r"\b(19|20)\d\d\b", r.get("years") or "")
+        primary = (r.get("src") or [{}])[0].get("url", "")
+        key = "%s-%s" % (r.get("digest", "museum"), r.get("id", "entry"))
+        out.append("@misc{%s," % re.sub(r"[^A-Za-z0-9:_-]", "", key))
+        out.append("  title       = {%s}," % esc(r.get("name")))
+        if year:
+            out.append("  year        = {%s}," % year.group(0))
+        out.append("  howpublished= {Музей потерянных идей (%s)}," % esc(r.get("digest_title")))
+        if primary:
+            out.append("  url         = {%s}," % primary)
+        out.append("  note        = {id: %s; источников: %s; цитат: %s}" %
+                   (esc(r.get("id")), r.get("sources"), r.get("quotes")))
+        out.append("}\n")
+    return "\n".join(out)
+
+
+def csv_rows(rows):
+    """CSV для таблиц: одна строка — одна находка, источники перечислены через ;."""
+    import csv as _csv
+    import io
+    buf = io.StringIO()
+    w = _csv.writer(buf, lineterminator="\n")
+    w.writerow(["digest", "id", "name", "reg", "dom", "eras", "years", "gap", "sources", "quotes",
+                "page_url", "source_urls"])
+    for r in rows:
+        w.writerow([r.get("digest"), r.get("id"), r.get("name"), r.get("reg"), r.get("dom"),
+                    "|".join(r.get("eras") or []), r.get("years"), r.get("gap"),
+                    r.get("sources"), r.get("quotes"), r.get("url"),
+                    ";".join(s.get("url") or "" for s in (r.get("src") or []))])
+    return buf.getvalue()
+
+
 def write_all(digests, docs=None, stacks=None):
     docs, stacks = docs or [], stacks or []
     rows = entries_payload(digests)
@@ -218,6 +258,8 @@ def write_all(digests, docs=None, stacks=None):
     written.append(_write("api/entries.json",
                           json.dumps({"generated": time.strftime("%Y-%m-%d"), "count": len(rows),
                                       "entries": rows}, ensure_ascii=False, indent=1) + "\n"))
+    written.append(_write("api/museum.bib", bibtex(rows)))
+    written.append(_write("api/entries.csv", csv_rows(rows)))
     written.append(_write("feed.xml", atom(digests, docs)))
     written.append(_write("sitemap.xml", sitemap(digests, docs, stacks)))
     written.append(_write("robots.txt", robots()))

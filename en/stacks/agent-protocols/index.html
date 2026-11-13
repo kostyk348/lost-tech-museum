@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stack: agent protocols that were already solved — stack · Lost Tech Museum</title>
+<meta name="description" content="8 cards on top of the museum archive: the FIPA-ACL/KQML agent language, Telescript mobile code, tuple space, the HailStorm personal data hub, the OSI lesson, the Fifth Generation inference layer — and a checklist of what your agent protocol is missing.">
+<link rel="alternate" hreflang="ru" href="../../../stacks/agent-protocols/">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--soft:#111722;--cy:#22d3ee;--am:#f0b429;--gr:#3fb950;--lp:#a78bfa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--cy);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 56px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.eyebrow .who{color:var(--lp);letter-spacing:.06em}
+.langs{float:right;font-size:12.5px;color:var(--mut)}
+.langs .cur{color:var(--fg);font-weight:600}
+h1{font-size:28px;line-height:1.14;margin:.25em 0 .3em;letter-spacing:-.01em}
+.lede{color:var(--mut);max-width:78ch;margin:0 0 14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.meta span{font-size:12.5px;color:var(--mut);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:5px 11px}
+.meta b{color:var(--fg);font-weight:600}
+.layout{display:grid;grid-template-columns:262px minmax(0,1fr);gap:16px;align-items:start}
+.nav{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:11px;position:sticky;top:14px}
+.nav input[type=search]{width:100%;background:var(--soft);border:1px solid var(--line);color:var(--fg);border-radius:9px;padding:7px 10px;font-size:13.5px;margin-bottom:9px}
+
+.nl{display:block;width:100%;text-align:left;cursor:pointer;background:transparent;border:1px solid transparent;border-radius:10px;padding:7px 9px;color:var(--mut);font-size:13.5px;line-height:1.4;font-family:inherit}
+.nl:hover{background:var(--soft);border-color:var(--line)}
+.nl.on{background:var(--soft);border-color:var(--line);color:var(--fg)}
+.nl .nbin{display:block;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut);letter-spacing:.04em;margin-top:2px}
+.navfoot{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:grid;gap:5px;font-size:12.5px}
+.leg{font:11.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 20px;min-height:380px}
+.shead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px}
+.shead h2{margin:0 0 5px;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.shead .sub{color:var(--mut);font-size:13px}
+.bgchip{font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--lp);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.gap{display:inline-flex;gap:3px;align-items:center;font-size:11px;color:var(--mut)}
+.gap i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.gap i.on{background:var(--am)}
+.fld{margin:15px 0 0}
+.fld .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:3px}
+.fld .val{margin:0;font-size:14.3px;color:var(--fg)}
+.fld .to{display:inline-block;margin-top:5px;font-size:12px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:2px 9px;color:var(--cy);cursor:pointer}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:11px;margin-top:15px}
+.cols .fld{margin:0;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.cols .fld:nth-child(1){border-left:3px solid var(--am)}
+.cols .fld:nth-child(2){border-left:3px solid #e5484d}
+.cols .fld:nth-child(3){border-left:3px solid var(--gr)}
+.cols .fld:nth-child(4){border-left:3px solid var(--cy)}
+.rows{margin-top:15px;display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rows .r{display:grid;grid-template-columns:230px minmax(0,1fr);border-top:1px solid var(--line)}
+.rows .r:first-child{border-top:0}
+.rows .k{padding:10px 12px;background:var(--soft);font-size:13.2px;font-weight:600;border-right:1px solid var(--line)}
+.rows .v{padding:10px 12px;font-size:13.6px;color:var(--fg)}
+.sect{margin-top:20px;border-top:1px dashed var(--line);padding-top:13px}
+.sect .h{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:7px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lk{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;text-align:left;color:var(--fg);font-family:inherit;font-size:13.2px;max-width:100%}
+.lk:hover{border-color:var(--cy)}
+.lk b{font-weight:600}
+.lk .wy{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.acts{display:grid;gap:9px}
+.act{display:grid;gap:6px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.act .top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between}
+.act .tools{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.act .prompt{font-size:12.6px;color:var(--mut);margin:0}
+.btn{cursor:pointer;font-size:13px;color:var(--fg);background:var(--soft);border:1px solid var(--cy);border-radius:999px;padding:6px 13px;font-family:inherit}
+.btn:hover{background:var(--cy);color:#04141a}
+.srcs{display:grid;gap:4px}
+.srcs a{font-size:12.5px;color:var(--mut)}
+.srcs a::before{content:"↗ ";color:var(--mut)}
+.srcs a.r::before{content:"✓ ";color:var(--gr)}
+.srcs a.k-archive::before{content:"⌗ ";color:var(--cy)}
+.plain{color:var(--mut);font-size:13.5px}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+footer p{margin:.45em 0}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.nav{position:static}.rows .r{grid-template-columns:1fr}.rows .k{border-right:0}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><span class="langs"><span class="cur">English</span> · <a href="../../../stacks/agent-protocols/" hreflang="ru">Русский</a></span>Lost Tech Museum · card stack · by <span class="who">Chartessa</span></div>
+  <h1>Stack: agent protocols that were already solved</h1>
+  <p class="lede">8 cards on top of the museum archive: the FIPA-ACL/KQML agent language, Telescript mobile code, tuple space, the HailStorm personal data hub, the OSI lesson, the Fifth Generation inference layer — plus a checklist of what your agent protocol is missing.</p>
+  <div class="meta">
+    <span>cards: <b id="m-cards">0</b></span>
+    <span>links: <b id="m-links">0</b></span>
+    <span>sources: <b id="m-src">0</b></span>
+    <span>archive entries: <b id="m-arch">0</b></span>
+    <span>built: <b>2026-10-14</b></span>
+  </div>
+
+  <div class="layout">
+    <aside class="nav">
+      <input type="search" id="q" placeholder="filter: fipa, tuple space…">
+      <div id="navlist"></div>
+      <div class="navfoot">
+        <a id="archlink" href="#">Full archive →</a>
+        <span class="leg">← → browse · Esc — stack home</span>
+      </div>
+    </aside>
+    <main class="stage" id="stage"></main>
+  </div>
+
+  <footer>
+    <p><b>Method.</b> Facts in the cards come from verified museum archive entries: the “archive” link on a card leads to
+    the entry, and the <span class="leg">✓</span> (page read in full) and <span class="leg">↗</span> (search-index level)
+    marks are inherited from the archive. The “gap” score and the “what to build” blocks are the judgement of the agent
+    Chartessa, not a quotation.</p>
+    <p><b>Buttons.</b> A card action is a bounded prompt with a whitelist of tools, not arbitrary code: in the chat the
+    button sends the prompt to the agent, on the site it copies it to the clipboard.</p>
+    <p><b>Card backgrounds</b> (templates) — <span class="leg" id="bglist"></span>.</p>
+    <p class="leg">Source titles and archive contents are published in Russian: they are the museum's primary record.</p>
+    <p>Part of the “Lost Tech Museum” archive · <a href="https://github.com/kostyk348/lost-tech-museum">data and generator on GitHub</a></p>
+    <p class="leg">Generated by <code>scripts/build.py</code> from <code>stacks/agent-protocols/stack.json</code>.</p>
+  </footer>
+</div>
+
+<script>
+const STACK = {"slug": "agent-protocols", "title": "Stack: agent protocols that were already solved", "subtitle": "8 cards on top of the museum archive: the FIPA-ACL/KQML agent language, Telescript mobile code, tuple space, the HailStorm personal data hub, the OSI lesson, the Fifth Generation inference layer — plus a checklist of what your agent protocol is missing.", "generated": "2026-10-14", "author": "Chartessa (Собирательница стеков)", "about": "Not a report but a tool: cards page through, links work both ways, buttons send bounded prompts. Data lives in stacks/agent-protocols/stack.json, the page is built from templates/stack.html.", "archive": {"slug": "lost-ideas-1980s-2000s", "title": "Ideas that didn't survive: Japanese and world software, 1980–2006 (RU)"}, "backgrounds": {"home": {"name": "stack home", "layout": "list", "note": "домашняя карточка: что это за стек, как им пользоваться, индекс карточек"}, "fact": {"name": "fact card", "layout": "list", "note": "поля: что было / почему / почему умерло / где сейчас / что внедрить"}, "before-after": {"name": "before / after", "layout": "cols", "note": "четыре поля: было → почему умерло → стало → что это значит"}, "compare": {"name": "comparison", "layout": "table", "note": "строки-критерии: что предлагали / как кончилось / что вернулось / чего нет"}, "checklist": {"name": "checklist", "layout": "table", "note": "строки: критерий протокола → вердикт, со ссылкой на карточку-источник"}}, "cards": [{"id": "home", "title": "Agent protocols: what was already solved before LLMs", "subtitle": "stack home · 8 cards · archive 1980–2006", "bg": "home", "gap": 5, "fields": [{"lbl": "Why this stack", "val": "Modern agent protocols (MCP, A2A) look new only because the previous run, in the 1990s, has been forgotten. This stack collects six problems that were solved back then and one standard that failed. It exists so you stop reinventing — and don't repeat the OSI mistake."}, {"lbl": "How to use it", "val": "Page through the cards with ← → or click the index on the left. A button sends a bounded prompt: in the chat it goes to the agent, on the site it is copied to the clipboard. The “archive” link leads to the verified entry with sources; “links here” shows the reverse side of every link."}, {"lbl": "What this is not", "val": "Not a digest and not a market overview. Facts come from verified archive entries, each with its sources and ✓/↗ marks; the “what to build” blocks and the “gap” score are the agent's judgement, marked as judgement."}], "archive": [], "links": [{"to": "fipa", "why": "the main card: the agent language that once was"}, {"to": "genmagic", "why": "mobile code and the agent's “place”"}, {"to": "linda", "why": "communication without addresses: tuple space"}, {"to": "hailstorm", "why": "the user's context and capability access"}, {"to": "osi", "why": "how a formally superior standard loses"}, {"to": "fgcs", "why": "the other half of the contract: rules and inference"}, {"to": "checklist", "why": "the practical output of the whole stack"}], "actions": [{"t": "Build another stack on a new topic", "p": "Build a card stack over the museum archive on the topic: <my topic>. Format — stacks/<slug>/stack.json, cards on the fact / before-after / compare / checklist backgrounds, every card linking to an archive entry and every action carrying a tool whitelist.", "tools": ["read_file", "write_file", "terminal"]}], "sources": [{"u": "https://github.com/kostyk348/lost-tech-museum/blob/master/stacks/agent-protocols/stack.json", "t": "Data of this stack: stacks/agent-protocols/stack.json", "r": 1, "kind": "self"}, {"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/", "t": "Source archive: 35 findings, 1980–2006 (verified by Archivessa)", "r": 1, "kind": "archive"}]}, {"id": "fipa", "title": "FIPA-ACL / KQML — the agent language that once was", "subtitle": "1993 — 2005 · KQML → FIPA ACL · messages as speech acts", "bg": "fact", "gap": 5, "fields": [{"lbl": "What it was", "val": "KQML (1993) and FIPA ACL (the FIPA/IEEE standard of the late 1990s): agent communication as speech acts — request, inform, refuse, propose — with formal semantics and specifications of dialogue protocols."}, {"lbl": "What it could do and today's protocols cannot", "val": "Typed intents; refusal as a legal, processable answer; the contractual pattern “propose → accept a proposal”; explicit interaction protocols with timeouts."}, {"lbl": "Why it died", "val": "The agent world never happened: there were neither mass-market agents nor a network ready to serve them. The standard stayed in academia."}, {"lbl": "Where it lives now", "val": "As a standard it is all but dead. LLM agents are reinventing the same semantics in natural language — but without the guarantees: a “refusal” has become text that can be ignored."}, {"lbl": "What to build today", "val": "Bring into MCP/A2A what was already solved: explicit intent semantics, first-class refusal, bargaining (propose / counter-propose / accept), dialogue protocols with deadlines and limits. Natural language is good for humans but bad for contracts and SLAs."}], "archive": ["fipa"], "links": [{"to": "osi", "why": "why an academically correct standard is not adopted"}, {"to": "checklist", "why": "the first three checklist items grew out of this card"}], "actions": [{"t": "Compare with MCP and A2A", "p": "Take card fipa of the agent-protocols stack and compare it with what MCP and A2A do today: which of typed intents, refusal, bargaining and dialogue deadlines exist there, and which are lost. Give a table; every fact must link to a specification or an archive entry — nothing from memory.", "tools": ["web_search", "web_extract", "read_file"]}, {"t": "Request the evidence base from Archivessa", "p": "Ask Archivessa for the verbatim primary-source quotes (evidence) behind card fipa: intent semantics, refusal as an answer, the FIPA-ACL/KQML dialogue protocol specifications.", "tools": ["message_agent"]}, {"t": "Compress to one screen", "p": "Compress card fipa to one screen: five lines, no fact lost, no new claims.", "tools": []}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-fipa", "t": "Archive entry: FIPA-ACL / KQML (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://dl.acm.org/doi/10.1145/191246.191322", "t": "ACM CIKM (1994): KQML as an agent communication language", "r": 0, "kind": "inherited"}, {"u": "https://userpages.cs.umbc.edu/ypeng/Publications/1999/ieee-is.pdf", "t": "IEEE Intelligent Systems (1999): Agent Communication Languages — the current landscape", "r": 0, "kind": "inherited"}]}, {"id": "genmagic", "title": "Telescript — the agent that had a place to live", "subtitle": "1990 — 2004 · General Magic · mobile code on someone else's machine", "bg": "before-after", "gap": 5, "fields": [{"lbl": "Before", "val": "Telescript — General Magic's mobile-agent language (Bill Atkinson, Andy Hertzfeld, Marc Porat): an agent with its code “travels” across the network and executes its errand on someone else's machine, while Magic Cap was the environment with place metaphors and magic links (Sony Magic Link, Motorola Envoy, 1994)."}, {"lbl": "Why it died", "val": "The PDA market never formed, the web killed the “network of agents” idea, and hardware and networks were not ready. The company announced shutdown in 2002 and was liquidated in 2004."}, {"lbl": "What it became — and will become again", "val": "Mobile code lives on in a different shape: WASM bytecode + capability rights + durable execution — the agent's “place” with a log and crash recovery."}, {"lbl": "What it means for protocols", "val": "MCP and A2A describe how agents talk. Telescript described where an agent lives, what it is allowed to do, and how it survives a crash. The second half is still unsolved in modern protocols."}], "archive": ["genmagic"], "links": [{"to": "linda", "why": "both cards are about decoupling the agent from a place"}, {"to": "hailstorm", "why": "agent access rights to other people's data"}], "actions": [{"t": "Compare Telescript with WASM agents", "p": "Compare Telescript (1994) with the modern approach of “an agent as a WASM module holding capability rights”: what of the model of places, rights and recovery has been reproduced, and what is lost. Pull the Telescript facts from archive card genmagic first; external facts only with links.", "tools": ["web_search", "web_extract", "read_file"]}, {"t": "Describe a “place” for an agent", "p": "Sketch a minimal specification of a “place” for an LLM agent: address, step log, permissions, crash recovery, lifetime. Base it on cards genmagic and linda.", "tools": ["read_file", "write_file"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-genmagic", "t": "Archive entry: General Magic — Magic Cap + Telescript (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://hci.stanford.edu/seminar/abstracts/93-94/940121-hertzfeld.html", "t": "Stanford HCI seminar (1994): Hertzfeld on Magic Cap and Telescript", "r": 0, "kind": "inherited"}]}, {"id": "linda", "title": "Linda and tuple space — communication without addresses", "subtitle": "1986 — 2022 · Yale → Jini → JavaSpaces → Apache River (retired)", "bg": "before-after", "gap": 5, "fields": [{"lbl": "Before", "val": "Linda (Yale, David Gelernter, 1986): tuple space — associative shared memory, six operations, generative communication. Jini (Sun, July 1998): lookup services, leases, JavaSpaces. Its successor Apache River was retired in 2022 for lack of activity."}, {"lbl": "Why it died", "val": "Commercialisation faded in the 1990s, returned with Java — and could not compete with message brokers and databases. Jini never went mainstream."}, {"lbl": "What it became", "val": "Redis and Kafka are relatives by the queue idea, but without associative pattern matching. JavaSpaces is dead."}, {"lbl": "What to build today", "val": "A board for agents: long-lived agents talk through shared space (pattern lookup + TTL/leases) instead of direct calls. It cures recovery after failures, backpressure and “the agent crashed but the task was not lost”."}], "archive": ["linda"], "links": [{"to": "genmagic", "why": "shared theme: where and how an agent lives"}, {"to": "checklist", "why": "the decoupling-in-time item"}], "actions": [{"t": "Design a board for agents", "p": "Design a minimal “board” for agents after Linda: operations (out/in/rd/inp), pattern lookup, TTL instead of leases, and the semantics of “a task stays until it is taken”. Compare with Redis/Kafka and say what they do not provide.", "tools": ["read_file", "web_search"]}, {"t": "Check whether JavaSpaces is still alive", "p": "Verify from primary sources what happened to JavaSpaces and Apache River: status, retirement date, live alternatives. Give links, do not invent.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-linda", "t": "Archive entry: Linda / JavaSpaces / Jini (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Jini", "t": "Wikipedia: Jini — leases, lookup, JavaSpaces, River retired (2022)", "r": 1, "kind": "inherited"}, {"u": "https://blog.acolyer.org/2015/02/17/generative-communication-in-linda", "t": "The morning paper: Generative communication in Linda", "r": 0, "kind": "inherited"}]}, {"id": "hailstorm", "title": "HailStorm — your context as a vendor service", "subtitle": "2001 — 2002 · .NET My Services · announced 19 March 2001, never shipped", "bg": "compare", "gap": 5, "fields": [{"lbl": "What was proposed", "val": "Microsoft, 19 March 2001: a cloud of personal data (contacts, calendar, mail, notifications) with Passport as the only key, and XML services for applications to access it."}, {"lbl": "How it ended", "val": "Partners and regulators refused to put Microsoft between users and their data; the reputational damage around Passport finished the project. It was never shipped."}, {"lbl": "What came back", "val": "Solid/Pods and personal data stores — and, ironically, “context for LLMs” as the very same personal-data problem."}, {"lbl": "What is still missing", "val": "A protocol for agent access to personal data with a log and capability links. A personal data hub must be a protocol, not a vendor service — according to the archive, this is the main infrastructure hole of the agent era."}], "archive": ["hailstorm"], "links": [{"to": "genmagic", "why": "capability rights as an answer to “what may an agent do”"}, {"to": "checklist", "why": "the data-owner item"}], "actions": [{"t": "Design agent access to my data", "p": "Design a model for how an agent gets access to a user's personal data without a vendor in the middle — capability link, lifetime, log, revocation. Start from cards hailstorm and genmagic and mark what is judgement rather than source fact.", "tools": ["read_file", "write_file"]}, {"t": "Cross-check with Solid", "p": "Verify what actually works today in personal data stores (Solid, Solid Pods, analogues): status, adopters, living specifications. Primary sources with links only.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-hailstorm", "t": "Archive entry: HailStorm / .NET My Services (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/.NET_My_Services", "t": "Wikipedia: .NET My Services (Hailstorm)", "r": 1, "kind": "inherited"}, {"u": "https://rip.so/microsoft-hailstorm.html", "t": "rip.so: Microsoft Hailstorm (2001–2002)", "r": 0, "kind": "inherited"}]}, {"id": "osi", "title": "OSI: how a formally better standard loses", "subtitle": "1980s — 1990s · X.400 / X.500 / ASN.1", "bg": "fact", "gap": 2, "fields": [{"lbl": "What it was", "val": "The ISO/OSI stack: X.400 (mail), X.500 (directory), FTAM, with ASN.1 as the data syntax. The “correct” standard, backed by institutions and national delegations."}, {"lbl": "Why it lost", "val": "Heavy specifications, expensive implementations, a mandatory whole-stack requirement. TCP/IP worked incrementally on any hardware. ASN.1 survived (TLS certificates, SNMP), and X.500 influenced LDAP."}, {"lbl": "The lesson for agent protocols", "val": "The adoption criterion is a minimal core implemented over a weekend on cheap hardware. Anything that demands all-or-nothing dies, even if it is formally better. This is the cheapest test for any new agent standard."}, {"lbl": "The price of that mistake", "val": "In OSI, years went into completeness of specification instead of lowering the entry bar. For 2020s agent protocols the risk is the same: a beautiful specification and zero implementations over a weekend."}], "archive": ["osi"], "links": [{"to": "fipa", "why": "FIPA shared OSI's fate: academic correctness without a market"}, {"to": "checklist", "why": "the “minimal core over a weekend” item"}], "actions": [{"t": "Run the “OSI test” on my protocol", "p": "Run the “OSI test” on the protocol I name: can its minimal core be implemented over a weekend on cheap hardware? List point by point exactly what in the specification prevents that.", "tools": ["web_search", "web_extract"]}, {"t": "Take apart the X.400 story", "p": "Establish from primary sources why X.400 did not displace SMTP: technical and institutional reasons, with quotes and links. Only sources read in full; otherwise mark ↗.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-osi", "t": "Archive entry: OSI — X.400 / X.500 / ASN.1 (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://comsys.rwth-aachen.de/publication/2013/2013_jakobs_why-then-did-the/2013_jakobs_why-then-did-the.pdf", "t": "Jakobs (2013): Why then did the X.400 email system fail?", "r": 0, "kind": "inherited"}, {"u": "https://positioniseverything.net/osi-the-internet-that-wasnt", "t": "OSI: the internet that wasn't", "r": 0, "kind": "inherited"}]}, {"id": "fgcs", "title": "Fifth Generation — the inference layer LLM agents lack", "subtitle": "1982 — 1994 · MITI / ICOT · ≈¥57 bn (≈$320 m)", "bg": "fact", "gap": 5, "fields": [{"lbl": "What it was", "val": "Japan's ten-year government programme (MITI) and the ICOT institute: massively parallel + logic programming, Prolog/KL1, the Parallel Inference Machine, concurrent logic programming. One of the first attempts to make AI state infrastructure."}, {"lbl": "Why it fell apart", "val": "Hardware never caught up with the software, results did not match the market's format, and after the project MITI stopped large-scale funding — the accumulated momentum fell apart."}, {"lbl": "What survived", "val": "Datalog and knowledge graphs, constraint solvers, SMT, policy-as-code. The Parallel Inference Machine has no direct heirs."}, {"lbl": "The link to agent protocols", "val": "A protocol describes how agents agree; a rule describes what they are allowed to do at all, and why the inference came out the way it did. Today an agent checks itself, and no declarative layer explains its inference — that is the unfinished half."}], "archive": ["fgcs"], "links": [{"to": "fipa", "why": "speech and rules are two halves of one contract"}, {"to": "checklist", "why": "the inference-layer item"}], "actions": [{"t": "Assemble a rules layer for my project", "p": "Propose a minimal rules layer on top of my project's data: Datalog/constraints, policies for “what the agent may do”, and an explanation of “why this rule fired”. Start from card fgcs and mark judgement explicitly.", "tools": ["read_file", "write_file"]}, {"t": "What survived from ICOT", "p": "Verify which ICOT results actually live today (Datalog engines, constraint solvers, SMT): name the projects and link to primary sources.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-fgcs", "t": "Archive entry: Fifth Generation Computer Systems / ICOT (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Fifth_Generation_Computer_Systems", "t": "Wikipedia: Fifth Generation Computer Systems", "r": 1, "kind": "inherited"}, {"u": "https://sciencedirect.com/science/article/pii/0167739X93900038", "t": "Kahn: The Japanese national Fifth Generation project — introduction, survey, evaluation", "r": 0, "kind": "inherited"}]}, {"id": "checklist", "title": "Checklist: what your agent protocol is missing", "subtitle": "the stack's practical output · 8 criteria drawn from 6 cards", "bg": "checklist", "gap": 5, "fields": [{"lbl": "Typed intent", "val": "FIPA-ACL had it: request / inform / refuse with formal semantics. If an intent in your protocol is a natural-language string, there is no contract.", "to": "fipa"}, {"lbl": "Refusal as an answer", "val": "In FIPA a refusal is a legal, processable outcome. Today a refusal is usually an exception or silence — a state without semantics.", "to": "fipa"}, {"lbl": "Bargaining and dialogue deadlines", "val": "Then: propose → counter-propose → accept, plus interaction timeouts. Now: “try again” in the prompt.", "to": "fipa"}, {"lbl": "A minimal core over a weekend", "val": "OSI lost to TCP/IP exactly here: completeness instead of a low entry bar. The test for any new standard.", "to": "osi"}, {"lbl": "A place for the agent, not just talk", "val": "Telescript: address, rights, log, crash recovery. Modern protocols have no such layer.", "to": "genmagic"}, {"lbl": "Decoupling in time", "val": "Tuple space: the producer puts, the consumer finds by pattern; the agent crashed — the task is not lost (TTL and leases instead of direct calls).", "to": "linda"}, {"lbl": "Owner of the data", "val": "HailStorm showed the price of a vendor in the middle. Agent access to personal data must go through capability links with a log, not through someone else's service.", "to": "hailstorm"}, {"lbl": "Inference layer and explanation", "val": "Fifth Generation: rules as a declarative programme and an answer to “why this inference”. Today an agent has to imitate that in words.", "to": "fgcs"}], "archive": [], "links": [{"to": "osi", "why": "the external adoption test"}, {"to": "fipa", "why": "three checklist items come from there"}], "actions": [{"t": "Run my protocol through the checklist", "p": "Run my agent protocol through the agent-protocols checklist: for each of the 8 criteria — present / missing / partial, and what exactly to add to the specification. Answer as a table, each item linking to its source card.", "tools": ["read_file"]}, {"t": "Minimal core: 8 decisions in one file", "p": "Assemble a minimal agent-protocol core from the 8 checklist decisions: a short specification (no more than two screens) plus one example message. Write it to a file, then show the diff.", "tools": ["read_file", "write_file", "terminal"]}, {"t": "Hand the stack to Archivessa for review", "p": "Ask Archivessa to verify that all six archive entries the agent-protocols stack relies on are still current: not retracted, sources alive, wording unchanged.", "tools": ["message_agent"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/stacks/agent-protocols/", "t": "This stack: a synthesis of cards fipa, osi, genmagic, linda, hailstorm, fgcs (agent judgement)", "r": 1, "kind": "self"}]}]};
+const CROSS = {"out": {}, "back": {"osi": [{"stack": "pre-web", "title": "Стек: сеть и гипертекст до веба — что там было решено", "card": "gopher", "card_title": "Gopher и WAIS — тонкий протокол как ценность", "why": "тот же урок: минимальное ядро за выходные", "path": "stacks/pre-web/#c-gopher"}, {"stack": "hardware-and-context", "title": "Стек: железо, идентичность и внимание — что опередило время", "card": "qr", "card_title": "QR-код — контрольный пример: как идея выживает", "why": "тот же тест на принятие: минимальное ядро за выходные", "path": "stacks/hardware-and-context/#c-qr"}], "genmagic": [{"stack": "hardware-and-context", "title": "Стек: железо, идентичность и внимание — что опередило время", "card": "iapx432", "card_title": "iAPX 432 — права как архитектура, а не как дисциплина", "why": "Telescript тоже давал права агенту — на уровне языка", "path": "stacks/hardware-and-context/#c-iapx432"}]}};
+const HOME = (STACK.cards[0]||{}).id;
+const HAS_HERMES = !!(window.hermes && typeof window.hermes.send === "function");
+const CARDS = STACK.cards;
+const ROOT = "../../../";
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function byId(id){return CARDS.find(c=>c.id===id);}
+function incoming(id){return CARDS.filter(c=>(c.links||[]).some(l=>l.to===id));}
+function hash(id){return "#c-"+id;}
+function current(){
+  const m=(location.hash||"").match(/^#c-(.+)$/);
+  return (m && byId(m[1])) ? m[1] : HOME;
+}
+function archiveHref(entryId){
+  const a=STACK.archive||{};
+  return ROOT+"digests/"+a.slug+"/#c-"+entryId;
+}
+
+function boot(){
+  document.getElementById("m-cards").textContent = CARDS.length;
+  document.getElementById("m-links").textContent = CARDS.reduce((n,c)=>n+(c.links||[]).length,0);
+  document.getElementById("m-src").textContent = CARDS.reduce((n,c)=>n+(c.sources||[]).length,0);
+  document.getElementById("m-arch").textContent = CARDS.reduce((n,c)=>n+(c.archive||[]).length,0);
+  const a=STACK.archive||{};
+  document.getElementById("archlink").href = ROOT+"digests/"+a.slug+"/";
+  document.getElementById("archlink").textContent = "Архив: "+a.title+" →";
+  document.getElementById("bglist").textContent = Object.keys(STACK.backgrounds||{})
+    .map(k=>k+" — "+STACK.backgrounds[k].name).join(" · ");
+  document.getElementById("q").oninput = e=>{filter=e.target.value.toLowerCase();nav();render();};
+  window.addEventListener("hashchange",()=>{nav();render();});
+  document.addEventListener("keydown",ev=>{
+    if(ev.target.tagName==="INPUT"){if(ev.key==="Escape")ev.target.blur();return;}
+    if(ev.key==="Escape"){go(HOME);}
+    if(ev.key==="ArrowRight"||ev.key==="ArrowLeft"){
+      const list=visible(); const i=list.indexOf(current());
+      const j=ev.key==="ArrowRight"?i+1:i-1;
+      if(j>=0&&j<list.length){go(list[j]);}
+    }
+  });
+  nav();render();
+}
+let filter="";
+function visible(){
+  const q=filter;
+  return CARDS.filter(c=>!q||(c.title+" "+(c.subtitle||"")+" "+c.id+" "+(c.fields||[]).map(f=>f.lbl+" "+f.val).join(" ")).toLowerCase().includes(q)).map(c=>c.id);
+}
+function nav(){
+  const cur=current(), list=visible();
+  document.getElementById("navlist").innerHTML = list.map(id=>{
+    const c=byId(id), bg=(STACK.backgrounds||{})[c.bg]||{};
+    const kind = id===HOME ? "stack home" : (bg.name||c.bg);
+    return `<button class="nl ${id===cur?"on":""}" data-card="${id}"><span class="nbin">${esc(kind)}</span>${esc(c.title)}</button>`;
+  }).join("") || '<p class="plain">Nothing matched.</p>';
+  document.querySelectorAll("[data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+}
+function go(id){ if(location.hash===hash(id)){nav();render();} else {location.hash=hash(id);} }
+
+function fieldHtml(f){
+  const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ card: ${esc(byId(f.to).title)}</span>` : "";
+  return `<div class="fld"><div class="lbl">${esc(f.lbl)}</div><p class="val">${esc(f.val)}</p>${to}</div>`;
+}
+function fieldsHtml(c){
+  const bg=(STACK.backgrounds||{})[c.bg]||{}, layout=bg.layout||"list", fs=c.fields||[];
+  if(!fs.length) return "";
+  if(layout==="cols") return `<div class="cols">${fs.map(fieldHtml).join("")}</div>`;
+  if(layout==="table") return `<div class="rows">${fs.map(f=>{
+      const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ ${esc(byId(f.to).title)}</span>` : "";
+      return `<div class="r"><div class="k">${esc(f.lbl)}</div><div class="v">${esc(f.val)}${to}</div></div>`;
+    }).join("")}</div>`;
+  return fs.map(fieldHtml).join("");
+}
+function linksHtml(c){
+  const out=(c.links||[]).map(l=>{const t=byId(l.to); if(!t) return ""; return `<button class="lk" data-card="${l.to}"><b>${esc(t.title)}</b><span class="wy">${esc(l.why||"")}</span></button>`;}).join("");
+  const back=incoming(c.id).map(x=>`<button class="lk" data-card="${x.id}"><b>${esc(x.title)}</b><span class="wy">links here</span></button>`).join("");
+  const arch=(c.archive||[]).map(id=>`<a class="lk" href="${archiveHref(id)}" style="text-decoration:none"><b>⌗ archive entry: ${esc(id)}</b><span class="wy">verified museum card with sources</span></a>`).join("");
+  if(!out&&!back&&!arch) return "";
+  return `<div class="sect"><div class="h">Links</div><div class="links">${arch}${out}${back}</div></div>`;
+}
+function crossHtml(c){
+  const out=(CROSS.out||{})[c.id]||[], back=(CROSS.back||{})[c.id]||[];
+  if(!out.length && !back.length) return "";
+  const item=(x,label)=>`<a class="lk" href="${ROOT+esc(x.path)}"><b>${esc(x.card_title)}</b><span class="wy">${esc(x.why||label)} · ${esc(x.title)}</span></a>`;
+  return `<div class="sect"><div class="h">Other stacks</div><div class="links">`
+    + out.map(x=>item(x,"link to another stack")).join("")
+    + back.map(x=>item(x,"links here")).join("")
+    + `</div></div>`;
+}
+function actsHtml(c){
+  const acts=c.actions||[]; if(!acts.length) return "";
+  return `<div class="sect"><div class="h">Actions — a bounded prompt, not code</div><div class="acts">`+
+    acts.map((a,i)=>{
+      const tools=(a.tools||[]).length? a.tools.join(", ") : "no tools";
+      const prompt=`[Stack “${STACK.title}” → card “${c.title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const attr=HAS_HERMES?` data-hermes-send="${esc(prompt)}"`:"";
+      return `<div class="act"><div class="top"><button class="btn" data-idx="${i}" data-card="${c.id}"${attr}>${esc(a.t)}</button>
+        <span class="tools">tools: ${esc(tools)}</span></div><p class="prompt">${esc(a.p)}</p></div>`;
+    }).join("")+`</div></div>`;
+}
+function srcsHtml(c){
+  const s=c.sources||[]; if(!s.length) return "";
+  return `<div class="sect"><div class="h">Sources (✓ read in full · ↗ search index · ⌗ archive entry)</div><div class="srcs">`+
+    s.map(x=>`<a class="${x.r?"r":""} ${x.kind==="archive"?"k-archive":""}" href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")+`</div></div>`;
+}
+function render(){
+  const c=byId(current())||CARDS[0], bg=(STACK.backgrounds||{})[c.bg]||{};
+  const dots=Array.from({length:5},(_,i)=>`<i class="${i<(c.gap||0)?"on":""}"></i>`).join("");
+  document.getElementById("stage").innerHTML =
+    `<div class="shead"><div><h2>${esc(c.title)}</h2><div class="sub">${esc(c.subtitle||"")}</div></div>
+      <div style="text-align:right"><span class="bgchip">background: ${esc(bg.name||c.bg)}</span>
+      <div class="gap" title="how unfinished the idea is — the agent's judgement" style="margin-top:8px;justify-content:flex-end"><span>gap</span>${dots}</div></div></div>
+     ${fieldsHtml(c)}${linksHtml(c)}${crossHtml(c)}${actsHtml(c)}${srcsHtml(c)}`;
+  document.querySelectorAll("#stage [data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+  document.querySelectorAll("#stage .btn").forEach(b=>{
+    if(b.hasAttribute("data-hermes-send")) return;   // в чате отправляет мост Hermes
+    b.onclick=()=>{
+      const a=(byId(b.dataset.card).actions||[])[+b.dataset.idx];
+      const text=`[Stack “${STACK.title}” → card “${byId(b.dataset.card).title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const done=()=>{const old=b.textContent;b.textContent="промпт скопирован ✓";setTimeout(()=>b.textContent=old,1800);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}else{done();}
+    };
+  });
+  nav();
+}
+boot();
+</script>
+</body>
+</html>

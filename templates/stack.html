@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="ru">
+<html lang="__LANG__">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>__TITLE__ — стек · Музей потерянных идей</title>
 <meta name="description" content="__BLURB__">
+<link rel="alternate" hreflang="__ALT_LANG__" href="__ALT_HREF__">
 <style>
 :root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--soft:#111722;--cy:#22d3ee;--am:#f0b429;--gr:#3fb950;--lp:#a78bfa}
 *{box-sizing:border-box}
@@ -14,6 +15,8 @@ a:hover{text-decoration:underline}
 .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 56px}
 .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
 .eyebrow .who{color:var(--lp);letter-spacing:.06em}
+.langs{float:right;font-size:12.5px;color:var(--mut)}
+.langs .cur{color:var(--fg);font-weight:600}
 h1{font-size:28px;line-height:1.14;margin:.25em 0 .3em;letter-spacing:-.01em}
 .lede{color:var(--mut);max-width:78ch;margin:0 0 14px}
 .meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
@@ -81,7 +84,7 @@ __THEME__
 </head>
 <body>
 <div class="wrap">
-  <div class="eyebrow">Музей потерянных идей · стек карточек · автор <span class="who">Chartessa</span></div>
+  <div class="eyebrow"><span class="langs">__SWITCH__</span>Музей потерянных идей · стек карточек · автор <span class="who">Chartessa</span></div>
   <h1>__TITLE__</h1>
   <p class="lede">__SUBTITLE__</p>
   <div class="meta">
@@ -105,12 +108,7 @@ __THEME__
   </div>
 
   <footer>
-    <p><b>Методология.</b> Факты в карточках взяты из проверенных записей архива музея — ссылка «архив» на карточке ведёт
-    на запись, метки <span class="leg">✓</span> (страница прочитана целиком) и <span class="leg">↗</span> (источник уровня
-    поискового индекса) унаследованы из архива. Оценка «зазор» и блоки «что внедрить» — суждение агента Chartessa, а не цитата.</p>
-    <p><b>Кнопки.</b> Действие на карточке — ограниченный промпт с белым списком инструментов, а не произвольный код:
-    в чате с агентом кнопка отправляет промпт, на сайте — копирует его в буфер обмена.</p>
-    <p><b>Фоны карточек</b> (шаблоны) — <span class="leg" id="bglist"></span>.</p>
+    __FOOTERNOTE__
     <p>__FOOTERREPO__</p>
     <p class="leg">Собрано автоматически: <code>scripts/build.py</code> из <code>stacks/__SLUG__/stack.json</code>.</p>
   </footer>
@@ -122,6 +120,7 @@ const CROSS = __CROSS__;
 const HOME = (STACK.cards[0]||{}).id;
 const HAS_HERMES = !!(window.hermes && typeof window.hermes.send === "function");
 const CARDS = STACK.cards;
+const ROOT = "__ROOT__";
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 function byId(id){return CARDS.find(c=>c.id===id);}
@@ -133,7 +132,7 @@ function current(){
 }
 function archiveHref(entryId){
   const a=STACK.archive||{};
-  return "../../digests/"+a.slug+"/#c-"+entryId;
+  return ROOT+"digests/"+a.slug+"/#c-"+entryId;
 }
 
 function boot(){
@@ -142,7 +141,7 @@ function boot(){
   document.getElementById("m-src").textContent = CARDS.reduce((n,c)=>n+(c.sources||[]).length,0);
   document.getElementById("m-arch").textContent = CARDS.reduce((n,c)=>n+(c.archive||[]).length,0);
   const a=STACK.archive||{};
-  document.getElementById("archlink").href = "../../digests/"+a.slug+"/";
+  document.getElementById("archlink").href = ROOT+"digests/"+a.slug+"/";
   document.getElementById("archlink").textContent = "Архив: "+a.title+" →";
   document.getElementById("bglist").textContent = Object.keys(STACK.backgrounds||{})
     .map(k=>k+" — "+STACK.backgrounds[k].name).join(" · ");
@@ -199,7 +198,7 @@ function linksHtml(c){
 function crossHtml(c){
   const out=(CROSS.out||{})[c.id]||[], back=(CROSS.back||{})[c.id]||[];
   if(!out.length && !back.length) return "";
-  const item=(x,label)=>`<a class="lk" href="${esc(x.href)}"><b>${esc(x.card_title)}</b><span class="wy">${esc(x.why||label)} · ${esc(x.title)}</span></a>`;
+  const item=(x,label)=>`<a class="lk" href="${ROOT+esc(x.path)}"><b>${esc(x.card_title)}</b><span class="wy">${esc(x.why||label)} · ${esc(x.title)}</span></a>`;
   return `<div class="sect"><div class="h">Другие стеки</div><div class="links">`
     + out.map(x=>item(x,"выход в другой стек")).join("")
     + back.map(x=>item(x,"ссылается сюда")).join("")

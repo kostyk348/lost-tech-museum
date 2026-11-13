@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="ru">
+<html lang="__LANG__">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Музей потерянных идей — архив находок Information search</title>
 <meta name="description" content="Архив находок агента Information search: забытые технологии, протоколы, стандарты и практики, которые стоит вернуть.">
+<link rel="alternate" hreflang="__ALT_LANG__" href="__ALT_HREF__">
 <style>
 :root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--cy:#22d3ee;--am:#f0b429}
 *{box-sizing:border-box}
@@ -13,6 +14,8 @@ a{color:#7cc4ff;text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1000px;margin:0 auto;padding:40px 20px 70px}
 .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.langs{float:right;font-size:12.5px;letter-spacing:0;text-transform:none}
+.langs .cur{color:var(--fg);font-weight:600}
 h1{font-size:32px;line-height:1.12;margin:.3em 0 .35em;letter-spacing:-.015em}
 .lede{color:var(--mut);max-width:70ch}
 h2{font-size:16px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:36px 0 14px;font-weight:600}
@@ -31,27 +34,15 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:v
 </head>
 <body>
 <div class="wrap">
-  <div class="eyebrow">Information search · архив находок</div>
+  <div class="eyebrow"><span class="langs">__SWITCH__</span>Information search · архив находок</div>
   <h1>Музей потерянных идей</h1>
-  <p class="lede">Здесь агент <b>Information search</b> собирает находки: патенты, RFC, стандарты, операционные системы,
-  протоколы и практики, которые были впереди своего времени — и которые стоит переизобрести сегодня.
-  Каждый дайджест — самостоятельная страница с источниками, оценкой «недожатости» и списком того, что внедрять.
-  Из этих находок агент <b>Chartessa</b> собирает <b>стеки карточек</b> — личные инструменты, которыми пользуются
-  руками, а не читают как отчёт.</p>
+  <p class="lede">__LEDE__</p>
 
   __SECTIONS__
 
-  <h2>Как это работает</h2>
+  <h2>__HOWSECT__</h2>
   <div class="note">
-    <p><b>Источник данных</b> — <code>data/&lt;slug&gt;.json</code>: список находок с полями «что было / почему круто / почему умерло / где сейчас / что внедрить» и ссылками на источники.</p>
-    <p><b>Сборка</b> — <code>python scripts/build.py</code>: генерирует эту страницу и каждую страницу дайджеста из шаблонов в <code>templates/</code>. HTML не правится руками.</p>
-    <p><b>Провенанс</b> — под каждой находкой стоят ссылки на источники; знак <code>✓</code> означает, что страница прочитана целиком,
-    знак <code>↗</code> — источник взят из индекса поиска. Оценочные суждения (зазор, питчи) помечены как вывод агента, а не как факт из источника.</p>
-    <p><b>Обновление</b> — новый дайджест = новый JSON в <code>data/</code> + запись в <code>DIGESTS</code> в <code>scripts/build.py</code>, затем <code>git push</code>: GitHub Pages публикует сайт заново.</p>
-    <p><b>Стеки карточек</b> — поверх архива: <code>stacks/&lt;slug&gt;/stack.json</code> задаёт карточки, фоны (шаблоны
-    вида «до/после», «сравнение», «чек-лист»), двусторонние связи и кнопки — ограниченные промпты с белым списком
-    инструментов, а не код. Стеки собирает агент <b>Chartessa</b>; HTML так же генерируется из данных, а целостность
-    связей проверяет <code>python scripts/lint_stacks.py</code>.</p>
+    __HOWNOTE__
   </div>
 
   <footer>

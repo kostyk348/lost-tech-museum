@@ -87,7 +87,7 @@
      "read": false,
      "quote": null,
      "link_state": "alive",
-     "link_code": 206
+     "link_code": 200
     }
    ]
   },
@@ -109,7 +109,7 @@
    "death": "Проиграл глобальному Unicode и экономике шрифтов: TRON-набор требовал более 200 000 кодовых точек, шрифты имели ограничения на коммерческое использование, кодировка не поспевала за расширениями Unicode.",
    "now": "Ниша (шрифты и данные TRON-экосистемы). Unicode решил часть задачи вариационными селекторами (IVS).",
    "pitch": "Для юридически значимых текстов и локализации вернуть «вариант как отдельный идентификатор»: теги вариантов в данных + провенанс происхождения знака. В ML-эпоху это ещё и корректная токенизация CJK без потери формы.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 1,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-troncode",
    "src": [
@@ -117,7 +117,7 @@
      "url": "https://en.wikipedia.org/wiki/TRON_(encoding)",
      "title": "Wikipedia: TRON (encoding)",
      "read": true,
-     "quote": null,
+     "quote": "Separate code points for Chinese, Korean, and Japanese variants of the 70,000+ Han characters in Unicode 4.1 (if that were deemed necessary) would require more than 200,000 code points in TRON.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -238,7 +238,7 @@
    "death": "Мировым стандартом стал NFC-A/B (MIFARE) по объёму и цене; FeliCa остался преимущественно азиатской технологией, хотя включён в требования NFC Forum, а Apple добавила его в Apple Pay с 2016 (iPhone 7 / Watch Series 2).",
    "now": "Жив в Японии и Азии — как «родная» транспортная и платёжная инфраструктура.",
    "pitch": "Относиться к оплате/доступу как к физической инфраструктуре, а не к приложению: офлайн-транзакции, жёсткие латентности, аттестованное железо. Применимо к офлайн-платежам, транспорту и к «tap-to-X» для IoT/агентов.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 1,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-felica",
    "src": [
@@ -246,7 +246,7 @@
      "url": "https://en.wikipedia.org/wiki/FeliCa",
      "title": "Wikipedia: FeliCa",
      "read": true,
-     "quote": null,
+     "quote": "FeliCa is also included as a condition of the NFC Forum Specification Compliance.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -308,7 +308,7 @@
    "death": "Проиграл QR, NFC и связке «UUID + URL»: не хватило глобальных игроков, сети партнёров и простоты.",
    "now": "Нишевая/академическая жизнь; те же идеи переизобретены как DID, GS1/EPCIS, verifiable credentials.",
    "pitch": "Глобальный резолвер физических объектов: ucode-подобный ID + владелец + история событий, устойчивый к исчезновению вендора. Нужен supply chain, ремонту, вторичному рынку, верифицируемым сертификатам — и до сих пор не построен.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-ucode",
    "src": [
@@ -324,7 +324,7 @@
      "url": "http://tronweb.super-nova.co.jp/ucoderesserverconnectiontest.html",
      "title": "TRON Web: ucode resolution server / ucodeRP, eTP",
      "read": false,
-     "quote": null,
+     "quote": "At the Ubiquitous ID Center, they call a unique ID they assign to a \"thing\" a ucode; the data carrier device that stores this ucode is an ID tag.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -427,7 +427,7 @@
    "death": "Поздний выход и не тот рынок; вендоры не хотели терять дифференциацию; к концу 80-х вытеснен PC-клонами и консолями. Последняя линейка — MSX turboR, 1993.",
    "now": "Мёртв вне ретро-сообщества.",
    "pitch": "Модель «общая спецификация + многие производители» — ровно то, что сегодня нужно edge-модулям и RISC-V-устройствам: обратная совместимость как продукт (модуль, работающий везде).",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-msx",
    "src": [
@@ -443,7 +443,7 @@
      "url": "https://www.pcgamer.com/the-bright-life-of-the-msx-japans-underdog-pc/",
      "title": "PC Gamer: The bright life of the MSX",
      "read": true,
-     "quote": null,
+     "quote": "This reached its apex in 1990, when only Panasonic chose to participate in the MSX turboR standard, releasing their FS-A1ST and FS-A1GT computers exclusively in Japan in 1991, and with their limited production runs ending just a few years later.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -467,7 +467,7 @@
    "death": "Интернет и веб: закрытые редакционные сервисы не выдержали бесплатной альтернативы. Форумы закрыли в 2005, сервис — в марте 2006.",
    "now": "Мёртв.",
    "pitch": "Платное сообщество как продукт: подписка + человеческая модерация + локальный контекст. В эпоху генеративного спама курируемая доска становится премиум-функцией, а не архаизмом.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-nifty",
    "src": [
@@ -475,7 +475,7 @@
      "url": "https://rip.so/nifty-serve.html",
      "title": "rip.so: NIFTY-Serve (1987–2006)",
      "read": true,
-     "quote": null,
+     "quote": "the rest of the service closed in march 2006.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -507,7 +507,7 @@
    "death": "Проиграл интернету: фиксированный протокол против открытой сети; France Télécom выключила сервис 30.06.2012.",
    "now": "Мёртв (кроме арт- и ретро-проектов).",
    "pitch": "Два недожатых элемента: (1) kiosque — микроплатежи с единым счётом и безопасным расчётом, нейтральные к платформе (сегодня это комиссии магазинов приложений); (2) дешёвый терминал как государственная инфраструктура доступа — модель для цифрового равенства.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-minitel",
    "src": [
@@ -515,7 +515,7 @@
      "url": "https://en.wikipedia.org/wiki/Minitel",
      "title": "Wikipedia: Minitel",
      "read": true,
-     "quote": null,
+     "quote": "The service was discontinued by France Télécom on 30 June 2012.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -554,25 +554,33 @@
    "death": "Рынок PDA не сложился, веб убил концепцию «сети агентов», железо и сети не были готовы. Компания объявила о прекращении в 2002, ликвидирована в 2004.",
    "now": "Мёртв как продукт; наследие — патенты и учебный пример.",
    "pitch": "Агент с мобильным кодом: WASM-байткод + capability-права + durable execution («место» агента с журналом и восстановлением). Это архитектура того, что MCP/A2A сейчас пытаются собрать на уровне протокола.",
-   "quotes": 0,
-   "sources": 2,
+   "quotes": 2,
+   "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-genmagic",
    "src": [
     {
      "url": "https://en.wikipedia.org/wiki/General_Magic",
      "title": "Wikipedia: General Magic",
      "read": true,
-     "quote": null,
+     "quote": "After announcing it would cease operations in 2002,",
      "link_state": "alive",
      "link_code": 200
     },
     {
      "url": "https://hci.stanford.edu/seminar/abstracts/93-94/940121-hertzfeld.html",
-     "title": "Stanford HCI seminar (1994): Hertzfeld on Magic Cap and Telescript",
+     "title": "Stanford HCI seminar (1994): Hertzfeld on Magic Cap and Telescript (адрес мёртв с 2026-11-13 — архивная копия ниже)",
      "read": false,
      "quote": null,
      "link_state": "dead",
      "link_code": 0
+    },
+    {
+     "url": "http://web.archive.org/web/20040918195921/http://hci.stanford.edu:80/seminar/abstracts/93-94/940121-hertzfeld.html",
+     "title": "Стэнфордский семинар HCI: Энди Херцфельд о General Magic (архив Wayback, снимок 18.09.2004)",
+     "read": true,
+     "quote": "Telescript may become standard for interactive, intelligent messaging systems.",
+     "link_state": "alive",
+     "link_code": 200
     }
    ]
   },
@@ -682,7 +690,7 @@
    "death": "Не пошла в массы: догматичная приверженность модели, отсутствие совместимости с Unix, конкуренция с бесплатным Linux.",
    "now": "Технология победила инкогнито: Linux namespaces, union/overlay-монтирования, WSL1, virtio-9p в QEMU — это всё идеи Plan 9, часто без упоминания источника.",
    "pitch": "Недожато: 9P как минимальный универсальный протокол доступа к ресурсам (файлы, устройства, телеметрия) вместо десятков REST-API; «монтировать, а не интегрировать» драматически упрощает стыковку сервисов и агентов.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-plan9",
    "src": [
@@ -690,7 +698,7 @@
      "url": "https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs",
      "title": "Wikipedia: Plan 9 from Bell Labs",
      "read": true,
-     "quote": null,
+     "quote": "On March 23, 2021, development resumed following the transfer of copyright from Bell Labs to the Plan 9 Foundation.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -801,15 +809,15 @@
    "death": "Требовала переписать мир на Occam: не было рынка, не хватило денег и маркетинга, T9000 задержался и провалился — победил дешёвый массовый x86.",
    "now": "Мёртв, но CSP вернулся: Go, Erlang, Rust async. «Сеть из процессоров» — снова актуальна в чиплетах и edge-кластерах.",
    "pitch": "Вернуть аппаратную честность CSP: гарантированная латентность каналов и компилятор, раскладывающий программу по чиплетам и узлам. Сегодня это собирают вручную через MPI/акторы — а для multi-die и edge-AI это ключ.",
-   "quotes": 0,
-   "sources": 3,
+   "quotes": 2,
+   "sources": 4,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-transputer",
    "src": [
     {
      "url": "https://en.wikipedia.org/wiki/Transputer",
      "title": "Wikipedia: Transputer",
      "read": true,
-     "quote": null,
+     "quote": "Long delays in the T9000's development meant that the faster load/store designs were already outperforming it by the time it was to be released.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -823,11 +831,19 @@
     },
     {
      "url": "https://www.cs.otago.ac.nz/coursework/cosc461/occam.pdf",
-     "title": "Introduction to the programming language Occam",
+     "title": "Introduction to the programming language Occam (адрес мёртв с 2026-11-13 — архивная копия ниже)",
      "read": false,
      "quote": null,
      "link_state": "dead",
      "link_code": 0
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Occam_(programming_language)",
+     "title": "Wikipedia: Occam (programming language)",
+     "read": true,
+     "quote": "It was developed by David May and others at Inmos (trademark INMOS), advised by Tony Hoare , as the native programming language for their transputer microprocessors , but implementations for other platforms are available.",
+     "link_state": "alive",
+     "link_code": 200
     }
    ]
   },
@@ -849,7 +865,7 @@
    "death": "Коммерциализация затухла в 90-е, вернулась в Java, но не выдержала конкуренции с брокерами и БД; Jini так и не стал массовым, River закрыли.",
    "now": "Ниша: Redis/Kafka — родственники по идее очереди, но без ассоциативного поиска; JavaSpaces мёртв.",
    "pitch": "Доска для агентов: долгоживущие LLM-агенты должны общаться через разделяемое пространство (поиск по шаблону + TTL/аренды), а не через прямые вызовы. Это лечит восстановление после сбоев, backpressure и «агент упал — задача не потерялась».",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-linda",
    "src": [
@@ -865,7 +881,7 @@
      "url": "https://en.wikipedia.org/wiki/Jini",
      "title": "Wikipedia: Jini (leases, lookup, JavaSpaces, River retired 2022)",
      "read": true,
-     "quote": null,
+     "quote": "but the project was retired in early 2022 due to lack of activity.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -897,7 +913,7 @@
    "death": "Self как язык не выжил (эволюционировал в Klein VM), Smalltalk вытеснен мейнстримом; модель «образ как артефакт развёртывания» проиграла файлам и git.",
    "now": "Живые среды: Squeak/Pharo, notebooks, live-reload во фронтенде; JIT-техники Self — в V8 и HotSpot.",
    "pitch": "Вернуть «образ» на новый лад: сохраняемые состояния сессии и durable execution для локальных приложений и агентов (плюс правка на ходу), а не «перезапуск с нуля»; интерфейсы, которые морфят себя под задачу, вместо статичных форм.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-self",
    "src": [
@@ -905,7 +921,7 @@
      "url": "https://en.wikipedia.org/wiki/Self_(programming_language)",
      "title": "Wikipedia: Self (programming language)",
      "read": true,
-     "quote": null,
+     "quote": "In 2006, Self was still being developed as part of the Klein project, which was a Self virtual machine written fully in Self.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -1023,7 +1039,7 @@
    "death": "Отказ объявлен в блоге команды WinFS 23.06.2006: сложность, требования к производительности и отсутствие приложений, готовых потреблять схему. Технологию частично унаследовали SQL Server/ADO.NET.",
    "now": "Частично: Spotlight, теги, Datomic/Obsidian; как системного схемного слоя — не существует.",
    "pitch": "Локальный граф с типами и миграциями: SQLite/DuckDB под капотом + схема и индексы как системный сервис. Именно это сделает персональных агентов надёжными — у данных появляется структура, а не плоский текст.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-winfs",
    "src": [
@@ -1047,7 +1063,7 @@
      "url": "https://learn.microsoft.com/en-us/archive/blogs/winfs/update-to-the-update",
      "title": "WinFS team blog: Update to the update",
      "read": false,
-     "quote": null,
+     "quote": "But we are no longer are planning to release a separate WinFS delivery vehicle.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -1070,7 +1086,7 @@
    "death": "Партнёры и регуляторы отказались поставить Microsoft между пользователем и его данными; репутационный удар вокруг Passport добил проект.",
    "now": "Мёртв; идея вернулась как Solid/Pods и personal data stores — и иронично, как «контекст для LLM».",
    "pitch": "Личный дата-хаб как протокол, а не сервис: данные в хранилище, которым владеет пользователь; доступ агентов — по capability-ссылкам с журналом. Это HailStorm без вендора в центре и главная инфраструктурная дыра агентной эры.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-hailstorm",
    "src": [
@@ -1086,7 +1102,7 @@
      "url": "https://rip.so/microsoft-hailstorm.html",
      "title": "rip.so: Microsoft Hailstorm (2001–2002)",
      "read": false,
-     "quote": null,
+     "quote": "partners refused to let microsoft sit in the middle of their customer data, privacy groups refused to let microsoft sit in the middle of their users, and the project was renamed.net my services and then quietly killed by april 2002 without shipping a consumer product.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -1110,7 +1126,7 @@
    "death": "Проиграла X11 по политике и цене: код X раздавали бесплатно, NeWS — за лицензию; OPEN LOOK проиграл Motif, Sun прекратила поддержку после приобретения Adobe технологии FrameMaker.",
    "now": "Мёртв, но приёмы живут в шейдерах и GPU-компьют, в server-side rendering и в стриминге интерфейсов.",
    "pitch": "Отправлять программу, а не картинку — идеальная модель для удалённых и AI-генерируемых интерфейсов: сервер/агент отдаёт декларативное описание или шейдер-подобный код, клиент только исполняет и вводит данные.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 1,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-news",
    "src": [
@@ -1118,7 +1134,7 @@
      "url": "https://en.wikipedia.org/wiki/NeWS",
      "title": "Wikipedia: NeWS",
      "read": true,
-     "quote": null,
+     "quote": "After it was clear that OPEN LOOK had lost out to Motif in popularity, and after Adobe acquired FrameMaker , Sun stopped supporting NeWS.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -1283,8 +1299,8 @@
    "death": "Бюрократические войны: военные не хотели делиться информацией, ведомства — терять контроль; в итоге получили поддержку только локальные системы управления.",
    "now": "Мёртв; часть идей растворена в ведомственных системах.",
    "pitch": "Урок для «цифрового государства»: централизованная система не выживает без распределённой собственности на данные и без локальных точек правды. И — как показал Minitel — дешёвый терминал и платёжный слой важнее амбициозного протокола.",
-   "quotes": 1,
-   "sources": 3,
+   "quotes": 3,
+   "sources": 5,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-ogas",
    "src": [
     {
@@ -1297,7 +1313,7 @@
     },
     {
      "url": "https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start",
-     "title": "BBC Future: why the forgotten Soviet internet was doomed",
+     "title": "BBC Future: why the forgotten Soviet internet was doomed (адрес мёртв с 2026-11-13 — архивная копия ниже)",
      "read": false,
      "quote": null,
      "link_state": "dead",
@@ -1305,11 +1321,27 @@
     },
     {
      "url": "https://mitpress.mit.edu/five-minutes-with-benjamin-peters",
-     "title": "MIT Press: five minutes with Benjamin Peters (OGAS)",
+     "title": "MIT Press: five minutes with Benjamin Peters (OGAS) (адрес мёртв с 2026-11-13 — архивная копия ниже)",
      "read": false,
      "quote": null,
-     "link_state": "dead",
-     "link_code": 0
+     "link_state": "blocked",
+     "link_code": 403
+    },
+    {
+     "url": "http://web.archive.org/web/20191003050113/http://www.bbc.com:80/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start",
+     "title": "BBC Future — Why the forgotten Soviet internet was doomed from the start (архив Wayback, снимок 03.10.2019)",
+     "read": true,
+     "quote": "But the Soviet project, known as OGAS, was never finished.",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "http://web.archive.org/web/20261101101134/https://mitpress.mit.edu/five-minutes-with-benjamin-peters/",
+     "title": "MIT Press — Five minutes with Benjamin Peters (архив Wayback, снимок 01.11.2026)",
+     "read": true,
+     "quote": "The OGAS project was the most ambitious attempt to network the Soviet Union—to construct a national computer network.",
+     "link_state": "alive",
+     "link_code": 200
     }
    ]
   },
@@ -1370,7 +1402,7 @@
    "death": "PDA-линия закрыта (1998); на больших машинах победила файловая модель «файлы и папки», а не записи с индексом.",
    "now": "Мёртв; ближайшие родственники — Core Data, SQLite внутри приложений, локальные базы.",
    "pitch": "Единый структурный стор уровня ОС: одно хранилище записей с индексами, связями и «соками» вместо раздробленных файлов и схем. Это фундамент локально-первичных приложений и агентов.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-newton",
    "src": [
@@ -1378,7 +1410,7 @@
      "url": "https://en.wikipedia.org/wiki/Soup_(Apple_Newton)",
      "title": "Wikipedia: Soup (Apple Newton)",
      "read": true,
-     "quote": null,
+     "quote": "Soup is the file system for the Apple Newton platform, based on a shallow database system.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -1409,7 +1441,7 @@
    "death": "Реализовано частично и криво: подключённость есть, «спокойствия» нет — внимание стало товаром, а ubicomp-платформы выродились в системы слежки (это и есть главная критика наследия Вейзера).",
    "now": "Термин ubicomp почти мёртв, IoT — массовый продукт; «calm» остался дизайн-нишей.",
    "pitch": "Информация без прерывания: ambient- и glanceable-поверхности (e-ink, панели, звуковые подсказки) плюс правило «когда молчать». Для агентов это нормативный принцип: агент молчит, пока не изменится решение, а не отчитывается каждый шаг.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-weiser",
    "src": [
@@ -1417,7 +1449,7 @@
      "url": "https://calmtech.com/papers/computer-for-the-21st-century",
      "title": "Weiser (1991): The Computer for the 21st Century",
      "read": true,
-     "quote": null,
+     "quote": "My colleagues and I at PARC think that the idea of a \"personal\" computer itself is misplaced, and that the vision of laptop machines, dynabooks and \"knowledge navigators\" is only a transitional step toward achieving the real potential of information technology.",
      "link_state": "alive",
      "link_code": 200
     },

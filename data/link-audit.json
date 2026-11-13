@@ -1,9 +1,9 @@
 {
  "generated": "2026-11-13",
- "total": 151,
- "alive": 138,
- "dead": 4,
- "blocked": 9,
+ "total": 155,
+ "alive": 142,
+ "dead": 3,
+ "blocked": 10,
  "links": {
   "http://exelana.com/set/spec100/set_bk1.pdf": {
    "state": "alive",
@@ -47,6 +47,48 @@
     }
    ]
   },
+  "http://web.archive.org/web/20040918195921/http://hci.stanford.edu:80/seminar/abstracts/93-94/940121-hertzfeld.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "genmagic",
+     "r": 1,
+     "t": "Стэнфордский семинар HCI: Энди Херцфельд о General Magic (архив Wayback, снимок 18.09.2004)"
+    }
+   ]
+  },
+  "http://web.archive.org/web/20191003050113/http://www.bbc.com:80/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "ogas",
+     "r": 1,
+     "t": "BBC Future — Why the forgotten Soviet internet was doomed from the start (архив Wayback, снимок 03.10.2019)"
+    }
+   ]
+  },
+  "http://web.archive.org/web/20261101101134/https://mitpress.mit.edu/five-minutes-with-benjamin-peters/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "ogas",
+     "r": 1,
+     "t": "MIT Press — Five minutes with Benjamin Peters (архив Wayback, снимок 01.11.2026)"
+    }
+   ]
+  },
   "http://wotug.org/papers/IvimeyCook_W22.pdf": {
    "state": "alive",
    "code": 200,
@@ -85,7 +127,7 @@
      "digest": "lost-ideas-1980s-2000s",
      "entry": "ogas",
      "r": 0,
-     "t": "BBC Future: why the forgotten Soviet internet was doomed"
+     "t": "BBC Future: why the forgotten Soviet internet was doomed (адрес мёртв с 2026-11-13 — архивная копия ниже)"
     }
    ]
   },
@@ -702,6 +744,20 @@
      "entry": "ogas",
      "r": 1,
      "t": "Wikipedia: OGAS"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Occam_(programming_language)": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "transputer",
+     "r": 1,
+     "t": "Wikipedia: Occam (programming language)"
     }
    ]
   },
@@ -1425,7 +1481,7 @@
      "digest": "lost-ideas-1980s-2000s",
      "entry": "genmagic",
      "r": 0,
-     "t": "Stanford HCI seminar (1994): Hertzfeld on Magic Cap and Telescript"
+     "t": "Stanford HCI seminar (1994): Hertzfeld on Magic Cap and Telescript (адрес мёртв с 2026-11-13 — архивная копия ниже)"
     }
    ]
   },
@@ -1486,8 +1542,8 @@
    ]
   },
   "https://mitpress.mit.edu/five-minutes-with-benjamin-peters": {
-   "state": "dead",
-   "code": 0,
+   "state": "blocked",
+   "code": 403,
    "error": "",
    "checked": "2026-11-13",
    "refs": [
@@ -1495,7 +1551,7 @@
      "digest": "lost-ideas-1980s-2000s",
      "entry": "ogas",
      "r": 0,
-     "t": "MIT Press: five minutes with Benjamin Peters (OGAS)"
+     "t": "MIT Press: five minutes with Benjamin Peters (OGAS) (адрес мёртв с 2026-11-13 — архивная копия ниже)"
     }
    ]
   },
@@ -1649,7 +1705,7 @@
      "digest": "lost-ideas-1980s-2000s",
      "entry": "transputer",
      "r": 0,
-     "t": "Introduction to the programming language Occam"
+     "t": "Introduction to the programming language Occam (адрес мёртв с 2026-11-13 — архивная копия ниже)"
     }
    ]
   },
@@ -2059,7 +2115,7 @@
   },
   "https://www.tron.org/ja/wp-content/uploads/sites/2/2023/12/ieeemilestone-en.pdf": {
    "state": "alive",
-   "code": 206,
+   "code": 200,
    "error": "",
    "checked": "2026-11-13",
    "refs": [

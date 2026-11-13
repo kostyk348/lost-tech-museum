@@ -48,9 +48,9 @@ templates/dashboard.html   шаблон страницы дайджеста (pag
 templates/stack.html       шаблон страницы стека (карточки-фоны page / widget)
 templates/index.html       шаблон главной страницы-хаба
 scripts/build.py           сборка: index.html + digests/<slug>/ + docs/<slug>/ + stacks/<slug>/ + provenance/ (+ --widget)
-scripts/machine.py         api/index.json, api/entries.json, feed.xml, sitemap.xml, robots.txt (из тех же данных)
+scripts/machine.py         api/index.json, api/entries.json, api/entries.csv, api/museum.bib, feed.xml, sitemap.xml, robots.txt
 scripts/quotes.py          сверка дословных цитат с первоисточниками (+ data/quote-audit.json)
-scripts/audit_links.py     живость всех ссылок архива (+ data/link-audit.json), 1 запрос/с на хост
+scripts/audit_links.py     живость всех ссылок архива (+ data/link-audit.json и снимок в data/audit-history/), 1 запрос/с на хост
 scripts/suggest_quotes.py  кандидаты цитат из первоисточников для записей, где цитаты нет
 scripts/check_site.py      проверка страниц, API и целостности данных (код 1 — публиковать нельзя)
 scripts/lint_stacks.py     проверка целостности стеков: связи, фон, источники, белый список инструментов
