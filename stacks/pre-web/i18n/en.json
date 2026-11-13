@@ -1,0 +1,253 @@
+{
+  "title": "Stack: the network and hypertext before the web — what was solved there",
+  "subtitle": "10 cards on top of the archive: Xanadu and HyperCard, Gopher and WAIS, Minitel and kiosque, Usenet, NIFTY-Serve, i-mode, OGAS — plus a build card “a network for agents” from eight decisions.",
+  "about": "A stack about the network that existed before the web: provenance and transclusion, a thin protocol, a single bill, federation with reputation, a curated community, card tools. Every card rests on a verified archive entry.",
+  "archive_title": "Ideas that didn't survive: Japanese and world software, 1980–2006 (RU)",
+  "backgrounds": {
+    "home": "stack home",
+    "fact": "fact card",
+    "before-after": "before / after",
+    "checklist": "build"
+  },
+  "cards": {
+    "home": {
+      "title": "The network that existed before the web — and its unfinished decisions",
+      "subtitle": "stack home · 10 cards · archive 1962–2026",
+      "fields": [
+        { "lbl": "Why this stack", "val": "The web did not win because it was better at everything. It won on some trade-offs — one-way links, free viewing, hypertext with pictures — and lost on others: provenance, payments, moderation, reputation. This stack collects what was solved before the web and shows what is relevant again in the age of agents and generated content." },
+        { "lbl": "How to use it", "val": "Page through the cards with ← → or click the list. Every card links to an archive entry (⌗) and to related cards; the reverse side of each link is visible under “links here”. A button is a bounded prompt: in the chat it goes to the agent, on the site it is copied to the clipboard." },
+        { "lbl": "What this is not", "val": "Not nostalgia for Minitel and not a call to bring Gopher back. Facts (dates, numbers, names) come from verified archive entries; “what to build” and the “gap” score are the agent's judgement, marked as judgement." }
+      ],
+      "links": {
+        "xanadu": "provenance and transclusion as required properties",
+        "hypercard": "a card tool instead of a feed",
+        "gopher": "a thin protocol as a value",
+        "minitel": "a single bill and a cheap terminal",
+        "usenet": "federation without a centre — and its failure",
+        "nifty": "a curated community as a paid product",
+        "imode": "carrier billing and content instead of a shrunken web",
+        "ogas": "data as state infrastructure",
+        "build": "build: a network for agents"
+      },
+      "actions": [
+        { "t": "Build a stack on another topic", "p": "Build a card stack over the museum archive on the topic: <my topic>. Format — stacks/<slug>/stack.json, fact / before-after / checklist backgrounds, every card linking to an archive entry and every action carrying a tool whitelist." }
+      ],
+      "sources": [
+        "Data of this stack: stacks/pre-web/stack.json",
+        "Source archive: 35 findings, 1980–2006 (verified by Archivessa)"
+      ]
+    },
+    "xanadu": {
+      "title": "Xanadu — a link as an object, not an address",
+      "subtitle": "1960 — 1990s · Ted Nelson · transclusion, two-way links, versions",
+      "fields": [
+        { "lbl": "What it was", "val": "Ted Nelson's project: transclusion (including a fragment as a link), two-way unbreakable links, versioning, a “docuverse” of interrelated parts." },
+        { "lbl": "Why it mattered", "val": "A link as a first-class object: it does not rot, it knows its source, documents are assembled from parts; versioning and citation are built in rather than bolted on." },
+        { "lbl": "Why it lost", "val": "Implementation complexity in the 1970s–80s, a proprietary model, years without a release. The web chose one-way links and — as it turned out — made a good trade." },
+        { "lbl": "Where it lives now", "val": "Partly: two-way links in graph notes (Obsidian, Roam), transclusion in Notion blocks — but without source versioning." },
+        { "lbl": "What to build today", "val": "Transclusion and versioning as required properties: content-addressed fragments plus two-way links plus a provenance history for every piece. In the age of generated content this is the only honest way to show provenance — “where did this paragraph come from”." }
+      ],
+      "links": {
+        "build": "the first build decision: provenance",
+        "hypercard": "the other hypertext branch, the one that reached people"
+      },
+      "actions": [
+        { "t": "Design a link with provenance", "p": "Design a link format with provenance: a content-addressed fragment, a backlink, the source version, and what happens when the source changes. Compare with a plain URL and with citation in articles." },
+        { "t": "Check what Obsidian/Notion actually have", "p": "Check what of Xanadu is actually implemented in Obsidian, Roam and Notion (backlinks, embeds, block versions): what works, what does not. Documentation links." }
+      ],
+      "sources": [
+        "Archive entry: Project Xanadu (verified by Archivessa)",
+        "Wikipedia: Project Xanadu"
+      ]
+    },
+    "hypercard": {
+      "title": "HyperCard — a program you can touch",
+      "subtitle": "1987 — 2004 · Bill Atkinson · card stacks plus HyperTalk",
+      "fields": [
+        { "lbl": "What it was", "val": "Apple's hypermedia environment (released 11 August 1987 at $49.95, later bundled with every new Mac): stacks of cards plus the HyperTalk language. Last update in 1998, withdrawn from sale in March 2004." },
+        { "lbl": "Why it mattered", "val": "Programming for everyone: millions of non-programmers built working tools — cards, links and scripts in one environment. The direct ancestor of low-code and of the wiki approach." },
+        { "lbl": "Why it died", "val": "Apple found no place for it in the web era and never ported it to Mac OS X; after Jobs returned, the product was frozen." },
+        { "lbl": "Where it lives now", "val": "Dead; the legacy is LiveCode, FileMaker, notebooks, and the very idea of the citizen developer." },
+        { "lbl": "What to build today", "val": "HyperCard for LLMs: a user assembles a personal tool from cards, data and agent steps, executing locally. It brings back “a program you can touch” instead of a chat where the result dissolves into a transcript." }
+      ],
+      "links": {
+        "xanadu": "two hypertext branches: the rigorous one and the human one",
+        "build": "the second build decision: a tool instead of a feed"
+      },
+      "actions": [
+        { "t": "Build a card tool from my task", "p": "Take my recurring task (I will describe it) and build a card stack for it: data fields, a background template, and two or three actions with a tool whitelist. Write stack.json in the museum format." },
+        { "t": "What became of the HyperCard legacy", "p": "Check what of the HyperCard legacy is alive today (LiveCode, FileMaker, Claris, RunRev) and who actually uses it. Facts with links, no nostalgia." }
+      ],
+      "sources": [
+        "Archive entry: HyperCard (verified by Archivessa)",
+        "Wikipedia: HyperCard (1987–1998, withdrawn 2004)"
+      ]
+    },
+    "gopher": {
+      "title": "Gopher and WAIS — a thin protocol as a value",
+      "subtitle": "1991 — 1990s · University of Minnesota · RFC 1436",
+      "fields": [
+        { "lbl": "What it was", "val": "The Gopher protocol (mid-1991, RFC 1436): hierarchical menus of documents, simple syntax, fast clients. Alongside it WAIS (full-text search), Archie and Veronica." },
+        { "lbl": "Why it mattered", "val": "A cheap, readable, extensible access model: a server up in an evening, a client too; the internet's first large “electronic library”." },
+        { "lbl": "Why it lost", "val": "The web won with hypertext, pictures and free viewing; Gopher faded to enthusiasts." },
+        { "lbl": "Where it lives now", "val": "A small community of servers; the spiritual heir is the Gemini protocol." },
+        { "lbl": "What to build today", "val": "A thin protocol as a value: documents with types and metadata, search as part of the protocol, a client in a weekend. A reference point for the machine-readable web and agent interfaces instead of heavy SPA wrappers." }
+      ],
+      "links": {
+        "build": "the third build decision: a thin protocol"
+      },
+      "other": {
+        "agent-protocols/osi": "the same lesson: a minimal core over a weekend"
+      },
+      "actions": [
+        { "t": "Make a Gopher-like interface for a site", "p": "Design a minimal machine-readable interface for my site/service in the spirit of Gopher: menus, document types, metadata, search as part of the protocol. Compare the size with the current HTML/JS." },
+        { "t": "Check who is alive in Gopher/Gemini", "p": "Check the current state of Gopher and Gemini: how many servers, what the community is, live clients. Primary sources with links." }
+      ],
+      "sources": [
+        "Archive entry: Gopher / WAIS (verified by Archivessa)",
+        "Wikipedia: Gopher (protocol), RFC 1436"
+      ]
+    },
+    "minitel": {
+      "title": "Minitel — a single bill and a terminal as infrastructure",
+      "subtitle": "1980/1982 — 2012 · France Télécom · kiosque",
+      "fields": [
+        { "lbl": "Before", "val": "France's national videotex network: an experiment in July 1980 (Saint-Malo), commercial from 1982, switched off on 30 June 2012. Directory, shopping, bookings, banking, chat; terminals were given to subscribers free of charge." },
+        { "lbl": "Why it lost", "val": "The internet: a fixed protocol against an open network. France Télécom switched the service off on 30 June 2012." },
+        { "lbl": "What it became", "val": "Dead, except for art and retro projects. But its payment model returned as app stores — only with a commission and a vendor in the middle." },
+        { "lbl": "What it means", "val": "Two unfinished elements: (1) kiosque — micropayments with a single bill and safe settlement, neutral to the platform; (2) a cheap terminal as state access infrastructure — a model for digital equality. Ten million monthly connections in 2009 is not nostalgia, it is a fact." }
+      ],
+      "links": {
+        "imode": "the same bet on carrier billing",
+        "build": "the fourth build decision: a payment layer"
+      },
+      "actions": [
+        { "t": "Design kiosque for agents", "p": "Design a “kiosque” payment model for agent subscriptions: one bill, limits, who pays for tokens, and how to avoid the store commission. Start from card minitel and mark judgement explicitly." },
+        { "t": "Take apart the Minitel economics", "p": "Take apart the Minitel economics from sources: who paid, how revenue was split, why the model did not survive the internet. Numbers only with links." }
+      ],
+      "sources": [
+        "Archive entry: Minitel (verified by Archivessa)",
+        "Wikipedia: Minitel",
+        "WIRED (2012): Before the Web there was Minitel"
+      ]
+    },
+    "usenet": {
+      "title": "Usenet — federation without a centre, and its failure",
+      "subtitle": "1979/1980 — present · UUCP → NNTP · peering instead of a server",
+      "fields": [
+        { "lbl": "What it was", "val": "A distributed discussion system (idea in 1979, launch in 1980) on UUCP, later NNTP: newsgroups, peering without a central server and without an administrator." },
+        { "lbl": "Why it mattered", "val": "Federation as the norm: replication, no owner, hierarchies with different moderation, cheap distribution of text across the whole network." },
+        { "lbl": "Why it died as a community", "val": "Eternal September, spam, binary attachments and sheer volume; discussion moved to web forums, then to social networks. Centralised services turned out to be more convenient." },
+        { "lbl": "Where it lives now", "val": "Alive as narrow infrastructure (archives, binary groups), but not as a community." },
+        { "lbl": "What to build today", "val": "The problem with federated networks is not the protocol but reputation and moderation: “moderation as protocol” — inheriting trust and rules between instances, plus smart replication (not forwarding everything, as Nostr does). The pattern is ready from Usenet hierarchies." }
+      ],
+      "links": {
+        "nifty": "the opposite answer: editing and moderation as a product",
+        "build": "the fifth build decision: reputation between instances"
+      },
+      "actions": [
+        { "t": "Design moderation as protocol", "p": "Design a mechanism for inheriting trust and rules between instances of a federated network: what is transferred, how it is revoked, how it behaves when moderations conflict. Start from Usenet hierarchies." },
+        { "t": "What actually broke Usenet", "p": "Establish from sources what exactly broke Usenet as a community (Eternal September, spam, binaries): a timeline with dates and links." }
+      ],
+      "sources": [
+        "Archive entry: Usenet (UUCP → NNTP) (verified by Archivessa)",
+        "Wikipedia: Usenet"
+      ]
+    },
+    "nifty": {
+      "title": "NIFTY-Serve — a curated community as a product",
+      "subtitle": "1987 — 2006 · Fujitsu + Nissho Iwai · subscription instead of advertising",
+      "fields": [
+        { "lbl": "What it was", "val": "A Japanese online service (April 1987 – March 2006), a joint venture of Fujitsu and Nissho Iwai: forums, mail, games, per-minute billing over a phone line. Peak of about 1.6 million subscribers in the mid-1990s." },
+        { "lbl": "Why it mattered", "val": "“CompuServe, Japanese style”: editing and moderation, local communities (FUD), paid access instead of advertising — quality of attention as a product." },
+        { "lbl": "Why it died", "val": "The internet and the web: closed editorial services could not survive against a free alternative. Forums closed in 2005, the service in March 2006." },
+        { "lbl": "Where it lives now", "val": "Dead." },
+        { "lbl": "What to build today", "val": "A paid community as a product: subscription plus human moderation plus local context. In the age of generated spam a curated board becomes a premium feature rather than an anachronism." }
+      ],
+      "links": {
+        "usenet": "moderation versus federation: two answers to one problem",
+        "build": "the sixth build decision: quality of attention"
+      },
+      "actions": [
+        { "t": "Build a paid community model", "p": "Build a model for a paid curated community: what the subscription includes, who moderates, how quality of attention is measured, how it defends against generated spam. Start from NIFTY-Serve." },
+        { "t": "Check the facts on NIFTY-Serve", "p": "Collect the facts on NIFTY-Serve from primary sources: dates, subscriber numbers, the payment model, why it closed. Links are mandatory." }
+      ],
+      "sources": [
+        "Archive entry: NIFTY-Serve (verified by Archivessa)",
+        "rip.so: NIFTY-Serve (1987–2006)"
+      ]
+    },
+    "imode": {
+      "title": "i-mode — a phone as a platform seven years before the App Store",
+      "subtitle": "1999 — 2026 · NTT DoCoMo · cHTML, billing, i-appli",
+      "fields": [
+        { "lbl": "Before", "val": "NTT DoCoMo's mobile internet (launched 22 February 1999): cHTML, mail, banking, paid content, billing through the carrier. Java applications (i-appli/DoJa) from January 2001." },
+        { "lbl": "Why it did not survive", "val": "The export failed: Nokia and other global vendors refused to build i-mode handsets, and carriers depended on Japanese manufacturers with no international experience. The peak in Japan was around 2008; DoCoMo announced the end on 29 October 2019, and the service was switched off on 31 March 2026." },
+        { "lbl": "What it became", "val": "The ideas live on in app stores and super-apps — but with a vendor and a commission in the middle." },
+        { "lbl": "What it means", "val": "Carrier billing as an API plus “content, not a shrunken web”: cHTML beat WAP precisely because it did not require a separate internet. Today this is about a single bill for agents and subscriptions without a store commission." }
+      ],
+      "links": {
+        "minitel": "the same model: one bill instead of a card",
+        "build": "the seventh build decision: content, not a shrunken web"
+      },
+      "actions": [
+        { "t": "Compare i-mode and the App Store on economics", "p": "Compare the economics of i-mode and the App Store: who pays, to whom, what the commission is, what the carrier had and the store does not. A table plus source links." },
+        { "t": "Design billing for agents", "p": "Design a payment scheme for agent actions without an app store: one bill, per-action limits, revocation of access, an audit trail. Start from cards imode and minitel." }
+      ],
+      "sources": [
+        "Archive entry: i-mode + i-appli (verified by Archivessa)",
+        "Wikipedia: i-mode"
+      ]
+    },
+    "ogas": {
+      "title": "OGAS — data as state infrastructure",
+      "subtitle": "1962 — 1970 · Viktor Glushkov · the project was rejected on 1 October 1970",
+      "fields": [
+        { "lbl": "What it was", "val": "An all-state automated system for accounting and information processing: a national network to manage the economy in real time (Viktor Glushkov, proposed in 1962). Funding was rejected on 1 October 1970 and the plan was never adopted." },
+        { "lbl": "Why it was ambitious", "val": "An estimate of about 24 billion roubles (roughly $850 bn in 2016 dollars) and a projected fivefold return within the first 15 years; the idea of “data as state infrastructure” decades ahead of its time." },
+        { "lbl": "Why it never happened", "val": "Bureaucratic wars: the military did not want to share information and ministries did not want to lose control. Only local management systems received support." },
+        { "lbl": "Where it lives now", "val": "Dead; some of the ideas dissolved into departmental systems." },
+        { "lbl": "What to build today", "val": "A lesson for “digital government” and for any centralised platform: a system does not survive without distributed ownership of data and local points of truth. And, as Minitel showed, a cheap terminal and a payment layer matter more than an ambitious protocol." }
+      ],
+      "links": {
+        "minitel": "the terminal and the payment layer matter more than the protocol",
+        "build": "the eighth build decision: local points of truth"
+      },
+      "actions": [
+        { "t": "Take apart OGAS from sources", "p": "Take apart the OGAS story from sources: what was proposed technically, who blocked it, why it was rejected in 1970. Quotes and links, no retelling of rumours." },
+        { "t": "Design a distributed point of truth", "p": "Design an architecture with distributed ownership of data: local points of truth, exchange, who owns a record, how conflicts are resolved. Apply the lessons of OGAS and Usenet." }
+      ],
+      "sources": [
+        "Archive entry: OGAS (verified by Archivessa)",
+        "Wikipedia: OGAS",
+        "BBC Future: why the forgotten Soviet internet was doomed"
+      ]
+    },
+    "build": {
+      "title": "Build: a network for agents from eight decisions",
+      "subtitle": "the stack's practical output · 8 decisions from 8 cards",
+      "fields": [
+        { "lbl": "Provenance instead of “just a link”", "val": "Content-addressed fragments, backlinks, source version. Without it generated content is indistinguishable from fact.", "to": "xanadu" },
+        { "lbl": "A tool instead of a feed", "val": "The result of an agent's work is a card or board you can touch and reuse, not a message in a chat.", "to": "hypercard" },
+        { "lbl": "A thin machine-readable protocol", "val": "Menus, document types, metadata, search inside the protocol. A client in a weekend is the adoption criterion.", "to": "gopher" },
+        { "lbl": "A payment layer neutral to the platform", "val": "One bill and micropayments with limits instead of a store commission; who pays for an agent action is part of the protocol.", "to": "minitel" },
+        { "lbl": "Reputation and rules between instances", "val": "“Moderation as protocol”: inheriting trust and rules, smart replication instead of forwarding everything.", "to": "usenet" },
+        { "lbl": "Quality of attention as a product", "val": "A curated community with a subscription and human moderation — a premium feature in the age of spam.", "to": "nifty" },
+        { "lbl": "Content, not a shrunken web", "val": "cHTML beat WAP because it did not require a separate internet: the minimal format that works on what already exists.", "to": "imode" },
+        { "lbl": "Local points of truth", "val": "A centralised system without distributed ownership of data dies of departmental conflict.", "to": "ogas" }
+      ],
+      "links": {
+        "xanadu": "the first and most important decision",
+        "hypercard": "the shape of the result matters more than the model"
+      },
+      "actions": [
+        { "t": "Run my project through the build card", "p": "Run my project/idea through the eight build decisions of the pre-web stack: present / missing / partial, and what to do first. As a table, with links to the source cards." },
+        { "t": "Build a minimal prototype", "p": "Build a minimal prototype: a card with provenance (a content-addressed fragment), a backlink, and one agent action. Show working code and its output." },
+        { "t": "Ask Archivessa about currency", "p": "Ask Archivessa to verify that the archive entries the pre-web stack relies on (xanadu, hypercard, gopher, minitel, usenet, nifty, imode, ogas) are not retracted and that their sources are alive." }
+      ],
+      "sources": [
+        "This stack: a synthesis of eight cards (agent judgement)"
+      ]
+    }
+  }
+}

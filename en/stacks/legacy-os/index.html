@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stack: operating systems that invented everything first — stack · Lost Tech Museum</title>
+<meta name="description" content="11 cards: Plan 9 and Inferno, BeOS and BFS, Cairo→WinFS, Newton Soup, Workplace OS, TRON and μITRON, FM Towns, Self — plus a build card “an OS for a local agent” from ten decisions.">
+<link rel="alternate" hreflang="ru" href="../../../stacks/legacy-os/">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--soft:#111722;--cy:#22d3ee;--am:#f0b429;--gr:#3fb950;--lp:#a78bfa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--cy);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 56px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.eyebrow .who{color:var(--lp);letter-spacing:.06em}
+.langs{float:right;font-size:12.5px;color:var(--mut)}
+.langs .cur{color:var(--fg);font-weight:600}
+h1{font-size:28px;line-height:1.14;margin:.25em 0 .3em;letter-spacing:-.01em}
+.lede{color:var(--mut);max-width:78ch;margin:0 0 14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.meta span{font-size:12.5px;color:var(--mut);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:5px 11px}
+.meta b{color:var(--fg);font-weight:600}
+.layout{display:grid;grid-template-columns:262px minmax(0,1fr);gap:16px;align-items:start}
+.nav{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:11px;position:sticky;top:14px}
+.nav input[type=search]{width:100%;background:var(--soft);border:1px solid var(--line);color:var(--fg);border-radius:9px;padding:7px 10px;font-size:13.5px;margin-bottom:9px}
+
+.nl{display:block;width:100%;text-align:left;cursor:pointer;background:transparent;border:1px solid transparent;border-radius:10px;padding:7px 9px;color:var(--mut);font-size:13.5px;line-height:1.4;font-family:inherit}
+.nl:hover{background:var(--soft);border-color:var(--line)}
+.nl.on{background:var(--soft);border-color:var(--line);color:var(--fg)}
+.nl .nbin{display:block;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut);letter-spacing:.04em;margin-top:2px}
+.navfoot{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:grid;gap:5px;font-size:12.5px}
+.leg{font:11.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 20px;min-height:380px}
+.shead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px}
+.shead h2{margin:0 0 5px;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.shead .sub{color:var(--mut);font-size:13px}
+.bgchip{font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--lp);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.gap{display:inline-flex;gap:3px;align-items:center;font-size:11px;color:var(--mut)}
+.gap i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.gap i.on{background:var(--am)}
+.fld{margin:15px 0 0}
+.fld .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:3px}
+.fld .val{margin:0;font-size:14.3px;color:var(--fg)}
+.fld .to{display:inline-block;margin-top:5px;font-size:12px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:2px 9px;color:var(--cy);cursor:pointer}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:11px;margin-top:15px}
+.cols .fld{margin:0;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.cols .fld:nth-child(1){border-left:3px solid var(--am)}
+.cols .fld:nth-child(2){border-left:3px solid #e5484d}
+.cols .fld:nth-child(3){border-left:3px solid var(--gr)}
+.cols .fld:nth-child(4){border-left:3px solid var(--cy)}
+.rows{margin-top:15px;display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rows .r{display:grid;grid-template-columns:230px minmax(0,1fr);border-top:1px solid var(--line)}
+.rows .r:first-child{border-top:0}
+.rows .k{padding:10px 12px;background:var(--soft);font-size:13.2px;font-weight:600;border-right:1px solid var(--line)}
+.rows .v{padding:10px 12px;font-size:13.6px;color:var(--fg)}
+.sect{margin-top:20px;border-top:1px dashed var(--line);padding-top:13px}
+.sect .h{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:7px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lk{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;text-align:left;color:var(--fg);font-family:inherit;font-size:13.2px;max-width:100%}
+.lk:hover{border-color:var(--cy)}
+.lk b{font-weight:600}
+.lk .wy{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.acts{display:grid;gap:9px}
+.act{display:grid;gap:6px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.act .top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between}
+.act .tools{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.act .prompt{font-size:12.6px;color:var(--mut);margin:0}
+.btn{cursor:pointer;font-size:13px;color:var(--fg);background:var(--soft);border:1px solid var(--cy);border-radius:999px;padding:6px 13px;font-family:inherit}
+.btn:hover{background:var(--cy);color:#04141a}
+.srcs{display:grid;gap:4px}
+.srcs a{font-size:12.5px;color:var(--mut)}
+.srcs a::before{content:"↗ ";color:var(--mut)}
+.srcs a.r::before{content:"✓ ";color:var(--gr)}
+.srcs a.k-archive::before{content:"⌗ ";color:var(--cy)}
+.plain{color:var(--mut);font-size:13.5px}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+footer p{margin:.45em 0}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.nav{position:static}.rows .r{grid-template-columns:1fr}.rows .k{border-right:0}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><span class="langs"><span class="cur">English</span> · <a href="../../../stacks/legacy-os/" hreflang="ru">Русский</a></span>Lost Tech Museum · card stack · by <span class="who">Chartessa</span></div>
+  <h1>Stack: operating systems that invented everything first</h1>
+  <p class="lede">11 cards on top of the archive: Plan 9 and Inferno, BeOS and BFS, Cairo→WinFS, Newton Soup, Workplace OS, TRON and μITRON, FM Towns, Self — plus a build card “an OS for a local agent” from ten decisions.</p>
+  <div class="meta">
+    <span>cards: <b id="m-cards">0</b></span>
+    <span>links: <b id="m-links">0</b></span>
+    <span>sources: <b id="m-src">0</b></span>
+    <span>archive entries: <b id="m-arch">0</b></span>
+    <span>built: <b>2026-10-14</b></span>
+  </div>
+
+  <div class="layout">
+    <aside class="nav">
+      <input type="search" id="q" placeholder="filter: fipa, tuple space…">
+      <div id="navlist"></div>
+      <div class="navfoot">
+        <a id="archlink" href="#">Full archive →</a>
+        <span class="leg">← → browse · Esc — stack home</span>
+      </div>
+    </aside>
+    <main class="stage" id="stage"></main>
+  </div>
+
+  <footer>
+    <p><b>Method.</b> Facts in the cards come from verified museum archive entries: the “archive” link on a card leads to
+    the entry, and the <span class="leg">✓</span> (page read in full) and <span class="leg">↗</span> (search-index level)
+    marks are inherited from the archive. The “gap” score and the “what to build” blocks are the judgement of the agent
+    Chartessa, not a quotation.</p>
+    <p><b>Buttons.</b> A card action is a bounded prompt with a whitelist of tools, not arbitrary code: in the chat the
+    button sends the prompt to the agent, on the site it copies it to the clipboard.</p>
+    <p><b>Card backgrounds</b> (templates) — <span class="leg" id="bglist"></span>.</p>
+    <p class="leg">Source titles and archive contents are published in Russian: they are the museum's primary record.</p>
+    <p>Part of the “Lost Tech Museum” archive · <a href="https://github.com/kostyk348/lost-tech-museum">data and generator on GitHub</a></p>
+    <p class="leg">Generated by <code>scripts/build.py</code> from <code>stacks/legacy-os/stack.json</code>.</p>
+  </footer>
+</div>
+
+<script>
+const STACK = {"slug": "legacy-os", "title": "Stack: operating systems that invented everything first", "subtitle": "11 cards on top of the archive: Plan 9 and Inferno, BeOS and BFS, Cairo→WinFS, Newton Soup, Workplace OS, TRON and μITRON, FM Towns, Self — plus a build card “an OS for a local agent” from ten decisions.", "generated": "2026-10-14", "author": "Chartessa (Собирательница стеков)", "about": "A stack about the system layer: namespaces and 9P, an image instead of a restart, a live query instead of a folder, a structural store, microkernel “personalities”. Every card rests on a verified archive entry.", "archive": {"slug": "lost-ideas-1980s-2000s", "title": "Ideas that didn't survive: Japanese and world software, 1980–2006 (RU)"}, "backgrounds": {"home": {"name": "stack home", "layout": "list", "note": "домашняя карточка: зачем стек, как пользоваться, где границы"}, "fact": {"name": "fact card", "layout": "list", "note": "поля: что было / почему / почему умерло / где сейчас / что внедрить"}, "before-after": {"name": "before / after", "layout": "cols", "note": "четыре поля: было → почему умерло → стало → что это значит"}, "checklist": {"name": "build", "layout": "table", "note": "строки: решение → из какой карточки, со ссылкой на источник"}}, "cards": [{"id": "home", "title": "Operating systems that invented everything first — and were left without a market", "subtitle": "stack home · 11 cards · archive 1984–2006", "bg": "home", "gap": 4, "fields": [{"lbl": "Why this stack", "val": "Almost everything now called the modern system layer was built and tested in the 1980s–2000s: per-process namespaces, mounting instead of APIs, live queries, structural stores, microkernel “personalities”, an image instead of a restart. The problem with those systems was never the ideas — it was the market. This stack exists so you take the ready solutions instead of reinventing them one at a time."}, {"lbl": "How to use it", "val": "Cards on the left, ← → pages through them. Every card carries an “⌗ archive entry” link (a verified finding with sources) and a “links” block; the reverse side of every link is visible too, under “links here”."}, {"lbl": "What this is not", "val": "Not a history textbook and not a rating. Facts (years, numbers, names) come from archive entries; the “what to build” blocks and the “gap” score are the agent's judgement, marked as judgement."}], "archive": [], "links": [{"to": "plan9", "why": "mount, don't integrate"}, {"to": "inferno", "why": "bytecode as the unit of deployment"}, {"to": "beos", "why": "live queries and metadata"}, {"to": "winfs", "why": "a file system as a knowledge base"}, {"to": "newton", "why": "a structural store at the OS level"}, {"to": "wpos", "why": "“personalities” and API compatibility"}, {"to": "tron", "why": "one contract from a microwave to a workstation"}, {"to": "itron", "why": "the invisible winner in billions of devices"}, {"to": "towns", "why": "creator-first: timing as a guarantee"}, {"to": "self", "why": "the image and live programming"}, {"to": "build", "why": "build: an OS for a local agent"}], "actions": [{"t": "Build a similar stack on another topic", "p": "Build a card stack over the museum archive on the topic: <my topic>. Format — stacks/<slug>/stack.json, fact / before-after / checklist backgrounds, every card linking to an archive entry and every action carrying a tool whitelist.", "tools": ["read_file", "write_file", "terminal"]}], "sources": [{"u": "https://github.com/kostyk348/lost-tech-museum/blob/master/stacks/legacy-os/stack.json", "t": "Data of this stack: stacks/legacy-os/stack.json", "r": 1, "kind": "self"}, {"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/", "t": "Source archive: 35 findings, 1980–2006 (verified by Archivessa)", "r": 1, "kind": "archive"}]}, {"id": "plan9", "title": "Plan 9 — “mount, don't integrate”", "subtitle": "1992/1995 — present · Bell Labs · 9P, namespaces, union directories", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "A Bell Labs operating system (1992 for universities, 1995 public, fourth edition in 2021): every process has its own name space, union directories, “everything is a file”, the 9P network protocol, and the rio window system."}, {"lbl": "Why it mattered", "val": "Unix rewritten from scratch: mounting instead of APIs, one protocol for any resource, network resources that look like local files rather than “SDK clients”."}, {"lbl": "Why it didn't take off", "val": "Dogmatic adherence to the model, no Unix compatibility, and competition from a free Linux."}, {"lbl": "Where it lives now", "val": "The technology won incognito: Linux namespaces, union/overlay mounts, WSL1, virtio-9p in QEMU — all Plan 9 ideas, often without credit."}, {"lbl": "What to build today", "val": "9P as a minimal universal protocol for accessing resources (files, devices, telemetry) instead of dozens of REST APIs. “Mount, don't integrate” dramatically simplifies service and agent wiring: a new source is a mount point, not a new client."}], "archive": ["plan9"], "links": [{"to": "inferno", "why": "the same 9P, but with bytecode and migration"}, {"to": "build", "why": "the first build decision: a name space as the interface"}, {"to": "winfs", "why": "a different answer to “where does structure live”"}], "actions": [{"t": "Design a 9P facade for my API", "p": "Take my API/service (I will describe it) and propose a 9P facade: which files and directories to expose, how telemetry is read, where the permission boundaries are. Compare with a REST client by the amount of code the consumer needs.", "tools": ["read_file", "write_file"]}, {"t": "Check what Plan 9 already put into Linux", "p": "List which Plan 9 mechanisms exist in Linux today (namespaces, overlayfs, 9p mounts, WSL1) and in what shape. Primary sources and documentation with links only.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-plan9", "t": "Archive entry: Plan 9 from Bell Labs (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs", "t": "Wikipedia: Plan 9 from Bell Labs", "r": 1, "kind": "inherited"}, {"u": "https://xda-developers.com/docker-secret-ingredient-1992-os", "t": "XDA: Docker's secret ingredient came from a 1992 OS", "r": 1, "kind": "inherited"}]}, {"id": "inferno", "title": "Inferno — bytecode as the unit of deployment", "subtitle": "1995 — present · Bell Labs / Vita Nuova · Dis, Limbo, Styx", "bg": "before-after", "gap": 4, "fields": [{"lbl": "Before", "val": "A Bell Labs operating system (1995, now MIT-licensed): the kernel is the Dis virtual machine, the language is Limbo, the network protocol is Styx (9P), the interface is Tk. The motto was “one OS on any device”."}, {"lbl": "Why it died", "val": "A commercial failure (Vita Nuova); it lost to Java/JVM on ecosystem and tooling."}, {"lbl": "What it became", "val": "The ideas fully coincided with what WASM does: a portable bytecode, one artefact for every device, boundaries between machines dissolved."}, {"lbl": "What it means", "val": "“Bytecode plus a mounted name space” is a complete architecture for a local-first application with honest migration between devices. Today it is assembled from two halves: WASM and 9P."}], "archive": ["inferno"], "links": [{"to": "plan9", "why": "the heir of 9P and of the namespace model"}, {"to": "self", "why": "another answer to “what state is saved”: an image versus bytecode"}, {"to": "build", "why": "the second build decision: the deployment artefact"}], "actions": [{"t": "Compare Inferno with WASM + WASI", "p": "Compare Inferno (Dis/Limbo/Styx) with the modern WASM + WASI + 9P combination: what is reproduced, what is lost (migration, a single image, network transparency). Facts with links; mark conclusions as judgement.", "tools": ["web_search", "web_extract", "read_file"]}, {"t": "Sketch a local-first application", "p": "Sketch the architecture of a local-first application on WASM plus a mounted name space: what lives where, how sync and migration work, what happens without a network.", "tools": ["read_file", "write_file"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-inferno", "t": "Archive entry: Inferno + Dis / Limbo (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Inferno_(operating_system)", "t": "Wikipedia: Inferno (operating system)", "r": 1, "kind": "inherited"}]}, {"id": "beos", "title": "BeOS and BFS — a live query instead of a folder", "subtitle": "1995 — 2001 · Be Inc. · BFS: attributes, journalling, live queries", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "Be Inc.'s operating system (first release 1995, last R5.0.3 in 2000; Palm bought the assets in 2001): C++, aggressive multithreading, media-first. BFS brought a 64-bit address space, journalling, extended attributes and live queries."}, {"lbl": "Why it mattered", "val": "Responsiveness as an architectural property: priorities and streaming optimisations in the file system, attribute metadata, and live queries — a folder as a saved query that updates itself."}, {"lbl": "Why it died", "val": "Not enough market share and not enough money: sales were poor, the platform lost to Windows and Apple, the assets were sold off."}, {"lbl": "Where it lives now", "val": "Dead as an OS, but Haiku keeps development going; live queries and attributes have been partly reinvented in Spotlight, SQLite and Datomic."}, {"lbl": "What to build today", "val": "A live query as a first-class interface object (a board that updates itself) plus extended attributes as a system metadata layer over local files: a local data graph instead of “folders as junk drawers”."}], "archive": ["beos"], "links": [{"to": "winfs", "why": "both cards are about metadata and schema; BeOS did it in the file system, Microsoft in a database under the OS"}, {"to": "newton", "why": "records with indices as an alternative to files"}, {"to": "build", "why": "the third build decision: live views"}], "actions": [{"t": "Build a live board on SQLite", "p": "Design a “live query” on SQLite: an attribute table, saved queries, invalidation and subscriptions, behaviour under large volumes. Start from the BFS idea on card beos.", "tools": ["read_file", "write_file"]}, {"t": "Compare with Spotlight and Datomic", "p": "Compare the BFS approach (attributes + live queries) with Spotlight, SQLite FTS and Datomic: what of the live model is actually available to a developer today. Facts with links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-beos", "t": "Archive entry: BeOS + BFS (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://arstechnica.com/information-technology/2018/07/the-beos-filesystem/", "t": "Ars Technica: The BeOS file system — an OS geek retrospective", "r": 1, "kind": "inherited"}]}, {"id": "winfs", "title": "Cairo → WinFS — a file system as a knowledge base", "subtitle": "1991 — 2006 · Microsoft · cancelled 23 June 2006", "bg": "before-after", "gap": 4, "fields": [{"lbl": "Before", "val": "Microsoft's line from “Cairo” (1991) to WinFS: an OS on top of a native database — an object file system, schemas, relationships between documents, search by metadata."}, {"lbl": "Why it was cancelled", "val": "Announced in the WinFS team blog on 23 June 2006: complexity, performance requirements, and no applications ready to consume the schema. Part of the technology went into SQL Server and ADO.NET."}, {"lbl": "What it became", "val": "Partly: Spotlight, tags, Datomic. As a system-level schema layer WinFS does not exist — the idea returned as “local databases inside applications”."}, {"lbl": "What it means", "val": "A local graph with types and migrations: SQLite/DuckDB underneath, a schema and indices as a system service. This is exactly what makes personal agents reliable — data gets structure instead of being flat text."}], "archive": ["winfs"], "links": [{"to": "newton", "why": "the same bet: records with a schema instead of files"}, {"to": "beos", "why": "metadata at the file-system level — the working alternative"}, {"to": "build", "why": "the fourth build decision: a schema with migrations"}], "actions": [{"t": "Design a local graph schema", "p": "Design a minimal local graph schema for personal documents: object types, relationships, version migrations, indices for live queries. SQLite/DuckDB, no cloud. Start from cards winfs and newton.", "tools": ["read_file", "write_file"]}, {"t": "Take apart why WinFS was cancelled", "p": "Establish from primary sources the reasons WinFS was cancelled (the team blog, the 2006 press): what exactly failed — performance, missing applications, complexity. Give quotes and links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-winfs", "t": "Archive entry: Cairo → WinFS (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://learn.microsoft.com/en-us/archive/blogs/winfs/update-to-the-update", "t": "WinFS team blog: Update to the update (cancellation, June 2006)", "r": 0, "kind": "inherited"}, {"u": "https://www.theregister.com/off-prem/2006/06/26/microsofts-future-file-system-dies-again/702825", "t": "The Register: Microsoft's future file system dies, again (2006)", "r": 0, "kind": "inherited"}]}, {"id": "newton", "title": "Newton “Soup” — a structural store at the OS level", "subtitle": "1993 — 1998 · Apple · object store and soups", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "The Apple Newton storage layer: all memory was an object store plus “soups” — simple single-table databases of records with indices and queries; one object data model for every application."}, {"lbl": "Why it mattered", "val": "Data as structure, not files: applications exchanged records, and search, synchronisation and cross-application transfer worked out of the box."}, {"lbl": "Why it died", "val": "The PDA line was closed in 1998; on bigger machines the “files and folders” model won over records with indices."}, {"lbl": "Where it lives now", "val": "Dead; its closest relatives are Core Data, SQLite inside applications, and local databases."}, {"lbl": "What to build today", "val": "A single structural store at the OS level: one record store with indices, relationships and soups instead of scattered files and schemas. This is the foundation of local-first applications and agents: an agent reads structure instead of re-parsing documents."}], "archive": ["newton"], "links": [{"to": "winfs", "why": "the same idea, but through a schema and a database under the OS"}, {"to": "build", "why": "the fifth build decision: a record store"}], "actions": [{"t": "Compare Soup with Core Data and SQLite", "p": "Compare Newton Soup with Core Data and raw SQLite: what the object storage model gives you, what is lost, what it costs. Give a table and a conclusion on what to take for a local agent.", "tools": ["web_search", "web_extract"]}, {"t": "Build a soup prototype in 20 lines", "p": "Build a minimal “soup” prototype in Python/SQLite: a record table, indices, a pattern query, and a change subscription. Show working code and its output.", "tools": ["write_file", "terminal"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-newton", "t": "Archive entry: Newton “Soup” (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Soup_(Apple_Newton)", "t": "Wikipedia: Soup (Apple Newton)", "r": 1, "kind": "inherited"}]}, {"id": "wpos", "title": "IBM Workplace OS — “personalities” on a microkernel", "subtitle": "1991 — 1996 · Mach 3.0 · OS/2 + Unix + DOS + AIX on one machine", "bg": "before-after", "gap": 3, "fields": [{"lbl": "Before", "val": "An IBM project on the Mach 3.0 microkernel: “personalities” that let one machine run unmodified OS/2, Unix, DOS and AIX applications. The final PowerPC preview came in January 1996."}, {"lbl": "Why it failed", "val": "Performance and cost: the microkernel plus personalities added overhead. IBM never brought it to market — RTM in December 1995, an attempt in January 1996, then cancellation."}, {"lbl": "What it became", "val": "The idea won in a new guise: containers, WSL, virtual machines, gVisor. “Personalities” became routine — just under other names."}, {"lbl": "What it means", "val": "“API compatibility as a service”: not emulating everything, but precise behavioural contracts plus compatibility tests. This is a market for legacy migration for decades to come — and an honest alternative to “rewrite everything”."}], "archive": ["wpos"], "links": [{"to": "tron", "why": "TRON solved the same problem differently: one contract instead of a set of personalities"}, {"to": "build", "why": "the sixth build decision: compatibility as a contract"}], "actions": [{"t": "Compare WPoS with WSL and containers", "p": "Compare Workplace OS “personalities” with WSL2, gVisor and containers: where the compatibility boundary sits, what the overhead costs, and what counts as a sufficient contract. Links to documentation.", "tools": ["web_search", "web_extract"]}, {"t": "Estimate a migration of my legacy", "p": "Estimate migrating my project from <platform> to <platform> as a “personality”: what must be preserved, which behavioural contracts need tests, and where emulation is cheaper than a rewrite.", "tools": ["read_file"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-wpos", "t": "Archive entry: IBM Workplace OS (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://doi.org/10.1109/HOTOS.1997.595173", "t": "Rawson III, “Experience with the Development of a Microkernel-Based, Multiserver OS” (HotOS 1997)", "r": 0, "kind": "inherited"}, {"u": "https://docslib.org/doc/3328738/operating-systems-1997-the-sixth-work", "t": "Open text of the same HotOS 1997 talk (scan, OCR)", "r": 1, "kind": "inherited"}]}, {"id": "tron", "title": "TRON — one contract from a microwave to a workstation", "subtitle": "1984 — present · Ken Sakamura · ITRON / BTRON / MTRON / STRON", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "An open real-time OS architecture: ITRON (embedded), BTRON (personal systems), MTRON/STRON — plus a free licence on the specifications. Led by Ken Sakamura of the University of Tokyo."}, {"lbl": "Why it mattered", "val": "“Computers everywhere” seven years before Weiser's paper: one contract from a microwave oven to a workstation; open specifications and a free licence long before open source became mainstream. An IEEE Milestone."}, {"lbl": "Why BTRON did not survive", "val": "Incompatibility with the DOS world: NEC held 80–90% of Japan's education market on DOS, so switching meant throwing away the whole infrastructure and software stack. BTRON286 prototypes were tested in schools in 1988, but mass adoption never happened."}, {"lbl": "Where it lives now", "val": "The ITRON branch won invisibly — billions of devices. BTRON is history; the project lives on as the TRON Forum plus T-Kernel/T-Engine."}, {"lbl": "What to build today", "val": "An end-to-end architecture at the component level: one contract (today that is the WASM Component Model + WASI) over an RTOS, so device and cloud code are assembled from the same interfaces. Plus the compatibility lesson: an architecture that demands throwing away what exists is never adopted."}], "archive": ["tron"], "links": [{"to": "itron", "why": "the branch that won invisibly"}, {"to": "towns", "why": "a Japanese machine killed by incompatibility with the PC world"}, {"to": "build", "why": "the seventh build decision: one contract at every level"}], "actions": [{"t": "Run the “TRON test” on my stack", "p": "Check whether my stack can be described by one contract from device to cloud: which interfaces are duplicated, and what prevents a single component contract. Use the WASM Component Model as today's reference.", "tools": ["read_file", "web_search"]}, {"t": "Take apart the BTRON story", "p": "Establish from sources why DOS incompatibility and NEC's position killed mass adoption of BTRON, and what the 1988 school pilots showed. Quotes and links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-tron", "t": "Archive entry: TRON / BTRON (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/TRON_project", "t": "Wikipedia: TRON project", "r": 1, "kind": "inherited"}, {"u": "https://www.tron.org/tron-project", "t": "TRON Forum: TRON Project", "r": 1, "kind": "inherited"}]}, {"id": "itron", "title": "μITRON / T-Kernel — the invisible winner", "subtitle": "1984 — present · an RTOS specification · billions of devices", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "A specification of an RTOS kernel for microcomputers: ITRON first (1984), then μITRON and T-Kernel/T-Engine (2001+). A specification, not code."}, {"lbl": "Why it mattered", "val": "Dozens of vendors implemented it independently — hence its presence in billions of devices, from washing machines and cameras to automotive units. An open standard before the open-source fashion."}, {"lbl": "Why the win is invisible", "val": "As a product it was never a brand: training and community stayed in Japan, while FreeRTOS, Zephyr and VxWorks won worldwide."}, {"lbl": "Where it lives now", "val": "Alive (T-Kernel, TOPPERS); relevant as a base for edge AI on microcontrollers."}, {"lbl": "What to build today", "val": "An open RTOS specification as “POSIX for hardware” plus a WASM sandbox for updatable models on the device: portability across MCUs and updates without vendor lock-in. A specification rather than a brand is the cheapest way to win invisibly."}], "archive": ["itron"], "links": [{"to": "tron", "why": "the parent project: the same philosophy of “a spec, not code”"}, {"to": "build", "why": "the eighth build decision: a specification as the product"}], "actions": [{"t": "Compare μITRON with Zephyr and FreeRTOS", "p": "Compare μITRON/T-Kernel with Zephyr and FreeRTOS: the API model, licences, portability, and the presence of a WASM sandbox. Give a table and a conclusion on what to take for edge AI.", "tools": ["web_search", "web_extract"]}, {"t": "Write my protocol spec on one page", "p": "Compress my protocol/API into a one-page specification in the ITRON style: mandatory functions, invariants, and what is deliberately absent. Show the file.", "tools": ["read_file", "write_file"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-itron", "t": "Archive entry: μITRON / T-Kernel (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/ITRON_project", "t": "Wikipedia: ITRON project", "r": 1, "kind": "inherited"}]}, {"id": "towns", "title": "FM Towns and X68000 — a creator-first OS", "subtitle": "1987 — 1990s · Towns OS, Human68k, SX-Window", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "Japanese “multimedia” personal systems of the late 1980s: Fujitsu FM Towns (Towns OS, CD-ROM, 32,768 colours) and Sharp X68000 (Human68k plus the SX-Window GUI, sound and graphics at arcade-machine level)."}, {"lbl": "Why it mattered", "val": "Ready-made workstations for creators: colour, sound, CD-ROM as standard and a windowed interface — earlier than Windows 3.1 and clearly better than the “home” PCs of the time."}, {"lbl": "Why they died", "val": "Proprietary, expensive, and isolated inside Japan; PC clones with DOS/V and game consoles finished them off."}, {"lbl": "Where they live now", "val": "Dead, except for emulators, collectors and the retro demoscene."}, {"lbl": "What to build today", "val": "A creator-first OS: guaranteed I/O latency, colour calibration, an audio/MIDI graph and deterministic timing as system guarantees rather than as a pile of workarounds in pro audio and video. Today applications do this; it should be a property of the platform."}], "archive": ["towns"], "links": [{"to": "beos", "why": "a media-first OS: the same bet on responsiveness and timing"}, {"to": "build", "why": "the ninth build decision: timing as a guarantee"}], "actions": [{"t": "Define timing guarantees", "p": "Define what “deterministic timing as a platform guarantee” means: which metrics (input latency, audio jitter, frame pacing), how to measure them, and where they break on a normal OS.", "tools": ["write_file"]}, {"t": "Find living analogues", "p": "Find who provides creator-first guarantees at the OS/platform level today (Audio Workgroups, CoreAudio, PipeWire, realtime kernels): what exactly is guaranteed, with documentation links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-towns", "t": "Archive entry: FM Towns OS / Sharp X68000 (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Fujitsu_Towns_OS", "t": "Wikipedia: FM Towns / Towns OS", "r": 0, "kind": "inherited"}, {"u": "https://en.wikipedia.org/wiki/Sharp_x68000", "t": "Wikipedia: Sharp X68000 / Human68k / SX-Window", "r": 0, "kind": "inherited"}]}, {"id": "self", "title": "Self and Smalltalk — an image instead of a restart", "subtitle": "1972 / 1987 — present · prototypes, adaptive optimisation, the live image", "bg": "before-after", "gap": 4, "fields": [{"lbl": "Before", "val": "Self (Ungar, Smith, 1987): objects without classes, prototypes and “morphing”; adaptive optimisation — inline caching, polymorphic inline caches, type feedback — was invented there. Smalltalk (1972): the system lives as an image of objects and is edited while running."}, {"lbl": "Why it died", "val": "Self the language did not survive (it evolved into the Klein VM) and Smalltalk was displaced by the mainstream; the “image as a deployment artefact” model lost to files and git."}, {"lbl": "What it became", "val": "The technique won silently: Self's JIT optimisations are inside every JS and JVM engine — V8, HotSpot. Live environments survive in Squeak/Pharo, notebooks and front-end live reload."}, {"lbl": "What it means", "val": "Bring the “image” back in a new shape: saved session state and durable execution for local applications and agents, editable while running, instead of “restart from scratch”. Plus interfaces that morph themselves to the task rather than static forms."}], "archive": ["self"], "links": [{"to": "inferno", "why": "another road to portable state: bytecode and an OS virtual machine"}, {"to": "build", "why": "the tenth build decision: an image and durable execution"}], "actions": [{"t": "Design a session image for an agent", "p": "Design a “session image” for a local agent: what is saved, how it is restored after a crash, how it is edited while running. Compare with durable execution (workflow engines) and notebooks.", "tools": ["read_file", "write_file"]}, {"t": "Check the adaptive optimisation history", "p": "Verify from sources which Self techniques (inline caching, PIC, type feedback) are actually used in V8 and HotSpot today, and when they arrived. Links are mandatory.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-self", "t": "Archive entry: Self / Smalltalk-image (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Self_(programming_language)", "t": "Wikipedia: Self (programming language)", "r": 1, "kind": "inherited"}, {"u": "https://en.wikipedia.org/wiki/Smalltalk", "t": "Wikipedia: Smalltalk — objects, VM, live image", "r": 1, "kind": "inherited"}]}, {"id": "build", "title": "Build: an OS for a local agent from ten decisions", "subtitle": "the stack's practical output · 10 decisions from 10 cards", "bg": "checklist", "gap": 4, "fields": [{"lbl": "Mount, don't integrate", "val": "A new data source is a mount point (9P/facade), not a new SDK. The consumer sees files and directories.", "to": "plan9"}, {"lbl": "Bytecode as the unit of deployment", "val": "One artefact (WASM) for device, server and browser; boundaries between machines are mounting, not rewriting.", "to": "inferno"}, {"lbl": "Live views", "val": "A board or folder is a saved query that updates itself. No “rebuild the list by hand”.", "to": "beos"}, {"lbl": "A record store, not a file store", "val": "One structural store with indices: an agent reads structure instead of re-parsing documents.", "to": "newton"}, {"lbl": "A schema with migrations", "val": "Types and relationships as a system service (SQLite/DuckDB plus schema). Without it a “structural store” becomes a JSON dump.", "to": "winfs"}, {"lbl": "Compatibility as a contract", "val": "Legacy migration means precise behavioural contracts and tests, not emulating the whole world.", "to": "wpos"}, {"lbl": "One contract at every level", "val": "A component model (WASM Component Model + WASI) from microcontroller to cloud — otherwise two stacks forever.", "to": "tron"}, {"lbl": "A specification as the product", "val": "An open spec that others implement wins invisibly and outlives any vendor.", "to": "itron"}, {"lbl": "Timing as a guarantee", "val": "Input latency, audio jitter and frame pacing are platform properties, not workarounds in an application.", "to": "towns"}, {"lbl": "An image and durable execution", "val": "Session state is saved and edited while running; a crash does not mean lost work.", "to": "self"}], "archive": [], "links": [{"to": "plan9", "why": "the first and most important decision"}, {"to": "newton", "why": "without a structural store nothing else works"}], "actions": [{"t": "Run my project through the build card", "p": "Run my project/architecture through the ten build decisions of the legacy-os stack: present / missing / partial, and what to do first. As a table, with links to the source cards.", "tools": ["read_file"]}, {"t": "Assemble a minimal architecture", "p": "Assemble a minimal architecture for a local agent from the ten decisions of the legacy-os stack: a diagram in words, the components, and what can be skipped. Write it to a file and show it.", "tools": ["read_file", "write_file"]}, {"t": "Ask Archivessa about currency", "p": "Ask Archivessa to verify that the archive entries the legacy-os stack relies on (plan9, inferno, beos, winfs, newton, wpos, tron, itron, towns, self) are not retracted and that their sources are alive.", "tools": ["message_agent"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/stacks/legacy-os/", "t": "This stack: a synthesis of ten cards (agent judgement)", "r": 1, "kind": "self"}]}]};
+const CROSS = {"out": {}, "back": {"itron": [{"stack": "hardware-and-context", "title": "Стек: железо, идентичность и внимание — что опередило время", "card": "msx", "card_title": "MSX — одна спецификация, много производителей", "why": "та же модель «спека вместо продукта», и там она сработала", "path": "en/stacks/hardware-and-context/#c-msx"}], "tron": [{"stack": "hardware-and-context", "title": "Стек: железо, идентичность и внимание — что опередило время", "card": "troncode", "card_title": "TRON Code — вариант знака как отдельный идентификатор", "why": "кодировка — часть проекта TRON: тот же спор о точности", "path": "en/stacks/hardware-and-context/#c-troncode"}]}};
+const HOME = (STACK.cards[0]||{}).id;
+const HAS_HERMES = !!(window.hermes && typeof window.hermes.send === "function");
+const CARDS = STACK.cards;
+const ROOT = "../../../";
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function byId(id){return CARDS.find(c=>c.id===id);}
+function incoming(id){return CARDS.filter(c=>(c.links||[]).some(l=>l.to===id));}
+function hash(id){return "#c-"+id;}
+function current(){
+  const m=(location.hash||"").match(/^#c-(.+)$/);
+  return (m && byId(m[1])) ? m[1] : HOME;
+}
+function archiveHref(entryId){
+  const a=STACK.archive||{};
+  return ROOT+"digests/"+a.slug+"/#c-"+entryId;
+}
+
+function boot(){
+  document.getElementById("m-cards").textContent = CARDS.length;
+  document.getElementById("m-links").textContent = CARDS.reduce((n,c)=>n+(c.links||[]).length,0);
+  document.getElementById("m-src").textContent = CARDS.reduce((n,c)=>n+(c.sources||[]).length,0);
+  document.getElementById("m-arch").textContent = CARDS.reduce((n,c)=>n+(c.archive||[]).length,0);
+  const a=STACK.archive||{};
+  document.getElementById("archlink").href = ROOT+"digests/"+a.slug+"/";
+  document.getElementById("archlink").textContent = "Архив: "+a.title+" →";
+  document.getElementById("bglist").textContent = Object.keys(STACK.backgrounds||{})
+    .map(k=>k+" — "+STACK.backgrounds[k].name).join(" · ");
+  document.getElementById("q").oninput = e=>{filter=e.target.value.toLowerCase();nav();render();};
+  window.addEventListener("hashchange",()=>{nav();render();});
+  document.addEventListener("keydown",ev=>{
+    if(ev.target.tagName==="INPUT"){if(ev.key==="Escape")ev.target.blur();return;}
+    if(ev.key==="Escape"){go(HOME);}
+    if(ev.key==="ArrowRight"||ev.key==="ArrowLeft"){
+      const list=visible(); const i=list.indexOf(current());
+      const j=ev.key==="ArrowRight"?i+1:i-1;
+      if(j>=0&&j<list.length){go(list[j]);}
+    }
+  });
+  nav();render();
+}
+let filter="";
+function visible(){
+  const q=filter;
+  return CARDS.filter(c=>!q||(c.title+" "+(c.subtitle||"")+" "+c.id+" "+(c.fields||[]).map(f=>f.lbl+" "+f.val).join(" ")).toLowerCase().includes(q)).map(c=>c.id);
+}
+function nav(){
+  const cur=current(), list=visible();
+  document.getElementById("navlist").innerHTML = list.map(id=>{
+    const c=byId(id), bg=(STACK.backgrounds||{})[c.bg]||{};
+    const kind = id===HOME ? "stack home" : (bg.name||c.bg);
+    return `<button class="nl ${id===cur?"on":""}" data-card="${id}"><span class="nbin">${esc(kind)}</span>${esc(c.title)}</button>`;
+  }).join("") || '<p class="plain">Nothing matched.</p>';
+  document.querySelectorAll("[data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+}
+function go(id){ if(location.hash===hash(id)){nav();render();} else {location.hash=hash(id);} }
+
+function fieldHtml(f){
+  const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ card: ${esc(byId(f.to).title)}</span>` : "";
+  return `<div class="fld"><div class="lbl">${esc(f.lbl)}</div><p class="val">${esc(f.val)}</p>${to}</div>`;
+}
+function fieldsHtml(c){
+  const bg=(STACK.backgrounds||{})[c.bg]||{}, layout=bg.layout||"list", fs=c.fields||[];
+  if(!fs.length) return "";
+  if(layout==="cols") return `<div class="cols">${fs.map(fieldHtml).join("")}</div>`;
+  if(layout==="table") return `<div class="rows">${fs.map(f=>{
+      const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ ${esc(byId(f.to).title)}</span>` : "";
+      return `<div class="r"><div class="k">${esc(f.lbl)}</div><div class="v">${esc(f.val)}${to}</div></div>`;
+    }).join("")}</div>`;
+  return fs.map(fieldHtml).join("");
+}
+function linksHtml(c){
+  const out=(c.links||[]).map(l=>{const t=byId(l.to); if(!t) return ""; return `<button class="lk" data-card="${l.to}"><b>${esc(t.title)}</b><span class="wy">${esc(l.why||"")}</span></button>`;}).join("");
+  const back=incoming(c.id).map(x=>`<button class="lk" data-card="${x.id}"><b>${esc(x.title)}</b><span class="wy">links here</span></button>`).join("");
+  const arch=(c.archive||[]).map(id=>`<a class="lk" href="${archiveHref(id)}" style="text-decoration:none"><b>⌗ archive entry: ${esc(id)}</b><span class="wy">verified museum card with sources</span></a>`).join("");
+  if(!out&&!back&&!arch) return "";
+  return `<div class="sect"><div class="h">Links</div><div class="links">${arch}${out}${back}</div></div>`;
+}
+function crossHtml(c){
+  const out=(CROSS.out||{})[c.id]||[], back=(CROSS.back||{})[c.id]||[];
+  if(!out.length && !back.length) return "";
+  const item=(x,label)=>`<a class="lk" href="${ROOT+esc(x.path)}"><b>${esc(x.card_title)}</b><span class="wy">${esc(x.why||label)} · ${esc(x.title)}</span></a>`;
+  return `<div class="sect"><div class="h">Other stacks</div><div class="links">`
+    + out.map(x=>item(x,"link to another stack")).join("")
+    + back.map(x=>item(x,"links here")).join("")
+    + `</div></div>`;
+}
+function actsHtml(c){
+  const acts=c.actions||[]; if(!acts.length) return "";
+  return `<div class="sect"><div class="h">Actions — a bounded prompt, not code</div><div class="acts">`+
+    acts.map((a,i)=>{
+      const tools=(a.tools||[]).length? a.tools.join(", ") : "no tools";
+      const prompt=`[Stack “${STACK.title}” → card “${c.title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const attr=HAS_HERMES?` data-hermes-send="${esc(prompt)}"`:"";
+      return `<div class="act"><div class="top"><button class="btn" data-idx="${i}" data-card="${c.id}"${attr}>${esc(a.t)}</button>
+        <span class="tools">tools: ${esc(tools)}</span></div><p class="prompt">${esc(a.p)}</p></div>`;
+    }).join("")+`</div></div>`;
+}
+function srcsHtml(c){
+  const s=c.sources||[]; if(!s.length) return "";
+  return `<div class="sect"><div class="h">Sources (✓ read in full · ↗ search index · ⌗ archive entry)</div><div class="srcs">`+
+    s.map(x=>`<a class="${x.r?"r":""} ${x.kind==="archive"?"k-archive":""}" href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")+`</div></div>`;
+}
+function render(){
+  const c=byId(current())||CARDS[0], bg=(STACK.backgrounds||{})[c.bg]||{};
+  const dots=Array.from({length:5},(_,i)=>`<i class="${i<(c.gap||0)?"on":""}"></i>`).join("");
+  document.getElementById("stage").innerHTML =
+    `<div class="shead"><div><h2>${esc(c.title)}</h2><div class="sub">${esc(c.subtitle||"")}</div></div>
+      <div style="text-align:right"><span class="bgchip">background: ${esc(bg.name||c.bg)}</span>
+      <div class="gap" title="how unfinished the idea is — the agent's judgement" style="margin-top:8px;justify-content:flex-end"><span>gap</span>${dots}</div></div></div>
+     ${fieldsHtml(c)}${linksHtml(c)}${crossHtml(c)}${actsHtml(c)}${srcsHtml(c)}`;
+  document.querySelectorAll("#stage [data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+  document.querySelectorAll("#stage .btn").forEach(b=>{
+    if(b.hasAttribute("data-hermes-send")) return;   // в чате отправляет мост Hermes
+    b.onclick=()=>{
+      const a=(byId(b.dataset.card).actions||[])[+b.dataset.idx];
+      const text=`[Stack “${STACK.title}” → card “${byId(b.dataset.card).title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const done=()=>{const old=b.textContent;b.textContent="промпт скопирован ✓";setTimeout(()=>b.textContent=old,1800);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}else{done();}
+    };
+  });
+  nav();
+}
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+{
+  "title": "Stack: operating systems that invented everything first",
+  "subtitle": "11 cards on top of the archive: Plan 9 and Inferno, BeOS and BFS, Cairo→WinFS, Newton Soup, Workplace OS, TRON and μITRON, FM Towns, Self — plus a build card “an OS for a local agent” from ten decisions.",
+  "about": "A stack about the system layer: namespaces and 9P, an image instead of a restart, a live query instead of a folder, a structural store, microkernel “personalities”. Every card rests on a verified archive entry.",
+  "archive_title": "Ideas that didn't survive: Japanese and world software, 1980–2006 (RU)",
+  "backgrounds": {
+    "home": "stack home",
+    "fact": "fact card",
+    "before-after": "before / after",
+    "checklist": "build"
+  },
+  "cards": {
+    "home": {
+      "title": "Operating systems that invented everything first — and were left without a market",
+      "subtitle": "stack home · 11 cards · archive 1984–2006",
+      "fields": [
+        { "lbl": "Why this stack", "val": "Almost everything now called the modern system layer was built and tested in the 1980s–2000s: per-process namespaces, mounting instead of APIs, live queries, structural stores, microkernel “personalities”, an image instead of a restart. The problem with those systems was never the ideas — it was the market. This stack exists so you take the ready solutions instead of reinventing them one at a time." },
+        { "lbl": "How to use it", "val": "Cards on the left, ← → pages through them. Every card carries an “⌗ archive entry” link (a verified finding with sources) and a “links” block; the reverse side of every link is visible too, under “links here”." },
+        { "lbl": "What this is not", "val": "Not a history textbook and not a rating. Facts (years, numbers, names) come from archive entries; the “what to build” blocks and the “gap” score are the agent's judgement, marked as judgement." }
+      ],
+      "links": {
+        "plan9": "mount, don't integrate",
+        "inferno": "bytecode as the unit of deployment",
+        "beos": "live queries and metadata",
+        "winfs": "a file system as a knowledge base",
+        "newton": "a structural store at the OS level",
+        "wpos": "“personalities” and API compatibility",
+        "tron": "one contract from a microwave to a workstation",
+        "itron": "the invisible winner in billions of devices",
+        "towns": "creator-first: timing as a guarantee",
+        "self": "the image and live programming",
+        "build": "build: an OS for a local agent"
+      },
+      "actions": [
+        { "t": "Build a similar stack on another topic", "p": "Build a card stack over the museum archive on the topic: <my topic>. Format — stacks/<slug>/stack.json, fact / before-after / checklist backgrounds, every card linking to an archive entry and every action carrying a tool whitelist." }
+      ],
+      "sources": [
+        "Data of this stack: stacks/legacy-os/stack.json",
+        "Source archive: 35 findings, 1980–2006 (verified by Archivessa)"
+      ]
+    },
+    "plan9": {
+      "title": "Plan 9 — “mount, don't integrate”",
+      "subtitle": "1992/1995 — present · Bell Labs · 9P, namespaces, union directories",
+      "fields": [
+        { "lbl": "What it was", "val": "A Bell Labs operating system (1992 for universities, 1995 public, fourth edition in 2021): every process has its own name space, union directories, “everything is a file”, the 9P network protocol, and the rio window system." },
+        { "lbl": "Why it mattered", "val": "Unix rewritten from scratch: mounting instead of APIs, one protocol for any resource, network resources that look like local files rather than “SDK clients”." },
+        { "lbl": "Why it didn't take off", "val": "Dogmatic adherence to the model, no Unix compatibility, and competition from a free Linux." },
+        { "lbl": "Where it lives now", "val": "The technology won incognito: Linux namespaces, union/overlay mounts, WSL1, virtio-9p in QEMU — all Plan 9 ideas, often without credit." },
+        { "lbl": "What to build today", "val": "9P as a minimal universal protocol for accessing resources (files, devices, telemetry) instead of dozens of REST APIs. “Mount, don't integrate” dramatically simplifies service and agent wiring: a new source is a mount point, not a new client." }
+      ],
+      "links": {
+        "inferno": "the same 9P, but with bytecode and migration",
+        "build": "the first build decision: a name space as the interface",
+        "winfs": "a different answer to “where does structure live”"
+      },
+      "actions": [
+        { "t": "Design a 9P facade for my API", "p": "Take my API/service (I will describe it) and propose a 9P facade: which files and directories to expose, how telemetry is read, where the permission boundaries are. Compare with a REST client by the amount of code the consumer needs." },
+        { "t": "Check what Plan 9 already put into Linux", "p": "List which Plan 9 mechanisms exist in Linux today (namespaces, overlayfs, 9p mounts, WSL1) and in what shape. Primary sources and documentation with links only." }
+      ],
+      "sources": [
+        "Archive entry: Plan 9 from Bell Labs (verified by Archivessa)",
+        "Wikipedia: Plan 9 from Bell Labs",
+        "XDA: Docker's secret ingredient came from a 1992 OS"
+      ]
+    },
+    "inferno": {
+      "title": "Inferno — bytecode as the unit of deployment",
+      "subtitle": "1995 — present · Bell Labs / Vita Nuova · Dis, Limbo, Styx",
+      "fields": [
+        { "lbl": "Before", "val": "A Bell Labs operating system (1995, now MIT-licensed): the kernel is the Dis virtual machine, the language is Limbo, the network protocol is Styx (9P), the interface is Tk. The motto was “one OS on any device”." },
+        { "lbl": "Why it died", "val": "A commercial failure (Vita Nuova); it lost to Java/JVM on ecosystem and tooling." },
+        { "lbl": "What it became", "val": "The ideas fully coincided with what WASM does: a portable bytecode, one artefact for every device, boundaries between machines dissolved." },
+        { "lbl": "What it means", "val": "“Bytecode plus a mounted name space” is a complete architecture for a local-first application with honest migration between devices. Today it is assembled from two halves: WASM and 9P." }
+      ],
+      "links": {
+        "plan9": "the heir of 9P and of the namespace model",
+        "self": "another answer to “what state is saved”: an image versus bytecode",
+        "build": "the second build decision: the deployment artefact"
+      },
+      "actions": [
+        { "t": "Compare Inferno with WASM + WASI", "p": "Compare Inferno (Dis/Limbo/Styx) with the modern WASM + WASI + 9P combination: what is reproduced, what is lost (migration, a single image, network transparency). Facts with links; mark conclusions as judgement." },
+        { "t": "Sketch a local-first application", "p": "Sketch the architecture of a local-first application on WASM plus a mounted name space: what lives where, how sync and migration work, what happens without a network." }
+      ],
+      "sources": [
+        "Archive entry: Inferno + Dis / Limbo (verified by Archivessa)",
+        "Wikipedia: Inferno (operating system)"
+      ]
+    },
+    "beos": {
+      "title": "BeOS and BFS — a live query instead of a folder",
+      "subtitle": "1995 — 2001 · Be Inc. · BFS: attributes, journalling, live queries",
+      "fields": [
+        { "lbl": "What it was", "val": "Be Inc.'s operating system (first release 1995, last R5.0.3 in 2000; Palm bought the assets in 2001): C++, aggressive multithreading, media-first. BFS brought a 64-bit address space, journalling, extended attributes and live queries." },
+        { "lbl": "Why it mattered", "val": "Responsiveness as an architectural property: priorities and streaming optimisations in the file system, attribute metadata, and live queries — a folder as a saved query that updates itself." },
+        { "lbl": "Why it died", "val": "Not enough market share and not enough money: sales were poor, the platform lost to Windows and Apple, the assets were sold off." },
+        { "lbl": "Where it lives now", "val": "Dead as an OS, but Haiku keeps development going; live queries and attributes have been partly reinvented in Spotlight, SQLite and Datomic." },
+        { "lbl": "What to build today", "val": "A live query as a first-class interface object (a board that updates itself) plus extended attributes as a system metadata layer over local files: a local data graph instead of “folders as junk drawers”." }
+      ],
+      "links": {
+        "winfs": "both cards are about metadata and schema; BeOS did it in the file system, Microsoft in a database under the OS",
+        "newton": "records with indices as an alternative to files",
+        "build": "the third build decision: live views"
+      },
+      "actions": [
+        { "t": "Build a live board on SQLite", "p": "Design a “live query” on SQLite: an attribute table, saved queries, invalidation and subscriptions, behaviour under large volumes. Start from the BFS idea on card beos." },
+        { "t": "Compare with Spotlight and Datomic", "p": "Compare the BFS approach (attributes + live queries) with Spotlight, SQLite FTS and Datomic: what of the live model is actually available to a developer today. Facts with links." }
+      ],
+      "sources": [
+        "Archive entry: BeOS + BFS (verified by Archivessa)",
+        "Ars Technica: The BeOS file system — an OS geek retrospective"
+      ]
+    },
+    "winfs": {
+      "title": "Cairo → WinFS — a file system as a knowledge base",
+      "subtitle": "1991 — 2006 · Microsoft · cancelled 23 June 2006",
+      "fields": [
+        { "lbl": "Before", "val": "Microsoft's line from “Cairo” (1991) to WinFS: an OS on top of a native database — an object file system, schemas, relationships between documents, search by metadata." },
+        { "lbl": "Why it was cancelled", "val": "Announced in the WinFS team blog on 23 June 2006: complexity, performance requirements, and no applications ready to consume the schema. Part of the technology went into SQL Server and ADO.NET." },
+        { "lbl": "What it became", "val": "Partly: Spotlight, tags, Datomic. As a system-level schema layer WinFS does not exist — the idea returned as “local databases inside applications”." },
+        { "lbl": "What it means", "val": "A local graph with types and migrations: SQLite/DuckDB underneath, a schema and indices as a system service. This is exactly what makes personal agents reliable — data gets structure instead of being flat text." }
+      ],
+      "links": {
+        "newton": "the same bet: records with a schema instead of files",
+        "beos": "metadata at the file-system level — the working alternative",
+        "build": "the fourth build decision: a schema with migrations"
+      },
+      "actions": [
+        { "t": "Design a local graph schema", "p": "Design a minimal local graph schema for personal documents: object types, relationships, version migrations, indices for live queries. SQLite/DuckDB, no cloud. Start from cards winfs and newton." },
+        { "t": "Take apart why WinFS was cancelled", "p": "Establish from primary sources the reasons WinFS was cancelled (the team blog, the 2006 press): what exactly failed — performance, missing applications, complexity. Give quotes and links." }
+      ],
+      "sources": [
+        "Archive entry: Cairo → WinFS (verified by Archivessa)",
+        "WinFS team blog: Update to the update (cancellation, June 2006)",
+        "The Register: Microsoft's future file system dies, again (2006)"
+      ]
+    },
+    "newton": {
+      "title": "Newton “Soup” — a structural store at the OS level",
+      "subtitle": "1993 — 1998 · Apple · object store and soups",
+      "fields": [
+        { "lbl": "What it was", "val": "The Apple Newton storage layer: all memory was an object store plus “soups” — simple single-table databases of records with indices and queries; one object data model for every application." },
+        { "lbl": "Why it mattered", "val": "Data as structure, not files: applications exchanged records, and search, synchronisation and cross-application transfer worked out of the box." },
+        { "lbl": "Why it died", "val": "The PDA line was closed in 1998; on bigger machines the “files and folders” model won over records with indices." },
+        { "lbl": "Where it lives now", "val": "Dead; its closest relatives are Core Data, SQLite inside applications, and local databases." },
+        { "lbl": "What to build today", "val": "A single structural store at the OS level: one record store with indices, relationships and soups instead of scattered files and schemas. This is the foundation of local-first applications and agents: an agent reads structure instead of re-parsing documents." }
+      ],
+      "links": {
+        "winfs": "the same idea, but through a schema and a database under the OS",
+        "build": "the fifth build decision: a record store"
+      },
+      "actions": [
+        { "t": "Compare Soup with Core Data and SQLite", "p": "Compare Newton Soup with Core Data and raw SQLite: what the object storage model gives you, what is lost, what it costs. Give a table and a conclusion on what to take for a local agent." },
+        { "t": "Build a soup prototype in 20 lines", "p": "Build a minimal “soup” prototype in Python/SQLite: a record table, indices, a pattern query, and a change subscription. Show working code and its output." }
+      ],
+      "sources": [
+        "Archive entry: Newton “Soup” (verified by Archivessa)",
+        "Wikipedia: Soup (Apple Newton)"
+      ]
+    },
+    "wpos": {
+      "title": "IBM Workplace OS — “personalities” on a microkernel",
+      "subtitle": "1991 — 1996 · Mach 3.0 · OS/2 + Unix + DOS + AIX on one machine",
+      "fields": [
+        { "lbl": "Before", "val": "An IBM project on the Mach 3.0 microkernel: “personalities” that let one machine run unmodified OS/2, Unix, DOS and AIX applications. The final PowerPC preview came in January 1996." },
+        { "lbl": "Why it failed", "val": "Performance and cost: the microkernel plus personalities added overhead. IBM never brought it to market — RTM in December 1995, an attempt in January 1996, then cancellation." },
+        { "lbl": "What it became", "val": "The idea won in a new guise: containers, WSL, virtual machines, gVisor. “Personalities” became routine — just under other names." },
+        { "lbl": "What it means", "val": "“API compatibility as a service”: not emulating everything, but precise behavioural contracts plus compatibility tests. This is a market for legacy migration for decades to come — and an honest alternative to “rewrite everything”." }
+      ],
+      "links": {
+        "tron": "TRON solved the same problem differently: one contract instead of a set of personalities",
+        "build": "the sixth build decision: compatibility as a contract"
+      },
+      "actions": [
+        { "t": "Compare WPoS with WSL and containers", "p": "Compare Workplace OS “personalities” with WSL2, gVisor and containers: where the compatibility boundary sits, what the overhead costs, and what counts as a sufficient contract. Links to documentation." },
+        { "t": "Estimate a migration of my legacy", "p": "Estimate migrating my project from <platform> to <platform> as a “personality”: what must be preserved, which behavioural contracts need tests, and where emulation is cheaper than a rewrite." }
+      ],
+      "sources": [
+        "Archive entry: IBM Workplace OS (verified by Archivessa)",
+        "Rawson III, “Experience with the Development of a Microkernel-Based, Multiserver OS” (HotOS 1997)",
+        "Open text of the same HotOS 1997 talk (scan, OCR)"
+      ]
+    },
+    "tron": {
+      "title": "TRON — one contract from a microwave to a workstation",
+      "subtitle": "1984 — present · Ken Sakamura · ITRON / BTRON / MTRON / STRON",
+      "fields": [
+        { "lbl": "What it was", "val": "An open real-time OS architecture: ITRON (embedded), BTRON (personal systems), MTRON/STRON — plus a free licence on the specifications. Led by Ken Sakamura of the University of Tokyo." },
+        { "lbl": "Why it mattered", "val": "“Computers everywhere” seven years before Weiser's paper: one contract from a microwave oven to a workstation; open specifications and a free licence long before open source became mainstream. An IEEE Milestone." },
+        { "lbl": "Why BTRON did not survive", "val": "Incompatibility with the DOS world: NEC held 80–90% of Japan's education market on DOS, so switching meant throwing away the whole infrastructure and software stack. BTRON286 prototypes were tested in schools in 1988, but mass adoption never happened." },
+        { "lbl": "Where it lives now", "val": "The ITRON branch won invisibly — billions of devices. BTRON is history; the project lives on as the TRON Forum plus T-Kernel/T-Engine." },
+        { "lbl": "What to build today", "val": "An end-to-end architecture at the component level: one contract (today that is the WASM Component Model + WASI) over an RTOS, so device and cloud code are assembled from the same interfaces. Plus the compatibility lesson: an architecture that demands throwing away what exists is never adopted." }
+      ],
+      "links": {
+        "itron": "the branch that won invisibly",
+        "towns": "a Japanese machine killed by incompatibility with the PC world",
+        "build": "the seventh build decision: one contract at every level"
+      },
+      "actions": [
+        { "t": "Run the “TRON test” on my stack", "p": "Check whether my stack can be described by one contract from device to cloud: which interfaces are duplicated, and what prevents a single component contract. Use the WASM Component Model as today's reference." },
+        { "t": "Take apart the BTRON story", "p": "Establish from sources why DOS incompatibility and NEC's position killed mass adoption of BTRON, and what the 1988 school pilots showed. Quotes and links." }
+      ],
+      "sources": [
+        "Archive entry: TRON / BTRON (verified by Archivessa)",
+        "Wikipedia: TRON project",
+        "TRON Forum: TRON Project"
+      ]
+    },
+    "itron": {
+      "title": "μITRON / T-Kernel — the invisible winner",
+      "subtitle": "1984 — present · an RTOS specification · billions of devices",
+      "fields": [
+        { "lbl": "What it was", "val": "A specification of an RTOS kernel for microcomputers: ITRON first (1984), then μITRON and T-Kernel/T-Engine (2001+). A specification, not code." },
+        { "lbl": "Why it mattered", "val": "Dozens of vendors implemented it independently — hence its presence in billions of devices, from washing machines and cameras to automotive units. An open standard before the open-source fashion." },
+        { "lbl": "Why the win is invisible", "val": "As a product it was never a brand: training and community stayed in Japan, while FreeRTOS, Zephyr and VxWorks won worldwide." },
+        { "lbl": "Where it lives now", "val": "Alive (T-Kernel, TOPPERS); relevant as a base for edge AI on microcontrollers." },
+        { "lbl": "What to build today", "val": "An open RTOS specification as “POSIX for hardware” plus a WASM sandbox for updatable models on the device: portability across MCUs and updates without vendor lock-in. A specification rather than a brand is the cheapest way to win invisibly." }
+      ],
+      "links": {
+        "tron": "the parent project: the same philosophy of “a spec, not code”",
+        "build": "the eighth build decision: a specification as the product"
+      },
+      "actions": [
+        { "t": "Compare μITRON with Zephyr and FreeRTOS", "p": "Compare μITRON/T-Kernel with Zephyr and FreeRTOS: the API model, licences, portability, and the presence of a WASM sandbox. Give a table and a conclusion on what to take for edge AI." },
+        { "t": "Write my protocol spec on one page", "p": "Compress my protocol/API into a one-page specification in the ITRON style: mandatory functions, invariants, and what is deliberately absent. Show the file." }
+      ],
+      "sources": [
+        "Archive entry: μITRON / T-Kernel (verified by Archivessa)",
+        "Wikipedia: ITRON project"
+      ]
+    },
+    "towns": {
+      "title": "FM Towns and X68000 — a creator-first OS",
+      "subtitle": "1987 — 1990s · Towns OS, Human68k, SX-Window",
+      "fields": [
+        { "lbl": "What it was", "val": "Japanese “multimedia” personal systems of the late 1980s: Fujitsu FM Towns (Towns OS, CD-ROM, 32,768 colours) and Sharp X68000 (Human68k plus the SX-Window GUI, sound and graphics at arcade-machine level)." },
+        { "lbl": "Why it mattered", "val": "Ready-made workstations for creators: colour, sound, CD-ROM as standard and a windowed interface — earlier than Windows 3.1 and clearly better than the “home” PCs of the time." },
+        { "lbl": "Why they died", "val": "Proprietary, expensive, and isolated inside Japan; PC clones with DOS/V and game consoles finished them off." },
+        { "lbl": "Where they live now", "val": "Dead, except for emulators, collectors and the retro demoscene." },
+        { "lbl": "What to build today", "val": "A creator-first OS: guaranteed I/O latency, colour calibration, an audio/MIDI graph and deterministic timing as system guarantees rather than as a pile of workarounds in pro audio and video. Today applications do this; it should be a property of the platform." }
+      ],
+      "links": {
+        "beos": "a media-first OS: the same bet on responsiveness and timing",
+        "build": "the ninth build decision: timing as a guarantee"
+      },
+      "actions": [
+        { "t": "Define timing guarantees", "p": "Define what “deterministic timing as a platform guarantee” means: which metrics (input latency, audio jitter, frame pacing), how to measure them, and where they break on a normal OS." },
+        { "t": "Find living analogues", "p": "Find who provides creator-first guarantees at the OS/platform level today (Audio Workgroups, CoreAudio, PipeWire, realtime kernels): what exactly is guaranteed, with documentation links." }
+      ],
+      "sources": [
+        "Archive entry: FM Towns OS / Sharp X68000 (verified by Archivessa)",
+        "Wikipedia: FM Towns / Towns OS",
+        "Wikipedia: Sharp X68000 / Human68k / SX-Window"
+      ]
+    },
+    "self": {
+      "title": "Self and Smalltalk — an image instead of a restart",
+      "subtitle": "1972 / 1987 — present · prototypes, adaptive optimisation, the live image",
+      "fields": [
+        { "lbl": "Before", "val": "Self (Ungar, Smith, 1987): objects without classes, prototypes and “morphing”; adaptive optimisation — inline caching, polymorphic inline caches, type feedback — was invented there. Smalltalk (1972): the system lives as an image of objects and is edited while running." },
+        { "lbl": "Why it died", "val": "Self the language did not survive (it evolved into the Klein VM) and Smalltalk was displaced by the mainstream; the “image as a deployment artefact” model lost to files and git." },
+        { "lbl": "What it became", "val": "The technique won silently: Self's JIT optimisations are inside every JS and JVM engine — V8, HotSpot. Live environments survive in Squeak/Pharo, notebooks and front-end live reload." },
+        { "lbl": "What it means", "val": "Bring the “image” back in a new shape: saved session state and durable execution for local applications and agents, editable while running, instead of “restart from scratch”. Plus interfaces that morph themselves to the task rather than static forms." }
+      ],
+      "links": {
+        "inferno": "another road to portable state: bytecode and an OS virtual machine",
+        "build": "the tenth build decision: an image and durable execution"
+      },
+      "actions": [
+        { "t": "Design a session image for an agent", "p": "Design a “session image” for a local agent: what is saved, how it is restored after a crash, how it is edited while running. Compare with durable execution (workflow engines) and notebooks." },
+        { "t": "Check the adaptive optimisation history", "p": "Verify from sources which Self techniques (inline caching, PIC, type feedback) are actually used in V8 and HotSpot today, and when they arrived. Links are mandatory." }
+      ],
+      "sources": [
+        "Archive entry: Self / Smalltalk-image (verified by Archivessa)",
+        "Wikipedia: Self (programming language)",
+        "Wikipedia: Smalltalk — objects, VM, live image"
+      ]
+    },
+    "build": {
+      "title": "Build: an OS for a local agent from ten decisions",
+      "subtitle": "the stack's practical output · 10 decisions from 10 cards",
+      "fields": [
+        { "lbl": "Mount, don't integrate", "val": "A new data source is a mount point (9P/facade), not a new SDK. The consumer sees files and directories.", "to": "plan9" },
+        { "lbl": "Bytecode as the unit of deployment", "val": "One artefact (WASM) for device, server and browser; boundaries between machines are mounting, not rewriting.", "to": "inferno" },
+        { "lbl": "Live views", "val": "A board or folder is a saved query that updates itself. No “rebuild the list by hand”.", "to": "beos" },
+        { "lbl": "A record store, not a file store", "val": "One structural store with indices: an agent reads structure instead of re-parsing documents.", "to": "newton" },
+        { "lbl": "A schema with migrations", "val": "Types and relationships as a system service (SQLite/DuckDB plus schema). Without it a “structural store” becomes a JSON dump.", "to": "winfs" },
+        { "lbl": "Compatibility as a contract", "val": "Legacy migration means precise behavioural contracts and tests, not emulating the whole world.", "to": "wpos" },
+        { "lbl": "One contract at every level", "val": "A component model (WASM Component Model + WASI) from microcontroller to cloud — otherwise two stacks forever.", "to": "tron" },
+        { "lbl": "A specification as the product", "val": "An open spec that others implement wins invisibly and outlives any vendor.", "to": "itron" },
+        { "lbl": "Timing as a guarantee", "val": "Input latency, audio jitter and frame pacing are platform properties, not workarounds in an application.", "to": "towns" },
+        { "lbl": "An image and durable execution", "val": "Session state is saved and edited while running; a crash does not mean lost work.", "to": "self" }
+      ],
+      "links": {
+        "plan9": "the first and most important decision",
+        "newton": "without a structural store nothing else works"
+      },
+      "actions": [
+        { "t": "Run my project through the build card", "p": "Run my project/architecture through the ten build decisions of the legacy-os stack: present / missing / partial, and what to do first. As a table, with links to the source cards." },
+        { "t": "Assemble a minimal architecture", "p": "Assemble a minimal architecture for a local agent from the ten decisions of the legacy-os stack: a diagram in words, the components, and what can be skipped. Write it to a file and show it." },
+        { "t": "Ask Archivessa about currency", "p": "Ask Archivessa to verify that the archive entries the legacy-os stack relies on (plan9, inferno, beos, winfs, newton, wpos, tron, itron, towns, self) are not retracted and that their sources are alive." }
+      ],
+      "sources": [
+        "This stack: a synthesis of ten cards (agent judgement)"
+      ]
+    }
+  }
+}

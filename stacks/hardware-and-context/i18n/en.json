@@ -1,0 +1,336 @@
+{
+  "title": "Stack: hardware, identity and attention — what was ahead of its time",
+  "subtitle": "13 cards on top of the archive: FeliCa and QR, ucode, iAPX 432, Transputer, Setun, MSX and PC-98, TRON Code, NeWS, Weiser's calm technology — plus a build card “a device and protocol that survive”.",
+  "about": "A stack about the physical layer and attention: capability rights in silicon, offline payment as infrastructure, an identifier without a vendor, ternary arithmetic, “send a program, not a picture”, and the rule of when an agent stays silent. Every card rests on a verified archive entry.",
+  "archive_title": "Ideas that didn't survive: Japanese and world software, 1980–2006 (RU)",
+  "backgrounds": {
+    "home": "stack home",
+    "fact": "fact card",
+    "before-after": "before / after",
+    "checklist": "build"
+  },
+  "cards": {
+    "home": {
+      "title": "Hardware and attention: eleven decisions still worth using",
+      "subtitle": "stack home · 13 cards · archive 1958–2026",
+      "fields": [
+        { "lbl": "Why this stack", "val": "This stack is about what cannot be rewritten in software later: rights in silicon, offline transactions, an object identifier, response time, the shape of a character. Here are eleven decisions — from ternary Setun to Weiser's calm technology — and one control case of how an idea survives: the QR code, which was open and cheap." },
+        { "lbl": "How to use it", "val": "Cards on the left, ← → pages through. Every card links to an archive entry (⌗) and to related cards; the reverse side of each link is visible under “links here”. The last card is the build card: eleven decisions to test your own device or protocol against." },
+        { "lbl": "What this is not", "val": "Not a catalogue of retro hardware and not a forecast. Facts (years, numbers, names) come from verified archive entries; “what to build” and the “gap” score are the agent's judgement, marked as judgement." }
+      ],
+      "links": {
+        "qr": "the control case: how an idea survives",
+        "felica": "payment as physical infrastructure",
+        "ucode": "an identifier without a vendor",
+        "iapx432": "rights in silicon against prompt injection",
+        "transputer": "concurrency as physics",
+        "setun": "ternarity came back in model quantisation",
+        "msx": "one spec, many manufacturers",
+        "pc98": "why a local standard loses",
+        "troncode": "a character variant as a separate identifier",
+        "news": "send a program, not a picture",
+        "weiser": "the rule of when to stay silent",
+        "build": "build: a device and a protocol"
+      },
+      "actions": [
+        { "t": "Build a stack on another topic", "p": "Build a card stack over the museum archive on the topic: <my topic>. Format — stacks/<slug>/stack.json, fact / before-after / checklist backgrounds, every card linking to an archive entry and every action carrying a tool whitelist." }
+      ],
+      "sources": [
+        "Data of this stack: stacks/hardware-and-context/stack.json",
+        "Source archive: 35 findings, 1980–2006 (verified by Archivessa)"
+      ]
+    },
+    "qr": {
+      "title": "The QR code — the control case: how an idea survives",
+      "subtitle": "1994 — present · Denso Wave · an open licence",
+      "fields": [
+        { "lbl": "What it was", "val": "Denso Wave, 1994: a team of two engineers and eighteen months of work on a code holding about 7,000 digits, supporting kanji and reading more than ten times faster than existing symbologies." },
+        { "lbl": "Why it survived", "val": "The priorities matched a real task (capacity, speed, Japanese text) — and openness: the company did not restrict its use." },
+        { "lbl": "What it proves", "val": "On the museum dashboard the QR code stands as a control case: of the Japanese ideas, the ones that survived were open and cheap; the ones that died were closed and vertically integrated." },
+        { "lbl": "What to build today", "val": "The lesson for agent and IoT standards: an open licence and a low entry bar matter more than technical superiority. The acceptance criterion is a minimal core implemented over a weekend on cheap hardware." }
+      ],
+      "links": {
+        "build": "the first build decision: an open licence",
+        "pc98": "the opposite outcome: a closed ecosystem"
+      },
+      "other": {
+        "agent-protocols/osi": "the same acceptance test: a minimal core over a weekend"
+      },
+      "actions": [
+        { "t": "Run the “QR test” on my standard", "p": "Run the “QR test” on my standard/protocol: licence, entry bar, time to the first working implementation, dependency on a vendor. Give a verdict and three changes." },
+        { "t": "Recover the QR story from the primary source", "p": "Collect the QR code history from the Denso Wave primary source: timeline, the team, the metrics, the licensing decision. Links are mandatory." }
+      ],
+      "sources": [
+        "Archive entry: QR code (verified by Archivessa)",
+        "DENSO WAVE: QR Code development story"
+      ]
+    },
+    "felica": {
+      "title": "FeliCa — payment as physical infrastructure",
+      "subtitle": "1988 — present · Sony · Suica, Octopus, Osaifu-Keitai",
+      "fields": [
+        { "lbl": "What it was", "val": "Sony's contactless IC cards: Suica (JR East), Octopus (Hong Kong), EZ-Link; from 2004 Osaifu-Keitai — mobile FeliCa inside a phone." },
+        { "lbl": "Why it mattered", "val": "National payment and access infrastructure: deterministic tap latency, offline operation, cryptography in the chip, EAL4 certification (later EAL6)." },
+        { "lbl": "Why it did not go global", "val": "NFC-A/B (MIFARE) became the world standard by volume and price; FeliCa stayed largely an Asian technology, although it is part of NFC Forum requirements and Apple added it to Apple Pay in 2016 (iPhone 7 / Watch Series 2)." },
+        { "lbl": "Where it lives now", "val": "Alive in Japan and Asia as the native transit and payment infrastructure." },
+        { "lbl": "What to build today", "val": "Treat payment and access as physical infrastructure rather than an application: offline transactions, hard latency guarantees, certified hardware. Applicable to offline payments, transit, and “tap-to-X” for IoT and agents." }
+      ],
+      "links": {
+        "build": "the third build decision: offline and deterministic latency"
+      },
+      "other": {
+        "pre-web/minitel": "another example of a country's payment infrastructure: kiosque"
+      },
+      "actions": [
+        { "t": "Design offline payment for an agent", "p": "Design an offline transaction for an agent/device: limits, cryptography in the chip, behaviour when the link is lost, how to revoke. Start from FeliCa and Minitel's kiosque." },
+        { "t": "Cross-check FeliCa and NFC facts", "p": "Collect the facts: how FeliCa differs from NFC-A/B, where it is standardised, which devices carry it. Links to specifications and sources." }
+      ],
+      "sources": [
+        "Archive entry: FeliCa (Sony) (verified by Archivessa)",
+        "Wikipedia: FeliCa"
+      ]
+    },
+    "ucode": {
+      "title": "ucode — “DNS for things”, never built",
+      "subtitle": "2003 — present · T-Engine / uID Center · a 128-bit object ID",
+      "fields": [
+        { "lbl": "What it was", "val": "A 128-bit identifier of physical objects (ucode), independent of the carrier technology (RFID, barcode, matrix code), plus a ucodeRP resolution server, a ubiquitous communicator and information servers. The uID Center was led by Ken Sakamura." },
+        { "lbl": "Why it mattered", "val": "“DNS for things”: the identifier is separated both from the carrier and from the application; two-stage resolution (code → resolution server → data) is exactly what people are reinventing now." },
+        { "lbl": "Why it lost", "val": "QR, NFC and the “UUID + URL” combination: it lacked global players, a partner network and simplicity." },
+        { "lbl": "Where it lives now", "val": "A niche and academic life; the same ideas have been reinvented as DID, GS1/EPCIS and verifiable credentials." },
+        { "lbl": "What to build today", "val": "A global resolver for physical objects: a ucode-like ID plus owner plus event history, resilient to a vendor disappearing. Needed by supply chains, repair, the secondary market and verifiable certificates — and still not built." }
+      ],
+      "links": {
+        "qr": "winning minimalism against losing completeness",
+        "build": "the fourth build decision: an identifier without a vendor"
+      },
+      "actions": [
+        { "t": "Design an object resolver", "p": "Design a resolver for physical objects: the ID format, the owner, the event history, and what happens when a vendor disappears. Compare with DID and GS1/EPCIS." },
+        { "t": "Check ucode against sources", "p": "Check the state of ucode/uID Center: alive or not, who uses it, what happened to T-Engine. Links to primary sources." }
+      ],
+      "sources": [
+        "Archive entry: ucode / Ubiquitous ID (verified by Archivessa)",
+        "Wikipedia: ucode system"
+      ]
+    },
+    "iapx432": {
+      "title": "iAPX 432 — rights as architecture, not as discipline",
+      "subtitle": "1981 — 1985 · Intel · a capability computer",
+      "fields": [
+        { "lbl": "Before", "val": "Intel's first 32-bit processor: a capability architecture with objects and descriptors, garbage collection and multitasking in hardware and microcode, a stack model with no visible registers; the primary OS and language were iMAX 432 and Ada." },
+        { "lbl": "Why it failed", "val": "A price and performance gap versus the 8086, no compilers, no backward compatibility; the capability mechanism came to be seen as “overhead”." },
+        { "lbl": "What it became", "val": "Dead, but the ideas were reborn: CHERI and ARM Morello, seL4, EROS/KeyKOS, WASI capabilities, Fuchsia." },
+        { "lbl": "What it means for agents", "val": "Rights as transferable references instead of bearer tokens: an agent can call only what it was explicitly given and cannot “fetch” anything by name. A direct answer to the class of prompt-injection attacks and to an agent with full root access." }
+      ],
+      "links": {
+        "build": "the fifth build decision: capability rights"
+      },
+      "other": {
+        "agent-protocols/genmagic": "Telescript also gave rights to an agent — at the language level"
+      },
+      "actions": [
+        { "t": "Design a capability model for an agent", "p": "Design a capability model for my agent: which references it receives, how it passes them on, how they are revoked, what happens under prompt injection. Compare with bearer tokens and ACLs." },
+        { "t": "What is actually ready in CHERI/Morello", "p": "Check the state of CHERI and ARM Morello: what is available to a developer today, which OSes support it, whether there is volume hardware. Primary sources with links." }
+      ],
+      "sources": [
+        "Archive entry: Intel iAPX 432 (verified by Archivessa)",
+        "Wikipedia: Intel iAPX 432"
+      ]
+    },
+    "transputer": {
+      "title": "Transputer — concurrency as physics",
+      "subtitle": "1983/1984 — 1990s · Inmos · CSP in silicon, Occam",
+      "fields": [
+        { "lbl": "What it was", "val": "Inmos's British architecture (announced 1983, shipped 1984): a processor with four links and a hardware scheduler for CSP processes, the Occam language, TRAM modules. The flagship T9000 never shipped." },
+        { "lbl": "Why it mattered", "val": "Concurrency as physics: processes and CSP channels in silicon, “a processor is a network node”, deterministic parallelism without an OS. Architecturally ahead of its time." },
+        { "lbl": "Why it died", "val": "It demanded rewriting the world in Occam: no market, not enough money or marketing, T9000 was late and failed — cheap mass-market x86 won." },
+        { "lbl": "Where it lives now", "val": "Dead, but CSP came back: Go, Erlang, Rust async. “A network of processors” is relevant again in chiplets and edge clusters." },
+        { "lbl": "What to build today", "val": "Bring back the hardware honesty of CSP: guaranteed channel latency and a compiler that lays a program out across chiplets and nodes. Today this is assembled by hand through MPI and actors — and for multi-die and edge AI it is the key." }
+      ],
+      "links": {
+        "build": "the sixth build decision: guaranteed channel latency",
+        "setun": "both cards are about an architecture that outran the market"
+      },
+      "actions": [
+        { "t": "Compare CSP channels with actors", "p": "Compare CSP (Occam/Transputer, Go) with the actor model (Erlang/Akka): guarantees, latency, debugging, cost. What to take for multi-die and edge AI — with reasoning." },
+        { "t": "Check the fate of the T9000", "p": "Collect the facts on the Transputer and T9000 history: dates, reasons for failure, what became of Inmos. Links are mandatory." }
+      ],
+      "sources": [
+        "Archive entry: Transputer + Occam (verified by Archivessa)",
+        "Wikipedia: Transputer"
+      ]
+    },
+    "setun": {
+      "title": "Setun — the ternary computer that came back in quantisation",
+      "subtitle": "1958/1959 — 1965 · Moscow State University, Sobolev and Brusentsov · about 50 machines",
+      "fields": [
+        { "lbl": "Before", "val": "A computer on balanced ternary logic (Moscow State University; designed in 1958, produced 1959–1965 at the Kazan plant, about 50 machines; the successor was Setun-70)." },
+        { "lbl": "Why it died", "val": "Industrial inertia and politics: the binary direction had industry backing, the ternary line was left without production or development." },
+        { "lbl": "Why it is interesting", "val": "Ternary arithmetic is more economical than binary in representation density, rounds without accumulating error, and has a natural “−1 / 0 / +1” instead of two values." },
+        { "lbl": "What it means today", "val": "Ternarity returned to ML in a different form: weights {−1, 0, +1} in 1.58-bit models are Setun in new clothing. Next: hardware for ternary and ternary-quantised inference, and ternary voting in consensus and recommendation systems." }
+      ],
+      "links": {
+        "transputer": "both architectures lost the market but came back in another shape",
+        "build": "the seventh build decision: a numeric representation for the task"
+      },
+      "actions": [
+        { "t": "Check where ternary hardware stands", "p": "Check what exists today for ternary and low-bit inference on hardware (1.58-bit models, research chips): facts and links, no forecasts." },
+        { "t": "Compute the gain of ternary representation", "p": "Compute in Python: how many weights fit into a memory budget with 16-bit versus ternary representation for a 1-billion-parameter model, and what the accumulation error is. Show the calculation." }
+      ],
+      "sources": [
+        "Archive entry: Setun (verified by Archivessa)",
+        "Wikipedia: Setun"
+      ]
+    },
+    "msx": {
+      "title": "MSX — one specification, many manufacturers",
+      "subtitle": "1983 — 1993 · ASCII + Microsoft · 14+ vendors",
+      "fields": [
+        { "lbl": "What it was", "val": "A home-computer standard (ASCII + Microsoft, announced 27 June 1983): more than 14 manufacturers (Sony, Panasonic, Philips, Canon, Samsung and others), MSX BASIC/MSX-DOS, cartridges." },
+        { "lbl": "Why it mattered", "val": "The first honest attempt at “one spec, many vendors”: a cartridge worked on any machine. Huge in Japan, Europe, Brazil and Korea — almost invisible in the US." },
+        { "lbl": "Why it died", "val": "A late start and the wrong market; vendors did not want to lose differentiation; by the late 1980s it was displaced by PC clones and consoles. The last line was MSX turboR, 1993." },
+        { "lbl": "Where it lives now", "val": "Dead outside the retro community." },
+        { "lbl": "What to build today", "val": "The “common specification plus many manufacturers” model is exactly what edge modules and RISC-V devices need: backward compatibility as a product (a module that works everywhere)." }
+      ],
+      "links": {
+        "pc98": "the opposite strategy: a closed vertical",
+        "build": "the eighth build decision: compatibility as a product"
+      },
+      "other": {
+        "legacy-os/itron": "the same “spec instead of product” model, and there it worked"
+      },
+      "actions": [
+        { "t": "Compare MSX and RISC-V as models", "p": "Compare the MSX model (one spec, many vendors) with the RISC-V ecosystem: what they share, why one died in 1993 while the other lives. Source links." },
+        { "t": "Write the spec for my module", "p": "Write the specification of my module in the MSX style: mandatory functions, the minimal compatibility level, what a vendor may change. Test it against “the cartridge works everywhere”." }
+      ],
+      "sources": [
+        "Archive entry: MSX (verified by Archivessa)",
+        "Wikipedia: MSX",
+        "PC Gamer: The bright life of the MSX"
+      ]
+    },
+    "pc98": {
+      "title": "PC-98 — why a local standard always loses",
+      "subtitle": "1982 — 2003 · NEC · 18.3 million machines",
+      "fields": [
+        { "lbl": "Before", "val": "The NEC PC-9800: 18.3 million machines; x86-compatible but hardware-closed Japanese PCs with their own graphics for kanji, N88-BASIC and MS-DOS." },
+        { "lbl": "Why it died", "val": "DOS/V (1990) let IBM clones draw Japanese text in software — and isolation turned into collapse: the market moved to the global standard. Production ended on 30 September 2003." },
+        { "lbl": "What it became", "val": "Dead; the platform is an object of collecting and emulation." },
+        { "lbl": "What it means", "val": "Separate localisation from the core: keyboard layouts, typography and legal formats as a plug-in layer; bus, APIs and data formats global. Protectionism at the format level always loses." }
+      ],
+      "links": {
+        "msx": "successful compatibility against a closed vertical",
+        "troncode": "the same dispute: local precision against a global standard",
+        "build": "the ninth build decision: what to localise and what not"
+      },
+      "actions": [
+        { "t": "Check my product for the PC-98 trap", "p": "Check my product for the “PC-98 trap”: what in it is locally specific, what should be a plug-in, and what must be global. Give a list of decisions." },
+        { "t": "Take apart the DOS/V story", "p": "Establish from sources how DOS/V broke the PC-98 market: dates, technical details, NEC's reaction. Links are mandatory." }
+      ],
+      "sources": [
+        "Archive entry: PC-98 (NEC) (verified by Archivessa)",
+        "Wikipedia: PC-98"
+      ]
+    },
+    "troncode": {
+      "title": "TRON Code — a character variant as a separate identifier",
+      "subtitle": "1980s — present · TRON · no Han unification",
+      "fields": [
+        { "lbl": "What it was", "val": "TRON's own multi-byte encoding: every ideograph from every national set (JIS, GB 2312, Big5, KS X 1001) is encoded separately — without the Han unification adopted by Unicode." },
+        { "lbl": "Why it mattered", "val": "Precise CJK typography: it is impossible to confuse a Japanese, Chinese and Korean form of a character; historical and archaic variants are separate characters rather than “the same symbol”." },
+        { "lbl": "Why it lost", "val": "To global Unicode and the economics of fonts: the TRON set required more than 200,000 code points, the fonts had restrictions on commercial use, and the encoding could not keep up with Unicode extensions." },
+        { "lbl": "Where it lives now", "val": "A niche: fonts and data in the TRON ecosystem. Unicode solved part of the problem with variation selectors (IVS)." },
+        { "lbl": "What to build today", "val": "For legally significant texts and localisation, bring back “a variant as a separate identifier”: variant tags in the data plus provenance for the character's origin. In the ML age this is also correct CJK tokenisation without losing the glyph." }
+      ],
+      "links": {
+        "pc98": "the same fork: local precision against a global format",
+        "build": "the tenth build decision: a variant as data"
+      },
+      "other": {
+        "legacy-os/tron": "the encoding is part of the TRON project: the same argument about precision"
+      },
+      "actions": [
+        { "t": "Check my CJK handling", "p": "Check how my project handles CJK: where a character variant is lost, what to do about variation selectors, how to store the provenance of a glyph. Give concrete changes." },
+        { "t": "Take apart Han unification", "p": "Explain from sources what Han unification in Unicode is, what problems it creates for typography, and how IVS partly solves it. Links are mandatory." }
+      ],
+      "sources": [
+        "Archive entry: TRON Code (verified by Archivessa)",
+        "Wikipedia: TRON (encoding)"
+      ]
+    },
+    "news": {
+      "title": "NeWS — send a program, not a picture",
+      "subtitle": "1986 — 1993 · Sun · the window server as a PostScript interpreter",
+      "fields": [
+        { "lbl": "What it was", "val": "Sun's window system (by James Gosling and David Rosenthal): the window server as a PostScript interpreter — the client sends a program, not pixels." },
+        { "lbl": "Why it mattered", "val": "The display as a computer: an extensible server, server-side rendering, small channels; an ideal model for thin clients and remote interfaces." },
+        { "lbl": "Why it lost", "val": "X11 won on politics and price: X code was given away free, NeWS was licensed; OPEN LOOK lost to Motif and Sun dropped support." },
+        { "lbl": "Where it lives now", "val": "Dead, but the techniques live on in shaders and GPU compute, in server-side rendering and in interface streaming." },
+        { "lbl": "What to build today", "val": "Send a program, not a picture — an ideal model for remote and AI-generated interfaces: the server or agent ships a declarative description, the client only executes and collects input. Less traffic, more control." }
+      ],
+      "links": {
+        "weiser": "both cards are about how an interface should behave in the background",
+        "build": "the eleventh build decision: a declarative UI"
+      },
+      "actions": [
+        { "t": "Design a declarative UI for an agent", "p": "Design a protocol by which an agent delivers an interface declaratively (not pixels and not arbitrary HTML): what can be described, how the client executes it, where the security boundaries are." },
+        { "t": "Take apart the NeWS story", "p": "Collect from sources the NeWS history and why it lost to X11: licensing, politics, OPEN LOOK versus Motif. Links are mandatory." }
+      ],
+      "sources": [
+        "Archive entry: Sun NeWS / Display PostScript (verified by Archivessa)",
+        "Wikipedia: NeWS"
+      ]
+    },
+    "weiser": {
+      "title": "Weiser — information without interruption",
+      "subtitle": "1991 — present · Xerox PARC · calm technology",
+      "fields": [
+        { "lbl": "Before", "val": "A Xerox PARC programme and the paper “The Computer for the 21st Century” (1991): tabs, pads and boards — computers the size of a sticky note, a sheet and a whiteboard; “the constant background of information requires no active attention, yet is ready for a glance”." },
+        { "lbl": "Why it mattered", "val": "A rejection of the “personal computer” idea: technology should recede into the background and free attention. The most humane formulation of what we now call IoT." },
+        { "lbl": "What came of it", "val": "Implemented partly and badly: connectivity exists, calm does not — attention became a commodity and ubicomp platforms degenerated into surveillance systems. This is the main critique of Weiser's legacy." },
+        { "lbl": "What to build today", "val": "Information without interruption: ambient and glanceable surfaces (e-ink, panels, audio cues) plus the rule of when to stay silent. For agents this is a normative principle: an agent stays silent until the decision changes, instead of reporting every step." }
+      ],
+      "links": {
+        "news": "the interface as background: two sides of one idea",
+        "build": "the twelfth build decision: the rule of silence"
+      },
+      "actions": [
+        { "t": "Write the rule of silence for an agent", "p": "Write the normative rule of “when an agent stays silent”: which events do not warrant a notification, what counts as a change of decision, what a glanceable status looks like. Start from calm technology." },
+        { "t": "Check the critique of ubicomp", "p": "Collect the critique of Weiser's legacy (Bell & Dourish and others): why ubicomp became surveillance. Quotes and links." }
+      ],
+      "sources": [
+        "Archive entry: Weiser — calm technology (verified by Archivessa)",
+        "Weiser (1991): The Computer for the 21st Century"
+      ]
+    },
+    "build": {
+      "title": "Build: a device and a protocol that survive",
+      "subtitle": "the stack's practical output · 11 decisions from 11 cards",
+      "fields": [
+        { "lbl": "An open licence and a low entry bar", "val": "What survives is what can be repeated over a weekend: QR was opened — and it has lived for 30 years.", "to": "qr" },
+        { "lbl": "Offline and deterministic latency", "val": "Payment and access are physical infrastructure: they work without a network, answer in a fixed time, and keep cryptography in the chip.", "to": "felica" },
+        { "lbl": "An identifier without a vendor", "val": "An object ID is separated from the carrier and the application; resolution is two-stage and data outlives the company.", "to": "ucode" },
+        { "lbl": "Capability rights", "val": "Rights are transferable references, not strings and ACLs. An agent cannot “fetch” what it was not given.", "to": "iapx432" },
+        { "lbl": "Guaranteed channel latency", "val": "Concurrency as a platform property, not a library: channels and a scheduler with predictable behaviour.", "to": "transputer" },
+        { "lbl": "A numeric representation for the task", "val": "Ternarity and low-bit arithmetic are not exotica but a memory and energy budget; do the arithmetic before choosing hardware.", "to": "setun" },
+        { "lbl": "One spec for many vendors", "val": "Compatibility as a product: the module works everywhere, the vendor adds only on top.", "to": "msx" },
+        { "lbl": "Localisation as a plug-in, a global core", "val": "Layouts and typography are a layer; data formats and APIs are global. Otherwise DOS/V comes for you.", "to": "pc98" },
+        { "lbl": "A variant as data", "val": "A glyph, a form, a historical variant is a separate identifier with provenance, not “the same symbol”.", "to": "troncode" },
+        { "lbl": "A declarative interface", "val": "The agent ships a description (a program), the client executes it — less traffic and clear security boundaries.", "to": "news" },
+        { "lbl": "The rule of silence", "val": "An agent stays silent until the decision changes; attention is a scarce resource, not a delivery channel for statuses.", "to": "weiser" }
+      ],
+      "links": {
+        "qr": "the main criterion: openness and the entry bar",
+        "iapx432": "security has to live in the architecture"
+      },
+      "actions": [
+        { "t": "Run my device through the build card", "p": "Run my device/protocol through the eleven build decisions of the hardware-and-context stack: present / missing / partial, and what to do first. As a table with links to the source cards." },
+        { "t": "Assemble a minimal specification", "p": "Assemble a minimal specification from the eleven decisions: what is mandatory, what is optional, and the acceptance criterion “implemented over a weekend”. Write it to a file and show it." },
+        { "t": "Ask Archivessa about sources", "p": "Ask Archivessa to verify that the archive entries the hardware-and-context stack relies on (qr, felica, ucode, iapx432, transputer, setun, msx, pc98, troncode, news, weiser) are not retracted and that their sources are alive." }
+      ],
+      "sources": [
+        "This stack: a synthesis of eleven cards (agent judgement)"
+      ]
+    }
+  }
+}

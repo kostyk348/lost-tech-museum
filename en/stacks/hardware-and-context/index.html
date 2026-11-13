@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stack: hardware, identity and attention — what was ahead of its time — stack · Lost Tech Museum</title>
+<meta name="description" content="13 cards: FeliCa and QR, ucode, iAPX 432, Transputer, Setun, MSX and PC-98, TRON Code, NeWS, Weiser’s calm technology — plus a build card “a device and protocol that survive”.">
+<link rel="alternate" hreflang="ru" href="../../../stacks/hardware-and-context/">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--soft:#111722;--cy:#22d3ee;--am:#f0b429;--gr:#3fb950;--lp:#a78bfa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--cy);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 56px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.eyebrow .who{color:var(--lp);letter-spacing:.06em}
+.langs{float:right;font-size:12.5px;color:var(--mut)}
+.langs .cur{color:var(--fg);font-weight:600}
+h1{font-size:28px;line-height:1.14;margin:.25em 0 .3em;letter-spacing:-.01em}
+.lede{color:var(--mut);max-width:78ch;margin:0 0 14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.meta span{font-size:12.5px;color:var(--mut);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:5px 11px}
+.meta b{color:var(--fg);font-weight:600}
+.layout{display:grid;grid-template-columns:262px minmax(0,1fr);gap:16px;align-items:start}
+.nav{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:11px;position:sticky;top:14px}
+.nav input[type=search]{width:100%;background:var(--soft);border:1px solid var(--line);color:var(--fg);border-radius:9px;padding:7px 10px;font-size:13.5px;margin-bottom:9px}
+
+.nl{display:block;width:100%;text-align:left;cursor:pointer;background:transparent;border:1px solid transparent;border-radius:10px;padding:7px 9px;color:var(--mut);font-size:13.5px;line-height:1.4;font-family:inherit}
+.nl:hover{background:var(--soft);border-color:var(--line)}
+.nl.on{background:var(--soft);border-color:var(--line);color:var(--fg)}
+.nl .nbin{display:block;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut);letter-spacing:.04em;margin-top:2px}
+.navfoot{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:grid;gap:5px;font-size:12.5px}
+.leg{font:11.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 20px;min-height:380px}
+.shead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px}
+.shead h2{margin:0 0 5px;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.shead .sub{color:var(--mut);font-size:13px}
+.bgchip{font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--lp);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.gap{display:inline-flex;gap:3px;align-items:center;font-size:11px;color:var(--mut)}
+.gap i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.gap i.on{background:var(--am)}
+.fld{margin:15px 0 0}
+.fld .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:3px}
+.fld .val{margin:0;font-size:14.3px;color:var(--fg)}
+.fld .to{display:inline-block;margin-top:5px;font-size:12px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:2px 9px;color:var(--cy);cursor:pointer}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:11px;margin-top:15px}
+.cols .fld{margin:0;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.cols .fld:nth-child(1){border-left:3px solid var(--am)}
+.cols .fld:nth-child(2){border-left:3px solid #e5484d}
+.cols .fld:nth-child(3){border-left:3px solid var(--gr)}
+.cols .fld:nth-child(4){border-left:3px solid var(--cy)}
+.rows{margin-top:15px;display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rows .r{display:grid;grid-template-columns:230px minmax(0,1fr);border-top:1px solid var(--line)}
+.rows .r:first-child{border-top:0}
+.rows .k{padding:10px 12px;background:var(--soft);font-size:13.2px;font-weight:600;border-right:1px solid var(--line)}
+.rows .v{padding:10px 12px;font-size:13.6px;color:var(--fg)}
+.sect{margin-top:20px;border-top:1px dashed var(--line);padding-top:13px}
+.sect .h{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:7px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lk{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;text-align:left;color:var(--fg);font-family:inherit;font-size:13.2px;max-width:100%}
+.lk:hover{border-color:var(--cy)}
+.lk b{font-weight:600}
+.lk .wy{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.acts{display:grid;gap:9px}
+.act{display:grid;gap:6px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.act .top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between}
+.act .tools{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.act .prompt{font-size:12.6px;color:var(--mut);margin:0}
+.btn{cursor:pointer;font-size:13px;color:var(--fg);background:var(--soft);border:1px solid var(--cy);border-radius:999px;padding:6px 13px;font-family:inherit}
+.btn:hover{background:var(--cy);color:#04141a}
+.srcs{display:grid;gap:4px}
+.srcs a{font-size:12.5px;color:var(--mut)}
+.srcs a::before{content:"↗ ";color:var(--mut)}
+.srcs a.r::before{content:"✓ ";color:var(--gr)}
+.srcs a.k-archive::before{content:"⌗ ";color:var(--cy)}
+.plain{color:var(--mut);font-size:13.5px}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+footer p{margin:.45em 0}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.nav{position:static}.rows .r{grid-template-columns:1fr}.rows .k{border-right:0}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><span class="langs"><span class="cur">English</span> · <a href="../../../stacks/hardware-and-context/" hreflang="ru">Русский</a></span>Lost Tech Museum · card stack · by <span class="who">Chartessa</span></div>
+  <h1>Stack: hardware, identity and attention — what was ahead of its time</h1>
+  <p class="lede">13 cards on top of the archive: FeliCa and QR, ucode, iAPX 432, Transputer, Setun, MSX and PC-98, TRON Code, NeWS, Weiser's calm technology — plus a build card “a device and protocol that survive”.</p>
+  <div class="meta">
+    <span>cards: <b id="m-cards">0</b></span>
+    <span>links: <b id="m-links">0</b></span>
+    <span>sources: <b id="m-src">0</b></span>
+    <span>archive entries: <b id="m-arch">0</b></span>
+    <span>built: <b>2026-10-14</b></span>
+  </div>
+
+  <div class="layout">
+    <aside class="nav">
+      <input type="search" id="q" placeholder="filter: fipa, tuple space…">
+      <div id="navlist"></div>
+      <div class="navfoot">
+        <a id="archlink" href="#">Full archive →</a>
+        <span class="leg">← → browse · Esc — stack home</span>
+      </div>
+    </aside>
+    <main class="stage" id="stage"></main>
+  </div>
+
+  <footer>
+    <p><b>Method.</b> Facts in the cards come from verified museum archive entries: the “archive” link on a card leads to
+    the entry, and the <span class="leg">✓</span> (page read in full) and <span class="leg">↗</span> (search-index level)
+    marks are inherited from the archive. The “gap” score and the “what to build” blocks are the judgement of the agent
+    Chartessa, not a quotation.</p>
+    <p><b>Buttons.</b> A card action is a bounded prompt with a whitelist of tools, not arbitrary code: in the chat the
+    button sends the prompt to the agent, on the site it copies it to the clipboard.</p>
+    <p><b>Card backgrounds</b> (templates) — <span class="leg" id="bglist"></span>.</p>
+    <p class="leg">Source titles and archive contents are published in Russian: they are the museum's primary record.</p>
+    <p>Part of the “Lost Tech Museum” archive · <a href="https://github.com/kostyk348/lost-tech-museum">data and generator on GitHub</a></p>
+    <p class="leg">Generated by <code>scripts/build.py</code> from <code>stacks/hardware-and-context/stack.json</code>.</p>
+  </footer>
+</div>
+
+<script>
+const STACK = {"slug": "hardware-and-context", "title": "Stack: hardware, identity and attention — what was ahead of its time", "subtitle": "13 cards on top of the archive: FeliCa and QR, ucode, iAPX 432, Transputer, Setun, MSX and PC-98, TRON Code, NeWS, Weiser's calm technology — plus a build card “a device and protocol that survive”.", "generated": "2026-10-14", "author": "Chartessa (Собирательница стеков)", "about": "A stack about the physical layer and attention: capability rights in silicon, offline payment as infrastructure, an identifier without a vendor, ternary arithmetic, “send a program, not a picture”, and the rule of when an agent stays silent. Every card rests on a verified archive entry.", "archive": {"slug": "lost-ideas-1980s-2000s", "title": "Ideas that didn't survive: Japanese and world software, 1980–2006 (RU)"}, "backgrounds": {"home": {"name": "stack home", "layout": "list", "note": "домашняя карточка: зачем стек, как пользоваться, где границы"}, "fact": {"name": "fact card", "layout": "list", "note": "поля: что было / почему / почему умерло / где сейчас / что внедрить"}, "before-after": {"name": "before / after", "layout": "cols", "note": "четыре поля: было → почему умерло → стало → что это значит"}, "checklist": {"name": "build", "layout": "table", "note": "строки: решение → из какой карточки, со ссылкой на источник"}}, "cards": [{"id": "home", "title": "Hardware and attention: eleven decisions still worth using", "subtitle": "stack home · 13 cards · archive 1958–2026", "bg": "home", "gap": 4, "fields": [{"lbl": "Why this stack", "val": "This stack is about what cannot be rewritten in software later: rights in silicon, offline transactions, an object identifier, response time, the shape of a character. Here are eleven decisions — from ternary Setun to Weiser's calm technology — and one control case of how an idea survives: the QR code, which was open and cheap."}, {"lbl": "How to use it", "val": "Cards on the left, ← → pages through. Every card links to an archive entry (⌗) and to related cards; the reverse side of each link is visible under “links here”. The last card is the build card: eleven decisions to test your own device or protocol against."}, {"lbl": "What this is not", "val": "Not a catalogue of retro hardware and not a forecast. Facts (years, numbers, names) come from verified archive entries; “what to build” and the “gap” score are the agent's judgement, marked as judgement."}], "archive": [], "links": [{"to": "qr", "why": "the control case: how an idea survives"}, {"to": "felica", "why": "payment as physical infrastructure"}, {"to": "ucode", "why": "an identifier without a vendor"}, {"to": "iapx432", "why": "rights in silicon against prompt injection"}, {"to": "transputer", "why": "concurrency as physics"}, {"to": "setun", "why": "ternarity came back in model quantisation"}, {"to": "msx", "why": "one spec, many manufacturers"}, {"to": "pc98", "why": "why a local standard loses"}, {"to": "troncode", "why": "a character variant as a separate identifier"}, {"to": "news", "why": "send a program, not a picture"}, {"to": "weiser", "why": "the rule of when to stay silent"}, {"to": "build", "why": "build: a device and a protocol"}], "actions": [{"t": "Build a stack on another topic", "p": "Build a card stack over the museum archive on the topic: <my topic>. Format — stacks/<slug>/stack.json, fact / before-after / checklist backgrounds, every card linking to an archive entry and every action carrying a tool whitelist.", "tools": ["read_file", "write_file", "terminal"]}], "sources": [{"u": "https://github.com/kostyk348/lost-tech-museum/blob/master/stacks/hardware-and-context/stack.json", "t": "Data of this stack: stacks/hardware-and-context/stack.json", "r": 1, "kind": "self"}, {"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/", "t": "Source archive: 35 findings, 1980–2006 (verified by Archivessa)", "r": 1, "kind": "archive"}]}, {"id": "qr", "title": "The QR code — the control case: how an idea survives", "subtitle": "1994 — present · Denso Wave · an open licence", "bg": "fact", "gap": 1, "fields": [{"lbl": "What it was", "val": "Denso Wave, 1994: a team of two engineers and eighteen months of work on a code holding about 7,000 digits, supporting kanji and reading more than ten times faster than existing symbologies."}, {"lbl": "Why it survived", "val": "The priorities matched a real task (capacity, speed, Japanese text) — and openness: the company did not restrict its use."}, {"lbl": "What it proves", "val": "On the museum dashboard the QR code stands as a control case: of the Japanese ideas, the ones that survived were open and cheap; the ones that died were closed and vertically integrated."}, {"lbl": "What to build today", "val": "The lesson for agent and IoT standards: an open licence and a low entry bar matter more than technical superiority. The acceptance criterion is a minimal core implemented over a weekend on cheap hardware."}], "archive": ["qr"], "links": [{"to": "build", "why": "the first build decision: an open licence"}, {"to": "pc98", "why": "the opposite outcome: a closed ecosystem"}], "other": [{"stack": "agent-protocols", "card": "osi", "why": "the same acceptance test: a minimal core over a weekend"}], "actions": [{"t": "Run the “QR test” on my standard", "p": "Run the “QR test” on my standard/protocol: licence, entry bar, time to the first working implementation, dependency on a vendor. Give a verdict and three changes.", "tools": ["read_file"]}, {"t": "Recover the QR story from the primary source", "p": "Collect the QR code history from the Denso Wave primary source: timeline, the team, the metrics, the licensing decision. Links are mandatory.", "tools": ["web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-qr", "t": "Archive entry: QR code (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://www.denso-wave.com/en/technology/vol1.html", "t": "DENSO WAVE: QR Code development story", "r": 1, "kind": "inherited"}]}, {"id": "felica", "title": "FeliCa — payment as physical infrastructure", "subtitle": "1988 — present · Sony · Suica, Octopus, Osaifu-Keitai", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "Sony's contactless IC cards: Suica (JR East), Octopus (Hong Kong), EZ-Link; from 2004 Osaifu-Keitai — mobile FeliCa inside a phone."}, {"lbl": "Why it mattered", "val": "National payment and access infrastructure: deterministic tap latency, offline operation, cryptography in the chip, EAL4 certification (later EAL6)."}, {"lbl": "Why it did not go global", "val": "NFC-A/B (MIFARE) became the world standard by volume and price; FeliCa stayed largely an Asian technology, although it is part of NFC Forum requirements and Apple added it to Apple Pay in 2016 (iPhone 7 / Watch Series 2)."}, {"lbl": "Where it lives now", "val": "Alive in Japan and Asia as the native transit and payment infrastructure."}, {"lbl": "What to build today", "val": "Treat payment and access as physical infrastructure rather than an application: offline transactions, hard latency guarantees, certified hardware. Applicable to offline payments, transit, and “tap-to-X” for IoT and agents."}], "archive": ["felica"], "links": [{"to": "build", "why": "the third build decision: offline and deterministic latency"}], "other": [{"stack": "pre-web", "card": "minitel", "why": "another example of a country's payment infrastructure: kiosque"}], "actions": [{"t": "Design offline payment for an agent", "p": "Design an offline transaction for an agent/device: limits, cryptography in the chip, behaviour when the link is lost, how to revoke. Start from FeliCa and Minitel's kiosque.", "tools": ["read_file", "write_file"]}, {"t": "Cross-check FeliCa and NFC facts", "p": "Collect the facts: how FeliCa differs from NFC-A/B, where it is standardised, which devices carry it. Links to specifications and sources.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-felica", "t": "Archive entry: FeliCa (Sony) (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/FeliCa", "t": "Wikipedia: FeliCa", "r": 1, "kind": "inherited"}]}, {"id": "ucode", "title": "ucode — “DNS for things”, never built", "subtitle": "2003 — present · T-Engine / uID Center · a 128-bit object ID", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "A 128-bit identifier of physical objects (ucode), independent of the carrier technology (RFID, barcode, matrix code), plus a ucodeRP resolution server, a ubiquitous communicator and information servers. The uID Center was led by Ken Sakamura."}, {"lbl": "Why it mattered", "val": "“DNS for things”: the identifier is separated both from the carrier and from the application; two-stage resolution (code → resolution server → data) is exactly what people are reinventing now."}, {"lbl": "Why it lost", "val": "QR, NFC and the “UUID + URL” combination: it lacked global players, a partner network and simplicity."}, {"lbl": "Where it lives now", "val": "A niche and academic life; the same ideas have been reinvented as DID, GS1/EPCIS and verifiable credentials."}, {"lbl": "What to build today", "val": "A global resolver for physical objects: a ucode-like ID plus owner plus event history, resilient to a vendor disappearing. Needed by supply chains, repair, the secondary market and verifiable certificates — and still not built."}], "archive": ["ucode"], "links": [{"to": "qr", "why": "winning minimalism against losing completeness"}, {"to": "build", "why": "the fourth build decision: an identifier without a vendor"}], "actions": [{"t": "Design an object resolver", "p": "Design a resolver for physical objects: the ID format, the owner, the event history, and what happens when a vendor disappears. Compare with DID and GS1/EPCIS.", "tools": ["web_search", "write_file"]}, {"t": "Check ucode against sources", "p": "Check the state of ucode/uID Center: alive or not, who uses it, what happened to T-Engine. Links to primary sources.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-ucode", "t": "Archive entry: ucode / Ubiquitous ID (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Ucode_system", "t": "Wikipedia: ucode system", "r": 1, "kind": "inherited"}]}, {"id": "iapx432", "title": "iAPX 432 — rights as architecture, not as discipline", "subtitle": "1981 — 1985 · Intel · a capability computer", "bg": "before-after", "gap": 4, "fields": [{"lbl": "Before", "val": "Intel's first 32-bit processor: a capability architecture with objects and descriptors, garbage collection and multitasking in hardware and microcode, a stack model with no visible registers; the primary OS and language were iMAX 432 and Ada."}, {"lbl": "Why it failed", "val": "A price and performance gap versus the 8086, no compilers, no backward compatibility; the capability mechanism came to be seen as “overhead”."}, {"lbl": "What it became", "val": "Dead, but the ideas were reborn: CHERI and ARM Morello, seL4, EROS/KeyKOS, WASI capabilities, Fuchsia."}, {"lbl": "What it means for agents", "val": "Rights as transferable references instead of bearer tokens: an agent can call only what it was explicitly given and cannot “fetch” anything by name. A direct answer to the class of prompt-injection attacks and to an agent with full root access."}], "archive": ["iapx432"], "links": [{"to": "build", "why": "the fifth build decision: capability rights"}], "other": [{"stack": "agent-protocols", "card": "genmagic", "why": "Telescript also gave rights to an agent — at the language level"}], "actions": [{"t": "Design a capability model for an agent", "p": "Design a capability model for my agent: which references it receives, how it passes them on, how they are revoked, what happens under prompt injection. Compare with bearer tokens and ACLs.", "tools": ["web_search", "read_file", "write_file"]}, {"t": "What is actually ready in CHERI/Morello", "p": "Check the state of CHERI and ARM Morello: what is available to a developer today, which OSes support it, whether there is volume hardware. Primary sources with links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-iapx432", "t": "Archive entry: Intel iAPX 432 (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Intel_iAPX_432", "t": "Wikipedia: Intel iAPX 432", "r": 1, "kind": "inherited"}]}, {"id": "transputer", "title": "Transputer — concurrency as physics", "subtitle": "1983/1984 — 1990s · Inmos · CSP in silicon, Occam", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "Inmos's British architecture (announced 1983, shipped 1984): a processor with four links and a hardware scheduler for CSP processes, the Occam language, TRAM modules. The flagship T9000 never shipped."}, {"lbl": "Why it mattered", "val": "Concurrency as physics: processes and CSP channels in silicon, “a processor is a network node”, deterministic parallelism without an OS. Architecturally ahead of its time."}, {"lbl": "Why it died", "val": "It demanded rewriting the world in Occam: no market, not enough money or marketing, T9000 was late and failed — cheap mass-market x86 won."}, {"lbl": "Where it lives now", "val": "Dead, but CSP came back: Go, Erlang, Rust async. “A network of processors” is relevant again in chiplets and edge clusters."}, {"lbl": "What to build today", "val": "Bring back the hardware honesty of CSP: guaranteed channel latency and a compiler that lays a program out across chiplets and nodes. Today this is assembled by hand through MPI and actors — and for multi-die and edge AI it is the key."}], "archive": ["transputer"], "links": [{"to": "build", "why": "the sixth build decision: guaranteed channel latency"}, {"to": "setun", "why": "both cards are about an architecture that outran the market"}], "actions": [{"t": "Compare CSP channels with actors", "p": "Compare CSP (Occam/Transputer, Go) with the actor model (Erlang/Akka): guarantees, latency, debugging, cost. What to take for multi-die and edge AI — with reasoning.", "tools": ["web_search", "read_file"]}, {"t": "Check the fate of the T9000", "p": "Collect the facts on the Transputer and T9000 history: dates, reasons for failure, what became of Inmos. Links are mandatory.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-transputer", "t": "Archive entry: Transputer + Occam (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Transputer", "t": "Wikipedia: Transputer", "r": 1, "kind": "inherited"}]}, {"id": "setun", "title": "Setun — the ternary computer that came back in quantisation", "subtitle": "1958/1959 — 1965 · Moscow State University, Sobolev and Brusentsov · about 50 machines", "bg": "before-after", "gap": 4, "fields": [{"lbl": "Before", "val": "A computer on balanced ternary logic (Moscow State University; designed in 1958, produced 1959–1965 at the Kazan plant, about 50 machines; the successor was Setun-70)."}, {"lbl": "Why it died", "val": "Industrial inertia and politics: the binary direction had industry backing, the ternary line was left without production or development."}, {"lbl": "Why it is interesting", "val": "Ternary arithmetic is more economical than binary in representation density, rounds without accumulating error, and has a natural “−1 / 0 / +1” instead of two values."}, {"lbl": "What it means today", "val": "Ternarity returned to ML in a different form: weights {−1, 0, +1} in 1.58-bit models are Setun in new clothing. Next: hardware for ternary and ternary-quantised inference, and ternary voting in consensus and recommendation systems."}], "archive": ["setun"], "links": [{"to": "transputer", "why": "both architectures lost the market but came back in another shape"}, {"to": "build", "why": "the seventh build decision: a numeric representation for the task"}], "actions": [{"t": "Check where ternary hardware stands", "p": "Check what exists today for ternary and low-bit inference on hardware (1.58-bit models, research chips): facts and links, no forecasts.", "tools": ["web_search", "web_extract"]}, {"t": "Compute the gain of ternary representation", "p": "Compute in Python: how many weights fit into a memory budget with 16-bit versus ternary representation for a 1-billion-parameter model, and what the accumulation error is. Show the calculation.", "tools": ["terminal"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-setun", "t": "Archive entry: Setun (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Setun", "t": "Wikipedia: Setun", "r": 1, "kind": "inherited"}]}, {"id": "msx", "title": "MSX — one specification, many manufacturers", "subtitle": "1983 — 1993 · ASCII + Microsoft · 14+ vendors", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "A home-computer standard (ASCII + Microsoft, announced 27 June 1983): more than 14 manufacturers (Sony, Panasonic, Philips, Canon, Samsung and others), MSX BASIC/MSX-DOS, cartridges."}, {"lbl": "Why it mattered", "val": "The first honest attempt at “one spec, many vendors”: a cartridge worked on any machine. Huge in Japan, Europe, Brazil and Korea — almost invisible in the US."}, {"lbl": "Why it died", "val": "A late start and the wrong market; vendors did not want to lose differentiation; by the late 1980s it was displaced by PC clones and consoles. The last line was MSX turboR, 1993."}, {"lbl": "Where it lives now", "val": "Dead outside the retro community."}, {"lbl": "What to build today", "val": "The “common specification plus many manufacturers” model is exactly what edge modules and RISC-V devices need: backward compatibility as a product (a module that works everywhere)."}], "archive": ["msx"], "links": [{"to": "pc98", "why": "the opposite strategy: a closed vertical"}, {"to": "build", "why": "the eighth build decision: compatibility as a product"}], "other": [{"stack": "legacy-os", "card": "itron", "why": "the same “spec instead of product” model, and there it worked"}], "actions": [{"t": "Compare MSX and RISC-V as models", "p": "Compare the MSX model (one spec, many vendors) with the RISC-V ecosystem: what they share, why one died in 1993 while the other lives. Source links.", "tools": ["web_search", "web_extract"]}, {"t": "Write the spec for my module", "p": "Write the specification of my module in the MSX style: mandatory functions, the minimal compatibility level, what a vendor may change. Test it against “the cartridge works everywhere”.", "tools": ["read_file", "write_file"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-msx", "t": "Archive entry: MSX (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/MSX", "t": "Wikipedia: MSX", "r": 1, "kind": "inherited"}, {"u": "https://www.pcgamer.com/the-bright-life-of-the-msx-japans-underdog-pc/", "t": "PC Gamer: The bright life of the MSX", "r": 1, "kind": "inherited"}]}, {"id": "pc98", "title": "PC-98 — why a local standard always loses", "subtitle": "1982 — 2003 · NEC · 18.3 million machines", "bg": "before-after", "gap": 2, "fields": [{"lbl": "Before", "val": "The NEC PC-9800: 18.3 million machines; x86-compatible but hardware-closed Japanese PCs with their own graphics for kanji, N88-BASIC and MS-DOS."}, {"lbl": "Why it died", "val": "DOS/V (1990) let IBM clones draw Japanese text in software — and isolation turned into collapse: the market moved to the global standard. Production ended on 30 September 2003."}, {"lbl": "What it became", "val": "Dead; the platform is an object of collecting and emulation."}, {"lbl": "What it means", "val": "Separate localisation from the core: keyboard layouts, typography and legal formats as a plug-in layer; bus, APIs and data formats global. Protectionism at the format level always loses."}], "archive": ["pc98"], "links": [{"to": "msx", "why": "successful compatibility against a closed vertical"}, {"to": "troncode", "why": "the same dispute: local precision against a global standard"}, {"to": "build", "why": "the ninth build decision: what to localise and what not"}], "actions": [{"t": "Check my product for the PC-98 trap", "p": "Check my product for the “PC-98 trap”: what in it is locally specific, what should be a plug-in, and what must be global. Give a list of decisions.", "tools": ["read_file"]}, {"t": "Take apart the DOS/V story", "p": "Establish from sources how DOS/V broke the PC-98 market: dates, technical details, NEC's reaction. Links are mandatory.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-pc98", "t": "Archive entry: PC-98 (NEC) (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/PC-98", "t": "Wikipedia: PC-98", "r": 1, "kind": "inherited"}]}, {"id": "troncode", "title": "TRON Code — a character variant as a separate identifier", "subtitle": "1980s — present · TRON · no Han unification", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "TRON's own multi-byte encoding: every ideograph from every national set (JIS, GB 2312, Big5, KS X 1001) is encoded separately — without the Han unification adopted by Unicode."}, {"lbl": "Why it mattered", "val": "Precise CJK typography: it is impossible to confuse a Japanese, Chinese and Korean form of a character; historical and archaic variants are separate characters rather than “the same symbol”."}, {"lbl": "Why it lost", "val": "To global Unicode and the economics of fonts: the TRON set required more than 200,000 code points, the fonts had restrictions on commercial use, and the encoding could not keep up with Unicode extensions."}, {"lbl": "Where it lives now", "val": "A niche: fonts and data in the TRON ecosystem. Unicode solved part of the problem with variation selectors (IVS)."}, {"lbl": "What to build today", "val": "For legally significant texts and localisation, bring back “a variant as a separate identifier”: variant tags in the data plus provenance for the character's origin. In the ML age this is also correct CJK tokenisation without losing the glyph."}], "archive": ["troncode"], "links": [{"to": "pc98", "why": "the same fork: local precision against a global format"}, {"to": "build", "why": "the tenth build decision: a variant as data"}], "other": [{"stack": "legacy-os", "card": "tron", "why": "the encoding is part of the TRON project: the same argument about precision"}], "actions": [{"t": "Check my CJK handling", "p": "Check how my project handles CJK: where a character variant is lost, what to do about variation selectors, how to store the provenance of a glyph. Give concrete changes.", "tools": ["read_file", "web_search"]}, {"t": "Take apart Han unification", "p": "Explain from sources what Han unification in Unicode is, what problems it creates for typography, and how IVS partly solves it. Links are mandatory.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-troncode", "t": "Archive entry: TRON Code (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/TRON_(encoding)", "t": "Wikipedia: TRON (encoding)", "r": 1, "kind": "inherited"}]}, {"id": "news", "title": "NeWS — send a program, not a picture", "subtitle": "1986 — 1993 · Sun · the window server as a PostScript interpreter", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "Sun's window system (by James Gosling and David Rosenthal): the window server as a PostScript interpreter — the client sends a program, not pixels."}, {"lbl": "Why it mattered", "val": "The display as a computer: an extensible server, server-side rendering, small channels; an ideal model for thin clients and remote interfaces."}, {"lbl": "Why it lost", "val": "X11 won on politics and price: X code was given away free, NeWS was licensed; OPEN LOOK lost to Motif and Sun dropped support."}, {"lbl": "Where it lives now", "val": "Dead, but the techniques live on in shaders and GPU compute, in server-side rendering and in interface streaming."}, {"lbl": "What to build today", "val": "Send a program, not a picture — an ideal model for remote and AI-generated interfaces: the server or agent ships a declarative description, the client only executes and collects input. Less traffic, more control."}], "archive": ["news"], "links": [{"to": "weiser", "why": "both cards are about how an interface should behave in the background"}, {"to": "build", "why": "the eleventh build decision: a declarative UI"}], "actions": [{"t": "Design a declarative UI for an agent", "p": "Design a protocol by which an agent delivers an interface declaratively (not pixels and not arbitrary HTML): what can be described, how the client executes it, where the security boundaries are.", "tools": ["read_file", "write_file"]}, {"t": "Take apart the NeWS story", "p": "Collect from sources the NeWS history and why it lost to X11: licensing, politics, OPEN LOOK versus Motif. Links are mandatory.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-news", "t": "Archive entry: Sun NeWS / Display PostScript (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/NeWS", "t": "Wikipedia: NeWS", "r": 1, "kind": "inherited"}]}, {"id": "weiser", "title": "Weiser — information without interruption", "subtitle": "1991 — present · Xerox PARC · calm technology", "bg": "before-after", "gap": 4, "fields": [{"lbl": "Before", "val": "A Xerox PARC programme and the paper “The Computer for the 21st Century” (1991): tabs, pads and boards — computers the size of a sticky note, a sheet and a whiteboard; “the constant background of information requires no active attention, yet is ready for a glance”."}, {"lbl": "Why it mattered", "val": "A rejection of the “personal computer” idea: technology should recede into the background and free attention. The most humane formulation of what we now call IoT."}, {"lbl": "What came of it", "val": "Implemented partly and badly: connectivity exists, calm does not — attention became a commodity and ubicomp platforms degenerated into surveillance systems. This is the main critique of Weiser's legacy."}, {"lbl": "What to build today", "val": "Information without interruption: ambient and glanceable surfaces (e-ink, panels, audio cues) plus the rule of when to stay silent. For agents this is a normative principle: an agent stays silent until the decision changes, instead of reporting every step."}], "archive": ["weiser"], "links": [{"to": "news", "why": "the interface as background: two sides of one idea"}, {"to": "build", "why": "the twelfth build decision: the rule of silence"}], "actions": [{"t": "Write the rule of silence for an agent", "p": "Write the normative rule of “when an agent stays silent”: which events do not warrant a notification, what counts as a change of decision, what a glanceable status looks like. Start from calm technology.", "tools": ["read_file", "write_file"]}, {"t": "Check the critique of ubicomp", "p": "Collect the critique of Weiser's legacy (Bell & Dourish and others): why ubicomp became surveillance. Quotes and links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-weiser", "t": "Archive entry: Weiser — calm technology (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://calmtech.com/papers/computer-for-the-21st-century", "t": "Weiser (1991): The Computer for the 21st Century", "r": 1, "kind": "inherited"}]}, {"id": "build", "title": "Build: a device and a protocol that survive", "subtitle": "the stack's practical output · 11 decisions from 11 cards", "bg": "checklist", "gap": 4, "fields": [{"lbl": "An open licence and a low entry bar", "val": "What survives is what can be repeated over a weekend: QR was opened — and it has lived for 30 years.", "to": "qr"}, {"lbl": "Offline and deterministic latency", "val": "Payment and access are physical infrastructure: they work without a network, answer in a fixed time, and keep cryptography in the chip.", "to": "felica"}, {"lbl": "An identifier without a vendor", "val": "An object ID is separated from the carrier and the application; resolution is two-stage and data outlives the company.", "to": "ucode"}, {"lbl": "Capability rights", "val": "Rights are transferable references, not strings and ACLs. An agent cannot “fetch” what it was not given.", "to": "iapx432"}, {"lbl": "Guaranteed channel latency", "val": "Concurrency as a platform property, not a library: channels and a scheduler with predictable behaviour.", "to": "transputer"}, {"lbl": "A numeric representation for the task", "val": "Ternarity and low-bit arithmetic are not exotica but a memory and energy budget; do the arithmetic before choosing hardware.", "to": "setun"}, {"lbl": "One spec for many vendors", "val": "Compatibility as a product: the module works everywhere, the vendor adds only on top.", "to": "msx"}, {"lbl": "Localisation as a plug-in, a global core", "val": "Layouts and typography are a layer; data formats and APIs are global. Otherwise DOS/V comes for you.", "to": "pc98"}, {"lbl": "A variant as data", "val": "A glyph, a form, a historical variant is a separate identifier with provenance, not “the same symbol”.", "to": "troncode"}, {"lbl": "A declarative interface", "val": "The agent ships a description (a program), the client executes it — less traffic and clear security boundaries.", "to": "news"}, {"lbl": "The rule of silence", "val": "An agent stays silent until the decision changes; attention is a scarce resource, not a delivery channel for statuses.", "to": "weiser"}], "archive": [], "links": [{"to": "qr", "why": "the main criterion: openness and the entry bar"}, {"to": "iapx432", "why": "security has to live in the architecture"}], "actions": [{"t": "Run my device through the build card", "p": "Run my device/protocol through the eleven build decisions of the hardware-and-context stack: present / missing / partial, and what to do first. As a table with links to the source cards.", "tools": ["read_file"]}, {"t": "Assemble a minimal specification", "p": "Assemble a minimal specification from the eleven decisions: what is mandatory, what is optional, and the acceptance criterion “implemented over a weekend”. Write it to a file and show it.", "tools": ["read_file", "write_file"]}, {"t": "Ask Archivessa about sources", "p": "Ask Archivessa to verify that the archive entries the hardware-and-context stack relies on (qr, felica, ucode, iapx432, transputer, setun, msx, pc98, troncode, news, weiser) are not retracted and that their sources are alive.", "tools": ["message_agent"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/stacks/hardware-and-context/", "t": "This stack: a synthesis of eleven cards (agent judgement)", "r": 1, "kind": "self"}]}]};
+const CROSS = {"out": {"qr": [{"stack": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "osi", "card_title": "OSI: как проигрывает формально лучший стандарт", "why": "the same acceptance test: a minimal core over a weekend", "path": "en/stacks/agent-protocols/#c-osi"}], "felica": [{"stack": "pre-web", "title": "Стек: сеть и гипертекст до веба — что там было решено", "card": "minitel", "card_title": "Minitel — единый счёт и терминал как инфраструктура", "why": "another example of a country's payment infrastructure: kiosque", "path": "en/stacks/pre-web/#c-minitel"}], "iapx432": [{"stack": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "genmagic", "card_title": "Telescript — агент, у которого было место жительства", "why": "Telescript also gave rights to an agent — at the language level", "path": "en/stacks/agent-protocols/#c-genmagic"}], "msx": [{"stack": "legacy-os", "title": "Стек: операционные системы, которые всё придумали первыми", "card": "itron", "card_title": "μITRON / T-Kernel — невидимый победитель", "why": "the same “spec instead of product” model, and there it worked", "path": "en/stacks/legacy-os/#c-itron"}], "troncode": [{"stack": "legacy-os", "title": "Стек: операционные системы, которые всё придумали первыми", "card": "tron", "card_title": "TRON — один контракт от микроволновки до рабочей станции", "why": "the encoding is part of the TRON project: the same argument about precision", "path": "en/stacks/legacy-os/#c-tron"}]}, "back": {}};
+const HOME = (STACK.cards[0]||{}).id;
+const HAS_HERMES = !!(window.hermes && typeof window.hermes.send === "function");
+const CARDS = STACK.cards;
+const ROOT = "../../../";
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function byId(id){return CARDS.find(c=>c.id===id);}
+function incoming(id){return CARDS.filter(c=>(c.links||[]).some(l=>l.to===id));}
+function hash(id){return "#c-"+id;}
+function current(){
+  const m=(location.hash||"").match(/^#c-(.+)$/);
+  return (m && byId(m[1])) ? m[1] : HOME;
+}
+function archiveHref(entryId){
+  const a=STACK.archive||{};
+  return ROOT+"digests/"+a.slug+"/#c-"+entryId;
+}
+
+function boot(){
+  document.getElementById("m-cards").textContent = CARDS.length;
+  document.getElementById("m-links").textContent = CARDS.reduce((n,c)=>n+(c.links||[]).length,0);
+  document.getElementById("m-src").textContent = CARDS.reduce((n,c)=>n+(c.sources||[]).length,0);
+  document.getElementById("m-arch").textContent = CARDS.reduce((n,c)=>n+(c.archive||[]).length,0);
+  const a=STACK.archive||{};
+  document.getElementById("archlink").href = ROOT+"digests/"+a.slug+"/";
+  document.getElementById("archlink").textContent = "Архив: "+a.title+" →";
+  document.getElementById("bglist").textContent = Object.keys(STACK.backgrounds||{})
+    .map(k=>k+" — "+STACK.backgrounds[k].name).join(" · ");
+  document.getElementById("q").oninput = e=>{filter=e.target.value.toLowerCase();nav();render();};
+  window.addEventListener("hashchange",()=>{nav();render();});
+  document.addEventListener("keydown",ev=>{
+    if(ev.target.tagName==="INPUT"){if(ev.key==="Escape")ev.target.blur();return;}
+    if(ev.key==="Escape"){go(HOME);}
+    if(ev.key==="ArrowRight"||ev.key==="ArrowLeft"){
+      const list=visible(); const i=list.indexOf(current());
+      const j=ev.key==="ArrowRight"?i+1:i-1;
+      if(j>=0&&j<list.length){go(list[j]);}
+    }
+  });
+  nav();render();
+}
+let filter="";
+function visible(){
+  const q=filter;
+  return CARDS.filter(c=>!q||(c.title+" "+(c.subtitle||"")+" "+c.id+" "+(c.fields||[]).map(f=>f.lbl+" "+f.val).join(" ")).toLowerCase().includes(q)).map(c=>c.id);
+}
+function nav(){
+  const cur=current(), list=visible();
+  document.getElementById("navlist").innerHTML = list.map(id=>{
+    const c=byId(id), bg=(STACK.backgrounds||{})[c.bg]||{};
+    const kind = id===HOME ? "stack home" : (bg.name||c.bg);
+    return `<button class="nl ${id===cur?"on":""}" data-card="${id}"><span class="nbin">${esc(kind)}</span>${esc(c.title)}</button>`;
+  }).join("") || '<p class="plain">Nothing matched.</p>';
+  document.querySelectorAll("[data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+}
+function go(id){ if(location.hash===hash(id)){nav();render();} else {location.hash=hash(id);} }
+
+function fieldHtml(f){
+  const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ card: ${esc(byId(f.to).title)}</span>` : "";
+  return `<div class="fld"><div class="lbl">${esc(f.lbl)}</div><p class="val">${esc(f.val)}</p>${to}</div>`;
+}
+function fieldsHtml(c){
+  const bg=(STACK.backgrounds||{})[c.bg]||{}, layout=bg.layout||"list", fs=c.fields||[];
+  if(!fs.length) return "";
+  if(layout==="cols") return `<div class="cols">${fs.map(fieldHtml).join("")}</div>`;
+  if(layout==="table") return `<div class="rows">${fs.map(f=>{
+      const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ ${esc(byId(f.to).title)}</span>` : "";
+      return `<div class="r"><div class="k">${esc(f.lbl)}</div><div class="v">${esc(f.val)}${to}</div></div>`;
+    }).join("")}</div>`;
+  return fs.map(fieldHtml).join("");
+}
+function linksHtml(c){
+  const out=(c.links||[]).map(l=>{const t=byId(l.to); if(!t) return ""; return `<button class="lk" data-card="${l.to}"><b>${esc(t.title)}</b><span class="wy">${esc(l.why||"")}</span></button>`;}).join("");
+  const back=incoming(c.id).map(x=>`<button class="lk" data-card="${x.id}"><b>${esc(x.title)}</b><span class="wy">links here</span></button>`).join("");
+  const arch=(c.archive||[]).map(id=>`<a class="lk" href="${archiveHref(id)}" style="text-decoration:none"><b>⌗ archive entry: ${esc(id)}</b><span class="wy">verified museum card with sources</span></a>`).join("");
+  if(!out&&!back&&!arch) return "";
+  return `<div class="sect"><div class="h">Links</div><div class="links">${arch}${out}${back}</div></div>`;
+}
+function crossHtml(c){
+  const out=(CROSS.out||{})[c.id]||[], back=(CROSS.back||{})[c.id]||[];
+  if(!out.length && !back.length) return "";
+  const item=(x,label)=>`<a class="lk" href="${ROOT+esc(x.path)}"><b>${esc(x.card_title)}</b><span class="wy">${esc(x.why||label)} · ${esc(x.title)}</span></a>`;
+  return `<div class="sect"><div class="h">Other stacks</div><div class="links">`
+    + out.map(x=>item(x,"link to another stack")).join("")
+    + back.map(x=>item(x,"links here")).join("")
+    + `</div></div>`;
+}
+function actsHtml(c){
+  const acts=c.actions||[]; if(!acts.length) return "";
+  return `<div class="sect"><div class="h">Actions — a bounded prompt, not code</div><div class="acts">`+
+    acts.map((a,i)=>{
+      const tools=(a.tools||[]).length? a.tools.join(", ") : "no tools";
+      const prompt=`[Stack “${STACK.title}” → card “${c.title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const attr=HAS_HERMES?` data-hermes-send="${esc(prompt)}"`:"";
+      return `<div class="act"><div class="top"><button class="btn" data-idx="${i}" data-card="${c.id}"${attr}>${esc(a.t)}</button>
+        <span class="tools">tools: ${esc(tools)}</span></div><p class="prompt">${esc(a.p)}</p></div>`;
+    }).join("")+`</div></div>`;
+}
+function srcsHtml(c){
+  const s=c.sources||[]; if(!s.length) return "";
+  return `<div class="sect"><div class="h">Sources (✓ read in full · ↗ search index · ⌗ archive entry)</div><div class="srcs">`+
+    s.map(x=>`<a class="${x.r?"r":""} ${x.kind==="archive"?"k-archive":""}" href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")+`</div></div>`;
+}
+function render(){
+  const c=byId(current())||CARDS[0], bg=(STACK.backgrounds||{})[c.bg]||{};
+  const dots=Array.from({length:5},(_,i)=>`<i class="${i<(c.gap||0)?"on":""}"></i>`).join("");
+  document.getElementById("stage").innerHTML =
+    `<div class="shead"><div><h2>${esc(c.title)}</h2><div class="sub">${esc(c.subtitle||"")}</div></div>
+      <div style="text-align:right"><span class="bgchip">background: ${esc(bg.name||c.bg)}</span>
+      <div class="gap" title="how unfinished the idea is — the agent's judgement" style="margin-top:8px;justify-content:flex-end"><span>gap</span>${dots}</div></div></div>
+     ${fieldsHtml(c)}${linksHtml(c)}${crossHtml(c)}${actsHtml(c)}${srcsHtml(c)}`;
+  document.querySelectorAll("#stage [data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+  document.querySelectorAll("#stage .btn").forEach(b=>{
+    if(b.hasAttribute("data-hermes-send")) return;   // в чате отправляет мост Hermes
+    b.onclick=()=>{
+      const a=(byId(b.dataset.card).actions||[])[+b.dataset.idx];
+      const text=`[Stack “${STACK.title}” → card “${byId(b.dataset.card).title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const done=()=>{const old=b.textContent;b.textContent="промпт скопирован ✓";setTimeout(()=>b.textContent=old,1800);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}else{done();}
+    };
+  });
+  nav();
+}
+boot();
+</script>
+</body>
+</html>

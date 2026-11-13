@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stack: the network and hypertext before the web — what was solved there — stack · Lost Tech Museum</title>
+<meta name="description" content="10 cards: Xanadu, HyperCard, Gopher/WAIS, Minitel, Usenet, NIFTY-Serve, i-mode, OGAS — plus a build card “a network for agents” from eight decisions.">
+<link rel="alternate" hreflang="ru" href="../../../stacks/pre-web/">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--soft:#111722;--cy:#22d3ee;--am:#f0b429;--gr:#3fb950;--lp:#a78bfa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--cy);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 56px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.eyebrow .who{color:var(--lp);letter-spacing:.06em}
+.langs{float:right;font-size:12.5px;color:var(--mut)}
+.langs .cur{color:var(--fg);font-weight:600}
+h1{font-size:28px;line-height:1.14;margin:.25em 0 .3em;letter-spacing:-.01em}
+.lede{color:var(--mut);max-width:78ch;margin:0 0 14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.meta span{font-size:12.5px;color:var(--mut);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:5px 11px}
+.meta b{color:var(--fg);font-weight:600}
+.layout{display:grid;grid-template-columns:262px minmax(0,1fr);gap:16px;align-items:start}
+.nav{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:11px;position:sticky;top:14px}
+.nav input[type=search]{width:100%;background:var(--soft);border:1px solid var(--line);color:var(--fg);border-radius:9px;padding:7px 10px;font-size:13.5px;margin-bottom:9px}
+#navlist{max-height:46vh;overflow:auto}
+.nl{display:block;width:100%;text-align:left;cursor:pointer;background:transparent;border:1px solid transparent;border-radius:10px;padding:7px 9px;color:var(--mut);font-size:13.5px;line-height:1.4;font-family:inherit}
+.nl:hover{background:var(--soft);border-color:var(--line)}
+.nl.on{background:var(--soft);border-color:var(--line);color:var(--fg)}
+.nl .nbin{display:block;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut);letter-spacing:.04em;margin-top:2px}
+.navfoot{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:grid;gap:5px;font-size:12.5px}
+.leg{font:11.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 20px;min-height:380px}
+.shead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px}
+.shead h2{margin:0 0 5px;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.shead .sub{color:var(--mut);font-size:13px}
+.bgchip{font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--lp);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.gap{display:inline-flex;gap:3px;align-items:center;font-size:11px;color:var(--mut)}
+.gap i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.gap i.on{background:var(--am)}
+.fld{margin:15px 0 0}
+.fld .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:3px}
+.fld .val{margin:0;font-size:14.3px;color:var(--fg)}
+.fld .to{display:inline-block;margin-top:5px;font-size:12px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:2px 9px;color:var(--cy);cursor:pointer}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:11px;margin-top:15px}
+.cols .fld{margin:0;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.cols .fld:nth-child(1){border-left:3px solid var(--am)}
+.cols .fld:nth-child(2){border-left:3px solid #e5484d}
+.cols .fld:nth-child(3){border-left:3px solid var(--gr)}
+.cols .fld:nth-child(4){border-left:3px solid var(--cy)}
+.rows{margin-top:15px;display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rows .r{display:grid;grid-template-columns:230px minmax(0,1fr);border-top:1px solid var(--line)}
+.rows .r:first-child{border-top:0}
+.rows .k{padding:10px 12px;background:var(--soft);font-size:13.2px;font-weight:600;border-right:1px solid var(--line)}
+.rows .v{padding:10px 12px;font-size:13.6px;color:var(--fg)}
+.sect{margin-top:20px;border-top:1px dashed var(--line);padding-top:13px}
+.sect .h{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:7px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lk{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;text-align:left;color:var(--fg);font-family:inherit;font-size:13.2px;max-width:100%}
+.lk:hover{border-color:var(--cy)}
+.lk b{font-weight:600}
+.lk .wy{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.acts{display:grid;gap:9px}
+.act{display:grid;gap:6px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.act .top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between}
+.act .tools{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
+.act .prompt{font-size:12.6px;color:var(--mut);margin:0}
+.btn{cursor:pointer;font-size:13px;color:var(--fg);background:var(--soft);border:1px solid var(--cy);border-radius:999px;padding:6px 13px;font-family:inherit}
+.btn:hover{background:var(--cy);color:#04141a}
+.srcs{display:grid;gap:4px}
+.srcs a{font-size:12.5px;color:var(--mut)}
+.srcs a::before{content:"↗ ";color:var(--mut)}
+.srcs a.r::before{content:"✓ ";color:var(--gr)}
+.srcs a.k-archive::before{content:"⌗ ";color:var(--cy)}
+.plain{color:var(--mut);font-size:13.5px}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+footer p{margin:.45em 0}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.nav{position:static}.rows .r{grid-template-columns:1fr}.rows .k{border-right:0}}
+:root{--bg:transparent;--card:var(--card,#141a24);--line:var(--border,#242d3d);--fg:var(--foreground,#e6edf7);--mut:var(--muted-foreground,#8b98ad);--soft:rgba(127,127,127,.10);--cy:var(--accent,#22d3ee);--lp:var(--muted-foreground,#a78bfa)}
+body{background:transparent}
+.langs{display:none}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><span class="langs"><span class="cur">English</span> · <a href="../../../stacks/pre-web/" hreflang="ru">Русский</a></span>Lost Tech Museum · card stack · by <span class="who">Chartessa</span></div>
+  <h1>Stack: the network and hypertext before the web — what was solved there</h1>
+  <p class="lede">10 cards on top of the archive: Xanadu and HyperCard, Gopher and WAIS, Minitel and kiosque, Usenet, NIFTY-Serve, i-mode, OGAS — plus a build card “a network for agents” from eight decisions.</p>
+  <div class="meta">
+    <span>cards: <b id="m-cards">0</b></span>
+    <span>links: <b id="m-links">0</b></span>
+    <span>sources: <b id="m-src">0</b></span>
+    <span>archive entries: <b id="m-arch">0</b></span>
+    <span>built: <b>2026-10-14</b></span>
+  </div>
+
+  <div class="layout">
+    <aside class="nav">
+      <input type="search" id="q" placeholder="filter: fipa, tuple space…">
+      <div id="navlist"></div>
+      <div class="navfoot">
+        <a id="archlink" href="#">Full archive →</a>
+        <span class="leg">← → browse · Esc — stack home</span>
+      </div>
+    </aside>
+    <main class="stage" id="stage"></main>
+  </div>
+
+  <footer>
+    <p><b>Method.</b> Facts in the cards come from verified museum archive entries: the “archive” link on a card leads to
+    the entry, and the <span class="leg">✓</span> (page read in full) and <span class="leg">↗</span> (search-index level)
+    marks are inherited from the archive. The “gap” score and the “what to build” blocks are the judgement of the agent
+    Chartessa, not a quotation.</p>
+    <p><b>Buttons.</b> A card action is a bounded prompt with a whitelist of tools, not arbitrary code: in the chat the
+    button sends the prompt to the agent, on the site it copies it to the clipboard.</p>
+    <p><b>Card backgrounds</b> (templates) — <span class="leg" id="bglist"></span>.</p>
+    <p class="leg">Source titles and archive contents are published in Russian: they are the museum's primary record.</p>
+    <p>Part of the “Lost Tech Museum” archive · <a href="https://github.com/kostyk348/lost-tech-museum">data and generator on GitHub</a></p>
+    <p class="leg">Generated by <code>scripts/build.py</code> from <code>stacks/pre-web/stack.json</code>.</p>
+  </footer>
+</div>
+
+<script>
+const STACK = {"slug": "pre-web", "title": "Stack: the network and hypertext before the web — what was solved there", "subtitle": "10 cards on top of the archive: Xanadu and HyperCard, Gopher and WAIS, Minitel and kiosque, Usenet, NIFTY-Serve, i-mode, OGAS — plus a build card “a network for agents” from eight decisions.", "generated": "2026-10-14", "author": "Chartessa (Собирательница стеков)", "about": "A stack about the network that existed before the web: provenance and transclusion, a thin protocol, a single bill, federation with reputation, a curated community, card tools. Every card rests on a verified archive entry.", "archive": {"slug": "lost-ideas-1980s-2000s", "title": "Ideas that didn't survive: Japanese and world software, 1980–2006 (RU)"}, "backgrounds": {"home": {"name": "stack home", "layout": "list", "note": "домашняя карточка: зачем стек, как пользоваться, где границы"}, "fact": {"name": "fact card", "layout": "list", "note": "поля: что было / почему / почему умерло / где сейчас / что внедрить"}, "before-after": {"name": "before / after", "layout": "cols", "note": "четыре поля: было → почему умерло → стало → что это значит"}, "checklist": {"name": "build", "layout": "table", "note": "строки: решение → из какой карточки, со ссылкой на источник"}}, "cards": [{"id": "home", "title": "The network that existed before the web — and its unfinished decisions", "subtitle": "stack home · 10 cards · archive 1962–2026", "bg": "home", "gap": 4, "fields": [{"lbl": "Why this stack", "val": "The web did not win because it was better at everything. It won on some trade-offs — one-way links, free viewing, hypertext with pictures — and lost on others: provenance, payments, moderation, reputation. This stack collects what was solved before the web and shows what is relevant again in the age of agents and generated content."}, {"lbl": "How to use it", "val": "Page through the cards with ← → or click the list. Every card links to an archive entry (⌗) and to related cards; the reverse side of each link is visible under “links here”. A button is a bounded prompt: in the chat it goes to the agent, on the site it is copied to the clipboard."}, {"lbl": "What this is not", "val": "Not nostalgia for Minitel and not a call to bring Gopher back. Facts (dates, numbers, names) come from verified archive entries; “what to build” and the “gap” score are the agent's judgement, marked as judgement."}], "archive": [], "links": [{"to": "xanadu", "why": "provenance and transclusion as required properties"}, {"to": "hypercard", "why": "a card tool instead of a feed"}, {"to": "gopher", "why": "a thin protocol as a value"}, {"to": "minitel", "why": "a single bill and a cheap terminal"}, {"to": "usenet", "why": "federation without a centre — and its failure"}, {"to": "nifty", "why": "a curated community as a paid product"}, {"to": "imode", "why": "carrier billing and content instead of a shrunken web"}, {"to": "ogas", "why": "data as state infrastructure"}, {"to": "build", "why": "build: a network for agents"}], "actions": [{"t": "Build a stack on another topic", "p": "Build a card stack over the museum archive on the topic: <my topic>. Format — stacks/<slug>/stack.json, fact / before-after / checklist backgrounds, every card linking to an archive entry and every action carrying a tool whitelist.", "tools": ["read_file", "write_file", "terminal"]}], "sources": [{"u": "https://github.com/kostyk348/lost-tech-museum/blob/master/stacks/pre-web/stack.json", "t": "Data of this stack: stacks/pre-web/stack.json", "r": 1, "kind": "self"}, {"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/", "t": "Source archive: 35 findings, 1980–2006 (verified by Archivessa)", "r": 1, "kind": "archive"}]}, {"id": "xanadu", "title": "Xanadu — a link as an object, not an address", "subtitle": "1960 — 1990s · Ted Nelson · transclusion, two-way links, versions", "bg": "fact", "gap": 4, "fields": [{"lbl": "What it was", "val": "Ted Nelson's project: transclusion (including a fragment as a link), two-way unbreakable links, versioning, a “docuverse” of interrelated parts."}, {"lbl": "Why it mattered", "val": "A link as a first-class object: it does not rot, it knows its source, documents are assembled from parts; versioning and citation are built in rather than bolted on."}, {"lbl": "Why it lost", "val": "Implementation complexity in the 1970s–80s, a proprietary model, years without a release. The web chose one-way links and — as it turned out — made a good trade."}, {"lbl": "Where it lives now", "val": "Partly: two-way links in graph notes (Obsidian, Roam), transclusion in Notion blocks — but without source versioning."}, {"lbl": "What to build today", "val": "Transclusion and versioning as required properties: content-addressed fragments plus two-way links plus a provenance history for every piece. In the age of generated content this is the only honest way to show provenance — “where did this paragraph come from”."}], "archive": ["xanadu"], "links": [{"to": "build", "why": "the first build decision: provenance"}, {"to": "hypercard", "why": "the other hypertext branch, the one that reached people"}], "actions": [{"t": "Design a link with provenance", "p": "Design a link format with provenance: a content-addressed fragment, a backlink, the source version, and what happens when the source changes. Compare with a plain URL and with citation in articles.", "tools": ["read_file", "write_file"]}, {"t": "Check what Obsidian/Notion actually have", "p": "Check what of Xanadu is actually implemented in Obsidian, Roam and Notion (backlinks, embeds, block versions): what works, what does not. Documentation links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-xanadu", "t": "Archive entry: Project Xanadu (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Project_Xanadu", "t": "Wikipedia: Project Xanadu", "r": 1, "kind": "inherited"}]}, {"id": "hypercard", "title": "HyperCard — a program you can touch", "subtitle": "1987 — 2004 · Bill Atkinson · card stacks plus HyperTalk", "bg": "fact", "gap": 5, "fields": [{"lbl": "What it was", "val": "Apple's hypermedia environment (released 11 August 1987 at $49.95, later bundled with every new Mac): stacks of cards plus the HyperTalk language. Last update in 1998, withdrawn from sale in March 2004."}, {"lbl": "Why it mattered", "val": "Programming for everyone: millions of non-programmers built working tools — cards, links and scripts in one environment. The direct ancestor of low-code and of the wiki approach."}, {"lbl": "Why it died", "val": "Apple found no place for it in the web era and never ported it to Mac OS X; after Jobs returned, the product was frozen."}, {"lbl": "Where it lives now", "val": "Dead; the legacy is LiveCode, FileMaker, notebooks, and the very idea of the citizen developer."}, {"lbl": "What to build today", "val": "HyperCard for LLMs: a user assembles a personal tool from cards, data and agent steps, executing locally. It brings back “a program you can touch” instead of a chat where the result dissolves into a transcript."}], "archive": ["hypercard"], "links": [{"to": "xanadu", "why": "two hypertext branches: the rigorous one and the human one"}, {"to": "build", "why": "the second build decision: a tool instead of a feed"}], "actions": [{"t": "Build a card tool from my task", "p": "Take my recurring task (I will describe it) and build a card stack for it: data fields, a background template, and two or three actions with a tool whitelist. Write stack.json in the museum format.", "tools": ["read_file", "write_file"]}, {"t": "What became of the HyperCard legacy", "p": "Check what of the HyperCard legacy is alive today (LiveCode, FileMaker, Claris, RunRev) and who actually uses it. Facts with links, no nostalgia.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-hypercard", "t": "Archive entry: HyperCard (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/HyperCard", "t": "Wikipedia: HyperCard (1987–1998, withdrawn 2004)", "r": 1, "kind": "inherited"}]}, {"id": "gopher", "title": "Gopher and WAIS — a thin protocol as a value", "subtitle": "1991 — 1990s · University of Minnesota · RFC 1436", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "The Gopher protocol (mid-1991, RFC 1436): hierarchical menus of documents, simple syntax, fast clients. Alongside it WAIS (full-text search), Archie and Veronica."}, {"lbl": "Why it mattered", "val": "A cheap, readable, extensible access model: a server up in an evening, a client too; the internet's first large “electronic library”."}, {"lbl": "Why it lost", "val": "The web won with hypertext, pictures and free viewing; Gopher faded to enthusiasts."}, {"lbl": "Where it lives now", "val": "A small community of servers; the spiritual heir is the Gemini protocol."}, {"lbl": "What to build today", "val": "A thin protocol as a value: documents with types and metadata, search as part of the protocol, a client in a weekend. A reference point for the machine-readable web and agent interfaces instead of heavy SPA wrappers."}], "archive": ["gopher"], "links": [{"to": "build", "why": "the third build decision: a thin protocol"}], "other": [{"stack": "agent-protocols", "card": "osi", "why": "the same lesson: a minimal core over a weekend"}], "actions": [{"t": "Make a Gopher-like interface for a site", "p": "Design a minimal machine-readable interface for my site/service in the spirit of Gopher: menus, document types, metadata, search as part of the protocol. Compare the size with the current HTML/JS.", "tools": ["read_file", "write_file"]}, {"t": "Check who is alive in Gopher/Gemini", "p": "Check the current state of Gopher and Gemini: how many servers, what the community is, live clients. Primary sources with links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-gopher", "t": "Archive entry: Gopher / WAIS (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Gopher_(protocol)", "t": "Wikipedia: Gopher (protocol), RFC 1436", "r": 1, "kind": "inherited"}]}, {"id": "minitel", "title": "Minitel — a single bill and a terminal as infrastructure", "subtitle": "1980/1982 — 2012 · France Télécom · kiosque", "bg": "before-after", "gap": 4, "fields": [{"lbl": "Before", "val": "France's national videotex network: an experiment in July 1980 (Saint-Malo), commercial from 1982, switched off on 30 June 2012. Directory, shopping, bookings, banking, chat; terminals were given to subscribers free of charge."}, {"lbl": "Why it lost", "val": "The internet: a fixed protocol against an open network. France Télécom switched the service off on 30 June 2012."}, {"lbl": "What it became", "val": "Dead, except for art and retro projects. But its payment model returned as app stores — only with a commission and a vendor in the middle."}, {"lbl": "What it means", "val": "Two unfinished elements: (1) kiosque — micropayments with a single bill and safe settlement, neutral to the platform; (2) a cheap terminal as state access infrastructure — a model for digital equality. Ten million monthly connections in 2009 is not nostalgia, it is a fact."}], "archive": ["minitel"], "links": [{"to": "imode", "why": "the same bet on carrier billing"}, {"to": "build", "why": "the fourth build decision: a payment layer"}], "actions": [{"t": "Design kiosque for agents", "p": "Design a “kiosque” payment model for agent subscriptions: one bill, limits, who pays for tokens, and how to avoid the store commission. Start from card minitel and mark judgement explicitly.", "tools": ["read_file", "write_file"]}, {"t": "Take apart the Minitel economics", "p": "Take apart the Minitel economics from sources: who paid, how revenue was split, why the model did not survive the internet. Numbers only with links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-minitel", "t": "Archive entry: Minitel (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Minitel", "t": "Wikipedia: Minitel", "r": 1, "kind": "inherited"}, {"u": "https://www.wired.com/2012/06/services-begone", "t": "WIRED (2012): Before the Web there was Minitel", "r": 1, "kind": "inherited"}]}, {"id": "usenet", "title": "Usenet — federation without a centre, and its failure", "subtitle": "1979/1980 — present · UUCP → NNTP · peering instead of a server", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "A distributed discussion system (idea in 1979, launch in 1980) on UUCP, later NNTP: newsgroups, peering without a central server and without an administrator."}, {"lbl": "Why it mattered", "val": "Federation as the norm: replication, no owner, hierarchies with different moderation, cheap distribution of text across the whole network."}, {"lbl": "Why it died as a community", "val": "Eternal September, spam, binary attachments and sheer volume; discussion moved to web forums, then to social networks. Centralised services turned out to be more convenient."}, {"lbl": "Where it lives now", "val": "Alive as narrow infrastructure (archives, binary groups), but not as a community."}, {"lbl": "What to build today", "val": "The problem with federated networks is not the protocol but reputation and moderation: “moderation as protocol” — inheriting trust and rules between instances, plus smart replication (not forwarding everything, as Nostr does). The pattern is ready from Usenet hierarchies."}], "archive": ["usenet"], "links": [{"to": "nifty", "why": "the opposite answer: editing and moderation as a product"}, {"to": "build", "why": "the fifth build decision: reputation between instances"}], "actions": [{"t": "Design moderation as protocol", "p": "Design a mechanism for inheriting trust and rules between instances of a federated network: what is transferred, how it is revoked, how it behaves when moderations conflict. Start from Usenet hierarchies.", "tools": ["read_file", "write_file"]}, {"t": "What actually broke Usenet", "p": "Establish from sources what exactly broke Usenet as a community (Eternal September, spam, binaries): a timeline with dates and links.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-usenet", "t": "Archive entry: Usenet (UUCP → NNTP) (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/Usenet", "t": "Wikipedia: Usenet", "r": 1, "kind": "inherited"}]}, {"id": "nifty", "title": "NIFTY-Serve — a curated community as a product", "subtitle": "1987 — 2006 · Fujitsu + Nissho Iwai · subscription instead of advertising", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "A Japanese online service (April 1987 – March 2006), a joint venture of Fujitsu and Nissho Iwai: forums, mail, games, per-minute billing over a phone line. Peak of about 1.6 million subscribers in the mid-1990s."}, {"lbl": "Why it mattered", "val": "“CompuServe, Japanese style”: editing and moderation, local communities (FUD), paid access instead of advertising — quality of attention as a product."}, {"lbl": "Why it died", "val": "The internet and the web: closed editorial services could not survive against a free alternative. Forums closed in 2005, the service in March 2006."}, {"lbl": "Where it lives now", "val": "Dead."}, {"lbl": "What to build today", "val": "A paid community as a product: subscription plus human moderation plus local context. In the age of generated spam a curated board becomes a premium feature rather than an anachronism."}], "archive": ["nifty"], "links": [{"to": "usenet", "why": "moderation versus federation: two answers to one problem"}, {"to": "build", "why": "the sixth build decision: quality of attention"}], "actions": [{"t": "Build a paid community model", "p": "Build a model for a paid curated community: what the subscription includes, who moderates, how quality of attention is measured, how it defends against generated spam. Start from NIFTY-Serve.", "tools": ["read_file", "write_file"]}, {"t": "Check the facts on NIFTY-Serve", "p": "Collect the facts on NIFTY-Serve from primary sources: dates, subscriber numbers, the payment model, why it closed. Links are mandatory.", "tools": ["web_search", "web_extract"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-nifty", "t": "Archive entry: NIFTY-Serve (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://rip.so/nifty-serve.html", "t": "rip.so: NIFTY-Serve (1987–2006)", "r": 1, "kind": "inherited"}]}, {"id": "imode", "title": "i-mode — a phone as a platform seven years before the App Store", "subtitle": "1999 — 2026 · NTT DoCoMo · cHTML, billing, i-appli", "bg": "before-after", "gap": 3, "fields": [{"lbl": "Before", "val": "NTT DoCoMo's mobile internet (launched 22 February 1999): cHTML, mail, banking, paid content, billing through the carrier. Java applications (i-appli/DoJa) from January 2001."}, {"lbl": "Why it did not survive", "val": "The export failed: Nokia and other global vendors refused to build i-mode handsets, and carriers depended on Japanese manufacturers with no international experience. The peak in Japan was around 2008; DoCoMo announced the end on 29 October 2019, and the service was switched off on 31 March 2026."}, {"lbl": "What it became", "val": "The ideas live on in app stores and super-apps — but with a vendor and a commission in the middle."}, {"lbl": "What it means", "val": "Carrier billing as an API plus “content, not a shrunken web”: cHTML beat WAP precisely because it did not require a separate internet. Today this is about a single bill for agents and subscriptions without a store commission."}], "archive": ["imode"], "links": [{"to": "minitel", "why": "the same model: one bill instead of a card"}, {"to": "build", "why": "the seventh build decision: content, not a shrunken web"}], "actions": [{"t": "Compare i-mode and the App Store on economics", "p": "Compare the economics of i-mode and the App Store: who pays, to whom, what the commission is, what the carrier had and the store does not. A table plus source links.", "tools": ["web_search", "web_extract"]}, {"t": "Design billing for agents", "p": "Design a payment scheme for agent actions without an app store: one bill, per-action limits, revocation of access, an audit trail. Start from cards imode and minitel.", "tools": ["read_file", "write_file"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-imode", "t": "Archive entry: i-mode + i-appli (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/I-mode", "t": "Wikipedia: i-mode", "r": 1, "kind": "inherited"}]}, {"id": "ogas", "title": "OGAS — data as state infrastructure", "subtitle": "1962 — 1970 · Viktor Glushkov · the project was rejected on 1 October 1970", "bg": "fact", "gap": 3, "fields": [{"lbl": "What it was", "val": "An all-state automated system for accounting and information processing: a national network to manage the economy in real time (Viktor Glushkov, proposed in 1962). Funding was rejected on 1 October 1970 and the plan was never adopted."}, {"lbl": "Why it was ambitious", "val": "An estimate of about 24 billion roubles (roughly $850 bn in 2016 dollars) and a projected fivefold return within the first 15 years; the idea of “data as state infrastructure” decades ahead of its time."}, {"lbl": "Why it never happened", "val": "Bureaucratic wars: the military did not want to share information and ministries did not want to lose control. Only local management systems received support."}, {"lbl": "Where it lives now", "val": "Dead; some of the ideas dissolved into departmental systems."}, {"lbl": "What to build today", "val": "A lesson for “digital government” and for any centralised platform: a system does not survive without distributed ownership of data and local points of truth. And, as Minitel showed, a cheap terminal and a payment layer matter more than an ambitious protocol."}], "archive": ["ogas"], "links": [{"to": "minitel", "why": "the terminal and the payment layer matter more than the protocol"}, {"to": "build", "why": "the eighth build decision: local points of truth"}], "actions": [{"t": "Take apart OGAS from sources", "p": "Take apart the OGAS story from sources: what was proposed technically, who blocked it, why it was rejected in 1970. Quotes and links, no retelling of rumours.", "tools": ["web_search", "web_extract"]}, {"t": "Design a distributed point of truth", "p": "Design an architecture with distributed ownership of data: local points of truth, exchange, who owns a record, how conflicts are resolved. Apply the lessons of OGAS and Usenet.", "tools": ["read_file", "write_file"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-ogas", "t": "Archive entry: OGAS (verified by Archivessa)", "r": 1, "kind": "archive"}, {"u": "https://en.wikipedia.org/wiki/OGAS", "t": "Wikipedia: OGAS", "r": 1, "kind": "inherited"}, {"u": "https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start", "t": "BBC Future: why the forgotten Soviet internet was doomed", "r": 0, "kind": "inherited"}]}, {"id": "build", "title": "Build: a network for agents from eight decisions", "subtitle": "the stack's practical output · 8 decisions from 8 cards", "bg": "checklist", "gap": 4, "fields": [{"lbl": "Provenance instead of “just a link”", "val": "Content-addressed fragments, backlinks, source version. Without it generated content is indistinguishable from fact.", "to": "xanadu"}, {"lbl": "A tool instead of a feed", "val": "The result of an agent's work is a card or board you can touch and reuse, not a message in a chat.", "to": "hypercard"}, {"lbl": "A thin machine-readable protocol", "val": "Menus, document types, metadata, search inside the protocol. A client in a weekend is the adoption criterion.", "to": "gopher"}, {"lbl": "A payment layer neutral to the platform", "val": "One bill and micropayments with limits instead of a store commission; who pays for an agent action is part of the protocol.", "to": "minitel"}, {"lbl": "Reputation and rules between instances", "val": "“Moderation as protocol”: inheriting trust and rules, smart replication instead of forwarding everything.", "to": "usenet"}, {"lbl": "Quality of attention as a product", "val": "A curated community with a subscription and human moderation — a premium feature in the age of spam.", "to": "nifty"}, {"lbl": "Content, not a shrunken web", "val": "cHTML beat WAP because it did not require a separate internet: the minimal format that works on what already exists.", "to": "imode"}, {"lbl": "Local points of truth", "val": "A centralised system without distributed ownership of data dies of departmental conflict.", "to": "ogas"}], "archive": [], "links": [{"to": "xanadu", "why": "the first and most important decision"}, {"to": "hypercard", "why": "the shape of the result matters more than the model"}], "actions": [{"t": "Run my project through the build card", "p": "Run my project/idea through the eight build decisions of the pre-web stack: present / missing / partial, and what to do first. As a table, with links to the source cards.", "tools": ["read_file"]}, {"t": "Build a minimal prototype", "p": "Build a minimal prototype: a card with provenance (a content-addressed fragment), a backlink, and one agent action. Show working code and its output.", "tools": ["write_file", "terminal"]}, {"t": "Ask Archivessa about currency", "p": "Ask Archivessa to verify that the archive entries the pre-web stack relies on (xanadu, hypercard, gopher, minitel, usenet, nifty, imode, ogas) are not retracted and that their sources are alive.", "tools": ["message_agent"]}], "sources": [{"u": "https://kostyk348.github.io/lost-tech-museum/stacks/pre-web/", "t": "This stack: a synthesis of eight cards (agent judgement)", "r": 1, "kind": "self"}]}]};
+const CROSS = {"out": {"gopher": [{"stack": "agent-protocols", "title": "Стек: агентные протоколы, которые уже были решены", "card": "osi", "card_title": "OSI: как проигрывает формально лучший стандарт", "why": "the same lesson: a minimal core over a weekend", "path": "en/stacks/agent-protocols/#c-osi"}]}, "back": {"minitel": [{"stack": "hardware-and-context", "title": "Стек: железо, идентичность и внимание — что опередило время", "card": "felica", "card_title": "FeliCa — оплата как физическая инфраструктура", "why": "другой пример платёжной инфраструктуры страны: kiosque", "path": "en/stacks/hardware-and-context/#c-felica"}]}};
+const HOME = (STACK.cards[0]||{}).id;
+const HAS_HERMES = !!(window.hermes && typeof window.hermes.send === "function");
+const CARDS = STACK.cards;
+const ROOT = "../../../";
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function byId(id){return CARDS.find(c=>c.id===id);}
+function incoming(id){return CARDS.filter(c=>(c.links||[]).some(l=>l.to===id));}
+function hash(id){return "#c-"+id;}
+function current(){
+  const m=(location.hash||"").match(/^#c-(.+)$/);
+  return (m && byId(m[1])) ? m[1] : HOME;
+}
+function archiveHref(entryId){
+  const a=STACK.archive||{};
+  return ROOT+"digests/"+a.slug+"/#c-"+entryId;
+}
+
+function boot(){
+  document.getElementById("m-cards").textContent = CARDS.length;
+  document.getElementById("m-links").textContent = CARDS.reduce((n,c)=>n+(c.links||[]).length,0);
+  document.getElementById("m-src").textContent = CARDS.reduce((n,c)=>n+(c.sources||[]).length,0);
+  document.getElementById("m-arch").textContent = CARDS.reduce((n,c)=>n+(c.archive||[]).length,0);
+  const a=STACK.archive||{};
+  document.getElementById("archlink").href = ROOT+"digests/"+a.slug+"/";
+  document.getElementById("archlink").textContent = "Архив: "+a.title+" →";
+  document.getElementById("bglist").textContent = Object.keys(STACK.backgrounds||{})
+    .map(k=>k+" — "+STACK.backgrounds[k].name).join(" · ");
+  document.getElementById("q").oninput = e=>{filter=e.target.value.toLowerCase();nav();render();};
+  window.addEventListener("hashchange",()=>{nav();render();});
+  document.addEventListener("keydown",ev=>{
+    if(ev.target.tagName==="INPUT"){if(ev.key==="Escape")ev.target.blur();return;}
+    if(ev.key==="Escape"){go(HOME);}
+    if(ev.key==="ArrowRight"||ev.key==="ArrowLeft"){
+      const list=visible(); const i=list.indexOf(current());
+      const j=ev.key==="ArrowRight"?i+1:i-1;
+      if(j>=0&&j<list.length){go(list[j]);}
+    }
+  });
+  nav();render();
+}
+let filter="";
+function visible(){
+  const q=filter;
+  return CARDS.filter(c=>!q||(c.title+" "+(c.subtitle||"")+" "+c.id+" "+(c.fields||[]).map(f=>f.lbl+" "+f.val).join(" ")).toLowerCase().includes(q)).map(c=>c.id);
+}
+function nav(){
+  const cur=current(), list=visible();
+  document.getElementById("navlist").innerHTML = list.map(id=>{
+    const c=byId(id), bg=(STACK.backgrounds||{})[c.bg]||{};
+    const kind = id===HOME ? "stack home" : (bg.name||c.bg);
+    return `<button class="nl ${id===cur?"on":""}" data-card="${id}"><span class="nbin">${esc(kind)}</span>${esc(c.title)}</button>`;
+  }).join("") || '<p class="plain">Nothing matched.</p>';
+  document.querySelectorAll("[data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+}
+function go(id){ if(location.hash===hash(id)){nav();render();} else {location.hash=hash(id);} }
+
+function fieldHtml(f){
+  const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ card: ${esc(byId(f.to).title)}</span>` : "";
+  return `<div class="fld"><div class="lbl">${esc(f.lbl)}</div><p class="val">${esc(f.val)}</p>${to}</div>`;
+}
+function fieldsHtml(c){
+  const bg=(STACK.backgrounds||{})[c.bg]||{}, layout=bg.layout||"list", fs=c.fields||[];
+  if(!fs.length) return "";
+  if(layout==="cols") return `<div class="cols">${fs.map(fieldHtml).join("")}</div>`;
+  if(layout==="table") return `<div class="rows">${fs.map(f=>{
+      const to = f.to && byId(f.to) ? `<span class="to" data-card="${f.to}">→ ${esc(byId(f.to).title)}</span>` : "";
+      return `<div class="r"><div class="k">${esc(f.lbl)}</div><div class="v">${esc(f.val)}${to}</div></div>`;
+    }).join("")}</div>`;
+  return fs.map(fieldHtml).join("");
+}
+function linksHtml(c){
+  const out=(c.links||[]).map(l=>{const t=byId(l.to); if(!t) return ""; return `<button class="lk" data-card="${l.to}"><b>${esc(t.title)}</b><span class="wy">${esc(l.why||"")}</span></button>`;}).join("");
+  const back=incoming(c.id).map(x=>`<button class="lk" data-card="${x.id}"><b>${esc(x.title)}</b><span class="wy">links here</span></button>`).join("");
+  const arch=(c.archive||[]).map(id=>`<a class="lk" href="${archiveHref(id)}" style="text-decoration:none"><b>⌗ archive entry: ${esc(id)}</b><span class="wy">verified museum card with sources</span></a>`).join("");
+  if(!out&&!back&&!arch) return "";
+  return `<div class="sect"><div class="h">Links</div><div class="links">${arch}${out}${back}</div></div>`;
+}
+function crossHtml(c){
+  const out=(CROSS.out||{})[c.id]||[], back=(CROSS.back||{})[c.id]||[];
+  if(!out.length && !back.length) return "";
+  const item=(x,label)=>`<a class="lk" href="${ROOT+esc(x.path)}"><b>${esc(x.card_title)}</b><span class="wy">${esc(x.why||label)} · ${esc(x.title)}</span></a>`;
+  return `<div class="sect"><div class="h">Other stacks</div><div class="links">`
+    + out.map(x=>item(x,"link to another stack")).join("")
+    + back.map(x=>item(x,"links here")).join("")
+    + `</div></div>`;
+}
+function actsHtml(c){
+  const acts=c.actions||[]; if(!acts.length) return "";
+  return `<div class="sect"><div class="h">Actions — a bounded prompt, not code</div><div class="acts">`+
+    acts.map((a,i)=>{
+      const tools=(a.tools||[]).length? a.tools.join(", ") : "no tools";
+      const prompt=`[Stack “${STACK.title}” → card “${c.title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const attr=HAS_HERMES?` data-hermes-send="${esc(prompt)}"`:"";
+      return `<div class="act"><div class="top"><button class="btn" data-idx="${i}" data-card="${c.id}"${attr}>${esc(a.t)}</button>
+        <span class="tools">tools: ${esc(tools)}</span></div><p class="prompt">${esc(a.p)}</p></div>`;
+    }).join("")+`</div></div>`;
+}
+function srcsHtml(c){
+  const s=c.sources||[]; if(!s.length) return "";
+  return `<div class="sect"><div class="h">Sources (✓ read in full · ↗ search index · ⌗ archive entry)</div><div class="srcs">`+
+    s.map(x=>`<a class="${x.r?"r":""} ${x.kind==="archive"?"k-archive":""}" href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")+`</div></div>`;
+}
+function render(){
+  const c=byId(current())||CARDS[0], bg=(STACK.backgrounds||{})[c.bg]||{};
+  const dots=Array.from({length:5},(_,i)=>`<i class="${i<(c.gap||0)?"on":""}"></i>`).join("");
+  document.getElementById("stage").innerHTML =
+    `<div class="shead"><div><h2>${esc(c.title)}</h2><div class="sub">${esc(c.subtitle||"")}</div></div>
+      <div style="text-align:right"><span class="bgchip">background: ${esc(bg.name||c.bg)}</span>
+      <div class="gap" title="how unfinished the idea is — the agent's judgement" style="margin-top:8px;justify-content:flex-end"><span>gap</span>${dots}</div></div></div>
+     ${fieldsHtml(c)}${linksHtml(c)}${crossHtml(c)}${actsHtml(c)}${srcsHtml(c)}`;
+  document.querySelectorAll("#stage [data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
+  document.querySelectorAll("#stage .btn").forEach(b=>{
+    if(b.hasAttribute("data-hermes-send")) return;   // в чате отправляет мост Hermes
+    b.onclick=()=>{
+      const a=(byId(b.dataset.card).actions||[])[+b.dataset.idx];
+      const text=`[Stack “${STACK.title}” → card “${byId(b.dataset.card).title}”] ${a.p}`+(a.tools&&a.tools.length?`\nРазрешённые tools: ${a.tools.join(", ")}.`:"\nNo tools required.");
+      const done=()=>{const old=b.textContent;b.textContent="промпт скопирован ✓";setTimeout(()=>b.textContent=old,1800);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}else{done();}
+    };
+  });
+  nav();
+}
+boot();
+</script>
+</body>
+</html>
