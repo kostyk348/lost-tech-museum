@@ -113,6 +113,16 @@ def lint_stack(meta):
                 err(slug, "карточка %s -> %s: не написано, зачем связь" % (cid, lk["to"]))
             else:
                 linked_from.setdefault(lk["to"], set()).add(cid)
+        for ref in card.get("other") or []:
+            tgt = next((m for m in build.STACKS if m["slug"] == ref.get("stack")), None)
+            if tgt is None:
+                err(slug, "карточка %s: связь в незарегистрированный стек %r" % (cid, ref.get("stack")))
+                continue
+            tcards = {c["id"] for c in build.stack_data(tgt["slug"]).get("cards", [])}
+            if ref.get("card") not in tcards:
+                err(slug, "карточка %s: в стеке %s нет карточки %r" % (cid, tgt["slug"], ref.get("card")))
+            if not ref.get("why"):
+                err(slug, "карточка %s -> %s/%s: не написано, зачем связь" % (cid, ref.get("stack"), ref.get("card")))
         for src in card.get("sources") or []:
             if not str(src.get("u", "")).startswith("http"):
                 err(slug, "карточка %s: источник без http(s)-ссылки: %r" % (cid, src.get("u")))
@@ -170,7 +180,7 @@ def lint_built(slug, st):
         return
     with open(page, encoding="utf-8") as fh:
         html = fh.read()
-    for marker in ("__STACK__", "__TITLE__", "__THEME__", "__CLAMPCSS__"):
+    for marker in ("__STACK__", "__CROSS__", "__TITLE__", "__THEME__", "__CLAMPCSS__"):
         if marker in html:
             err(slug, "в собранной странице остался плейсхолдер %s" % marker)
     for card in st.get("cards", []):
@@ -189,11 +199,33 @@ def lint_built(slug, st):
                     err(slug, "в дайджесте %s нет записи %s, на которую ссылается стек" % (arch, eid))
 
 
+def lint_cross(data):
+    """Связи между стеками должны быть двусторонними: out одной стороны = back другой."""
+    for meta in build.STACKS:
+        st = data.get(meta["slug"])
+        if st is None:
+            continue
+        out = build.cross_for(meta["slug"], st)["out"]
+        for cid, refs in out.items():
+            for ref in refs:
+                tgt = data.get(ref["stack"])
+                if tgt is None:
+                    continue
+                back = build.cross_for(ref["stack"], tgt)["back"]
+                if not any(b["stack"] == meta["slug"] and b["card"] == cid
+                           for b in back.get(ref["card"], [])):
+                    err(meta["slug"], "нет обратной связи: %s/%s -> %s/%s"
+                        % (meta["slug"], cid, ref["stack"], ref["card"]))
+
+
 def main():
+    data = {}
     for meta in build.STACKS:
         st = lint_stack(meta)
         if st:
+            data[meta["slug"]] = st
             lint_built(meta["slug"], st)
+    lint_cross(data)
     for line in WARNINGS:
         print(line)
     for line in ERRORS:

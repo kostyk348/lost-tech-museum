@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Провенанс архива — Музей потерянных идей</title>
+<meta name="description" content="Что в архиве проверено: цитаты из первоисточников, прочитанные источники, мёртвые ссылки и долг по цитатам.">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--cy:#22d3ee;--gr:#4ade80;--rd:#f87171;--am:#f0b429}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif}
+a{color:#7cc4ff;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1020px;margin:0 auto;padding:26px 20px 70px}
+.crumb{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.crumb a{color:var(--mut)}
+h1{font-size:31px;line-height:1.15;margin:.38em 0 .3em;letter-spacing:-.015em}
+h2{font-size:19px;margin:2em 0 .55em;padding-top:.4em;border-top:1px solid var(--line)}
+.lede{color:var(--mut);max-width:78ch;margin:0 0 6px}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0 8px}
+.sum div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.sum b{display:block;font-size:24px;line-height:1.15;letter-spacing:-.02em}
+.sum span{color:var(--mut);font-size:12.5px}
+.ok{color:var(--gr)}.bad{color:var(--rd)}.warn{color:var(--am)}.dim{color:var(--mut)}
+table{width:100%;border-collapse:collapse;margin:1em 0;font-size:13.5px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#111722;color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#101620}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:#111722;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:#bfe9f2}
+.note{background:#101720;border:1px solid var(--line);border-radius:12px;padding:15px 18px;color:var(--mut);font-size:13.8px;margin:14px 0}
+.note b{color:var(--fg)}
+.note.warnbox{border-left:3px solid var(--am)}
+ol.rules{margin:.6em 0 .6em 1.2em;padding:0}
+ol.rules li{margin:.4em 0;color:#cfd9e8}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:1px 8px;font-size:11.5px;color:var(--mut);background:#111722}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumb"><a href="../">← Музей потерянных идей</a></div>
+  <h1>Провенанс архива</h1>
+  <p class="lede">Страница о том, насколько архив заслуживает доверия: где факт подкреплён дословной цитатой,
+  где источник только просмотрен в индексе, что ещё в долгу и какие ссылки уже умерли.
+  Здесь нет оценок «мне кажется» — только состояния, которые проверяются скриптами
+  <code>scripts/quotes.py</code> и <code>scripts/audit_links.py</code>.</p>
+
+  <div class="sum">__STATS__</div>
+
+  <h2>По дайджестам</h2>
+  __TABLE__
+
+  <h2>Долг по цитатам <span class="tag">правило «нет цитаты — нет записи»</span></h2>
+  __DEBT__
+
+  <h2>Мёртвые и закрытые ссылки</h2>
+  __DEAD__
+
+  <h2>Правила музея и чем каждое проверяется</h2>
+  <div class="note">
+  <ol class="rules">
+    <li><b>Нет цитаты — нет записи.</b> Цитата хранится в <code>src[].q</code> и сверяется дословно с текстом
+      первоисточника (<code>scripts/quotes.py</code>): пробелы и переносы игнорируются, слова — нет.
+      Не подтвердилась — публиковать нельзя.</li>
+    <li><b>Провенанс не размывается.</b> <code>r:1</code> ✓ — источник прочитан целиком, <code>r:0</code> ↗ — источник
+      уровня поискового индекса. Счётчики на этой странице считаются по самим данным, а не по памяти автора.</li>
+    <li><b>Архив не удаляет.</b> Устаревшая находка переписывается с пометкой и датой (см. правки в
+      <code>docs/triage-log.md</code>), а не исчезает.</li>
+    <li><b>Суждение помечено суждением.</b> «Зазор» (<code>gap</code>) и «что внедрить» (<code>pitch</code>) — вывод
+      агента; поля <code>what</code>/<code>why</code>/<code>death</code>/<code>now</code> — факты со ссылками.</li>
+    <li><b>Чужие тексты не перепубликуются.</b> Только ссылки и короткие цитаты; один запрос в секунду на хост
+      (<code>scripts/audit_links.py</code>, <code>scripts/quotes.py</code>).</li>
+    <li><b>Молчание — норма.</b> Пустой выпуск не публикуется.</li>
+  </ol>
+  </div>
+
+  <h2>Машиночитаемый доступ</h2>
+  <div class="note">
+    <p><a href="../api/index.json">api/index.json</a> — каталог: дайджесты, документы, стеки, счётчики провенанса.</p>
+    <p><a href="../api/entries.json">api/entries.json</a> — все находки всех дайджестов с источниками, признаком
+    прочтения, цитатой и живым статусом ссылки.</p>
+    <p><a href="../feed.xml">feed.xml</a> (Atom) · <a href="../sitemap.xml">sitemap.xml</a> · <a href="../robots.txt">robots.txt</a></p>
+    <p>Аудиты обновляются: цитаты — <span class="dim">__QUOTE_DATE__</span>, ссылки — <span class="dim">__LINK_DATE__</span>.
+    Страница пересобирается вместе с сайтом.</p>
+  </div>
+
+  <footer>Сгенерировано автоматически · __DATE__ · <a href="https://github.com/__REPO__">исходники, данные и скрипты аудита на GitHub</a></footer>
+</div>
+</body>
+</html>

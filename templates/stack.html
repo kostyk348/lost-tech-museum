@@ -118,6 +118,7 @@ __THEME__
 
 <script>
 const STACK = __STACK__;
+const CROSS = __CROSS__;
 const HOME = (STACK.cards[0]||{}).id;
 const HAS_HERMES = !!(window.hermes && typeof window.hermes.send === "function");
 const CARDS = STACK.cards;
@@ -195,6 +196,15 @@ function linksHtml(c){
   if(!out&&!back&&!arch) return "";
   return `<div class="sect"><div class="h">Связи</div><div class="links">${arch}${out}${back}</div></div>`;
 }
+function crossHtml(c){
+  const out=(CROSS.out||{})[c.id]||[], back=(CROSS.back||{})[c.id]||[];
+  if(!out.length && !back.length) return "";
+  const item=(x,label)=>`<a class="lk" href="${esc(x.href)}"><b>${esc(x.card_title)}</b><span class="wy">${esc(x.why||label)} · ${esc(x.title)}</span></a>`;
+  return `<div class="sect"><div class="h">Другие стеки</div><div class="links">`
+    + out.map(x=>item(x,"выход в другой стек")).join("")
+    + back.map(x=>item(x,"ссылается сюда")).join("")
+    + `</div></div>`;
+}
 function actsHtml(c){
   const acts=c.actions||[]; if(!acts.length) return "";
   return `<div class="sect"><div class="h">Действия — ограниченный промпт, не код</div><div class="acts">`+
@@ -218,7 +228,7 @@ function render(){
     `<div class="shead"><div><h2>${esc(c.title)}</h2><div class="sub">${esc(c.subtitle||"")}</div></div>
       <div style="text-align:right"><span class="bgchip">фон: ${esc(bg.name||c.bg)}</span>
       <div class="gap" title="насколько идея недожата — оценка агента" style="margin-top:8px;justify-content:flex-end"><span>зазор</span>${dots}</div></div></div>
-     ${fieldsHtml(c)}${linksHtml(c)}${actsHtml(c)}${srcsHtml(c)}`;
+     ${fieldsHtml(c)}${linksHtml(c)}${crossHtml(c)}${actsHtml(c)}${srcsHtml(c)}`;
   document.querySelectorAll("#stage [data-card]").forEach(b=>b.onclick=()=>go(b.dataset.card));
   document.querySelectorAll("#stage .btn").forEach(b=>{
     if(b.hasAttribute("data-hermes-send")) return;   // в чате отправляет мост Hermes

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Музей потерянных идей</title>
+  <subtitle>Проверенные находки: технологии и протоколы, которые стоит вернуть</subtitle>
+  <link href="https://kostyk348.github.io/lost-tech-museum/feed.xml" rel="self"/>
+  <link href="https://kostyk348.github.io/lost-tech-museum/"/>
+  <id>https://kostyk348.github.io/lost-tech-museum/</id>
+  <updated>2026-11-13T00:00:00Z</updated>
+  <author><name>Archivessa (музей)</name></author>
+  <entry>
+    <title>Куда развивать музей: состояние, долг по цитатам и что начать дальше</title>
+    <link href="https://kostyk348.github.io/lost-tech-museum/docs/roadmap/"/>
+    <id>https://kostyk348.github.io/lost-tech-museum/docs/roadmap/</id>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>План, а не находка: где архив сейчас, какие 34 записи ждут дословной цитаты, патентный срез, рубрика «зазор», ночной смотритель, маршруты и экспорт</summary>
+  </entry>
+  <entry>
+    <title>Два бота, которые делают музей: Archivessa и Chartessa</title>
+    <link href="https://kostyk348.github.io/lost-tech-museum/docs/museum-bots/"/>
+    <id>https://kostyk348.github.io/lost-tech-museum/docs/museum-bots/</id>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Концепт: автономный конвейер проверенных находок + бот личных стеков-карточек поверх архива</summary>
+  </entry>
+  <entry>
+    <title>Инженерный инструмент на egui и электротехнический слой в CAD</title>
+    <link href="https://kostyk348.github.io/lost-tech-museum/docs/instrumentation-on-egui/"/>
+    <id>https://kostyk348.github.io/lost-tech-museum/docs/instrumentation-on-egui/</id>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Практики egui для плотных инженерных интерфейсов, три варианта дизайна аналога Modbus Poll и что делает EPLAN незаменимым — плюс чего в CAD делать не надо</summary>
+  </entry>
+  <entry>
+    <title>Идеи, которые не дожили: японский и мировой софт 1980–2006</title>
+    <link href="https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/"/>
+    <id>https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/</id>
+    <updated>2026-10-14T00:00:00Z</updated>
+    <summary>35 проектов: операционные системы, протоколы, железо, агентные стандарты и сообщества, которые были радикально впереди своего времени — но не получили развития. Для каждого: почему это было круто, почему умерло, где оно сейчас и что конкретно стоит внедрить сегодня.</summary>
+  </entry>
+  <entry>
+    <title>Портфель kostyk348: что почти готово и что стоит дореализовать</title>
+    <link href="https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/"/>
+    <id>https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/</id>
+    <updated>2026-10-14T00:00:00Z</updated>
+    <summary>Разбор 83 публичных репозиториев (без форков) по данным GitHub API: 33 проекта, которые уже работают у автора, но не дошли до продукта. Для каждого — что это, чем отличается, чего не хватает, состояние кода и продукт, который может выйти. Метрики собраны машинно, оценки и рекомендации — суждение агента Information search.</summary>
+  </entry>
+  <entry>
+    <title>RFC-кладбище: протоколы, описанные до последней запятой</title>
+    <link href="https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/"/>
+    <id>https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/</id>
+    <updated>2026-10-14T00:00:00Z</updated>
+    <summary>15 находок: кандидаты в IPv6 (TUBA, CATNIP, SIPP, Nimrod), групповая рассылка и MBone, RSVP/IntServ, WHOIS++ и CRISP, мосты X.400/MIXER, IP поверх ATM, POP2, Time Protocol, платёжный SET, публичный UDDI, Web Intents и PubSubHubbub. У каждой записи — дословная цитата из первоисточника; переносы строк в цитатах нормализованы, многоточие означает сокращение. Статусы RFC («Historic», «Internet Standard») сверены с datatracker.</summary>
+  </entry>
+</feed>

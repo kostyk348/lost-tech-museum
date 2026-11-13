@@ -1,0 +1,109 @@
+{
+ "generated": "2026-11-13",
+ "museum": "Музей потерянных идей",
+ "repo": "https://github.com/kostyk348/lost-tech-museum",
+ "site": "https://kostyk348.github.io/lost-tech-museum",
+ "licence_note": "Факты — из первоисточников (ссылки в записях); «зазор» и «что внедрить» — суждение агента, а не факт из источника.",
+ "provenance": {
+  "r1_read_in_full": "источник прочитан целиком",
+  "r0_index_level": "источник уровня поискового индекса",
+  "quote": "дословная цитата из источника (src[].q), сверяется scripts/quotes.py",
+  "quote_audit": {
+   "generated": "2026-11-13",
+   "checked": 35,
+   "confirmed": 35,
+   "failed": [],
+   "missing": []
+  },
+  "link_audit": {
+   "generated": "2026-11-13",
+   "total": 151,
+   "alive": 138,
+   "dead": 4,
+   "blocked": 9
+  }
+ },
+ "digests": [
+  {
+   "slug": "lost-ideas-1980s-2000s",
+   "title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "subtitle": "35 проектов: операционные системы, протоколы, железо, агентные стандарты и сообщества, которые были радикально впереди своего времени — но не получили развития. Для каждого: почему это было круто, почему умерло, где оно сейчас и что конкретно стоит внедрить сегодня.",
+   "generated": "2026-10-14",
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/",
+   "data_url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/data.json",
+   "entries": 35,
+   "pitches": 8,
+   "sources": 75,
+   "sources_read": 40,
+   "quotes": 1,
+   "entries_with_quote": 1
+  },
+  {
+   "slug": "portfolio-review",
+   "title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "subtitle": "Разбор 83 публичных репозиториев (без форков) по данным GitHub API: 33 проекта, которые уже работают у автора, но не дошли до продукта. Для каждого — что это, чем отличается, чего не хватает, состояние кода и продукт, который может выйти. Метрики собраны машинно, оценки и рекомендации — суждение агента Information search.",
+   "generated": "2026-10-14",
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/",
+   "data_url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/data.json",
+   "entries": 33,
+   "pitches": 8,
+   "sources": 39,
+   "sources_read": 0,
+   "quotes": 0,
+   "entries_with_quote": 0
+  },
+  {
+   "slug": "rfc-graveyard",
+   "title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "subtitle": "15 находок: кандидаты в IPv6 (TUBA, CATNIP, SIPP, Nimrod), групповая рассылка и MBone, RSVP/IntServ, WHOIS++ и CRISP, мосты X.400/MIXER, IP поверх ATM, POP2, Time Protocol, платёжный SET, публичный UDDI, Web Intents и PubSubHubbub. У каждой записи — дословная цитата из первоисточника; переносы строк в цитатах нормализованы, многоточие означает сокращение. Статусы RFC («Historic», «Internet Standard») сверены с datatracker.",
+   "generated": "2026-10-14",
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/",
+   "data_url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/data.json",
+   "entries": 15,
+   "pitches": 5,
+   "sources": 44,
+   "sources_read": 42,
+   "quotes": 34,
+   "entries_with_quote": 15
+  }
+ ],
+ "docs": [
+  {
+   "slug": "roadmap",
+   "title": "Куда развивать музей: состояние, долг по цитатам и что начать дальше",
+   "url": "https://kostyk348.github.io/lost-tech-museum/docs/roadmap/"
+  },
+  {
+   "slug": "museum-bots",
+   "title": "Два бота, которые делают музей: Archivessa и Chartessa",
+   "url": "https://kostyk348.github.io/lost-tech-museum/docs/museum-bots/"
+  },
+  {
+   "slug": "instrumentation-on-egui",
+   "title": "Инженерный инструмент на egui и электротехнический слой в CAD",
+   "url": "https://kostyk348.github.io/lost-tech-museum/docs/instrumentation-on-egui/"
+  }
+ ],
+ "stacks": [
+  {
+   "slug": "agent-protocols",
+   "title": "Стек: агентные протоколы, которые уже были решены",
+   "url": "https://kostyk348.github.io/lost-tech-museum/stacks/agent-protocols/"
+  },
+  {
+   "slug": "legacy-os",
+   "title": "Стек: операционные системы, которые всё придумали первыми",
+   "url": "https://kostyk348.github.io/lost-tech-museum/stacks/legacy-os/"
+  },
+  {
+   "slug": "pre-web",
+   "title": "Стек: сеть и гипертекст до веба — что там было решено",
+   "url": "https://kostyk348.github.io/lost-tech-museum/stacks/pre-web/"
+  },
+  {
+   "slug": "hardware-and-context",
+   "title": "Стек: железо, идентичность и внимание — что опередило время",
+   "url": "https://kostyk348.github.io/lost-tech-museum/stacks/hardware-and-context/"
+  }
+ ]
+}

@@ -18,6 +18,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "cache", "quotes")
@@ -47,21 +48,39 @@ def cache_path(url):
     return os.path.join(CACHE, hashlib.sha1(url.encode()).hexdigest()[:16] + ".txt")
 
 
+_LAST_HIT = {}
+
+
+def _polite(url):
+    """Не больше одного запроса в секунду на хост — правило музея, а не пожелание."""
+    host = re.sub(r"^https?://([^/]+).*$", r"\1", url)
+    wait = 1.0 - (time.time() - _LAST_HIT.get(host, 0))
+    if wait > 0:
+        time.sleep(wait)
+    _LAST_HIT[host] = time.time()
+
+
 def fetch(url):
     path = cache_path(url)
     if os.path.exists(path):
         return path
     os.makedirs(CACHE, exist_ok=True)
     tmp = path + ".part"
+    _polite(url)
     code = subprocess.run(
         ["curl", "-sSL", "--max-time", "45", "-A", "Mozilla/5.0 (museum-quotes)", "-o", tmp, "-w", "%{http_code}", url],
-        capture_output=True, text=True).stdout.strip()
+        capture_output=True).stdout.decode("ascii", "replace").strip()
     if code != "200":
         if os.path.exists(tmp):
             os.remove(tmp)
         return None
     if url.lower().endswith(".pdf"):          # PDF: пробуем вытащить текстовый слой
-        txt = subprocess.run(["pdftotext", "-q", tmp, "-"], capture_output=True, text=True).stdout
+        try:
+            raw = subprocess.run(["pdftotext", "-q", tmp, "-"], capture_output=True).stdout or b""
+        except (OSError, FileNotFoundError):   # pdftotext нет в системе — не повод падать
+            os.remove(tmp)
+            return None
+        txt = raw.decode("utf-8", "replace")   # скан/CP1252: битые байты не должны валить прогон
         if txt.strip():
             open(path, "w", encoding="utf-8").write(txt)
             os.remove(tmp)
@@ -106,8 +125,22 @@ def main():
 
     for entry_id, url in missing_src:
         print("  НЕТ   %-13s %s (источник не скачан: нужен --fetch)" % (entry_id, url[:80]))
+    confirmed = len(checks) - len(failed) - len(missing_src)
     print("\nподтверждено: %d · не подтверждено: %d · без источника: %d" %
-          (len(checks) - len(failed) - len(missing_src), len(failed), len(missing_src)))
+          (confirmed, len(failed), len(missing_src)))
+
+    # Машиночитаемый отчёт: страница провенанса берёт статусы отсюда, а не из чьей-то памяти.
+    report = {
+        "generated": time.strftime("%Y-%m-%d"),
+        "checked": len(checks),
+        "confirmed": confirmed,
+        "failed": [{"entry": e, "url": u, "quote": q} for e, u, q in failed],
+        "missing": [{"entry": e, "url": u} for e, u in missing_src],
+    }
+    os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
+    with open(os.path.join(ROOT, "data", "quote-audit.json"), "w", encoding="utf-8") as fh:
+        json.dump(report, fh, ensure_ascii=False, indent=1)
+    print("отчёт: data/quote-audit.json")
     return 1 if failed else 0
 
 

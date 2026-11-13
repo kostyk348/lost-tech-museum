@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Провенанс архива — Музей потерянных идей</title>
+<meta name="description" content="Что в архиве проверено: цитаты из первоисточников, прочитанные источники, мёртвые ссылки и долг по цитатам.">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--cy:#22d3ee;--gr:#4ade80;--rd:#f87171;--am:#f0b429}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif}
+a{color:#7cc4ff;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1020px;margin:0 auto;padding:26px 20px 70px}
+.crumb{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.crumb a{color:var(--mut)}
+h1{font-size:31px;line-height:1.15;margin:.38em 0 .3em;letter-spacing:-.015em}
+h2{font-size:19px;margin:2em 0 .55em;padding-top:.4em;border-top:1px solid var(--line)}
+.lede{color:var(--mut);max-width:78ch;margin:0 0 6px}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0 8px}
+.sum div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.sum b{display:block;font-size:24px;line-height:1.15;letter-spacing:-.02em}
+.sum span{color:var(--mut);font-size:12.5px}
+.ok{color:var(--gr)}.bad{color:var(--rd)}.warn{color:var(--am)}.dim{color:var(--mut)}
+table{width:100%;border-collapse:collapse;margin:1em 0;font-size:13.5px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#111722;color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#101620}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:#111722;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:#bfe9f2}
+.note{background:#101720;border:1px solid var(--line);border-radius:12px;padding:15px 18px;color:var(--mut);font-size:13.8px;margin:14px 0}
+.note b{color:var(--fg)}
+.note.warnbox{border-left:3px solid var(--am)}
+ol.rules{margin:.6em 0 .6em 1.2em;padding:0}
+ol.rules li{margin:.4em 0;color:#cfd9e8}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:1px 8px;font-size:11.5px;color:var(--mut);background:#111722}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumb"><a href="../">← Музей потерянных идей</a></div>
+  <h1>Провенанс архива</h1>
+  <p class="lede">Страница о том, насколько архив заслуживает доверия: где факт подкреплён дословной цитатой,
+  где источник только просмотрен в индексе, что ещё в долгу и какие ссылки уже умерли.
+  Здесь нет оценок «мне кажется» — только состояния, которые проверяются скриптами
+  <code>scripts/quotes.py</code> и <code>scripts/audit_links.py</code>.</p>
+
+  <div class="sum"><div><b class="">50</b><span>записей в архиве</span></div><div><b class="">119</b><span>источников</span></div><div><b class="ok">82</b><span>прочитано целиком (r:1) ✓</span></div><div><b class="">37</b><span>уровня индекса (r:0) ↗</span></div><div><b class="">35</b><span>дословных цитат</span></div><div><b class="ok">35</b><span>цитат подтверждено аудитом</span></div><div><b class="ok">0</b><span>цитат НЕ подтвердилось</span></div><div><b class="bad">4</b><span>мёртвых ссылок</span></div></div>
+
+  <h2>По дайджестам</h2>
+  <table><thead><tr><th>Дайджест</th><th class="num">Записей</th><th class="num">Источников</th><th class="num">r:1 ✓</th><th class="num">r:0 ↗</th><th class="num">Цитат</th><th class="num">С цитатой</th><th class="num">Без цитаты</th><th class="num">Мёртвых</th></tr></thead><tbody><tr><td><a href="../digests/lost-ideas-1980s-2000s/">Идеи, которые не дожили: японский и мировой софт 1980–2006</a></td><td class="num">35</td><td class="num">75</td><td class="num">40</td><td class="num">35</td><td class="num">1</td><td class="num">1</td><td class="num warn">34</td><td class="num bad">4</td></tr><tr><td><a href="../digests/portfolio-review/">Портфель kostyk348: что почти готово и что стоит дореализовать</a> <span class="tag">разбор репозиториев</span></td><td class="num">33</td><td class="num">39</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num ok">0</td></tr><tr><td><a href="../digests/rfc-graveyard/">RFC-кладбище: протоколы, описанные до последней запятой</a></td><td class="num">15</td><td class="num">44</td><td class="num">42</td><td class="num">2</td><td class="num">34</td><td class="num">15</td><td class="num ok">0</td><td class="num ok">0</td></tr></tbody></table>
+
+  <h2>Долг по цитатам <span class="tag">правило «нет цитаты — нет записи»</span></h2>
+  <p><b>Идеи, которые не дожили: японский и мировой софт 1980–2006</b> — 34 из 35 записей без дословной цитаты:</p><ul><li><a href="../digests/lost-ideas-1980s-2000s/#c-tron">TRON / BTRON</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-itron">μITRON / T-Kernel — невидимый победитель</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-troncode">TRON Code</a> <span class="dim">— источников: 1, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-fgcs">Fifth Generation Computer Systems (ICOT)</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-imode">i-mode + i-appli</a> <span class="dim">— источников: 4, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-felica">FeliCa (Sony)</a> <span class="dim">— источников: 1, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-qr">QR-код — контрольный пример: японская идея, которая выжила</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-ucode">ucode / Ubiquitous ID (T-Engine, uID Center)</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-pc98">PC-98 (NEC)</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-towns">FM Towns OS / Sharp X68000 (SX-Window, Human68k)</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-msx">MSX</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-nifty">NIFTY-Serve</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-minitel">Minitel</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-genmagic">General Magic: Magic Cap + Telescript</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-fipa">FIPA-ACL / KQML — язык агентов, который был</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-xanadu">Project Xanadu</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-plan9">Plan 9 from Bell Labs</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-inferno">Inferno + Dis / Limbo</a> <span class="dim">— источников: 1, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-beos">BeOS + BFS</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-transputer">Transputer + Occam (Inmos)</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-linda">Linda / JavaSpaces / Jini — tuple space</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-self">Self / Smalltalk-image — живое программирование</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-iapx432">Intel iAPX 432 — capability-компьютер</a> <span class="dim">— источников: 1, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-winfs">Cairo → WinFS</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-hailstorm">HailStorm / .NET My Services</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-news">Sun NeWS / Display PostScript</a> <span class="dim">— источников: 1, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-osi">OSI: X.400 / X.500 / ASN.1</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-usenet">Usenet (UUCP → NNTP)</a> <span class="dim">— источников: 1, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-gopher">Gopher / WAIS</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-setun">Setun — троичный компьютер</a> <span class="dim">— источников: 1, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-ogas">OGAS — советский интернет, которого не было</a> <span class="dim">— источников: 3, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-hypercard">HyperCard</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-newton">Newton «Soup» — единый структурный стор</a> <span class="dim">— источников: 2, цитаты нет</span></li><li><a href="../digests/lost-ideas-1980s-2000s/#c-weiser">Weiser: calm technology / ubiquitous computing</a> <span class="dim">— источников: 2, цитаты нет</span></li></ul>
+
+  <h2>Мёртвые и закрытые ссылки</h2>
+  <table><thead><tr><th>Адрес</th><th class="num">Код</th><th>Записи</th><th>Проверено</th></tr></thead><tbody><tr><td><a href="https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start">https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-</a></td><td class="num bad">0</td><td>lost-ideas-1980s-2000s/ogas</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://hci.stanford.edu/seminar/abstracts/93-94/940121-hertzfeld.html">https://hci.stanford.edu/seminar/abstracts/93-94/940121-hertzfeld.html</a></td><td class="num bad">0</td><td>lost-ideas-1980s-2000s/genmagic</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://mitpress.mit.edu/five-minutes-with-benjamin-peters">https://mitpress.mit.edu/five-minutes-with-benjamin-peters</a></td><td class="num bad">0</td><td>lost-ideas-1980s-2000s/ogas</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://www.cs.otago.ac.nz/coursework/cosc461/occam.pdf">https://www.cs.otago.ac.nz/coursework/cosc461/occam.pdf</a></td><td class="num bad">0</td><td>lost-ideas-1980s-2000s/transputer</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://arstechnica.com/information-technology/2018/07/the-beos-filesystem/">https://arstechnica.com/information-technology/2018/07/the-beos-filesystem/</a></td><td class="num warn">405</td><td>lost-ideas-1980s-2000s/beos</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://commons.lib.jmu.edu/cgi/viewcontent.cgi?article=1196&amp;context=selectedworks">https://commons.lib.jmu.edu/cgi/viewcontent.cgi?article=1196&amp;context=selectedworks</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/gopher</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://digitalcommons.kennesaw.edu/cgi/viewcontent.cgi?article=1622&amp;context=undergradsymposiumksu">https://digitalcommons.kennesaw.edu/cgi/viewcontent.cgi?article=1622&amp;context=undergradsy</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/imode</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://dl.acm.org/doi/10.1145/1400097.1400109">https://dl.acm.org/doi/10.1145/1400097.1400109</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/plan9</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://dl.acm.org/doi/10.1145/191246.191322">https://dl.acm.org/doi/10.1145/191246.191322</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/fipa</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://one.oecd.org/document/DSTI/ICCP/IE(97)10/FINAL/en/pdf">https://one.oecd.org/document/DSTI/ICCP/IE(97)10/FINAL/en/pdf</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/minitel</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://sciencedirect.com/science/article/pii/0167739X93900038">https://sciencedirect.com/science/article/pii/0167739X93900038</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/fgcs</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://wiki.preterhuman.net/Newton_Application_Architecture">https://wiki.preterhuman.net/Newton_Application_Architecture</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/newton</td><td class="dim">2026-11-13</td></tr><tr><td><a href="https://www.denso.com/global/en/business/innovation/qrcode/">https://www.denso.com/global/en/business/innovation/qrcode/</a></td><td class="num warn">403</td><td>lost-ideas-1980s-2000s/qr</td><td class="dim">2026-11-13</td></tr></tbody></table><div class="note">Мёртвая ссылка не удаляется из архива: запись остаётся, ссылка помечается. Закрытые бот-стеной (401/403/429) живы для читателя, но недоступны обходу — это отдельное состояние.</div>
+
+  <h2>Правила музея и чем каждое проверяется</h2>
+  <div class="note">
+  <ol class="rules">
+    <li><b>Нет цитаты — нет записи.</b> Цитата хранится в <code>src[].q</code> и сверяется дословно с текстом
+      первоисточника (<code>scripts/quotes.py</code>): пробелы и переносы игнорируются, слова — нет.
+      Не подтвердилась — публиковать нельзя.</li>
+    <li><b>Провенанс не размывается.</b> <code>r:1</code> ✓ — источник прочитан целиком, <code>r:0</code> ↗ — источник
+      уровня поискового индекса. Счётчики на этой странице считаются по самим данным, а не по памяти автора.</li>
+    <li><b>Архив не удаляет.</b> Устаревшая находка переписывается с пометкой и датой (см. правки в
+      <code>docs/triage-log.md</code>), а не исчезает.</li>
+    <li><b>Суждение помечено суждением.</b> «Зазор» (<code>gap</code>) и «что внедрить» (<code>pitch</code>) — вывод
+      агента; поля <code>what</code>/<code>why</code>/<code>death</code>/<code>now</code> — факты со ссылками.</li>
+    <li><b>Чужие тексты не перепубликуются.</b> Только ссылки и короткие цитаты; один запрос в секунду на хост
+      (<code>scripts/audit_links.py</code>, <code>scripts/quotes.py</code>).</li>
+    <li><b>Молчание — норма.</b> Пустой выпуск не публикуется.</li>
+  </ol>
+  </div>
+
+  <h2>Машиночитаемый доступ</h2>
+  <div class="note">
+    <p><a href="../api/index.json">api/index.json</a> — каталог: дайджесты, документы, стеки, счётчики провенанса.</p>
+    <p><a href="../api/entries.json">api/entries.json</a> — все находки всех дайджестов с источниками, признаком
+    прочтения, цитатой и живым статусом ссылки.</p>
+    <p><a href="../feed.xml">feed.xml</a> (Atom) · <a href="../sitemap.xml">sitemap.xml</a> · <a href="../robots.txt">robots.txt</a></p>
+    <p>Аудиты обновляются: цитаты — <span class="dim">2026-11-13</span>, ссылки — <span class="dim">2026-11-13</span>.
+    Страница пересобирается вместе с сайтом.</p>
+  </div>
+
+  <footer>Сгенерировано автоматически · 2026-10-14 · <a href="https://github.com/kostyk348/lost-tech-museum">исходники, данные и скрипты аудита на GitHub</a></footer>
+</div>
+</body>
+</html>

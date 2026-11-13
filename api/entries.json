@@ -1,0 +1,3146 @@
+{
+ "generated": "2026-11-13",
+ "count": 83,
+ "entries": [
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "tron",
+   "name": "TRON / BTRON",
+   "reg": "jp",
+   "dom": "os",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1984 — н.в.",
+   "gap": 4,
+   "what": "Открытая архитектура ОС реального времени: ITRON (встраиваемые), BTRON (персональные системы), MTRON/STRON — плюс свободная лицензия на спецификации. Лидер — Кэн Сакамура (Токийский ун-т).",
+   "why": "«Компьютер везде» за 7 лет до статьи Вейзера; один контракт от микроволновки до рабочей станции; открытые спеки и бесплатная лицензия — задолго до того, как open source стал мейнстримом. IEEE Milestone.",
+   "death": "BTRON был несовместим с DOS-миром: NEC держал 80–90% образовательного рынка Японии на DOS, и переход означал выбросить всю инфраструктуру и софт. Прототипы BTRON286 тестировали в школах (1988), массового внедрения не случилось.",
+   "now": "Ветка ITRON победила незаметно (миллиарды устройств). BTRON — история; проект живёт как TRON Forum + T-Kernel/T-Engine.",
+   "pitch": "Вернуть «сквозную» архитектуру: один контракт на уровне компонентов (сегодня это WASM Component Model + WASI) поверх RTOS, чтобы код устройства и облака собирался из одних интерфейсов.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-tron",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/TRON_project",
+     "title": "Wikipedia: TRON project",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.tron.org/tron-project",
+     "title": "TRON Forum: TRON Project",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/BTRON",
+     "title": "Wikipedia: BTRON",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "itron",
+   "name": "μITRON / T-Kernel — невидимый победитель",
+   "reg": "jp",
+   "dom": "os",
+   "eras": [
+    "80",
+    "90",
+    "00"
+   ],
+   "years": "1984 — н.в.",
+   "gap": 3,
+   "what": "Спецификация RTOS-ядра для микрокомпьютеров: сначала ITRON (1984), затем μITRON и T-Kernel/T-Engine (2001+). Спека, а не код.",
+   "why": "Десятки вендоров реализовали её независимо — отсюда присутствие в миллиардах устройств: от стиральных машин и камер до автомобильных блоков. Открытый стандарт до моды на open source.",
+   "death": "Как продукт она никогда не была брендом: победа невидима, обучение и сообщество остались в Японии, а в мире выиграли FreeRTOS/Zephyr/VxWorks.",
+   "now": "Жив (T-Kernel, TOPPERS); актуален как база для edge-AI на микроконтроллерах.",
+   "pitch": "Открытая спецификация RTOS как «POSIX для железа» + WASM-песочница для обновляемых моделей на устройстве: переносимость между MCU и обновления без vendor lock-in.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-itron",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/ITRON_project",
+     "title": "Wikipedia: ITRON project",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.tron.org/ja/wp-content/uploads/sites/2/2023/12/ieeemilestone-en.pdf",
+     "title": "IEEE Milestone: TRON RTOS Family, 1984",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 206
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "troncode",
+   "name": "TRON Code",
+   "reg": "jp",
+   "dom": "ui",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1980-е — н.в.",
+   "gap": 3,
+   "what": "Собственная многобайтная кодировка TRON: каждый иероглиф из каждого национального набора (JIS, GB 2312, Big5, KS X 1001) кодируется отдельно — без Han unification, принятой в Unicode.",
+   "why": "Точная типографика CJK: невозможно перепутать японскую, китайскую и корейскую форму знака; исторические и архаичные варианты — отдельные знаки, а не «тот же символ».",
+   "death": "Проиграл глобальному Unicode и экономике шрифтов: TRON-набор требовал более 200 000 кодовых точек, шрифты имели ограничения на коммерческое использование, кодировка не поспевала за расширениями Unicode.",
+   "now": "Ниша (шрифты и данные TRON-экосистемы). Unicode решил часть задачи вариационными селекторами (IVS).",
+   "pitch": "Для юридически значимых текстов и локализации вернуть «вариант как отдельный идентификатор»: теги вариантов в данных + провенанс происхождения знака. В ML-эпоху это ещё и корректная токенизация CJK без потери формы.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-troncode",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/TRON_(encoding)",
+     "title": "Wikipedia: TRON (encoding)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "fgcs",
+   "name": "Fifth Generation Computer Systems (ICOT)",
+   "reg": "jp",
+   "dom": "ai",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1982 — 1994",
+   "gap": 5,
+   "what": "10-летняя госпрограмма Японии (MITI): massively parallel + logic programming, «компьютер с выводом и обучением»; институт ICOT, суммарно ≈¥57 млрд (≈$320 млн).",
+   "why": "Ставка на декларативность и параллелизм: Prolog/KL1, Parallel Inference Machine, concurrent logic programming. Одна из первых попыток «ИИ как государственной инфраструктуры».",
+   "death": "Железо не догнало софт, результаты не совпали с форматом рынка, а после проекта MITI прекратил крупное финансирование — накопленный импульс рассыпался.",
+   "now": "Идеи живут в Datalog/knowledge graphs, constraint-солверах, SMT и policy-as-code; прямых наследников PIM нет.",
+   "pitch": "Бизнес-правила как декларативная программа: слой Datalog/constraints поверх данных + объяснение вывода («почему правило сработало»). Это и есть слой вывода, которого не хватает LLM-агентам.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-fgcs",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fifth_Generation_Computer_Systems",
+     "title": "Wikipedia: Fifth Generation Computer Systems",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://sciencedirect.com/science/article/pii/0167739X93900038",
+     "title": "Kahn: The Japanese national Fifth Generation project: introduction, survey, and evaluation",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "imode",
+   "name": "i-mode + i-appli",
+   "reg": "jp",
+   "dom": "soc",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1999 — 2026",
+   "gap": 3,
+   "what": "Мобильный интернет NTT DoCoMo (запуск 22.02.1999): cHTML, почта, банкинг, платный контент, биллинг через оператора. Java-приложения (i-appli/DoJa) — с января 2001.",
+   "why": "Телефон как платформа за 7 лет до App Store: каталог приложений, микротранзакции, платные сайты в десятках тысяч, родина emoji. Биллинг у оператора — вместо карточки в браузере.",
+   "death": "Экспорт провалился: Nokia и другие мировые вендоры отказались делать i-mode-аппараты, а операторы зависели от японских производителей без международного опыта. Пик в Японии — около 2008; DoCoMo объявила об окончании 29.10.2019, сервис отключён 31.03.2026.",
+   "now": "Мёртв с марта 2026. Идеи продолжают жить в магазинах приложений и супер-приложениях.",
+   "pitch": "Операторский биллинг как API + «контент, а не урезанный веб»: cHTML обыграл WAP именно потому, что не требовал отдельного интернета. Сегодня — про единый счёт для агентов и подписок без комиссии магазина.",
+   "quotes": 0,
+   "sources": 4,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-imode",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/I-mode",
+     "title": "Wikipedia: i-mode",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://computerworld.com/article/1366318/ntt-docomo-launches-first-java-cellphones.html",
+     "title": "Computerworld (2001): DoCoMo launches first Java cellphones",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://keitaiwiki.com/wiki/I-mode",
+     "title": "Keitai Wiki: i-mode / i-appli (DoJa)",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://digitalcommons.kennesaw.edu/cgi/viewcontent.cgi?article=1622&context=undergradsymposiumksu",
+     "title": "Case study: i-mode and product export failure",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "felica",
+   "name": "FeliCa (Sony)",
+   "reg": "jp",
+   "dom": "hw",
+   "eras": [
+    "80",
+    "90",
+    "00"
+   ],
+   "years": "1988 — н.в.",
+   "gap": 3,
+   "what": "Бесконтактные IC-карты Sony: Suica (JR East), Octopus (Гонконг), EZ-Link; с 2004 — Osaifu-Keitai (мобильный FeliCa в телефоне).",
+   "why": "Национальная инфраструктура оплаты и доступа: детерминированная задержка на «тап», работа без сети, криптография в чипе, аттестация EAL4 (позже EAL6).",
+   "death": "Мировым стандартом стал NFC-A/B (MIFARE) по объёму и цене; FeliCa остался преимущественно азиатской технологией, хотя включён в требования NFC Forum, а Apple добавила его в Apple Pay с 2016 (iPhone 7 / Watch Series 2).",
+   "now": "Жив в Японии и Азии — как «родная» транспортная и платёжная инфраструктура.",
+   "pitch": "Относиться к оплате/доступу как к физической инфраструктуре, а не к приложению: офлайн-транзакции, жёсткие латентности, аттестованное железо. Применимо к офлайн-платежам, транспорту и к «tap-to-X» для IoT/агентов.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-felica",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/FeliCa",
+     "title": "Wikipedia: FeliCa",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "qr",
+   "name": "QR-код — контрольный пример: японская идея, которая выжила",
+   "reg": "jp",
+   "dom": "hw",
+   "eras": [
+    "90"
+   ],
+   "years": "1994 — н.в.",
+   "gap": 1,
+   "what": "Denso Wave, 1994: команда из двух инженеров, полтора года — код на ~7000 цифр с поддержкой кандзи и чтением более чем в 10 раз быстрее существующих.",
+   "why": "Приоритеты выбраны под реальную задачу (ёмкость, скорость, японский текст) и — открытость: компания не стала ограничивать использование.",
+   "death": "Не умер — и именно поэтому он на дашборде: то из японских идей, что выжило, было открытым и дешёвым; то, что погибло, — закрытым и вертикально интегрированным.",
+   "now": "Мировой стандарт, 30+ лет: платёж, транспорт, вход, логистика.",
+   "pitch": "Вывод для стандартов агентов/IoT: открытая лицензия и дешёвый порог важнее технического превосходства. Критерий приёмки стандарта — реализация минимального ядра за выходные на дешёвом железе.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-qr",
+   "src": [
+    {
+     "url": "https://www.denso-wave.com/en/technology/vol1.html",
+     "title": "DENSO WAVE: QR Code development story",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.denso.com/global/en/business/innovation/qrcode/",
+     "title": "DENSO: QRcode invented by DENSO",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "ucode",
+   "name": "ucode / Ubiquitous ID (T-Engine, uID Center)",
+   "reg": "jp",
+   "dom": "net",
+   "eras": [
+    "00"
+   ],
+   "years": "2003 — н.в.",
+   "gap": 4,
+   "what": "128-битный идентификатор физических объектов (ucode), не привязанный к технологии носителя (RFID, штрих-код, матричный код), + сервер разрешения ucodeRP, ubiquitous communicator и информационные серверы. Центр uID — Кэн Сакамура.",
+   "why": "«DNS для вещей»: идентификатор отделён и от носителя, и от приложения; двухступенчатый резолв (код → сервер разрешения → данные) — ровно то, что сейчас переизобретают.",
+   "death": "Проиграл QR, NFC и связке «UUID + URL»: не хватило глобальных игроков, сети партнёров и простоты.",
+   "now": "Нишевая/академическая жизнь; те же идеи переизобретены как DID, GS1/EPCIS, verifiable credentials.",
+   "pitch": "Глобальный резолвер физических объектов: ucode-подобный ID + владелец + история событий, устойчивый к исчезновению вендора. Нужен supply chain, ремонту, вторичному рынку, верифицируемым сертификатам — и до сих пор не построен.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-ucode",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Ucode_system",
+     "title": "Wikipedia: ucode system",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "http://tronweb.super-nova.co.jp/ucoderesserverconnectiontest.html",
+     "title": "TRON Web: ucode resolution server / ucodeRP, eTP",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "pc98",
+   "name": "PC-98 (NEC)",
+   "reg": "jp",
+   "dom": "hw",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1982 — 2003",
+   "gap": 2,
+   "what": "NEC PC-9800: 18,3 млн машин; x86-совместимые, но аппаратно закрытые японские ПК с собственной графикой под кандзи, N88-BASIC, MS-DOS.",
+   "why": "Идеальная работа с японским текстом до эпохи софтовых шрифтов — отсюда доминирование более 10 лет и целая изолированная экосистема софта.",
+   "death": "DOS/V (1990) позволил IBM-клонам рисовать японский текст программно — и изоляция обернулась крахом: рынок ушёл к глобальному стандарту, NEC не смогла этому помешать. Снят с производства 30.09.2003.",
+   "now": "Мёртв; платформа — объект коллекционирования и эмуляции.",
+   "pitch": "Разделить локализацию и ядро: раскладки, типографика, юридические форматы — плагинный слой; шина, API, форматы данных — глобальные. Протекционизм на уровне форматов проигрывает всегда.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-pc98",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/PC-98",
+     "title": "Wikipedia: PC-98",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://consortiuminfo.org/metalibrary/innovation-and-control-in-standards-architectures-the-rise-and-fall-of-japans-pc-98",
+     "title": "Innovation and Control in Standards Architectures: The Rise and Fall of Japan's PC-98",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "towns",
+   "name": "FM Towns OS / Sharp X68000 (SX-Window, Human68k)",
+   "reg": "jp",
+   "dom": "os",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1987 — 1990-е",
+   "gap": 3,
+   "what": "Японские «мультимедийные» персональные системы конца 80-х: Fujitsu FM Towns (Towns OS, CD-ROM, 32 768 цветов), Sharp X68000 (Human68k + оконный GUI SX-Window, звук и графика уровня аркадных автоматов).",
+   "why": "Готовые рабочие станции для создателей: качественный цвет, звук, CD-ROM как стандарт и оконный интерфейс — раньше Windows 3.1 и заметно лучше «домашних» PC того времени.",
+   "death": "Проприетарные, дорогие, изолированные внутри Японии; их добили PC-клоны с DOS/V и игровые консоли.",
+   "now": "Мертвы, кроме эмуляторов, коллекционеров и ретро-демосцены.",
+   "pitch": "Creator-first ОС: гарантированная латентность ввода/вывода, калибровка цвета, аудио/MIDI-граф и детерминированный тайминг как системные гарантии, а не как набор костылей в про-аудио и видео.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-towns",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fujitsu_Towns_OS",
+     "title": "Wikipedia: FM Towns / Towns OS",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Sharp_x68000",
+     "title": "Wikipedia: Sharp X68000 / Human68k / SX-Window",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "msx",
+   "name": "MSX",
+   "reg": "jp",
+   "dom": "hw",
+   "eras": [
+    "80"
+   ],
+   "years": "1983 — 1993",
+   "gap": 3,
+   "what": "Стандарт домашнего компьютера (ASCII + Microsoft, объявлен 27.06.1983): более 14 производителей (Sony, Panasonic, Philips, Canon, Samsung…), MSX BASIC/MSX-DOS, картриджи.",
+   "why": "Первая честная попытка совместимости «одна спека — много вендоров»: картридж работал на любой машине. Огромен в Японии, Европе, Бразилии, Корее — почти незаметен в США.",
+   "death": "Поздний выход и не тот рынок; вендоры не хотели терять дифференциацию; к концу 80-х вытеснен PC-клонами и консолями. Последняя линейка — MSX turboR, 1993.",
+   "now": "Мёртв вне ретро-сообщества.",
+   "pitch": "Модель «общая спецификация + многие производители» — ровно то, что сегодня нужно edge-модулям и RISC-V-устройствам: обратная совместимость как продукт (модуль, работающий везде).",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-msx",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/MSX",
+     "title": "Wikipedia: MSX",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.pcgamer.com/the-bright-life-of-the-msx-japans-underdog-pc/",
+     "title": "PC Gamer: The bright life of the MSX",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "nifty",
+   "name": "NIFTY-Serve",
+   "reg": "jp",
+   "dom": "soc",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1987 — 2006",
+   "gap": 3,
+   "what": "Японский онлайн-сервис (апрель 1987 – март 2006), совместное предприятие Fujitsu и Nissho Iwai: форумы, почта, игры, поминутная оплата по телефонной линии. Пик — ~1,6 млн подписчиков в середине 90-х.",
+   "why": "«CompuServe по-японски»: редакция и модерация, локальные сообщества (FUD), платный доступ вместо рекламы — качество внимания как продукт.",
+   "death": "Интернет и веб: закрытые редакционные сервисы не выдержали бесплатной альтернативы. Форумы закрыли в 2005, сервис — в марте 2006.",
+   "now": "Мёртв.",
+   "pitch": "Платное сообщество как продукт: подписка + человеческая модерация + локальный контекст. В эпоху генеративного спама курируемая доска становится премиум-функцией, а не архаизмом.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-nifty",
+   "src": [
+    {
+     "url": "https://rip.so/nifty-serve.html",
+     "title": "rip.so: NIFTY-Serve (1987–2006)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://info.archives.global.fujitsu/jp/news/1999/Mar/23-3e.html",
+     "title": "Fujitsu news (1999): NIFTY Corporation",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "minitel",
+   "name": "Minitel",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1980/1982 — 2012",
+   "gap": 4,
+   "what": "Французская национальная видеотекс-сеть: эксперимент в июле 1980 (Saint-Malo), коммерчески с 1982, отключена 30.06.2012. Справочник, покупки, бронирование, банкинг, чат; терминалы раздавали абонентам бесплатно (взаймы).",
+   "why": "Массовый онлайн за десятилетие до веба: 10 млн подключений в месяц в 2009; модель «kiosque» — безопасный расчёт и микроплатежи в национальном масштабе, единый счёт для тысяч сервисов.",
+   "death": "Проиграл интернету: фиксированный протокол против открытой сети; France Télécom выключила сервис 30.06.2012.",
+   "now": "Мёртв (кроме арт- и ретро-проектов).",
+   "pitch": "Два недожатых элемента: (1) kiosque — микроплатежи с единым счётом и безопасным расчётом, нейтральные к платформе (сегодня это комиссии магазинов приложений); (2) дешёвый терминал как государственная инфраструктура доступа — модель для цифрового равенства.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-minitel",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Minitel",
+     "title": "Wikipedia: Minitel",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.wired.com/2012/06/services-begone",
+     "title": "WIRED (2012): Before the Web there was Minitel",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://one.oecd.org/document/DSTI/ICCP/IE(97)10/FINAL/en/pdf",
+     "title": "OECD (1997): France's experience with the Minitel — lessons for e-commerce (kiosque billing)",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "genmagic",
+   "name": "General Magic: Magic Cap + Telescript",
+   "reg": "other",
+   "dom": "ai",
+   "eras": [
+    "90"
+   ],
+   "years": "1990 — 2002",
+   "gap": 5,
+   "what": "Компания (основатели Билл Аткинсон, Энди Херцфельд, Марк Порат): ОС Magic Cap для PDA (Sony Magic Link, Motorola Envoy, 1994) и язык мобильных агентов Telescript.",
+   "why": "Агенты, которые «путешествуют» по сети и выполняют поручения: метафоры мест, почта как объекты, магические ссылки. Прямое предвестие агентных систем и durable execution.",
+   "death": "Рынок PDA не сложился, веб убил концепцию «сети агентов», железо и сети не были готовы. Компания объявила о прекращении в 2002, ликвидирована в 2004.",
+   "now": "Мёртв как продукт; наследие — патенты и учебный пример.",
+   "pitch": "Агент с мобильным кодом: WASM-байткод + capability-права + durable execution («место» агента с журналом и восстановлением). Это архитектура того, что MCP/A2A сейчас пытаются собрать на уровне протокола.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-genmagic",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/General_Magic",
+     "title": "Wikipedia: General Magic",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://hci.stanford.edu/seminar/abstracts/93-94/940121-hertzfeld.html",
+     "title": "Stanford HCI seminar (1994): Hertzfeld on Magic Cap and Telescript",
+     "read": false,
+     "quote": null,
+     "link_state": "dead",
+     "link_code": 0
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "fipa",
+   "name": "FIPA-ACL / KQML — язык агентов, который был",
+   "reg": "other",
+   "dom": "ai",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1993 — 2005",
+   "gap": 5,
+   "what": "Языки коммуникации агентов: KQML (1993) и FIPA ACL (стандарт IEEE/FIPA конца 90-х) — сообщения как речевые акты (request, inform, refuse, propose) с формальной семантикой и протоколами диалогов.",
+   "why": "Умели то, чего нет в современных агентных протоколах: типизированные интенты, отказ как легальный и обрабатываемый ответ, контрактные «предложение/принятие предложения», спецификации взаимодействий и таймауты.",
+   "death": "Мир агентов не состоялся: не было ни массовых агентов, ни сети, готовой к ним; стандарты остались академией.",
+   "now": "Почти мёртв как стандарт; LLM-агенты переизобретают это на естественном языке — с потерей гарантий.",
+   "pitch": "Внести в MCP/A2A уже решённое: явная семантика интентов, первоклассный отказ, торг (propose / counter-propose / accept), протоколы диалога с дедлайнами и лимитами. Естественный язык хорош для человека, но плох для контрактов и SLA.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-fipa",
+   "src": [
+    {
+     "url": "https://userpages.cs.umbc.edu/ypeng/Publications/1999/ieee-is.pdf",
+     "title": "IEEE Intelligent Systems (1999): Agent Communication Languages — the current landscape",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://dl.acm.org/doi/10.1145/191246.191322",
+     "title": "ACM CIKM (1994): KQML as an agent communication language",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    },
+    {
+     "url": "https://learn.engineering.vips.edu/agent-protocols/fipa-acl",
+     "title": "FIPA ACL: historical overview",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "xanadu",
+   "name": "Project Xanadu",
+   "reg": "other",
+   "dom": "ui",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1960 — 1990-е",
+   "gap": 4,
+   "what": "Проект Теда Нельсона: transclusion (включение фрагмента как ссылки), двунаправленные неразрушаемые ссылки, версионирование, «docuverse» из взаимосвязанных частей.",
+   "why": "Ссылка как полноценный объект: не ломается, знает об источнике, документы собираются из частей; управление версиями и цитированием — по умолчанию, а не поверх.",
+   "death": "Сложность реализации в 70–80-х, собственническая модель, годы без выпуска; веб выбрал односторонние ссылки и — как оказалось — сделал правильную сделку.",
+   "now": "Частично: двусторонние ссылки в графовых заметках (Obsidian/Roam), transclusion — в блоках Notion, но без версионирования источника.",
+   "pitch": "Транс-включение и версионирование как обязательные свойства: content-addressed фрагменты + двусторонние ссылки + история происхождения каждого куска. В эпоху генеративного контента это единственный честный способ показывать провенанс.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-xanadu",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Project_Xanadu",
+     "title": "Wikipedia: Project Xanadu",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://news.ycombinator.com/item?id=45323901",
+     "title": "HN discussion: Project Xanadu hindsight",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "plan9",
+   "name": "Plan 9 from Bell Labs",
+   "reg": "other",
+   "dom": "os",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1992/1995 — н.в.",
+   "gap": 4,
+   "what": "ОС Bell Labs (1992 для университетов, 1995 публично, 4-я редакция — 2021): per-process namespaces, union-директории, «всё — файл», сетевой протокол 9P, оконная система rio.",
+   "why": "Unix, переписанный с нуля: пространство имён у каждого процесса своё, монтирование вместо API, единый протокол для любых ресурсов, сетевые ресурсы как локальные файлы.",
+   "death": "Не пошла в массы: догматичная приверженность модели, отсутствие совместимости с Unix, конкуренция с бесплатным Linux.",
+   "now": "Технология победила инкогнито: Linux namespaces, union/overlay-монтирования, WSL1, virtio-9p в QEMU — это всё идеи Plan 9, часто без упоминания источника.",
+   "pitch": "Недожато: 9P как минимальный универсальный протокол доступа к ресурсам (файлы, устройства, телеметрия) вместо десятков REST-API; «монтировать, а не интегрировать» драматически упрощает стыковку сервисов и агентов.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-plan9",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs",
+     "title": "Wikipedia: Plan 9 from Bell Labs",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://dl.acm.org/doi/10.1145/1400097.1400109",
+     "title": "ACM: Virtual servers and checkpoint/restart in mainstream Linux (Plan 9-esque per-process namespaces)",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    },
+    {
+     "url": "https://xda-developers.com/docker-secret-ingredient-1992-os",
+     "title": "XDA: Docker's secret ingredient came from a 1992 OS",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 301
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "inferno",
+   "name": "Inferno + Dis / Limbo",
+   "reg": "other",
+   "dom": "os",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1995 — н.в.",
+   "gap": 4,
+   "what": "ОС Bell Labs (1995, сейчас MIT-лицензия): ядро как виртуальная машина Dis, язык Limbo, сетевой протокол Styx (9P), Tk-интерфейс. «Одна ОС на любом устройстве».",
+   "why": "Байткод + JIT + сетевая прозрачность + миграция: одно и то же приложение работает локально, на сервере или в браузере, а границы между машинами размыты.",
+   "death": "Коммерчески провалилась (Vita Nuova), проиграла Java/JVM по экосистеме и инструментам.",
+   "now": "Жива как нишевая ОС и учебный проект; идеи полностью совпали с тем, что делает WASM.",
+   "pitch": "Собрать WASM + 9P/HTTP: единица развёртывания — байткод, единица интеграции — смонтированное пространство имён. Это основа локально-первичных приложений с честной миграцией между устройствами.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-inferno",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Inferno_(operating_system)",
+     "title": "Wikipedia: Inferno (operating system)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "beos",
+   "name": "BeOS + BFS",
+   "reg": "other",
+   "dom": "os",
+   "eras": [
+    "90"
+   ],
+   "years": "1995 — 2001",
+   "gap": 4,
+   "what": "ОС Be Inc. (первый релиз 1995, последний R5.0.3 — 2000; активы купила Palm в 2001): C++, агрессивная многопоточность, media-first. BFS — 64-бит адресное пространство, журналирование, extended attributes, live queries.",
+   "why": "Отзывчивость как архитектурное свойство: приоритеты и стриминговые оптимизации ФС, метаданные-атрибуты, живые запросы (папка = сохранённый запрос, который обновляется сам).",
+   "death": "Не хватило доли рынка и денег: продажи шли плохо, платформа проиграла Windows/Apple, активы распроданы.",
+   "now": "Мёртв, но Haiku продолжает разработку; live queries и атрибуты частично переизобретены в Spotlight, SQLite, Datomic.",
+   "pitch": "Живой запрос как первоклассный объект интерфейса (папка/доска, обновляющаяся сама) + расширенные атрибуты как системный слой метаданных над локальными файлами: локальный граф данных вместо «папок-помоек».",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-beos",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/BeOS",
+     "title": "Wikipedia: BeOS",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://arstechnica.com/information-technology/2018/07/the-beos-filesystem/",
+     "title": "Ars Technica: The BeOS file system — an OS geek retrospective",
+     "read": true,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 405
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "transputer",
+   "name": "Transputer + Occam (Inmos)",
+   "reg": "other",
+   "dom": "hw",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1983/1984 — 1990-е",
+   "gap": 4,
+   "what": "Британская архитектура Inmos (анонс 1983, выпуск 1984): процессор с четырьмя линками и аппаратным планировщиком CSP-процессов, язык Occam, модули TRAM. Флагман T9000 так и не вышел.",
+   "why": "Конкурентность как физика: процессы и каналы CSP прямо в кремнии, «процессор = узел сети», детерминированное распараллеливание без ОС. Архитектурно опередила эпоху.",
+   "death": "Требовала переписать мир на Occam: не было рынка, не хватило денег и маркетинга, T9000 задержался и провалился — победил дешёвый массовый x86.",
+   "now": "Мёртв, но CSP вернулся: Go, Erlang, Rust async. «Сеть из процессоров» — снова актуальна в чиплетах и edge-кластерах.",
+   "pitch": "Вернуть аппаратную честность CSP: гарантированная латентность каналов и компилятор, раскладывающий программу по чиплетам и узлам. Сегодня это собирают вручную через MPI/акторы — а для multi-die и edge-AI это ключ.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-transputer",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Transputer",
+     "title": "Wikipedia: Transputer",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "http://wotug.org/papers/IvimeyCook_W22.pdf",
+     "title": "WoTUG: Legacy of the transputer",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.cs.otago.ac.nz/coursework/cosc461/occam.pdf",
+     "title": "Introduction to the programming language Occam",
+     "read": false,
+     "quote": null,
+     "link_state": "dead",
+     "link_code": 0
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "linda",
+   "name": "Linda / JavaSpaces / Jini — tuple space",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1986 — 2022",
+   "gap": 5,
+   "what": "Linda (Йель, Дэвид Гелернтер, 1986): «tuple space» — ассоциативная разделяемая память, шесть операций, генеративная коммуникация. Jini (Sun, июль 1998): lookup-сервисы, leases, JavaSpaces. Наследник Apache River закрыт в 2022 из-за отсутствия активности.",
+   "why": "Связь без адресов: производитель кладёт данные, потребитель ищет по шаблону; процессы развязаны по времени и по месту; leases автоматически убирают потерянные ресурсы.",
+   "death": "Коммерциализация затухла в 90-е, вернулась в Java, но не выдержала конкуренции с брокерами и БД; Jini так и не стал массовым, River закрыли.",
+   "now": "Ниша: Redis/Kafka — родственники по идее очереди, но без ассоциативного поиска; JavaSpaces мёртв.",
+   "pitch": "Доска для агентов: долгоживущие LLM-агенты должны общаться через разделяемое пространство (поиск по шаблону + TTL/аренды), а не через прямые вызовы. Это лечит восстановление после сбоев, backpressure и «агент упал — задача не потерялась».",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-linda",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Linda_(coordination_language)",
+     "title": "Wikipedia: Linda (coordination language)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Jini",
+     "title": "Wikipedia: Jini (leases, lookup, JavaSpaces, River retired 2022)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://blog.acolyer.org/2015/02/17/generative-communication-in-linda",
+     "title": "The morning paper: Generative communication in Linda",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "self",
+   "name": "Self / Smalltalk-image — живое программирование",
+   "reg": "other",
+   "dom": "os",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1972 / 1987 — н.в.",
+   "gap": 4,
+   "what": "Self (Ungar, Smith, 1987): объекты без классов, прототипы и «морфинг»; именно там изобрели adaptive optimization — inline caching, polymorphic inline caches, type feedback. Smalltalk (1972): система живёт как образ (image) объектов и правится на ходу.",
+   "why": "Живое программирование: система не перезапускается — вы правите объект в работающем мире. Техника Self сегодня внутри каждого JS/JVM JIT — язык «умер», техника победила молча.",
+   "death": "Self как язык не выжил (эволюционировал в Klein VM), Smalltalk вытеснен мейнстримом; модель «образ как артефакт развёртывания» проиграла файлам и git.",
+   "now": "Живые среды: Squeak/Pharo, notebooks, live-reload во фронтенде; JIT-техники Self — в V8 и HotSpot.",
+   "pitch": "Вернуть «образ» на новый лад: сохраняемые состояния сессии и durable execution для локальных приложений и агентов (плюс правка на ходу), а не «перезапуск с нуля»; интерфейсы, которые морфят себя под задачу, вместо статичных форм.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-self",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Self_(programming_language)",
+     "title": "Wikipedia: Self (programming language)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Smalltalk",
+     "title": "Wikipedia: Smalltalk (objects, VM, live image)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://news.ycombinator.com/item?id=46557204",
+     "title": "HN: the tech enabling JS speed came from Self research",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "iapx432",
+   "name": "Intel iAPX 432 — capability-компьютер",
+   "reg": "other",
+   "dom": "hw",
+   "eras": [
+    "80"
+   ],
+   "years": "1981 — 1985",
+   "gap": 4,
+   "what": "Первый 32-битный процессор Intel: capability-архитектура, объекты и дескрипторы, сборка мусора и многозадачность в железе и микрокоде, стековая модель без видимых регистров; основная ОС и язык — iMAX 432 и Ada.",
+   "why": "Безопасность как свойство архитектуры: права — это ссылки-дескрипторы, а не строки и ACL; защита выводится из железа, а не из дисциплины программиста.",
+   "death": "Разрыв с 8086 по цене и производительности, отсутствие компиляторов, обратная несовместимость; capability-механику стали считать «накладными расходами».",
+   "now": "Мёртв, но идеи переродились: CHERI и ARM Morello, seL4, EROS/KeyKOS, WASI capabilities, Fuchsia.",
+   "pitch": "Права как передаваемые ссылки вместо bearer-токенов: агент может вызвать только то, что ему явно передали, и не может «достать» ничего по имени. Прямой ответ на класс prompt-injection-атак и на агента с полным root-доступом.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-iapx432",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Intel_iAPX_432",
+     "title": "Wikipedia: Intel iAPX 432",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "wpos",
+   "name": "IBM Workplace OS",
+   "reg": "other",
+   "dom": "os",
+   "eras": [
+    "90"
+   ],
+   "years": "1991 — 1996",
+   "gap": 3,
+   "what": "Проект IBM на базе микроядра Mach 3.0: «личностях» (personalities), которые позволяют на одной машине запускать неизменённые приложения OS/2, Unix, DOS, AIX. Финальный preview для PowerPC — январь 1996.",
+   "why": "ОС как хост чужих API-контрактов: смена системы без потери софта, вся совместимость — на общей микроядерной основе. Архитектурно красиво.",
+   "death": "Провален по производительности и стоимости: микроядро плюс личности давали накладные расходы, IBM не довела проект до рынка (декабрь 1995 — RTM, январь 1996 — попытка, затем отмена).",
+   "now": "Идея победила в новом обличье: контейнеры, WSL, виртуальные машины, gVisor. «Личности» стали рутиной. Источник записи менялся: ссылка на копию доклада HotOS 1997 (srl.cs.jhu.edu) умерла — 14.10.2026 заменена на DOI и открытый текст (см. src).",
+   "pitch": "Довести до продукта «API-совместимость как сервис»: не эмуляция всего, а точные контракты поведения + тесты совместимости. Это рынок миграции легаси на десятилетия вперёд.",
+   "quotes": 1,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-wpos",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/IBM_Workplace_OS",
+     "title": "Wikipedia: IBM Workplace OS",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://doi.org/10.1109/HOTOS.1997.595173",
+     "title": "DOI: F. L. Rawson III, «Experience with the Development of a Microkernel-Based, Multiserver Operating System» (HotOS 1997) — идентификатор, полный текст за платным доступом",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 202
+    },
+    {
+     "url": "https://docslib.org/doc/3328738/operating-systems-1997-the-sixth-work",
+     "title": "Открытый текст того же доклада HotOS 1997 (скан, OCR: колонки местами перемешаны) — замена мёртвой ссылки srl.cs.jhu.edu",
+     "read": true,
+     "quote": "it was terminated in March, 1996",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "winfs",
+   "name": "Cairo → WinFS",
+   "reg": "other",
+   "dom": "ui",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1991 — 2006",
+   "gap": 4,
+   "what": "Линия Microsoft от «Cairo» (1991) до WinFS: ОС поверх нативной базы данных — объектная файловая система, схемы, отношения между документами, поиск по метаданным. Отменено в июне 2006.",
+   "why": "Файловая система как база знаний: типизированные объекты и связи (автор, проект, событие), а не только имя и путь; поиск — через схему, а не по имени файла.",
+   "death": "Отказ объявлен в блоге команды WinFS 23.06.2006: сложность, требования к производительности и отсутствие приложений, готовых потреблять схему. Технологию частично унаследовали SQL Server/ADO.NET.",
+   "now": "Частично: Spotlight, теги, Datomic/Obsidian; как системного схемного слоя — не существует.",
+   "pitch": "Локальный граф с типами и миграциями: SQLite/DuckDB под капотом + схема и индексы как системный сервис. Именно это сделает персональных агентов надёжными — у данных появляется структура, а не плоский текст.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-winfs",
+   "src": [
+    {
+     "url": "https://www.theregister.com/off-prem/2006/06/26/microsofts-future-file-system-dies-again/702825",
+     "title": "The Register (2006): Microsoft's future file system dies, again",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.theguardian.com/technology/2006/jun/29/insideit.guardianweeklytechnologysection",
+     "title": "The Guardian (2006): Why WinFS had to vanish",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://learn.microsoft.com/en-us/archive/blogs/winfs/update-to-the-update",
+     "title": "WinFS team blog: Update to the update",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "hailstorm",
+   "name": "HailStorm / .NET My Services",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "00"
+   ],
+   "years": "2001 — 2002",
+   "gap": 5,
+   "what": "Анонс Microsoft 19.03.2001: облако персональных данных (контакты, календарь, почта, уведомления) с Passport как единственным ключом, XML-сервисы для доступа приложений. Заброшено, так и не выпущено.",
+   "why": "Первая серьёзная попытка «ваши данные живут в одном месте, а приложения спрашивают доступ»: единая модель разрешений и стандартные интерфейсы для личной информации.",
+   "death": "Партнёры и регуляторы отказались поставить Microsoft между пользователем и его данными; репутационный удар вокруг Passport добил проект.",
+   "now": "Мёртв; идея вернулась как Solid/Pods и personal data stores — и иронично, как «контекст для LLM».",
+   "pitch": "Личный дата-хаб как протокол, а не сервис: данные в хранилище, которым владеет пользователь; доступ агентов — по capability-ссылкам с журналом. Это HailStorm без вендора в центре и главная инфраструктурная дыра агентной эры.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-hailstorm",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/.NET_My_Services",
+     "title": "Wikipedia: .NET My Services (Hailstorm)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://rip.so/microsoft-hailstorm.html",
+     "title": "rip.so: Microsoft Hailstorm (2001–2002)",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "news",
+   "name": "Sun NeWS / Display PostScript",
+   "reg": "other",
+   "dom": "ui",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1986 — 1993",
+   "gap": 4,
+   "what": "Оконная система Sun (авторы Джеймс Гослинг и Дэвид Розенталь): оконный сервер как интерпретатор PostScript — клиент отправляет программу, а не пиксели.",
+   "why": "Дисплей как вычислитель: расширяемость сервера, серверная отрисовка, малые каналы связи; идеальная модель для тонких клиентов и удалённого UI.",
+   "death": "Проиграла X11 по политике и цене: код X раздавали бесплатно, NeWS — за лицензию; OPEN LOOK проиграл Motif, Sun прекратила поддержку после приобретения Adobe технологии FrameMaker.",
+   "now": "Мёртв, но приёмы живут в шейдерах и GPU-компьют, в server-side rendering и в стриминге интерфейсов.",
+   "pitch": "Отправлять программу, а не картинку — идеальная модель для удалённых и AI-генерируемых интерфейсов: сервер/агент отдаёт декларативное описание или шейдер-подобный код, клиент только исполняет и вводит данные.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-news",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/NeWS",
+     "title": "Wikipedia: NeWS",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "osi",
+   "name": "OSI: X.400 / X.500 / ASN.1",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1980-е — 1990-е",
+   "gap": 2,
+   "what": "Стек ISO/OSI: X.400 (почта), X.500 (каталог), FTAM, с ASN.1 как синтаксисом данных; «правильный», институционально поддержанный стандарт.",
+   "why": "Полнота и формальность: строгие модели сервисов, формальный синтаксис, поддержка институтов и национальных делегаций — всё, как должно быть в учебнике.",
+   "death": "Проиграл TCP/IP: тяжёлые спецификации, дорогие реализации, требование целостности стека; TCP/IP работал инкрементально на любом железе. Выжил ASN.1 (сертификаты TLS, SNMP), а X.500 повлиял на LDAP.",
+   "now": "Мёртв как стек; живёт как «мыслительная модель» сетей и как ASN.1.",
+   "pitch": "Урок для стандартов агентов и IoT: критерий принятия — реализация минимального ядра за выходные на дешёвом железе. Всё, что требует «всё-или-ничего», умрёт, даже если формально лучше.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-osi",
+   "src": [
+    {
+     "url": "https://comsys.rwth-aachen.de/publication/2013/2013_jakobs_why-then-did-the/2013_jakobs_why-then-did-the.pdf",
+     "title": "Jakobs (2013): Why then did the X.400 email system fail?",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://positioniseverything.net/osi-the-internet-that-wasnt",
+     "title": "OSI: the internet that wasn't",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "usenet",
+   "name": "Usenet (UUCP → NNTP)",
+   "reg": "other",
+   "dom": "soc",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1979/1980 — н.в.",
+   "gap": 3,
+   "what": "Распределённая дискуссионная система (идея 1979, запуск 1980) на UUCP, позже NNTP: группы новостей, пиринг без центрального сервера и без администратора.",
+   "why": "Федерация как норма: репликация, отсутствие владельца, иерархии с разной модерацией, дешёвое распространение текста по всей сети.",
+   "death": "Eternal September, спам, бинарные вложения и рост объёмов; обсуждения ушли в веб-форумы, затем в соцсети. Централизованные сервисы оказались удобнее.",
+   "now": "Жив как узкая инфраструктура (архивы, бинарные группы), но не как сообщество.",
+   "pitch": "Проблема федеративных сетей не в протоколе, а в репутации и модерации: вернуть «moderation as protocol» — наследование доверия и правил между инстансами плюс умная репликация (не пересылать всё, как делает Nostr). Паттерн готов из Usenet-иерархий.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-usenet",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Usenet",
+     "title": "Wikipedia: Usenet",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "gopher",
+   "name": "Gopher / WAIS",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90"
+   ],
+   "years": "1991 — 1990-е",
+   "gap": 3,
+   "what": "Протокол Gopher (University of Minnesota, середина 1991, RFC 1436): иерархические меню документов, простой синтаксис, быстрые клиенты. Рядом — WAIS (полнотекстовый поиск) и Archie/Veronica.",
+   "why": "Дешёвая, читаемая и расширяемая модель доступа: сервер поднимается за вечер, клиент — тоже; первая крупная «электронная библиотека» интернета.",
+   "death": "Веб победил гипертекстом, картинками и бесплатным просмотром; Gopher угас до энтузиастов.",
+   "now": "Небольшое сообщество серверов; идейный наследник — протокол Gemini.",
+   "pitch": "Тонкий протокол как ценность: документы с типами и метаданными, поиск как часть протокола, клиент за выходные. Ориентир для машинно-читаемого веба и агентных интерфейсов вместо тяжёлых SPA-обёрток.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-gopher",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Gopher_(protocol)",
+     "title": "Wikipedia: Gopher (protocol), RFC 1436",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://commons.lib.jmu.edu/cgi/viewcontent.cgi?article=1196&context=selectedworks",
+     "title": "Before the web there was Gopher",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "setun",
+   "name": "Setun — троичный компьютер",
+   "reg": "other",
+   "dom": "hw",
+   "eras": [
+    "80"
+   ],
+   "years": "1958/1959 — 1965",
+   "gap": 4,
+   "what": "Компьютер на сбалансированной троичной логике (МГУ; Соболев и Брусенцов; разработан 1958, выпускался 1959–1965 на Казанском заводе, около 50 машин; наследник Setun-70).",
+   "why": "Троичная арифметика: экономичнее двоичной по плотности представления, округление без накопления ошибок, естественное «-1 / 0 / +1» вместо двух значений.",
+   "death": "Индустриальная инерция и политика: двоичное направление получило поддержку промышленности, троичная линия осталась без производства и развития.",
+   "now": "Мёртв (кроме академических реконструкций).",
+   "pitch": "Троичность вернулась в ML иначе: веса {-1, 0, +1} в 1.58-битных моделях — это Setun в новой обёртке. Дальше: железо для тернарного и тернарно-квантованного инференса плюс тернарное голосование в системах консенсуса и рекомендаций.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-setun",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Setun",
+     "title": "Wikipedia: Setun",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "ogas",
+   "name": "OGAS — советский интернет, которого не было",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80"
+   ],
+   "years": "1962 — 1970",
+   "gap": 3,
+   "what": "Общегосударственная автоматизированная система учёта и обработки информации: национальная сеть для управления экономикой в реальном времени (Виктор Глушков, предложена 1962). Финансирование отклонено 1 октября 1970, план не принят.",
+   "why": "Масштаб замысла: оценка около 24 млрд руб. (≈$850 млрд в долларах 2016 года), ожидаемая пятикратная отдача за первые 15 лет; идея «данные как инфраструктура государства» на десятилетия раньше.",
+   "death": "Бюрократические войны: военные не хотели делиться информацией, ведомства — терять контроль; в итоге получили поддержку только локальные системы управления.",
+   "now": "Мёртв; часть идей растворена в ведомственных системах.",
+   "pitch": "Урок для «цифрового государства»: централизованная система не выживает без распределённой собственности на данные и без локальных точек правды. И — как показал Minitel — дешёвый терминал и платёжный слой важнее амбициозного протокола.",
+   "quotes": 0,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-ogas",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/OGAS",
+     "title": "Wikipedia: OGAS",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start",
+     "title": "BBC Future: why the forgotten Soviet internet was doomed",
+     "read": false,
+     "quote": null,
+     "link_state": "dead",
+     "link_code": 0
+    },
+    {
+     "url": "https://mitpress.mit.edu/five-minutes-with-benjamin-peters",
+     "title": "MIT Press: five minutes with Benjamin Peters (OGAS)",
+     "read": false,
+     "quote": null,
+     "link_state": "dead",
+     "link_code": 0
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "hypercard",
+   "name": "HyperCard",
+   "reg": "other",
+   "dom": "ui",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1987 — 2004",
+   "gap": 5,
+   "what": "Гипермедийная среда Apple (автор Билл Аткинсон, релиз 11.08.1987, $49.95, затем бесплатно с каждым новым Mac): стеки карточек + язык HyperTalk. Последнее обновление — 1998, снят с продажи в марте 2004.",
+   "why": "Программирование для всех: миллионы непрограммистов делали работающие инструменты; карточки, ссылки и скрипты в одной среде. Прямой предок low-code и вики-подхода.",
+   "death": "Apple не нашла ему места в веб-эпоху и не перенесла на Mac OS X; после возвращения Джобса продукт заморозили.",
+   "now": "Мёртв; наследие — LiveCode, FileMaker, «notebooks» и сама идея citizen developer.",
+   "pitch": "HyperCard для LLM: пользователь собирает личный инструмент из карточек, данных и агентных шагов, исполняемый локально. Возвращает «программу, которую можно потрогать», вместо чата, где результат растворяется.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-hypercard",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/HyperCard",
+     "title": "Wikipedia: HyperCard (release 1987, final 1998, withdrawn 2004)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.wired.com/2002/08/hypercard-forgotten-but-not-gone",
+     "title": "WIRED (2002): HyperCard forgotten, but not gone",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "newton",
+   "name": "Newton «Soup» — единый структурный стор",
+   "reg": "other",
+   "dom": "ui",
+   "eras": [
+    "90"
+   ],
+   "years": "1993 — 1998",
+   "gap": 4,
+   "what": "Хранилище Apple Newton: вся память — объектные store и «soups» — простые однотабличные базы записей с индексами и запросами; единая объектная модель данных для всех приложений.",
+   "why": "Данные как структура, а не файлы: приложения обменивались записями, поиск, синхронизация и вставка между приложениями работали из коробки.",
+   "death": "PDA-линия закрыта (1998); на больших машинах победила файловая модель «файлы и папки», а не записи с индексом.",
+   "now": "Мёртв; ближайшие родственники — Core Data, SQLite внутри приложений, локальные базы.",
+   "pitch": "Единый структурный стор уровня ОС: одно хранилище записей с индексами, связями и «соками» вместо раздробленных файлов и схем. Это фундамент локально-первичных приложений и агентов.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-newton",
+   "src": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Soup_(Apple_Newton)",
+     "title": "Wikipedia: Soup (Apple Newton)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://wiki.preterhuman.net/Newton_Application_Architecture",
+     "title": "Newton Application Architecture (object store, unified data model)",
+     "read": false,
+     "quote": null,
+     "link_state": "blocked",
+     "link_code": 403
+    }
+   ]
+  },
+  {
+   "digest": "lost-ideas-1980s-2000s",
+   "digest_title": "Идеи, которые не дожили: японский и мировой софт 1980–2006",
+   "id": "weiser",
+   "name": "Weiser: calm technology / ubiquitous computing",
+   "reg": "other",
+   "dom": "ui",
+   "eras": [
+    "90"
+   ],
+   "years": "1991 — н.в.",
+   "gap": 4,
+   "what": "Программа Xerox PARC, статья «The Computer for the 21st Century» (1991): tabs/pads/boards — компьютеры размеров стикера, листа и доски; «постоянный фон информации не требует активного внимания, но готов к взгляду».",
+   "why": "Это отказ от идеи «персонального компьютера»: технологии должны уходить в фон и освобождать внимание. Самая гуманистическая формулировка того, что мы сейчас называем IoT.",
+   "death": "Реализовано частично и криво: подключённость есть, «спокойствия» нет — внимание стало товаром, а ubicomp-платформы выродились в системы слежки (это и есть главная критика наследия Вейзера).",
+   "now": "Термин ubicomp почти мёртв, IoT — массовый продукт; «calm» остался дизайн-нишей.",
+   "pitch": "Информация без прерывания: ambient- и glanceable-поверхности (e-ink, панели, звуковые подсказки) плюс правило «когда молчать». Для агентов это нормативный принцип: агент молчит, пока не изменится решение, а не отчитывается каждый шаг.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-weiser",
+   "src": [
+    {
+     "url": "https://calmtech.com/papers/computer-for-the-21st-century",
+     "title": "Weiser (1991): The Computer for the 21st Century",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://cs.cmu.edu/~jasonh/courses/ubicomp-sp2007/papers/08-moving-on-from-weiser-engaging-ubicomp.pdf",
+     "title": "Bell & Dourish: Moving on from Weiser's vision (critique)",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "doc-generator",
+   "name": "doc-generator",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Офлайн-генератор официальных документов: исходящие письма, служебные записки и бланки по ГОСТ Р 7.0.97–2025 — автозаполнение реквизитов, склонение ФИО и должностей, единый реестр исходящих, экспорт в PDF/.eml/.doc.",
+   "why": "Решает скучную, но обязательную работу тысяч организаций: бланк, реквизиты, склонение, номер по реестру. Есть реестр с hash-chain, роли и безопасность, сборка в portable .exe и режим микросервиса для портала — то есть продумана не только форма, но и распространение.",
+   "death": null,
+   "now": null,
+   "pitch": "Продукт для малых организаций и вузов: «документ на бланке за 30 секунд» с локальным реестром исходящих. Монетизация — лицензия на рабочее место + платные пакеты шаблонов; конкурентное преимущество — офлайн и hash-chain реестра вместо облачного редактора.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-doc-generator",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/doc-generator",
+     "title": "kostyk348/doc-generator",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "pdf-translate",
+   "name": "pdf-translate",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Перевод PDF с сохранением вёрстки: каждая строка остаётся там, где была. Основные пары — китайский→русский и английский→русский, 30+ языков.",
+   "why": "Ключевая проблема машинного перевода документов — не текст, а вёрстка: чертежи и техдокументация расползаются. Здесь заявлено сохранение позиций строк, есть демо и CI, 3 звезды — самый замеченный проект портфеля.",
+   "death": null,
+   "now": null,
+   "pitch": "Десктоп-приложение «перевод документа без потери вёрстки» с обработкой папки целиком: чертежи, паспорта, руководства. Плюс API для переводческих бюро — там эта задача стоит денег каждый день.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-pdf-translate",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/pdf-translate",
+     "title": "kostyk348/pdf-translate",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "pdf-spec-parser",
+   "name": "pdf-spec-parser",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Парсер и обфускатор закупочных спецификаций в PDF: поддержка шрифта ГОСТ (CID), автоопределение компонентов, выгрузка структурированных данных, а также режим анонимизации перед передачей наружу.",
+   "why": "Двойная ценность: превращает PDF-спецификации в данные (закупки, сметы, комплектация) и умеет вычищать чувствительное перед отправкой контрагенту. Обфускация — редкая функция, её почти никто не делает.",
+   "death": null,
+   "now": null,
+   "pitch": "Сервис «PDF-спецификация → таблица» для снабжения и проектирования: загрузка пачки PDF, нормализация в CSV/JSON, экспорт в смету. Обфускатор продаётся отдельно как режим «поделиться спецификацией без NDA».",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-pdf-spec-parser",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/pdf-spec-parser",
+     "title": "kostyk348/pdf-spec-parser",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "passport-to-uml",
+   "name": "passport-to-uml",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Извлекает функциональные UML-диаграммы из технических паспортов PDF: правиловой парсер (v1 — proof of concept) строит компонентную диаграмму через Graphviz.",
+   "why": "Паспорт изделия — это уже описание системы, но в виде PDF-таблиц. Превращение в диаграмму экономит часы ручной работы при аудите и импортозамещении.",
+   "death": null,
+   "now": null,
+   "pitch": "Модуль в конвейере инженерной документации: паспорт → граф связей → диаграмма и таблица состава. Продаётся как часть «оцифровки парка оборудования» предприятиям, которым нужно ТО и импортозамещение.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-passport-to-uml",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/passport-to-uml",
+     "title": "kostyk348/passport-to-uml",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "autocad-electrical-plugin",
+   "name": "autocad-electrical-plugin",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Плагин AutoCAD: топология электрических схем (EL-*), спецификации AW33 с подсчётом количества, работа и в 2024, и в 2014 версии.",
+   "why": "Самый «выпущенный» проект портфеля: 5 релизов и 5 тегов. Это не эксперимент, а рабочий инструмент проектировщика, экономящий ручной подсчёт в спецификациях — то, за что в отрасли платят.",
+   "death": null,
+   "now": null,
+   "pitch": "Коммерческий плагин-подписка для проектных бюро: топология + спецификации + проверка ошибок одним набором команд. Дальше — версия для nanoCAD и BricsCAD (российский рынок САПР), там почти нет конкурирующих решений по AW33.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-autocad-electrical-plugin",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/autocad-electrical-plugin",
+     "title": "kostyk348/autocad-electrical-plugin",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "el-tools",
+   "name": "el-tools",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "AutoLISP-ядро для электрических схем в AutoCAD: топология (el-core.lsp), трассировка, аудит и поиск дефектов, версии и сравнение, спецификации и провода, перекрёстные ссылки; v2.x с оптимизацией производительности.",
+   "why": "Живой опыт проектировщика, упакованный в язык AutoCAD: аудит и перекрёстные ссылки — именно то, где схемы чаще всего врут. Сравнение версий и поиск дефектов — редкая функция для LISP-инструментов.",
+   "death": null,
+   "now": null,
+   "pitch": "Слой качества для электрических проектов: «аудит схемы» как отдельная платная команда (дефекты, перекрёстные ссылки, соответствие спецификации). Продавать как проверку перед сдачей проекта — это страх заказчика, за который платят.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-el-tools",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/el-tools",
+     "title": "kostyk348/el-tools",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "omni",
+   "name": "omni",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Управление ревизиями DWG прямо из AutoCAD: слепки файлов, сравнение наложением, откат. Есть дорожная карта и список исправлений в v0.4.",
+   "why": "Это «git для DWG» — дыра, которую чувствует каждый проектировщик: чертежи версионируются папками с датами и именами вида «финал_2_правка_Вася». Сравнение наложением — ровно то, что нужно на согласовании.",
+   "death": null,
+   "now": null,
+   "pitch": "Продукт «ревизии инженерных файлов»: слепок + наложение + откат + журнал «кто и что изменил» — сначала как плагин AutoCAD, затем как сервер для проектного отдела. Это самый коммерчески очевидный проект в портфеле: аналогов на рынке СНГ практически нет.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-omni",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/omni",
+     "title": "kostyk348/omni",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "mbrs",
+   "name": "mbrs (Modbus Studio)",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Modbus-мастер и монитор, написанный с нуля: протокол реализован самостоятельно, есть движок отображения форматов, «цветовой движок» как отличительная функция, SCADA-дашборд, фронтенд на Tauri v2.",
+   "why": "Самый свежий проект (push 08.10.2026) и попадает в живую боль пусконаладчика: штатные средства диагностики Modbus либо проприетарные, либо уродливые. Полностью свой протокол + цветовая индикация значений — это то, чего не хватает в существующих мониторах.",
+   "death": null,
+   "now": null,
+   "pitch": "Платный десктоп-инструмент для АСУ ТП: живая диагностика шины, запись/воспроизведение трафика, дашборд для заказчика. Конкуренты — Modbus Poll/Scanbus с лицензией; выигрыш — цена, современный вид и открытый протокольный слой, который можно встроить в чужой продукт.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-mbrs",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/mbrs",
+     "title": "kostyk348/mbrs",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "mbparse",
+   "name": "mbparse",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Анализатор кадров Modbus RTU/TCP без зависимостей: разбор, валидация, человеческое объяснение кадра, вывод в JSON, работа со stdin и с живым TCP, встраивается как один заголовочный файл.",
+   "why": "«Объяснить кадр» — редкая и полезная функция: не дамп байтов, а текст «что этот кадр делает». Годится и как CLI, и как библиотека внутри других инструментов — идеальный движок для mbrs.",
+   "death": null,
+   "now": null,
+   "pitch": "Открытая библиотека-эталон разбора Modbus + CLI в один бинарник: использовать как движок в mbrs, а также продавать как основу для промышленных логгеров. Публикация как библиотеки с fuzzing-тестами делает имя в сообществе АСУ ТП.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-mbparse",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/mbparse",
+     "title": "kostyk348/mbparse",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "eml-scada",
+   "name": "eml-scada",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "SCADA-стек v0.1 на базе mime-os: историк (tagdb), аварии с hash-chain и проверкой подлинности, HMI в браузере, демонстрация подделки — правка дельта-блока в копии истории обнаруживается.",
+   "why": "Промышленный историк, где история — это .eml-документы, а целостность проверяется хеш-цепочкой: редкость. Проверяемость данных SCADA — реальная задача (аудит, споры с заказчиком, кибербезопасность АСУ ТП).",
+   "death": null,
+   "now": null,
+   "pitch": "Демонстрационный продукт «история процесса, которой можно доверять»: хеш-цепочка вместо доверия к вендору + простой HMI. Продаётся как отдельный модуль к mime-os для тех, кто уже внедряет промышленную телеметрию.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-eml-scada",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/eml-scada",
+     "title": "kostyk348/eml-scada",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://github.com/kostyk348/mime-os",
+     "title": "kostyk348/mime-os",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "DSO-TRON",
+   "name": "DSO-TRON",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Детерминированное RTOS-ядро на базе референсной реализации μITRON 4.0 (URIBO): статические арены, lock-free SPSC FIFO, планировщик с временными триггерами, контракты на ресурсы; есть сравнение с URIBO по коду и памяти.",
+   "why": "Прямое попадание в то, что мы обсуждали в музее: ITRON — самый распространённый RTOS в мире, и здесь он переосмыслен через детерминизм и статические арены. В README честные таблицы «сколько кода и памяти» — это язык, на котором разговаривают встраиваемые системы.",
+   "death": null,
+   "now": null,
+   "pitch": "Открытая RTOS для промышленного железа с продаваемым свойством «детерминизм + контракты ресурсов»: пакет для STM32/RP2040/ESP32, демо-проекты и набор тестов на worst-case. Ниша между FreeRTOS (гибкий, но не детерминированный) и коммерческими RTOS с ценой за место.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-DSO-TRON",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/DSO-TRON",
+     "title": "kostyk348/DSO-TRON",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://github.com/kostyk348/dso-tron-esp32",
+     "title": "kostyk348/dso-tron-esp32",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "dso-tron-esp32",
+   "name": "dso-tron-esp32",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Порт DSO-TRON на ESP32 (двухъядерный Xtensa LX6) с готовыми сценариями: аудио-DSP сопроцессор, узел сенсорного слияния, CAN-шлюз; сборка и запуск в QEMU без железа.",
+   "why": "ESP32 — самый массовый чип для крафта и прототипов, и запуск детерминированной RTOS в QEMU без железа резко снижает порог входа. Три готовых сценария — это уже почти примеры продуктов.",
+   "death": null,
+   "now": null,
+   "pitch": "«Референсный дизайн» для трёх массовых задач: аудио-DSP, сенсорный узел, CAN-шлюз — с замеренным джиттером. Продавать не ядро, а наборы и поддержку: именно так встраиваемые компании и покупают.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-dso-tron-esp32",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/dso-tron-esp32",
+     "title": "kostyk348/dso-tron-esp32",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "zui-tad-shell",
+   "name": "zui-tad-shell",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Wayland-десктоп с бесконечным 2D-канвасом вместо рабочих столов и тайлинга: окна живут на полотне, фосфорно-ЭЛТ эстетика, есть замеры производительности, установка как сессии, горячие клавиши.",
+   "why": "Это буквально возвращение идеи ZUI (zooming user interface) Джефа Раскина — той самой потерянной линии интерфейсов, про которую у нас есть запись в музее. 79 исходников и CI: не скетч, а настоящий шелл.",
+   "death": null,
+   "now": null,
+   "pitch": "Готовый к установке альтернативный шелл для Linux: дистрибутив с предустановкой, записанное демо и набор «миграция с тайлинга». Целевая аудитория — те, кто устал от рабочих столов и хочет пространственный интерфейс: это заметная ниша, где давно не было новинок.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-zui-tad-shell",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/zui-tad-shell",
+     "title": "kostyk348/zui-tad-shell",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "mime-os",
+   "name": "mime-os (EMLBox)",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "ОС-подобная среда, где атомарная единица — RFC-совместимый MIME-документ (.eml), а не .exe или закрытая база: mmap-читатель, append-only контейнер, однофайловое приложение (zero-install), память для агента, телеметрия через eml-tag.",
+   "why": "Радикально оригинальная линия: 5 релизов и 5 тегов — самый зрелый из «идейных» проектов. Данные, код, история и телеметрия в одном человекочитаемом формате — это заявка на «честный» формат данных, который не умирает вместе с вендором.",
+   "death": null,
+   "now": null,
+   "pitch": "Спецификация + инструменты формата «.eml как контейнер»: читатель/писатель, схема тегов, проверка целостности — и на её базе три приложения (заметки, бэкап, телеметрия). Продукт продаётся не как ОС, а как «формат, который читается через 30 лет» — аргумент для архивов и госсектора.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-mime-os",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/mime-os",
+     "title": "kostyk348/mime-os",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "capsuleos",
+   "name": "CapsuleOS",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Рабочее пространство и движок личных знаний на архитектуре «Zero-Database»: вся информация в крипто-свитках RFC 5322 EML, блочный канвас-редактор, граф и бэклики как в Obsidian, markdown в блоках, офлайн Co-Thinker без API-ключа, файловая персистентность.",
+   "why": "Единственный проект портфеля, который напрямую конкурирует с массовым продуктом (Obsidian/Notion) — и выигрывает по двум аргументам: нет базы данных и нет облака. Офлайн-помощник внутри — сильный дифференциатор для тех, кто не хочет отдавать заметки наружу.",
+   "death": null,
+   "now": null,
+   "pitch": "Приватная база знаний как продукт для рынка «данные не уходят в облако»: установщик для Windows/Linux, импорт из Obsidian, шифрованный контейнер, честная история версий. Плюс версия для организаций, которым запрещено облако (вузы, госсектор, оборонные подрядчики) — там Obsidian не подходит по требованиям.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-capsuleos",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/capsuleos",
+     "title": "kostyk348/capsuleos",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "dso",
+   "name": "DSO (парадигма)",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Deterministic Streaming Object Runtime: манифест, спецификация, прототип и бенчмарки вокруг одного принципа — «любое решение, которое можно принять заранее, должно быть принято заранее». Шесть бенчмарков: масштабирование против ECS, всплески событий, глубина цепочек, детерминированный реплей, пропуск времени.",
+   "why": "Это ядро всей инженерной линии портфеля (DSO-TRON, dso-runtime, dsa, g-tools, ControlLab, дататрейс — все сходятся сюда). Честная формулировка «архитектурная гипотеза, подтверждённая работающими прототипами» — именно так и надо делать парадигмы.",
+   "death": null,
+   "now": null,
+   "pitch": "Одна статья + один воспроизводимый стенд + одна библиотека: «детерминизм как свойство рантайма» с бенчмарками, которые можно запустить одной командой. Для DSO библиотека важнее манифеста: `dso-runtime` как крейт для Rust-игр и систем с реплеем — вот с чего начинается узнаваемость.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-dso",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/dso",
+     "title": "kostyk348/dso",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://github.com/kostyk348/dso-runtime",
+     "title": "kostyk348/dso-runtime",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "datatrace",
+   "name": "DataTrace",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Отслеживание происхождения недоверенных данных: LD_PRELOAD-агент и экспериментальный eBPF-трассировщик показывают, как данные из сети, файлов и argv распространяются по программе (taint tracking).",
+   "why": "Прослеживаемость данных «откуда пришло и куда попало» — тема, которая в эпоху ИИ-агентов и цепочек поставок только дорожает. 30 исходников, две реализации (preload и ядро) — редкая глубина для личного проекта.",
+   "death": null,
+   "now": null,
+   "pitch": "Инструмент безопасности «как данные утекают в систему»: релизный бинарник для CI, SARIF-вывод и правило «недоверенные данные не должны достигать exec/syscall». Целевой покупатель — компании, которым нужен аудит собственного кода без внедрения тяжёлых DLP.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-datatrace",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/datatrace",
+     "title": "kostyk348/datatrace",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "eafar-db",
+   "name": "EAFAR-DB",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Встраиваемая разреженная база с путешествием во времени на принципах EAFAR (Everything is a Field, Archive, Replay): ядро S1–S4, функциональные модули S5–S9, демо, 12 тестов, тег версии.",
+   "why": "«Разреженная, путешествуемая во времени» встраиваемая БД — это ниша между SQLite (без времени) и Datomic (не встраивается в MCU/десктоп). Принципы «против Гудхарта» в README — редкая честность проектирования.",
+   "death": null,
+   "now": null,
+   "pitch": "Встраиваемая «БД с машиной времени» для десктопных и встраиваемых приложений: релиз, документация API, замеры против SQLite и один флагманский потребитель (например, история телеметрии в mime-os/eml-scada).",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-eafar-db",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/eafar-db",
+     "title": "kostyk348/eafar-db",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://github.com/kostyk348/eafar",
+     "title": "kostyk348/eafar",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "dsa",
+   "name": "DSA — Data-oriented Streaming Audio",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Открытый FMOD-совместимый аудио-слой: арены, SoA-раскладка, tick-aware микшер на границе аудиоколбэка, DSP-цепочка, 3D-пространственность, таблица покрытия API и режим «drop-in замена FMOD».",
+   "why": "Это замена проприетарной лицензируемой библиотеке в инди-разработке — самая понятная боль с готовым рынком (все платят за FMOD/Wwise). Честная таблица покрытия API — признак того, что автор знает, что не сделано.",
+   "death": null,
+   "now": null,
+   "pitch": "Открытая аудио-библиотека для инди и образования: релиз + примеры + честное сравнение с FMOD по задержке и памяти. Позиционирование: «бесплатно, читаемо, встраивается в собственный движок» — для вузов и геймджемов это прямая замена платной лицензии.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-dsa",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/dsa",
+     "title": "kostyk348/dsa",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "fca",
+   "name": "libfca — апскейлер аниме",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Целочисленный 2x-апскейлер для старого видео и аниме на правилах клеточных автоматов (scale2x/fuzzy/xbr-линия), с таблицей SSIM против lanczos, честным сравнением с нейросетевыми Anime4K и работе через ffmpeg-пайп и mpv-шейдеры.",
+   "why": "Аудитория апскейлинга аниме огромна и уже платит нейросетям. Здесь заявлен детерминированный CPU-путь без нейросетей — это важно для слабого железа, ретро-энтузиастов и повторов результата.",
+   "death": null,
+   "now": null,
+   "pitch": "Небольшой продукт с готовой аудиторией: GUI + готовые профили для mpv/ffmpeg + сравнение «до/после» на реальных плеерах. Продавать как «апскейл на CPU без видеокарты» — это ровно то, что нужно владельцам старых ноутбуков и консольных портов.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-fca",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/fca",
+     "title": "kostyk348/fca",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "sint-game",
+   "name": "sint-game",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Детерминированный движок текстовых LLM-игр: языковая модель компилирует мир из лора и пишет контент, а ядро исполняет правила. Есть веб-интерфейс с РПГ, инструменты автора, долгая память между сессиями, docs/ROADMAP.md.",
+   "why": "Решение главной болезни LLM-игр: модель не «ведёт» мир, а компилирует, дальше всё детерминировано. 24 теста и CI — редкость для развлекательного проекта, и есть честный раздел «что уже работает / честные ограничения».",
+   "death": null,
+   "now": null,
+   "pitch": "Продукт «одна кнопка — своя текстовая RPG»: чистая установка, 3 готовых мира, авторский редактор и экспорт мира одним файлом. Плюс версия для преподавателей (генерация учебных сценариев) — там LLM-игры заходят как методический материал.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-sint-game",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/sint-game",
+     "title": "kostyk348/sint-game",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "chronicle-engine",
+   "name": "Chronicle Engine (Campfire Scribe)",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Мультимодальная платформа асинхронных настольных ролевых игр: архитектура Zero-Database на RFC 5322 EML, тактический резолвер одновременных ходов WEGO, издательский модуль вёрстки, аудиоспектакль, файловая персистентность.",
+   "why": "WEGO-резолвер (одновременные ходы) и издательский цех — редкое сочетание: платформа не только ведёт игру, но и выпускает готовый артефакт (книгу). Это отличает её от десятков VTT, которые просто рисуют сетку.",
+   "death": null,
+   "now": null,
+   "pitch": "Возврат к жизни через одну функцию: асинхронная игра + автопубликация «книги похождений» (PDF/печатная вёрстка) как платный результат кампании. Целевая аудитория — мастера, ведущие долгие кампании: им нужен журнал, из которого рождается книга.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-chronicle-engine",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/chronicle-engine",
+     "title": "kostyk348/chronicle-engine",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "spix",
+   "name": "spix",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Обработка изображений в одном заголовочном файле: ресайз, свёртки, дизеринг, порог, работа в фиксированной точке без FPU и без зависимостей кроме libc.",
+   "why": "Идеальный «строительный кирпич» для встраиваемых и олдскульных проектов: там, где нет FPU и нельзя тянуть OpenCV. Фиксированная точка и один файл — это язык, на котором говорит встраиваемая разработка.",
+   "death": null,
+   "now": null,
+   "pitch": "Библиотека-однофайловик с релизом, тестами и примером на RP2040/ESP32 (кадр с камеры → обработка на MCU). Такие библиотеки набирают популярность сами, если есть один убедительный пример и честные бенчмарки.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-spix",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/spix",
+     "title": "kostyk348/spix",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "libatme",
+   "name": "libatme",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Чистый C-растеризатор шрифтов Type 1/PFB без зависимостей, портированный из алгоритмов Adobe Type Manager: рендер глифа в 8-битную маску, список протестированных шрифтов, замеры производительности.",
+   "why": "Type 1-шрифты — забытый формат, а рабочие свободные растеризаторы под них почти вымерли. Это ещё и база для собственного текстового рендера в проектах, где нельзя использовать FreeType (размер, лицензия, платформа).",
+   "death": null,
+   "now": null,
+   "pitch": "Релиз с fuzzing-тестами и одной демо-программой «текст на экране без FreeType». Ценность не в деньгах, а в репутации: это проект, который показывают при разговоре о низкоуровневой графике.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-libatme",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/libatme",
+     "title": "kostyk348/libatme",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "homeo",
+   "name": "homeo",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Ядро на 137 строк без зависимостей для балансировки конкурирующих инвариантов: Adam-релаксация плюс термальный шум, есть примеры «боевого применения».",
+   "why": "Маленькая, но настоящая идея: не оптимизировать метрику, а удерживать инварианты. Применимо к планировщикам, ресурсным лимитам и агентным правилам.",
+   "death": null,
+   "now": null,
+   "pitch": "Опубликовать как небольшую библиотеку + заметку «инварианты вместо метрик» с двумя примерами (планировщик и лимиты памяти). Это дешёвый способ заявить идею и получить аудиторию — на таких заметках растут конференционные доклады.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-homeo",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/homeo",
+     "title": "kostyk348/homeo",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "phase-vm",
+   "name": "phase-vm",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Обратимая регистровая машина: каждая инструкция изменяет ровно одну ячейку, источники остаются нетронутыми. Есть property-fuzz, транзакционный откат памяти, шифр PC1, интерактивный time-travel отладчик, замеры производительности, 5 релизов.",
+   "why": "Обратимые вычисления — редкая линия, а здесь есть работающие приложения: бесплатный откат транзакций, спекулятивный фильтр, фазовый аллокатор. 5 релизов и CI: это уже почти библиотека, а не набросок.",
+   "death": null,
+   "now": null,
+   "pitch": "Продукт «отладка с путешествием во времени»: обёртка вокруг приложений на Rust, где можно откатить состояние, а не перезапускать. Второй путь — ядро для транзакционной памяти в игровых/финансовых системах: откат становится бесплатным побочным эффектом обратимости.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-phase-vm",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/phase-vm",
+     "title": "kostyk348/phase-vm",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://github.com/kostyk348/phase-math",
+     "title": "kostyk348/phase-math",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "phase-math",
+   "name": "phase-math",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Обратимая математика для парадигмы PHASE: биекции на Z/2^64 с аналитически вычисляемыми обратными функциями, релиз и теги.",
+   "why": "Математическая основа для обратимой машины: без неё phase-vm был бы набором трюков. Такая база редко пишется в одиночку и обычно становится цитируемой.",
+   "death": null,
+   "now": null,
+   "pitch": "Крейт в crates.io + короткая техническая статья: «обратимые биекции как базис для откатываемых вычислений». Это то, что делает парадигму проверяемой чужими руками.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-phase-math",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/phase-math",
+     "title": "kostyk348/phase-math",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "MPTC",
+   "name": "MPTC",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Библиотека многофазных троичных вычислений: безветвевая арифметика с фиксированной точкой для ультранизкого энергопотребления, модули и восемь сценариев применения — от сенсорных узлов и FOC-моторов до TinyML и криптографии.",
+   "why": "Троичные вычисления — прямая линия от Setun (наша запись в музее), и сегодня она вернулась в виде 1.58-битных моделей: веса {-1, 0, +1}. Здесь уже готова C99-библиотека для MCU, где нет FPU, — это редкое попадание в мировой тренд квантизации.",
+   "death": null,
+   "now": null,
+   "pitch": "Продукт на волне троичных моделей: ядро троичного инференса для MCU (тернарные веса + безветве AOT-кодогенерация) с честными замерами «энергия на вывод» против int8. Целевые пользователи — встраиваемые ML-команды; это то, что уже сейчас продаётся как TinyML-ускорение.",
+   "quotes": 0,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-MPTC",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/MPTC",
+     "title": "kostyk348/MPTC",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://github.com/kostyk348/ternary-vm",
+     "title": "kostyk348/ternary-vm",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "ternary-vm",
+   "name": "ternary-vm",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Виртуальная машина и ассемблер на сбалансированной троичной логике: «трит» и «трайт» из девяти тритов, набор инструкций, есть заявленный план переноса байткода на MCU без FPU через C-заголовок.",
+   "why": "Референсный рантайм для троичной парадигмы: показывает, что троичное программирование — не курьёз, а работающий набор инструкций. Планируемый C-заголовок делает его основой для встраиваемых целей.",
+   "death": null,
+   "now": null,
+   "pitch": "Довести до пары MPTC: троичный байткод, который исполняется на MCU, плюс тулчейн (ассемблер + отладчик). Тогда троичная линия перестаёт быть исследованием и становится инструментом для энергоэффективных вычислений.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-ternary-vm",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/ternary-vm",
+     "title": "kostyk348/ternary-vm",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "evol",
+   "name": "EVOL",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Экспериментальный язык переходов состояний: парсер, интерпретатор, типизация, параллельный actor-рантайм; этапы 1–6 дорожной карты выполнены, этап 7 (статика) — частично; метрики скорости приведены с честными оговорками.",
+   "why": "Язык для инженерных систем, где важна не средняя скорость, а скорость эволюции системы. Честность метрик (два вида baseline, оговорки про I/O) — редкость и признак зрелого автора.",
+   "death": null,
+   "now": null,
+   "pitch": "Превратить в инструмент для одного класса задач: «описание состояний и переходов технической системы» — например, режимы оборудования или логика дефектоскопии. Тогда язык перестаёт конкурировать с Python и становится DSL с понятным покупателем.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-evol",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/evol",
+     "title": "kostyk348/evol",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "acp-mvp",
+   "name": "acp-mvp — Agent Contract Protocol",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Протокол контрактов между агентами: машины заключают друг с другом контракты, работают по ним и платят друг другу без человека. MVP включает локальный блокчейн (Hardhat), контракт AgentEscrow, relay-мост в интернет, 6 e2e-тестов и 10 контрактных.",
+   "why": "Это та самая линия, которой не хватало агентным протоколам 90-х (FIPA-ACL в нашем музее): не только «попросил-ответил», а обязательства, отказ и расчёт. Здесь есть эскроу и тесты — то есть экономика агентов, а не чат.",
+   "death": null,
+   "now": null,
+   "pitch": "Опубликовать как спецификацию ACP 1.0 с референсной реализацией: «эскроу для агентов» — сценарий, где заказчик-агент платит исполнителю-агенту за проверяемый результат. Даже если блокчейн-часть спорна, спецификация контрактов нужна рынку: агентные платежи сейчас — самый горячий белый пятно.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-acp-mvp",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/acp-mvp",
+     "title": "kostyk348/acp-mvp",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "sint",
+   "name": "SINT",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Экосистема агента как когнитивной системы: семь независимых заменяемых слоёв (восприятие, познание, память, действие, метапознание, идентичность, обратная связь) и десятки MCP-серверов; старые репозитории sint-* помечены DEPRECATED и сведены в монопозин.",
+   "why": "Самый заметный проект портфеля (3 звезды) и самая сильная архитектурная гипотеза: агент — не языковая модель с вызовами функций, а система со заменяемыми слоями. Часть слоёв помечена как planned — то есть автор честно показывает, чего нет.",
+   "death": null,
+   "now": null,
+   "pitch": "Продуктом здесь может стать не монопозин, а один слой: «память агента» как отдельный сервис (эпистемический статус, провенанс, ревизия убеждений). Это ровно то, что сейчас ищут команды, строящие агентов: память с историей и честным статусом знания, а не векторная база.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-sint",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/sint",
+     "title": "kostyk348/sint",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "portfolio-review",
+   "digest_title": "Портфель kostyk348: что почти готово и что стоит дореализовать",
+   "id": "sint-jcr",
+   "name": "sint-jcr — Jungian Cognitive Runtime",
+   "reg": null,
+   "dom": null,
+   "eras": null,
+   "years": null,
+   "gap": null,
+   "what": "Когнитивный рантайм на юнгианской метафоре: поле памяти-либидо, арбитр конфликтов, трансперсональный слой, харнесс H0–H8 с индикатором статуса, явно перечислены «пять недостающих слоёв».",
+   "why": "Смелая попытка описать психику агента как механизм, а не как метафору. Пять недостающих слоёв нарисованы на схеме — редкий пример честной карты незакрытых мест.",
+   "death": null,
+   "now": null,
+   "pitch": "Наука вместо метафоры: опубликовать три эксперимента на харнессе с воспроизводимыми протоколами и сравнением с обычным ReAct-агентом. Если эффекта нет — это честный отрицательный результат, который тоже читают и цитируют.",
+   "quotes": 0,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/portfolio-review/#c-sint-jcr",
+   "src": [
+    {
+     "url": "https://github.com/kostyk348/sint-jcr",
+     "title": "kostyk348/sint-jcr",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "ipmulticast",
+   "name": "IP multicast и MBone — групповая доставка",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80",
+    "90",
+    "00"
+   ],
+   "years": "1986 — н.в.",
+   "gap": 5,
+   "what": "Групповой адрес на сетевом уровне: датаграмма уходит всем членам «хостовой группы», IGMP управляет вступлением и выходом, DVMRP/PIM строят дерево доставки, MBone — оверлей из туннелей между островками, где multicast уже есть.",
+   "why": "Издателю не нужно знать получателей: адрес группы вместо списка адресатов. Членство динамическое, число участников не ограничено, надёжность как у обычного IP — то есть масштабирование без дублирования трафика на ребре.",
+   "death": "Нужны были маршрутизаторы с поддержкой PIM во всех доменах, межоператорские соглашения и модель оплаты — не появилось ни того, ни другого. CDN решили ту же задачу поверх юникаста, а сам IETF в 2001 году выпустил документ, где признал, что механики для важнейших сервисов не определены.",
+   "now": "Операторское IPTV, биржевые фиды, PIM внутри дата-центров. В публичном интернете multicast включён точечно, между сетями — почти нигде.",
+   "pitch": "Взять модель группы для агентных систем: один канал вместо списка адресатов, динамическое членство, издатель не знает подписчиков. Это ровно то, чего не хватает вебхукам и очередям задач, которые каждый сервис пишет заново.",
+   "quotes": 2,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-ipmulticast",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1112.txt",
+     "title": "RFC 1112 — Host Extensions for IP Multicasting (1989)",
+     "read": true,
+     "quote": "IP multicasting is the transmission of an IP datagram to a \"host group\", a set of zero or more hosts identified by a single IP destination address. A multicast datagram is delivered to all members of its destination host group with the same \"best-efforts\" …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc3170.txt",
+     "title": "RFC 3170 — IP Multicast Applications: Challenges and Solutions (2001)",
+     "read": true,
+     "quote": "Protocol mechanisms for many of the most important of these services--such as limiting senders--have not yet been defined, let alone developed and deployed. As is true for reliable multicast, the current consensus is that no single security protocol will …",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "rsvp",
+   "name": "RSVP / IntServ — резервирование на каждый поток",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1997 — н.в.",
+   "gap": 4,
+   "what": "Резервирование ресурсов по инициативе получателя: PATH/RESV, состояние на каждый поток в маршрутизаторах (IntServ), гарантии качества на уровне IP.",
+   "why": "Единственный стандартизованный способ сказать сети «этот поток должен приехать вовремя». Заказывает получатель, а не отправитель — верная модель и для multicast, и для оплаты трафика.",
+   "death": "Состояние на поток не масштабируется: в магистралях десятки тысяч одновременных потоков, таблицы не выживают. Живой осталась переделка RSVP под MPLS, где резервирование превратилось в установку метки-туннеля, а не в гарантию для потока.",
+   "now": "RSVP жив в основном как RSVP-TE у операторов; DiffServ и приоритетные очереди заменили IntServ, а «гарантия от сети» превратилась в «мы постараемся плюс класс обслуживания».",
+   "pitch": "Явный контракт качества между агентом и инфраструктурой: не «приоритет», а заявка → принятие → обязательство, с честным отказом вместо тихого замедления. Сейчас LLM-агенты конкурируют за очередь без всякого контракта.",
+   "quotes": 2,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-rsvp",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc2205.txt",
+     "title": "RFC 2205 — RSVP — Resource Reservation Protocol, версия 1 (1997)",
+     "read": true,
+     "quote": "RSVP provides receiver-initiated setup of resource reservations for multicast or unicast data flows, with good scaling and robustness properties.",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc3209.txt",
+     "title": "RFC 3209 — RSVP-TE: расширения RSVP для LSP в MPLS (2001)",
+     "read": true,
+     "quote": "This document describes the use of RSVP (Resource Reservation Protocol), including all the necessary extensions, to establish label-switched paths (LSPs) in MPLS (Multi-Protocol Label Switching). Since the flow along an LSP is completely identified by the …",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "tuba",
+   "name": "TUBA — TCP/UDP поверх CLNP",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90"
+   ],
+   "years": "1992 — 1995",
+   "gap": 4,
+   "what": "Кандидат в IPng: приложения и транспорт Internet остаются, меняется только сетевой слой — IP заменяется на CLNP с адресами NSAP, маршрутизация ES-IS/IS-IS/IDRP.",
+   "why": "Готовая, отраслевая и уже стандартизованная адресация вместо изобретения новой; ставка на переиспользование через грациозную миграцию, без «флага» в один день.",
+   "death": "Проиграл и политически, и инженерно: клиент-серверная модель OSI против сложившегося интернета, адреса NSAP не вписывались в существующую инфраструктуру и в администрирование, а IETF выбрал другой кандидат. Официально понижен до Historic: решение IESG 24.05.2016, смена уровня в дататрекере 01.12.2017.",
+   "now": "Исторический документ. Сама идея «не менять стек, а поменять только сломанный слой» живёт в IPv6-переходниках, NAT64 и туннельных оверлеях.",
+   "pitch": "Проектировать переход, а не только конечное состояние: переиспользовать работающий стек и трогать ровно тот слой, который перестал держать нагрузку. Для агентных платформ это прямой аргумент против «нового протокола под всё».",
+   "quotes": 3,
+   "sources": 4,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-tuba",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1347.txt",
+     "title": "RFC 1347 — TCP and UDP with Bigger Addresses (TUBA), 1992",
+     "read": true,
+     "quote": "This approach is known as \"TUBA\" (TCP & UDP with Bigger Addresses). This paper describes a proposal for how transition may be accomplished. Description of the manner in which use of CLNP, NSAP addresses, and related network/Internet layer protocols (ES-IS, …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/doc/rfc1347/",
+     "title": "datatracker: RFC 1347 — текущий статус Historic",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/feed/document-changes/rfc1347/",
+     "title": "datatracker: лента изменений RFC 1347 — решение IESG 24.05.2016, смена уровня на Historic 01.12.2017",
+     "read": true,
+     "quote": "New status of Historic approved by the IESG …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1752.txt",
+     "title": "RFC 1752 — The Recommendation for the IP Next Generation Protocol (1995)",
+     "read": true,
+     "quote": "The feeling was that, to one degree or another, both SIPP and TUBA would work in the Internet context but each exhibited its own problems. Some of these problems would have to be rectified before either one would be ready to replace IPv4, much less be the …",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "catnip",
+   "name": "CATNIP — один заголовок для OSI, IP и IPX",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90"
+   ],
+   "years": "1994 — 1995",
+   "gap": 4,
+   "what": "Общая архитектура сетевого слоя: 16-байтовый фиксированный заголовок, одинаковый для CLNP, IP и IPX, любой транспорт поверх любого сетевого протокола, кэш-хэндлы вместо полных адресов.",
+   "why": "Конвергенция вместо войны стандартов: TCP и TP4 работают одинаково, IPX- и OSI-сети смыкаются через один формат. Идея «адрес часто лишний, достаточно согласованного хэндла» — это то, что сегодня делает метка MPLS.",
+   "death": "Кандидата признали слишком недоделанным и в проект IPng не взяли; за ним не стояло ни вендоров, ни готового кода. Понижен до Historic (решение IESG 24.05.2016, смена уровня 01.12.2017), реализации не было.",
+   "now": "Ничего под этим именем: сжатие адреса до дескриптора переизобретено в MPLS и в сегментной маршрутизации.",
+   "pitch": "Дескриптор-хэндл вместо полного адреса в агентных протоколах: мы гоняем длинные идентификаторы инструментов и схем в каждом сообщении, хотя достаточно один раз согласовать короткую ссылку на смысл.",
+   "quotes": 3,
+   "sources": 4,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-catnip",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1707.txt",
+     "title": "RFC 1707 — CATNIP: Common Architecture for the Internet (1994)",
+     "read": true,
+     "quote": "The Common Architecture for Next Generation Internet Protocol (CATNIP) provides a compressed form of the existing network layer protocols. Each compression is defined so that the resulting network protocol data units are identical in format. …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/doc/rfc1707/",
+     "title": "datatracker: RFC 1707 — текущий статус Historic",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/feed/document-changes/rfc1707/",
+     "title": "datatracker: лента изменений RFC 1707 — решение IESG 24.05.2016, смена уровня на Historic 01.12.2017",
+     "read": true,
+     "quote": "New status of Historic approved by the IESG …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1752.txt",
+     "title": "RFC 1752 — The Recommendation for the IP Next Generation Protocol (1995)",
+     "read": true,
+     "quote": "CATNIP was felt to be too incomplete to be considered.",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "sipp",
+   "name": "SIPP 64-bit — победитель, чьи решения не дожили",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90"
+   ],
+   "years": "1994 — 1996",
+   "gap": 3,
+   "what": "Simple Internet Protocol Plus: 64-битные адреса с расширением до 128, упрощённый заголовок, метка потока, автоконфигурация, «cluster addresses» — один адрес на топологический регион.",
+   "why": "Единственный кандидат, который осознанно не ломал IPv4: установка как обычное обновление, совместимость и переход без дня «флага».",
+   "death": "Победил, но не в том виде: взяли 128-битную версию, а cluster-адресация в стандарт не попала. Автоконфигурация и метки потоков доехали позже и частично.",
+   "now": "IPv6 в проде, но адресация «регионом» осталась идеей: маршрутизация по возможностям, а не по префиксу, вернулась лишь фрагментами — в anycast, service mesh и сегментной маршрутизации. Первоисточник живёт: 14.08.2026 в RFC 1752 вписана подтверждённая errata EID 9133 — типографская (в разделе 6.1 пропущен пробел между «of» и «IPng»); утверждения записи она не меняет.",
+   "pitch": "Адресовать не узел, а класс исполнителей: агент говорит «нужен переводчик с русского», а не конкретный URL. Маршрутизация по возможностям вместо жёстких адресов снимает привязку к вендору.",
+   "quotes": 4,
+   "sources": 4,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-sipp",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1710.txt",
+     "title": "RFC 1710 — Simple Internet Protocol Plus White Paper (1994)",
+     "read": true,
+     "quote": "SIPP addresses are 64-bits long and are identifiers for individual nodes and sets of nodes. There are three types of SIPP addresses. These are unicast, cluster, and multicast. Unicast addresses identify a single node. Cluster addresses identify a group of …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1752.txt",
+     "title": "RFC 1752 — The Recommendation for the IP Next Generation Protocol (1995)",
+     "read": true,
+     "quote": "* \"Simple Internet Protocol Plus (SIPP) Spec. (128 bit ver)\" [Deering94b] be adopted as the basis for IPng * the documents listed in Appendix C be the foundation of the IPng effort * an IPng Working Group be formed, chaired by Steve Deering and Ross Callon * …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/inline-errata/rfc1752.html",
+     "title": "RFC Editor: RFC 1752 с вписанной подтверждённой errata — EID 9133, типографская",
+     "read": true,
+     "quote": "EID 9133 (Verified) is as follows:",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/feed/document-changes/rfc1752/",
+     "title": "datatracker: лента изменений RFC 1752 — 14.08.2026 errata помечена как verified",
+     "read": true,
+     "quote": "Update from RFC Editor: added verified-errata tag",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "nimrod",
+   "name": "Nimrod — маршрутизация по топологии, а не по адресам",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90"
+   ],
+   "years": "1993 — 1997",
+   "gap": 4,
+   "what": "Архитектура маршрутизации, в которой адрес узла и его местоположение разделены: маршруты строятся по карте топологии, у разных приложений могут быть разные политики маршрутизации.",
+   "why": "Отвязка адреса от расположения и явное описание политики вместо одного BGP для всех. Ровно то, что интернет получил лишь частично и уже костылями.",
+   "death": "Опередила время и осталась требованиями к чужому протоколу, а не протоколом: документ писался как «чего мы хотим от IPng». Ни реализации, ни вендорской поддержки.",
+   "now": "Идеи живут в исследованиях (LISP, map-and-encap) и в оверлеях: меши, WireGuard-сети, service mesh как раз делают карту отдельно от адреса.",
+   "pitch": "Карта-и-инкапсуляция для агентов: адрес исполнителя не должен значить местоположение. Тогда миграция, переезд между облаками и замена вендора — рутина, а не проект.",
+   "quotes": 1,
+   "sources": 1,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-nimrod",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1753.txt",
+     "title": "RFC 1753 — IPng Technical Requirements Of the Nimrod Routing and Addressing Architecture (1994)",
+     "read": true,
+     "quote": "Therefore, even if Nimrod is not the routing architecture of the next-generation Internet, the basic routing architecture of that Internet will have requirements that, while differing in detail, will almost inevitably be similar to these. …",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "whoispp",
+   "name": "WHOIS++ и CRISP — распределённый справочник",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1995 — 2004",
+   "gap": 4,
+   "what": "WHOIS++: структурированные записи, шаблоны, многоязычие, распределённый индекс (centroid), аутентификация. CRISP в 2004-м — вторая попытка: один протокол запросов ко всем реестрам.",
+   "why": "Ответ на расползание форматов: к 1995-му у каждого реестра свой формат, а WHOIS — свободный текст без структуры. WHOIS++ предлагал типизированные поля и поиск по индексу, CRISP — единый доступ.",
+   "death": "WHOIS++ официально понижен до Historic: реализации остались у считаных организаций. CRISP протоколом не стал — остался требованиями. В 2004 году заново стандартизовали сам WHOIS, то есть победил текст без структуры.",
+   "now": "RDAP (2015) — тот же WHOIS++ по смыслу: JSON-структура, единый доступ к реестрам, аутентификация и права. Через 11 лет после CRISP идею наконец реализовали.",
+   "pitch": "Не парсить человеческий текст: если агент разбирает whois-вывод или README реестра, требуйте структурный API. Спустя тридцать лет это всё ещё не норма, а разница между хрупким парсером и контрактом.",
+   "quotes": 3,
+   "sources": 4,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-whoispp",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1835.txt",
+     "title": "RFC 1835 — WHOIS++ — query/response protocol (1995)",
+     "read": true,
+     "quote": "This document describes WHOIS++, an extension to the trivial WHOIS service described in RFC 954 to permit WHOIS-like servers to make available more structured information to the Internet. We describe an extension to the simple WHOIS data model and query …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/doc/rfc1835/",
+     "title": "datatracker: RFC 1835 — статус понижен до Historic",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc3707.txt",
+     "title": "RFC 3707 — Cross Registry Internet Service Protocol (CRISP) Requirements (2004)",
+     "read": true,
+     "quote": "With the broadening number of Internet registries, the uses of their administrative directory services have expanded from the original and traditional use of the whois [6] protocol to include the use of whois outside the scope of its specification, formal and …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc3912.txt",
+     "title": "RFC 3912 — WHOIS Protocol Specification (2004)",
+     "read": true,
+     "quote": "This document updates the specification of the WHOIS protocol, thereby obsoleting RFC 954. The update is intended to remove the material from RFC 954 that does not have to do with the on-the-wire protocol, and is no longer applicable in today's Internet. …",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "mixer",
+   "name": "X.400 ↔ RFC 822: MIXER и семь редакций моста",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1987 — 1998",
+   "gap": 3,
+   "what": "MIXER — полное отображение между X.400 и RFC 822/MIME: адреса, тела, служебные элементы. Седьмая редакция цепочки RFC 987 → 1026 → 1138 → 1148 → 1327 → 1495 → 2156.",
+   "why": "Шлюз должен быть бесшовным: письмо, прошедшее между двумя мирами, не должно терять вложения, обратные адреса и уведомления о доставке.",
+   "death": "Мир остался один: X.400 проиграл SMTP/MIME, обязательства GOSIP исчезли, а документ превратился в очень подробное описание перехода в никуда. Семь редакций одного моста — это и есть кладбище: переписывали мост, по которому никто не ходил.",
+   "now": "Шлюзы X.400 существуют в оборонных и государственных системах, сам протокол — ниша. Живой потомок идеи — конвертеры между мессенджерами и MIME-обвязки.",
+   "pitch": "У моста между протоколами должен быть срок годности: если трафика нет — не поддерживать его семью переписываниями. И наоборот: внедряя агентный протокол, сразу решите, кто мост и когда его выключат.",
+   "quotes": 1,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-mixer",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc2156.txt",
+     "title": "RFC 2156 — MIXER: Mapping between X.400 and RFC 822/MIME (1998)",
+     "read": true,
+     "quote": "X.400 defines an Interpersonal Messaging System (IPMS), making use of a store and forward Message Transfer System. This document relates to the IPMS, and not to wider application of X.400, such as EDI as defined in X.435.",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/doc/rfc2156/",
+     "title": "datatracker: RFC 2156 — obsoletes 987, 1026, 1138, 1148, 1327, 1495",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "atmip",
+   "name": "Classical IP over ATM — и обещание однородной сети",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "90"
+   ],
+   "years": "1994 — 1998",
+   "gap": 3,
+   "what": "RFC 1577: IP поверх ATM в виде логических IP-подсетей (LIS) с ARP-сервером и AAL5. RFC 2225 (1998) — вторая редакция того же стандарта, вместо обещанного единого ATM-мира.",
+   "why": "ATM обещал одну сеть для голоса, видео и данных, с гарантиями качества и единой адресацией; LIS был самым быстрым способом пустить по нему IP, не переписывая стек.",
+   "death": "ATM проиграл Ethernet. «Замена проводов» требовала маршрутизатора на каждую LIS, то есть возвращала ту иерархию, которую ATM обещал убрать; вторая редакция стандарта спроса не спасла.",
+   "now": "ATM остался в DSL-агрегации и старых сетях операторов; идея «сеть сама даст качество» вернулась классами обслуживания и тем же MPLS.",
+   "pitch": "Не менять транспорт ради гарантий: обещание «сеть сама обеспечит качество» не сработало дважды (ATM и IntServ). Приоритет надёжнее обеспечивать на краях и измерять, а не декларировать в стандарте.",
+   "quotes": 2,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-atmip",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1577.txt",
+     "title": "RFC 1577 — Classical IP and ARP over ATM (1994)",
+     "read": true,
+     "quote": "This memo considers only the application of ATM as a direct replacement for the \"wires\" and local LAN segments connecting IP end-stations (\"members\") and routers operating in the \"classical\" LAN-based paradigm. Issues raised by MAC level bridging and LAN …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc2225.txt",
+     "title": "RFC 2225 — Classical IP and ARP over ATM, редакция 1998",
+     "read": true,
+     "quote": "This memo defines an initial application of classical IP and ARP in an Asynchronous Transfer Mode (ATM) network environment configured as a Logical IP Subnetwork (LIS) as described in Section",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/doc/rfc2225/",
+     "title": "datatracker: RFC 2225 — obsoletes 1626, 1577",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "pop2",
+   "name": "POP2 — почта, которую скачивают и удаляют",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80",
+    "90"
+   ],
+   "years": "1985 — 1993",
+   "gap": 2,
+   "what": "Post Office Protocol версии 2: рабочая станция забирает почту с почтового сервера, сервер работает только как хранилище. Свой язык команд, порт 109.",
+   "why": "Почта лежит у пользователя, сервер нужен только для доставки: можно читать офлайн и не зависеть от квоты и доступности сервера.",
+   "death": "Вытеснен собственной третьей версией: POP3 (RFC 1081 → 1725 → 1939, сегодня STD 53) стал стандартом, POP2 понижен до Historic. Модель «скачал и удалил» не выдержала, когда почту захотели читать с нескольких устройств.",
+   "now": "POP3 жив в клиентах, но как «скачать и удалить»; IMAP и JMAP заняли место там, где нужно синхронизировать состояние.",
+   "pitch": "Модель данных важнее протокола: POP2 и POP3 отличаются не командами, а тем, где живёт состояние. Для агентов это тот же выбор — состояние у клиента, у сервера или в общем журнале, и выбирать его надо до первого коммита.",
+   "quotes": 1,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-pop2",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc937.txt",
+     "title": "RFC 937 — POST OFFICE PROTOCOL — VERSION 2 (1985)",
+     "read": true,
+     "quote": "The intent of the Post Office Protocol Version 2 (POP2) is to allow a user's workstation to access mail from a mailbox server. It is expected that mail will be posted from the workstation to the mailbox server via the Simple Mail Transfer Protocol (SMTP). …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/doc/rfc937/",
+     "title": "datatracker: RFC 937 — статус понижен до Historic",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc1939.txt",
+     "title": "RFC 1939 — Post Office Protocol — Version 3 (1996, STD 53)",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "time868",
+   "name": "Time Protocol — формально стандарт, де-факто музей",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "80"
+   ],
+   "years": "1983 — н.в.",
+   "gap": 2,
+   "what": "Сервер на 37-м порту отдаёт 32-битное число секунд, прошедших с полуночи 1 января 1900 года. Формально это Internet Standard.",
+   "why": "Минимализм: никакой синхронизации и математики — «вот время», по нему можно поправить часы на машине без собственных часов.",
+   "death": "Проиграл NTP: без точности, дисциплины часов и оценки дрейфа сервис бесполезен. Формальный статус Internet Standard при этом сохранился — и подтверждён адресно: RFC 868 входит в состав STD 26 (членство перепроверено дататрекером 12.12.2023). Хороший пример того, что статус не равен использованию.",
+   "now": "Порт 37 закрыт почти везде; протокол живёт в легаси-устройствах, тестовых стендах и в учебниках как самый короткий сетевой протокол.",
+   "pitch": "Считать время всерьёз: 32-битные секунды с 1900 года переполнятся в 2036-м. Проверьте встроенные контроллеры, «умные» датчики и legacy-прошивки — это дешёвый аудит, который дешевле делать заранее.",
+   "quotes": 3,
+   "sources": 4,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-time868",
+   "src": [
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc868.txt",
+     "title": "RFC 868 — Time Protocol (1983)",
+     "read": true,
+     "quote": "This RFC specifies a standard for the ARPA Internet community. Hosts on the ARPA Internet that choose to implement a Time Protocol are expected to adopt and implement this standard. This protocol provides a site-independent, machine readable date and time. …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/doc/rfc868/",
+     "title": "datatracker: RFC 868 — текущий статус Internet Standard",
+     "read": true,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/info/std26/",
+     "title": "RFC Editor: STD 26 — Time Protocol (RFC 868) в составе Internet Standard",
+     "read": true,
+     "quote": "STD 26 : Time Protocol",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://datatracker.ietf.org/feed/document-changes/rfc868/",
+     "title": "datatracker: лента изменений RFC 868 — членство в STD 26 подтверждено 12.12.2023",
+     "read": true,
+     "quote": "Imported membership of rfc868 in std26 via sync to the rfc-index",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "set",
+   "name": "SET — платёжный протокол с двойной подписью",
+   "reg": "other",
+   "dom": "soc",
+   "eras": [
+    "90",
+    "00"
+   ],
+   "years": "1996 — 2003",
+   "gap": 5,
+   "what": "Secure Electronic Transaction (Visa + MasterCard, 1997): сертификаты на каждого держателя карты и торговца, платёжный шлюз, «двойная подпись» — заказ подписан для торговца, карточные данные для банка. Три тома открытой спецификации.",
+   "why": "Безопасность на уровне данных, а не транспорта, и разделение подписей: торговец подтверждает заказ, но вообще не видит номер карты. Это архитектурно сильнее, чем «защищённый канал».",
+   "death": "Тяжесть PKI: сертификат каждому покупателю, клиентский кошелёк, отдельный шлюз — и всё это в 1997-м, когда работал SSL и никто не хотел менять инфраструктуру. К началу 2000-х Visa продвигала 3-D Secure, а SET остался в отчётах.",
+   "now": "SET не используется, но его идеи вернулись: токенизация карт (Apple Pay, Google Pay, PCI DSS) и разделение данных заказа и платёжных данных — ровно SET-овская двойная подпись, только без имени.",
+   "pitch": "Токенизация и разделение подписей — в агентные платежи: агент должен уметь провести оплату, не видя карту, и подтвердить заказ отдельно от платёжных данных. Иначе каждому агенту придётся доверять карточные данные.",
+   "quotes": 1,
+   "sources": 2,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-set",
+   "src": [
+    {
+     "url": "http://exelana.com/set/spec100/set_bk1.pdf",
+     "title": "SET Secure Electronic Transaction Specification, Book 1: Business Description (1997)",
+     "read": true,
+     "quote": "Visa and MasterCard have jointly developed the SET Secure Electronic Transaction protocol as a method to secure payment card transactions over open networks. SET is being published as an open specification for the industry.",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Secure_Electronic_Transaction",
+     "title": "Wikipedia: Secure Electronic Transaction (провал внедрения, переход на 3-D Secure)",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "uddi",
+   "name": "UDDI и UDDI Business Registry — публичный каталог бизнесов",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "00"
+   ],
+   "years": "2000 — 2006",
+   "gap": 5,
+   "what": "Стандарт OASIS и публичный реестр: любая компания публикует машиночитаемое описание себя и своих веб-сервисов, любая другая — находит и подключается. Реестр реплицировался между узлами IBM, Microsoft и HP.",
+   "why": "Автоматические деловые отношения: каталог сервисов как часть инфраструктуры, а не как список на сайте. Репликация между независимыми операторами и 50 000 записей — всерьёз.",
+   "death": "12 января 2006 года публикацию выключили: реестр держался на трёх вендорах, без модерации и без денег за хостинг, а «автоматические отношения» всё равно упирались в людей. Спецификация выжила внутри корпоративных фаерволов, где владелец один.",
+   "now": "Каталоги сервисов вернулись как API-хабы и реестры инструментов для агентов — с теми же вопросами без ответа: кто проверяет записи, кто платит за хостинг, что делать с мусором.",
+   "pitch": "Реестр агентных инструментов без модерации повторит UDDI: 50 000 тестовых записей и полное отсутствие доверия. Нужны проверка, репутация и срок годности записи — иначе агент будет выбирать исполнителя из мусора.",
+   "quotes": 2,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-uddi",
+   "src": [
+    {
+     "url": "https://www.oasis-open.org/committees/uddi-spec/doc/spec/v3/uddi-v3.0.2-20041019.htm",
+     "title": "UDDI Version 3.0.2 — спецификация (OASIS, 2004)",
+     "read": true,
+     "quote": "This document describes the Web services and behaviors of all instances of a UDDI registry.",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.infoworld.com/article/2215182/microsoft-ibm-sap-discontinue-uddi-registry-effort.html",
+     "title": "InfoWorld, 16.12.2005: Microsoft, IBM, SAP discontinue UDDI registry effort",
+     "read": true,
+     "quote": "Considering that Web service and UDDI specifications are now mature standards and the significant number of vendor-supplied UDDI products that are available, hosting this registry is no longer necessary,” said IBM. While the shutdown indicates that the …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://rip.so/uddi-business-registry.html",
+     "title": "rip.so: UDDI Business Registry (2001–2006)",
+     "read": false,
+     "quote": null,
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "webintents",
+   "name": "Web Intents — выбрать исполнителя вместо endpoint",
+   "reg": "other",
+   "dom": "ui",
+   "eras": [
+    "00",
+    "10"
+   ],
+   "years": "2010 — 2013",
+   "gap": 4,
+   "what": "Механизм, которым страница-сервис объявляет, что умеет, а страница-клиент просит «сделай это»: discovery сервисов и лёгкий RPC, по образцу Android Intents. Спецификация W3C и дополнение про локальные сервисы в сети.",
+   "why": "Пользователь подключает свой сервис к чужой странице без предварительных договорённостей: исполнитель выбирается в рантайме, а не на этапе разработки.",
+   "death": "Рабочие группы решили не продвигать спецификацию дальше по Recommendation track и выпустили её как информационную заметку; интероп-тестов не было, Chrome выключил экспериментальную поддержку в 24-й версии, а дополнение про локальные сервисы просит не использовать его как основу для реализации.",
+   "now": "Осколки: Web Share API, шаринг в PWA, deep links. Полноценный discovery сервисов в вебе так и не появился — зато он же и есть естественная модель для агентов.",
+   "pitch": "Модель намерения вместо вызова: не «дёрни этот endpoint», а «нужен перевод текста» — с выбором исполнителя и его правами. Браузер эту идею бросил; агентная среда — ровно то место, где она наконец нужна.",
+   "quotes": 3,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-webintents",
+   "src": [
+    {
+     "url": "https://www.w3.org/TR/web-intents/",
+     "title": "W3C Working Group Note: Web Intents (23.05.2013)",
+     "read": true,
+     "quote": "Members of these working groups have agreed not to progress the Web Intents specification further as a Recommendation track document, electing to publish it as an informative Working Group Note. The Working Groups have not performed interop testing on the …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.w3.org/TR/web-intents/",
+     "title": "Web Intents: что это было (abstract заметки)",
+     "read": true,
+     "quote": "This informative Working Group Note defines a service discovery and light-weight RPC mechanism for web apps called Web Intents. This document defines DOM interfaces and markup used by client and service pages to create, receive, and reply to Web Intents …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://dvcs.w3.org/hg/dap/raw-file/default/wi-addendum-local-services/NOTE.src.html",
+     "title": "W3C: Web Intents Addendum — Local Services (работа прекращена)",
+     "read": true,
+     "quote": "Work on this document has been discontinued and it should not be referenced or used as a basis for implementation.",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  },
+  {
+   "digest": "rfc-graveyard",
+   "digest_title": "RFC-кладбище: протоколы, описанные до последней запятой",
+   "id": "pubsubhubbub",
+   "name": "PubSubHubbub → WebSub — pubsub, который не стал слоем",
+   "reg": "other",
+   "dom": "net",
+   "eras": [
+    "00",
+    "10"
+   ],
+   "years": "2009 — н.в.",
+   "gap": 4,
+   "what": "Децентрализованный pubsub поверх HTTP: издатель пингует хаб при обновлении, хаб проверяет подписку и рассылает изменения подписчикам. Спецификация 0.4 — «working draft», через семь лет стала Рекомендацией W3C под именем WebSub.",
+   "why": "Опрос — плохая архитектура: вместо polling клиент получает push, а роль хаба может взять любой. Это редкий пример заявки на отсутствующий слой интернета, сделанной прямо в преамбуле.",
+   "death": "Не умерла, но слоем архитектуры не стала: хабами пользуются единичные сервисы, браузерный push занял нишу уведомлений и работает по другому протоколу, а машинный pubsub по-прежнему решается вебхуками в каждом сервисе заново.",
+   "now": "WebSub — Рекомендация W3C, хабы стоят у крупных RSS- и фидовых сервисов. Для машинного обмена событиями между агентами общего слоя так и нет.",
+   "pitch": "Подписка вместо опроса на уровне агентных систем: один открытый протокол «источник → хаб → подписчик» вместо своего вебхука в каждом сервисе. Тогда «следи за этим реестром» становится подпиской, а не бесконечным polling'ом.",
+   "quotes": 3,
+   "sources": 3,
+   "url": "https://kostyk348.github.io/lost-tech-museum/digests/rfc-graveyard/#c-pubsubhubbub",
+   "src": [
+    {
+     "url": "http://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html",
+     "title": "PubSubHubbub Core 0.4 — Working Draft",
+     "read": true,
+     "quote": "Polling sucks. We think a decentralized pubsub layer is a fundamental, missing layer in the Internet architecture today and its existence, more than just enabling the obvious lower latency feed readers, would enable many cool applications, most of which we …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.w3.org/TR/websub/",
+     "title": "W3C Recommendation: WebSub (бывший PubSubHubbub)",
+     "read": true,
+     "quote": "WebSub provides a common mechanism for communication between publishers of any kind of Web content and their subscribers, based on HTTP web hooks. Subscription requests are relayed through hubs, which validate and verify the request. …",
+     "link_state": "alive",
+     "link_code": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc8030.txt",
+     "title": "RFC 8030 — Generic Event Delivery Using HTTP Push (2016)",
+     "read": true,
+     "quote": "This document describes a simple protocol for the delivery of real-time events to user agents. This scheme uses HTTP/2 server push. Status of This Memo This is an Internet Standards Track document. This document is a product of the Internet Engineering Task …",
+     "link_state": "alive",
+     "link_code": 200
+    }
+   ]
+  }
+ ]
+}

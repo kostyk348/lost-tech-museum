@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Правило музея: короткие цитаты и ссылки, никакой перепубликации чужих текстов.
+Sitemap: https://kostyk348.github.io/lost-tech-museum/sitemap.xml

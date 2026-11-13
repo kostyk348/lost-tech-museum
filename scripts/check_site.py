@@ -33,6 +33,7 @@ KINDS = [
     ("digest", "digests/*/widget.html", "{", ["const DATA", "DATA.entries"]),
     ("stack", "stacks/*/index.html", None, ["<script"]),
     ("doc", "docs/*/index.html", None, ["<h2>"]),
+    ("provenance", "provenance/index.html", None, ["Провенанс архива", "<table>"]),
 ]
 
 
@@ -58,6 +59,102 @@ def build_registries():
     except SystemExit:
         pass
     return mod
+
+
+def check_machine():
+    """Машиночитаемая поверхность и целостность данных.
+
+    Страница может быть красивой, а API — врать: тогда агрегатор тихо разнесёт ошибку.
+    Поэтому api/feed/sitemap проверяются разбором, а не наличием файла.
+    """
+    import xml.etree.ElementTree as ET
+    bad = 0
+    print("\nмашиночитаемое и данные:")
+
+    def note(ok, msg):
+        print("  %s  %s" % ("OK  " if ok else "FAIL", msg))
+        return 0 if ok else 1
+
+    digests = []
+    for path in sorted(glob.glob(os.path.join(ROOT, "data", "*.json"))):
+        slug = os.path.splitext(os.path.basename(path))[0]
+        if slug in ("link-audit", "quote-audit"):
+            continue
+        digests.append((slug, json.load(open(path, encoding="utf-8"))))
+    # kind (например «portfolio») зарегистрирован в build.py, а не в данных — берём оттуда
+    portfolio = set()
+    try:
+        for dg in getattr(build_registries(), "DIGESTS", []):
+            if dg.get("kind") == "portfolio":
+                portfolio.add(dg["slug"])
+    except Exception:                          # noqa: BLE001
+        pass
+
+    # api/index.json — каталог согласован с числом дайджестов
+    api_index = os.path.join(ROOT, "api", "index.json")
+    if not os.path.exists(api_index):
+        bad += note(False, "api/index.json отсутствует — запустить python scripts/machine.py")
+    else:
+        cat = json.load(open(api_index, encoding="utf-8"))
+        bad += note(len(cat.get("digests", [])) == len(digests),
+                    "api/index.json: дайджестов %d, в данных %d"
+                    % (len(cat.get("digests", [])), len(digests)))
+        bad += note(bool(cat.get("provenance")), "api/index.json: блок provenance заполнен")
+
+    # api/entries.json — ни одна находка не потерялась
+    api_entries = os.path.join(ROOT, "api", "entries.json")
+    expected = sum(len(d.get("entries", [])) for _, d in digests)
+    if not os.path.exists(api_entries):
+        bad += note(False, "api/entries.json отсутствует")
+    else:
+        rows = json.load(open(api_entries, encoding="utf-8"))
+        bad += note(rows.get("count") == expected == len(rows.get("entries", [])),
+                    "api/entries.json: записей %s, в данных %d" % (rows.get("count"), expected))
+
+    # feed.xml / sitemap.xml — обязаны разбираться как XML
+    for rel, min_items, tag in (("feed.xml", 1, "entry"), ("sitemap.xml", 6, "url")):
+        path = os.path.join(ROOT, rel)
+        if not os.path.exists(path):
+            bad += note(False, "%s отсутствует" % rel)
+            continue
+        try:
+            root = ET.parse(path).getroot()
+            n = len([el for el in root.iter() if el.tag.endswith(tag)])
+            bad += note(n >= min_items, "%s: разбирается, элементов %s = %d" % (rel, tag, n))
+        except Exception as exc:              # noqa: BLE001 — битый XML и есть провал проверки
+            bad += note(False, "%s: не разбирается (%s)" % (rel, exc))
+
+    robots = os.path.join(ROOT, "robots.txt")
+    bad += note(os.path.exists(robots) and "Sitemap:" in open(robots, encoding="utf-8").read(),
+                "robots.txt ссылается на sitemap")
+
+    bad += note(os.path.exists(os.path.join(ROOT, "provenance", "index.html")),
+                "страница провенанса собрана")
+
+    # Целостность данных: id уникальны между дайджестами, источники размечены, gap в диапазоне
+    seen, dupes, bad_src, bad_gap = {}, [], [], []
+    for slug, d in digests:
+        for e in d.get("entries", []):
+            seen.setdefault(e.get("id"), []).append(slug)
+            g = e.get("gap")
+            if g is not None and not (isinstance(g, int) and 1 <= g <= 5):
+                bad_gap.append("%s/%s=%r" % (slug, e.get("id"), g))
+            for s in e.get("src", []):
+                if not str(s.get("u", "")).startswith("http") or not s.get("t"):
+                    bad_src.append("%s/%s" % (slug, e.get("id")))
+                if s.get("r") is not None and s.get("r") not in (0, 1):
+                    bad_src.append("%s/%s (r не 0/1)" % (slug, e.get("id")))
+                if slug not in portfolio and s.get("r") not in (0, 1):
+                    bad_src.append("%s/%s (нет разметки r)" % (slug, e.get("id")))
+                if "q" in s and not str(s.get("q") or "").strip():
+                    bad_src.append("%s/%s (пустая цитата)" % (slug, e.get("id")))
+    dupes = [i for i, v in seen.items() if len(v) > 1]
+    bad += note(not dupes, "id находок уникальны между дайджестами" if not dupes
+                else "дубли id: %s" % ", ".join(dupes[:8]))
+    bad += note(not bad_src, "источники размечены (url, название, r:0|1, непустая цитата)" if not bad_src
+                else "битые источники: %s" % ", ".join(sorted(set(bad_src))[:6]))
+    bad += note(not bad_gap, "gap в диапазоне 1..5" if not bad_gap else "gap вне диапазона: %s" % bad_gap[:6])
+    return bad
 
 
 def main():
@@ -117,6 +214,7 @@ def main():
         print("  %s  данные %-30s записей: %d, заголовок в странице: %s" %
               ("OK   " if ok else "FAIL ", slug, len(data["entries"]), ok))
         bad += 0 if ok else 1
+    bad += check_machine()
     print("\nИТОГ:", "страницы согласованы" if not bad else "ПРОБЛЕМ: %d" % bad)
     return 1 if bad else 0
 

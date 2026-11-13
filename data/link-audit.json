@@ -1,0 +1,2165 @@
+{
+ "generated": "2026-11-13",
+ "total": 151,
+ "alive": 138,
+ "dead": 4,
+ "blocked": 9,
+ "links": {
+  "http://exelana.com/set/spec100/set_bk1.pdf": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "set",
+     "r": 1,
+     "t": "SET Secure Electronic Transaction Specification, Book 1: Business Description (1997)"
+    }
+   ]
+  },
+  "http://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "pubsubhubbub",
+     "r": 1,
+     "t": "PubSubHubbub Core 0.4 — Working Draft"
+    }
+   ]
+  },
+  "http://tronweb.super-nova.co.jp/ucoderesserverconnectiontest.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "ucode",
+     "r": 0,
+     "t": "TRON Web: ucode resolution server / ucodeRP, eTP"
+    }
+   ]
+  },
+  "http://wotug.org/papers/IvimeyCook_W22.pdf": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "transputer",
+     "r": 0,
+     "t": "WoTUG: Legacy of the transputer"
+    }
+   ]
+  },
+  "https://arstechnica.com/information-technology/2018/07/the-beos-filesystem/": {
+   "state": "blocked",
+   "code": 405,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "beos",
+     "r": 1,
+     "t": "Ars Technica: The BeOS file system — an OS geek retrospective"
+    }
+   ]
+  },
+  "https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start": {
+   "state": "dead",
+   "code": 0,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "ogas",
+     "r": 0,
+     "t": "BBC Future: why the forgotten Soviet internet was doomed"
+    }
+   ]
+  },
+  "https://blog.acolyer.org/2015/02/17/generative-communication-in-linda": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "linda",
+     "r": 0,
+     "t": "The morning paper: Generative communication in Linda"
+    }
+   ]
+  },
+  "https://calmtech.com/papers/computer-for-the-21st-century": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "weiser",
+     "r": 1,
+     "t": "Weiser (1991): The Computer for the 21st Century"
+    }
+   ]
+  },
+  "https://commons.lib.jmu.edu/cgi/viewcontent.cgi?article=1196&context=selectedworks": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "gopher",
+     "r": 0,
+     "t": "Before the web there was Gopher"
+    }
+   ]
+  },
+  "https://computerworld.com/article/1366318/ntt-docomo-launches-first-java-cellphones.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "imode",
+     "r": 0,
+     "t": "Computerworld (2001): DoCoMo launches first Java cellphones"
+    }
+   ]
+  },
+  "https://comsys.rwth-aachen.de/publication/2013/2013_jakobs_why-then-did-the/2013_jakobs_why-then-did-the.pdf": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "osi",
+     "r": 0,
+     "t": "Jakobs (2013): Why then did the X.400 email system fail?"
+    }
+   ]
+  },
+  "https://consortiuminfo.org/metalibrary/innovation-and-control-in-standards-architectures-the-rise-and-fall-of-japans-pc-98": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "pc98",
+     "r": 0,
+     "t": "Innovation and Control in Standards Architectures: The Rise and Fall of Japan's PC-98"
+    }
+   ]
+  },
+  "https://cs.cmu.edu/~jasonh/courses/ubicomp-sp2007/papers/08-moving-on-from-weiser-engaging-ubicomp.pdf": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "weiser",
+     "r": 0,
+     "t": "Bell & Dourish: Moving on from Weiser's vision (critique)"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/doc/rfc1347/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "tuba",
+     "r": 1,
+     "t": "datatracker: RFC 1347 — текущий статус Historic"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/doc/rfc1707/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "catnip",
+     "r": 1,
+     "t": "datatracker: RFC 1707 — текущий статус Historic"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/doc/rfc1835/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "whoispp",
+     "r": 1,
+     "t": "datatracker: RFC 1835 — статус понижен до Historic"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/doc/rfc2156/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "mixer",
+     "r": 1,
+     "t": "datatracker: RFC 2156 — obsoletes 987, 1026, 1138, 1148, 1327, 1495"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/doc/rfc2225/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "atmip",
+     "r": 1,
+     "t": "datatracker: RFC 2225 — obsoletes 1626, 1577"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/doc/rfc868/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "time868",
+     "r": 1,
+     "t": "datatracker: RFC 868 — текущий статус Internet Standard"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/doc/rfc937/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "pop2",
+     "r": 1,
+     "t": "datatracker: RFC 937 — статус понижен до Historic"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/feed/document-changes/rfc1347/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "tuba",
+     "r": 1,
+     "t": "datatracker: лента изменений RFC 1347 — решение IESG 24.05.2016, смена уровня на Historic 01.12.2017"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/feed/document-changes/rfc1707/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "catnip",
+     "r": 1,
+     "t": "datatracker: лента изменений RFC 1707 — решение IESG 24.05.2016, смена уровня на Historic 01.12.2017"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/feed/document-changes/rfc1752/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "sipp",
+     "r": 1,
+     "t": "datatracker: лента изменений RFC 1752 — 14.08.2026 errata помечена как verified"
+    }
+   ]
+  },
+  "https://datatracker.ietf.org/feed/document-changes/rfc868/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "time868",
+     "r": 1,
+     "t": "datatracker: лента изменений RFC 868 — членство в STD 26 подтверждено 12.12.2023"
+    }
+   ]
+  },
+  "https://digitalcommons.kennesaw.edu/cgi/viewcontent.cgi?article=1622&context=undergradsymposiumksu": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "imode",
+     "r": 0,
+     "t": "Case study: i-mode and product export failure"
+    }
+   ]
+  },
+  "https://dl.acm.org/doi/10.1145/1400097.1400109": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "plan9",
+     "r": 0,
+     "t": "ACM: Virtual servers and checkpoint/restart in mainstream Linux (Plan 9-esque per-process namespaces)"
+    }
+   ]
+  },
+  "https://dl.acm.org/doi/10.1145/191246.191322": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "fipa",
+     "r": 0,
+     "t": "ACM CIKM (1994): KQML as an agent communication language"
+    }
+   ]
+  },
+  "https://docslib.org/doc/3328738/operating-systems-1997-the-sixth-work": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "wpos",
+     "r": 1,
+     "t": "Открытый текст того же доклада HotOS 1997 (скан, OCR: колонки местами перемешаны) — замена мёртвой ссылки srl.cs.jhu.edu"
+    }
+   ]
+  },
+  "https://doi.org/10.1109/HOTOS.1997.595173": {
+   "state": "alive",
+   "code": 202,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "wpos",
+     "r": 0,
+     "t": "DOI: F. L. Rawson III, «Experience with the Development of a Microkernel-Based, Multiserver Operating System» (HotOS 1997) — идентификатор, полный текст за платным доступом"
+    }
+   ]
+  },
+  "https://dvcs.w3.org/hg/dap/raw-file/default/wi-addendum-local-services/NOTE.src.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "webintents",
+     "r": 1,
+     "t": "W3C: Web Intents Addendum — Local Services (работа прекращена)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/.NET_My_Services": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "hailstorm",
+     "r": 1,
+     "t": "Wikipedia: .NET My Services (Hailstorm)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/BTRON": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "tron",
+     "r": 1,
+     "t": "Wikipedia: BTRON"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/BeOS": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "beos",
+     "r": 1,
+     "t": "Wikipedia: BeOS"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/FeliCa": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "felica",
+     "r": 1,
+     "t": "Wikipedia: FeliCa"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Fifth_Generation_Computer_Systems": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "fgcs",
+     "r": 1,
+     "t": "Wikipedia: Fifth Generation Computer Systems"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Fujitsu_Towns_OS": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "towns",
+     "r": 0,
+     "t": "Wikipedia: FM Towns / Towns OS"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/General_Magic": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "genmagic",
+     "r": 1,
+     "t": "Wikipedia: General Magic"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Gopher_(protocol)": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "gopher",
+     "r": 1,
+     "t": "Wikipedia: Gopher (protocol), RFC 1436"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/HyperCard": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "hypercard",
+     "r": 1,
+     "t": "Wikipedia: HyperCard (release 1987, final 1998, withdrawn 2004)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/I-mode": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "imode",
+     "r": 1,
+     "t": "Wikipedia: i-mode"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/IBM_Workplace_OS": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "wpos",
+     "r": 1,
+     "t": "Wikipedia: IBM Workplace OS"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/ITRON_project": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "itron",
+     "r": 1,
+     "t": "Wikipedia: ITRON project"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Inferno_(operating_system)": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "inferno",
+     "r": 1,
+     "t": "Wikipedia: Inferno (operating system)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Intel_iAPX_432": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "iapx432",
+     "r": 1,
+     "t": "Wikipedia: Intel iAPX 432"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Jini": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "linda",
+     "r": 1,
+     "t": "Wikipedia: Jini (leases, lookup, JavaSpaces, River retired 2022)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Linda_(coordination_language)": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "linda",
+     "r": 1,
+     "t": "Wikipedia: Linda (coordination language)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/MSX": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "msx",
+     "r": 1,
+     "t": "Wikipedia: MSX"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Minitel": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "minitel",
+     "r": 1,
+     "t": "Wikipedia: Minitel"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/NeWS": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "news",
+     "r": 1,
+     "t": "Wikipedia: NeWS"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/OGAS": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "ogas",
+     "r": 1,
+     "t": "Wikipedia: OGAS"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/PC-98": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "pc98",
+     "r": 1,
+     "t": "Wikipedia: PC-98"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "plan9",
+     "r": 1,
+     "t": "Wikipedia: Plan 9 from Bell Labs"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Project_Xanadu": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "xanadu",
+     "r": 1,
+     "t": "Wikipedia: Project Xanadu"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Secure_Electronic_Transaction": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "set",
+     "r": 0,
+     "t": "Wikipedia: Secure Electronic Transaction (провал внедрения, переход на 3-D Secure)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Self_(programming_language)": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "self",
+     "r": 1,
+     "t": "Wikipedia: Self (programming language)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Setun": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "setun",
+     "r": 1,
+     "t": "Wikipedia: Setun"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Sharp_x68000": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "towns",
+     "r": 0,
+     "t": "Wikipedia: Sharp X68000 / Human68k / SX-Window"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Smalltalk": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "self",
+     "r": 1,
+     "t": "Wikipedia: Smalltalk (objects, VM, live image)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Soup_(Apple_Newton)": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "newton",
+     "r": 1,
+     "t": "Wikipedia: Soup (Apple Newton)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/TRON_(encoding)": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "troncode",
+     "r": 1,
+     "t": "Wikipedia: TRON (encoding)"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/TRON_project": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "tron",
+     "r": 1,
+     "t": "Wikipedia: TRON project"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Transputer": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "transputer",
+     "r": 1,
+     "t": "Wikipedia: Transputer"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Ucode_system": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "ucode",
+     "r": 1,
+     "t": "Wikipedia: ucode system"
+    }
+   ]
+  },
+  "https://en.wikipedia.org/wiki/Usenet": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "usenet",
+     "r": 1,
+     "t": "Wikipedia: Usenet"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/DSO-TRON": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "DSO-TRON",
+     "r": 0,
+     "t": "kostyk348/DSO-TRON"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/MPTC": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "MPTC",
+     "r": 0,
+     "t": "kostyk348/MPTC"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/acp-mvp": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "acp-mvp",
+     "r": 0,
+     "t": "kostyk348/acp-mvp"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/autocad-electrical-plugin": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "autocad-electrical-plugin",
+     "r": 0,
+     "t": "kostyk348/autocad-electrical-plugin"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/capsuleos": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "capsuleos",
+     "r": 0,
+     "t": "kostyk348/capsuleos"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/chronicle-engine": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "chronicle-engine",
+     "r": 0,
+     "t": "kostyk348/chronicle-engine"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/datatrace": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "datatrace",
+     "r": 0,
+     "t": "kostyk348/datatrace"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/doc-generator": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "doc-generator",
+     "r": 0,
+     "t": "kostyk348/doc-generator"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/dsa": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "dsa",
+     "r": 0,
+     "t": "kostyk348/dsa"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/dso": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "dso",
+     "r": 0,
+     "t": "kostyk348/dso"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/dso-runtime": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "dso",
+     "r": 0,
+     "t": "kostyk348/dso-runtime"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/dso-tron-esp32": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "DSO-TRON",
+     "r": 0,
+     "t": "kostyk348/dso-tron-esp32"
+    },
+    {
+     "digest": "portfolio-review",
+     "entry": "dso-tron-esp32",
+     "r": 0,
+     "t": "kostyk348/dso-tron-esp32"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/eafar": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "eafar-db",
+     "r": 0,
+     "t": "kostyk348/eafar"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/eafar-db": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "eafar-db",
+     "r": 0,
+     "t": "kostyk348/eafar-db"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/el-tools": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "el-tools",
+     "r": 0,
+     "t": "kostyk348/el-tools"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/eml-scada": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "eml-scada",
+     "r": 0,
+     "t": "kostyk348/eml-scada"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/evol": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "evol",
+     "r": 0,
+     "t": "kostyk348/evol"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/fca": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "fca",
+     "r": 0,
+     "t": "kostyk348/fca"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/homeo": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "homeo",
+     "r": 0,
+     "t": "kostyk348/homeo"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/libatme": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "libatme",
+     "r": 0,
+     "t": "kostyk348/libatme"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/mbparse": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "mbparse",
+     "r": 0,
+     "t": "kostyk348/mbparse"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/mbrs": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "mbrs",
+     "r": 0,
+     "t": "kostyk348/mbrs"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/mime-os": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "eml-scada",
+     "r": 0,
+     "t": "kostyk348/mime-os"
+    },
+    {
+     "digest": "portfolio-review",
+     "entry": "mime-os",
+     "r": 0,
+     "t": "kostyk348/mime-os"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/omni": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "omni",
+     "r": 0,
+     "t": "kostyk348/omni"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/passport-to-uml": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "passport-to-uml",
+     "r": 0,
+     "t": "kostyk348/passport-to-uml"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/pdf-spec-parser": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "pdf-spec-parser",
+     "r": 0,
+     "t": "kostyk348/pdf-spec-parser"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/pdf-translate": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "pdf-translate",
+     "r": 0,
+     "t": "kostyk348/pdf-translate"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/phase-math": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "phase-vm",
+     "r": 0,
+     "t": "kostyk348/phase-math"
+    },
+    {
+     "digest": "portfolio-review",
+     "entry": "phase-math",
+     "r": 0,
+     "t": "kostyk348/phase-math"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/phase-vm": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "phase-vm",
+     "r": 0,
+     "t": "kostyk348/phase-vm"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/sint": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "sint",
+     "r": 0,
+     "t": "kostyk348/sint"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/sint-game": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "sint-game",
+     "r": 0,
+     "t": "kostyk348/sint-game"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/sint-jcr": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "sint-jcr",
+     "r": 0,
+     "t": "kostyk348/sint-jcr"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/spix": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "spix",
+     "r": 0,
+     "t": "kostyk348/spix"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/ternary-vm": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "MPTC",
+     "r": 0,
+     "t": "kostyk348/ternary-vm"
+    },
+    {
+     "digest": "portfolio-review",
+     "entry": "ternary-vm",
+     "r": 0,
+     "t": "kostyk348/ternary-vm"
+    }
+   ]
+  },
+  "https://github.com/kostyk348/zui-tad-shell": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "portfolio-review",
+     "entry": "zui-tad-shell",
+     "r": 0,
+     "t": "kostyk348/zui-tad-shell"
+    }
+   ]
+  },
+  "https://hci.stanford.edu/seminar/abstracts/93-94/940121-hertzfeld.html": {
+   "state": "dead",
+   "code": 0,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "genmagic",
+     "r": 0,
+     "t": "Stanford HCI seminar (1994): Hertzfeld on Magic Cap and Telescript"
+    }
+   ]
+  },
+  "https://info.archives.global.fujitsu/jp/news/1999/Mar/23-3e.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "nifty",
+     "r": 0,
+     "t": "Fujitsu news (1999): NIFTY Corporation"
+    }
+   ]
+  },
+  "https://keitaiwiki.com/wiki/I-mode": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "imode",
+     "r": 0,
+     "t": "Keitai Wiki: i-mode / i-appli (DoJa)"
+    }
+   ]
+  },
+  "https://learn.engineering.vips.edu/agent-protocols/fipa-acl": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "fipa",
+     "r": 0,
+     "t": "FIPA ACL: historical overview"
+    }
+   ]
+  },
+  "https://learn.microsoft.com/en-us/archive/blogs/winfs/update-to-the-update": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "winfs",
+     "r": 0,
+     "t": "WinFS team blog: Update to the update"
+    }
+   ]
+  },
+  "https://mitpress.mit.edu/five-minutes-with-benjamin-peters": {
+   "state": "dead",
+   "code": 0,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "ogas",
+     "r": 0,
+     "t": "MIT Press: five minutes with Benjamin Peters (OGAS)"
+    }
+   ]
+  },
+  "https://news.ycombinator.com/item?id=45323901": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "xanadu",
+     "r": 0,
+     "t": "HN discussion: Project Xanadu hindsight"
+    }
+   ]
+  },
+  "https://news.ycombinator.com/item?id=46557204": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "self",
+     "r": 0,
+     "t": "HN: the tech enabling JS speed came from Self research"
+    }
+   ]
+  },
+  "https://one.oecd.org/document/DSTI/ICCP/IE(97)10/FINAL/en/pdf": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "minitel",
+     "r": 0,
+     "t": "OECD (1997): France's experience with the Minitel — lessons for e-commerce (kiosque billing)"
+    }
+   ]
+  },
+  "https://positioniseverything.net/osi-the-internet-that-wasnt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "osi",
+     "r": 0,
+     "t": "OSI: the internet that wasn't"
+    }
+   ]
+  },
+  "https://rip.so/microsoft-hailstorm.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "hailstorm",
+     "r": 0,
+     "t": "rip.so: Microsoft Hailstorm (2001–2002)"
+    }
+   ]
+  },
+  "https://rip.so/nifty-serve.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "nifty",
+     "r": 1,
+     "t": "rip.so: NIFTY-Serve (1987–2006)"
+    }
+   ]
+  },
+  "https://rip.so/uddi-business-registry.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "uddi",
+     "r": 0,
+     "t": "rip.so: UDDI Business Registry (2001–2006)"
+    }
+   ]
+  },
+  "https://sciencedirect.com/science/article/pii/0167739X93900038": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "fgcs",
+     "r": 0,
+     "t": "Kahn: The Japanese national Fifth Generation project: introduction, survey, and evaluation"
+    }
+   ]
+  },
+  "https://userpages.cs.umbc.edu/ypeng/Publications/1999/ieee-is.pdf": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "fipa",
+     "r": 0,
+     "t": "IEEE Intelligent Systems (1999): Agent Communication Languages — the current landscape"
+    }
+   ]
+  },
+  "https://wiki.preterhuman.net/Newton_Application_Architecture": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "newton",
+     "r": 0,
+     "t": "Newton Application Architecture (object store, unified data model)"
+    }
+   ]
+  },
+  "https://www.cs.otago.ac.nz/coursework/cosc461/occam.pdf": {
+   "state": "dead",
+   "code": 0,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "transputer",
+     "r": 0,
+     "t": "Introduction to the programming language Occam"
+    }
+   ]
+  },
+  "https://www.denso-wave.com/en/technology/vol1.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "qr",
+     "r": 1,
+     "t": "DENSO WAVE: QR Code development story"
+    }
+   ]
+  },
+  "https://www.denso.com/global/en/business/innovation/qrcode/": {
+   "state": "blocked",
+   "code": 403,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "qr",
+     "r": 0,
+     "t": "DENSO: QRcode invented by DENSO"
+    }
+   ]
+  },
+  "https://www.infoworld.com/article/2215182/microsoft-ibm-sap-discontinue-uddi-registry-effort.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "uddi",
+     "r": 1,
+     "t": "InfoWorld, 16.12.2005: Microsoft, IBM, SAP discontinue UDDI registry effort"
+    }
+   ]
+  },
+  "https://www.oasis-open.org/committees/uddi-spec/doc/spec/v3/uddi-v3.0.2-20041019.htm": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "uddi",
+     "r": 1,
+     "t": "UDDI Version 3.0.2 — спецификация (OASIS, 2004)"
+    }
+   ]
+  },
+  "https://www.pcgamer.com/the-bright-life-of-the-msx-japans-underdog-pc/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "msx",
+     "r": 1,
+     "t": "PC Gamer: The bright life of the MSX"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/info/std26/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "time868",
+     "r": 1,
+     "t": "RFC Editor: STD 26 — Time Protocol (RFC 868) в составе Internet Standard"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/inline-errata/rfc1752.html": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "sipp",
+     "r": 1,
+     "t": "RFC Editor: RFC 1752 с вписанной подтверждённой errata — EID 9133, типографская"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1112.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "ipmulticast",
+     "r": 1,
+     "t": "RFC 1112 — Host Extensions for IP Multicasting (1989)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1347.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "tuba",
+     "r": 1,
+     "t": "RFC 1347 — TCP and UDP with Bigger Addresses (TUBA), 1992"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1577.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "atmip",
+     "r": 1,
+     "t": "RFC 1577 — Classical IP and ARP over ATM (1994)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1707.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "catnip",
+     "r": 1,
+     "t": "RFC 1707 — CATNIP: Common Architecture for the Internet (1994)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1710.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "sipp",
+     "r": 1,
+     "t": "RFC 1710 — Simple Internet Protocol Plus White Paper (1994)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1752.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "tuba",
+     "r": 1,
+     "t": "RFC 1752 — The Recommendation for the IP Next Generation Protocol (1995)"
+    },
+    {
+     "digest": "rfc-graveyard",
+     "entry": "catnip",
+     "r": 1,
+     "t": "RFC 1752 — The Recommendation for the IP Next Generation Protocol (1995)"
+    },
+    {
+     "digest": "rfc-graveyard",
+     "entry": "sipp",
+     "r": 1,
+     "t": "RFC 1752 — The Recommendation for the IP Next Generation Protocol (1995)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1753.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "nimrod",
+     "r": 1,
+     "t": "RFC 1753 — IPng Technical Requirements Of the Nimrod Routing and Addressing Architecture (1994)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1835.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "whoispp",
+     "r": 1,
+     "t": "RFC 1835 — WHOIS++ — query/response protocol (1995)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc1939.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "pop2",
+     "r": 1,
+     "t": "RFC 1939 — Post Office Protocol — Version 3 (1996, STD 53)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc2156.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "mixer",
+     "r": 1,
+     "t": "RFC 2156 — MIXER: Mapping between X.400 and RFC 822/MIME (1998)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc2205.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "rsvp",
+     "r": 1,
+     "t": "RFC 2205 — RSVP — Resource Reservation Protocol, версия 1 (1997)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc2225.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "atmip",
+     "r": 1,
+     "t": "RFC 2225 — Classical IP and ARP over ATM, редакция 1998"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc3170.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "ipmulticast",
+     "r": 1,
+     "t": "RFC 3170 — IP Multicast Applications: Challenges and Solutions (2001)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc3209.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "rsvp",
+     "r": 1,
+     "t": "RFC 3209 — RSVP-TE: расширения RSVP для LSP в MPLS (2001)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc3707.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "whoispp",
+     "r": 1,
+     "t": "RFC 3707 — Cross Registry Internet Service Protocol (CRISP) Requirements (2004)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc3912.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "whoispp",
+     "r": 1,
+     "t": "RFC 3912 — WHOIS Protocol Specification (2004)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc8030.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "pubsubhubbub",
+     "r": 1,
+     "t": "RFC 8030 — Generic Event Delivery Using HTTP Push (2016)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc868.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "time868",
+     "r": 1,
+     "t": "RFC 868 — Time Protocol (1983)"
+    }
+   ]
+  },
+  "https://www.rfc-editor.org/rfc/rfc937.txt": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "pop2",
+     "r": 1,
+     "t": "RFC 937 — POST OFFICE PROTOCOL — VERSION 2 (1985)"
+    }
+   ]
+  },
+  "https://www.theguardian.com/technology/2006/jun/29/insideit.guardianweeklytechnologysection": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "winfs",
+     "r": 0,
+     "t": "The Guardian (2006): Why WinFS had to vanish"
+    }
+   ]
+  },
+  "https://www.theregister.com/off-prem/2006/06/26/microsofts-future-file-system-dies-again/702825": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "winfs",
+     "r": 0,
+     "t": "The Register (2006): Microsoft's future file system dies, again"
+    }
+   ]
+  },
+  "https://www.tron.org/ja/wp-content/uploads/sites/2/2023/12/ieeemilestone-en.pdf": {
+   "state": "alive",
+   "code": 206,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "itron",
+     "r": 0,
+     "t": "IEEE Milestone: TRON RTOS Family, 1984"
+    }
+   ]
+  },
+  "https://www.tron.org/tron-project": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "tron",
+     "r": 1,
+     "t": "TRON Forum: TRON Project"
+    }
+   ]
+  },
+  "https://www.w3.org/TR/web-intents/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "webintents",
+     "r": 1,
+     "t": "W3C Working Group Note: Web Intents (23.05.2013)"
+    },
+    {
+     "digest": "rfc-graveyard",
+     "entry": "webintents",
+     "r": 1,
+     "t": "Web Intents: что это было (abstract заметки)"
+    }
+   ]
+  },
+  "https://www.w3.org/TR/websub/": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "rfc-graveyard",
+     "entry": "pubsubhubbub",
+     "r": 1,
+     "t": "W3C Recommendation: WebSub (бывший PubSubHubbub)"
+    }
+   ]
+  },
+  "https://www.wired.com/2002/08/hypercard-forgotten-but-not-gone": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "hypercard",
+     "r": 0,
+     "t": "WIRED (2002): HyperCard forgotten, but not gone"
+    }
+   ]
+  },
+  "https://www.wired.com/2012/06/services-begone": {
+   "state": "alive",
+   "code": 200,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "minitel",
+     "r": 1,
+     "t": "WIRED (2012): Before the Web there was Minitel"
+    }
+   ]
+  },
+  "https://xda-developers.com/docker-secret-ingredient-1992-os": {
+   "state": "alive",
+   "code": 301,
+   "error": "",
+   "checked": "2026-11-13",
+   "refs": [
+    {
+     "digest": "lost-ideas-1980s-2000s",
+     "entry": "plan9",
+     "r": 1,
+     "t": "XDA: Docker's secret ingredient came from a 1992 OS"
+    }
+   ]
+  }
+ }
+}
