@@ -69,6 +69,10 @@ DOCS = [
         "blurb": "Короткие определения терминов, без которых записи читаются тяжело, со ссылками на записи, "
                  "где термин работает по делу. Определения — объяснение агента, факты — в первоисточниках",
         "tags": ["глоссарий", "термины", "навигация"],
+        "title_en": "Glossary: capability, tuple space, performatives and other terms of the archive",
+        "blurb_en": "Short definitions of the terms without which the entries are hard to read, with links to the entries "
+                    "where each term does real work. Definitions are the agent's explanation; facts live in primary sources. "
+                    "Content is Russian.",
     },
     {
         "slug": "roadmap",
@@ -120,6 +124,7 @@ STACKS = [
         "blurb": "11 карточек: Plan 9 и Inferno, BeOS и BFS, Cairo→WinFS, Newton Soup, Workplace OS, TRON и μITRON, "
                  "FM Towns, Self — и сборка «ОС для локального агента» из десяти решений.",
         "tags": ["стеки", "ОС", "системы"],
+        "title_en": "Stack: operating systems that invented everything first",
         "blurb_en": "11 cards: Plan 9 and Inferno, BeOS and BFS, Cairo→WinFS, Newton Soup, Workplace OS, TRON and μITRON, "
                     "FM Towns, Self — plus a build card “an OS for a local agent” from ten decisions.",
     },
@@ -129,6 +134,7 @@ STACKS = [
         "blurb": "10 карточек: Xanadu, HyperCard, Gopher/WAIS, Minitel, Usenet, NIFTY-Serve, i-mode, OGAS — "
                  "и сборка «сеть для агентов» из восьми решений.",
         "tags": ["стеки", "сеть", "гипертекст"],
+        "title_en": "Stack: the network and hypertext before the web — what was solved there",
         "blurb_en": "10 cards: Xanadu, HyperCard, Gopher/WAIS, Minitel, Usenet, NIFTY-Serve, i-mode, OGAS — plus a build "
                     "card “a network for agents” from eight decisions.",
     },
@@ -138,6 +144,7 @@ STACKS = [
         "blurb": "13 карточек: FeliCa и QR, ucode, iAPX 432, Transputer, Setun, MSX и PC-98, TRON Code, NeWS, "
                  "calm technology Вейзера — и сборка «устройство и протокол, которые выживут».",
         "tags": ["стеки", "железо", "идентичность"],
+        "title_en": "Stack: hardware, identity and attention — what was ahead of its time",
         "blurb_en": "13 cards: FeliCa and QR, ucode, iAPX 432, Transputer, Setun, MSX and PC-98, TRON Code, NeWS, Weiser’s "
                     "calm technology — plus a build card “a device and protocol that survive”.",
     },
@@ -149,6 +156,7 @@ STACK_THEME_WIDGET = (
     "--fg:var(--foreground,#e6edf7);--mut:var(--muted-foreground,#8b98ad);--soft:rgba(127,127,127,.10);"
     "--cy:var(--accent,#22d3ee);--lp:var(--muted-foreground,#a78bfa)}\n"
     "body{background:transparent}\n"
+    ".langs{display:none}\n"
 )
 
 # ---------------------------------------------------------------------------
@@ -290,13 +298,14 @@ TAG_EN = {
     "план": "plan", "провенанс": "provenance", "аудит": "audit", "архитектура": "architecture",
     "автоматизация": "automation", "инструменты": "tools", "стандарты": "standards", "кладбище": "graveyard",
     "термины": "terms", "RFC": "RFC", "CAD": "CAD", "egui": "egui", "GitHub": "GitHub",
+    "глоссарий": "glossary", "навигация": "navigation",
 }
 
 
 def tags_for(meta, lang):
     """Ключевые слова карточек хаба: переводим по словарю, незнакомые оставляем как есть."""
     tags = list(meta.get("tags") or [])
-    return [TAG_EN.get(t, t) for t in tags] if lang == "en" else tags
+    return [TAG_EN.get(t) or t for t in tags] if lang == "en" else tags
 
 
 def tr_ui(tpl, lang):
@@ -495,11 +504,15 @@ def stack_refs(archive_slug):
     return refs
 
 
-def cross_for(slug, st):
+def cross_for(slug, st, lang="ru"):
     """Связи между стеками. В JSON они односторонние (`other`), здесь считаются обе стороны.
 
     Возвращает {"out": {card_id: [...]}, "back": {card_id: [...]}} — «куда ведёт» и «кто ссылается сюда».
+    Для английской страницы путь ведёт в английскую версию стека, если она существует.
     """
+    def page(sid):
+        return ("en/stacks/%s/" % sid) if (lang == "en" and load_i18n(sid)) else ("stacks/%s/" % sid)
+
     idx = {}
     for meta in STACKS:
         other = stack_data(meta["slug"])
@@ -516,7 +529,7 @@ def cross_for(slug, st):
                     continue
                 back.setdefault(ref["card"], []).append({
                     "stack": sid, "title": sentry["title"], "card": card["id"], "card_title": card["title"],
-                    "why": ref.get("why", ""), "path": "stacks/%s/#c-%s" % (sid, card["id"]),
+                    "why": ref.get("why", ""), "path": page(sid) + "#c-" + card["id"],
                 })
     for card in st.get("cards", []):
         for ref in card.get("other", []):
@@ -526,7 +539,7 @@ def cross_for(slug, st):
             out.setdefault(card["id"], []).append({
                 "stack": ref["stack"], "title": tgt["title"], "card": ref["card"],
                 "card_title": tgt["cards"][ref["card"]], "why": ref.get("why", ""),
-                "path": "stacks/%s/#c-%s" % (ref["stack"], ref["card"]),
+                "path": page(ref["stack"]) + "#c-" + ref["card"],
             })
     return {"out": out, "back": back}
 
@@ -610,7 +623,7 @@ def render_stack(meta, st, mode="page", lang="ru", depth=2):
             .replace("__SLUG__", data["slug"])
             .replace("__FOOTERNOTE__", STACK_FOOTER[lang])
             .replace("__FOOTERREPO__", footer.format(repo=REPO_PATH))
-            .replace("__CROSS__", _js_json(cross_for(data["slug"], data)))
+            .replace("__CROSS__", _js_json(cross_for(data["slug"], data, lang)))
             .replace("__STACK__", _js_json(data)))
 
 
@@ -769,7 +782,7 @@ def render_hub(date, lang="ru"):
             stats = (["%d findings" % len(d["entries"]), "Japanese: %d" % jp, "%d sources" % src] if en else
                      ["%d находок" % len(d["entries"]), "японских: %d" % jp, "%d источников" % src])
             go = "Open the digest →" if en else "Открыть дайджест →"
-        stats.append(" · ".join(dg["tags"]))
+        stats.append(" · ".join(tags_for(dg, lang)))
         if en:
             stats.append("RU")
         dcards.append(_card(root + "digests/%s/" % dg["slug"], title, blurb, stats, go))
@@ -782,24 +795,26 @@ def render_hub(date, lang="ru"):
         nact = sum(len(c.get("actions", [])) for c in cards)
         stats = (["%d cards" % len(cards), "%d links" % nlinks, "%d sources" % nsrc, "%d buttons" % nact] if en else
                  ["%d карточек" % len(cards), "%d связей" % nlinks, "%d источников" % nsrc, "%d кнопок" % nact])
-        stats.append(" · ".join(meta["tags"]))
+        stats.append(" · ".join(tags_for(meta, lang)))
+        if en and not load_i18n(meta["slug"]):
+            stats.append("RU")
         blurb = (meta.get("blurb_en") or meta["blurb"]) if en else meta["blurb"]
-        href = ("en/stacks/%s/" % meta["slug"]) if en else ("stacks/%s/" % meta["slug"])
-        scards.append(_card(href, st["title"], blurb, stats,
+        href = ("stacks/%s/" % meta["slug"]) if (en and load_i18n(meta["slug"])) else (root + "stacks/%s/" % meta["slug"])
+        scards.append(_card(href, (meta.get("title_en") or st["title"]) if en else st["title"], blurb, stats,
                             "Open the card stack →" if en else "Открыть стек карточек →"))
     mcards = []
     for m in DOCS:
         mcards.append(_card(root + "docs/%s/" % m["slug"],
                             (m.get("title_en") or m["title"]) if en else m["title"],
                             (m.get("blurb_en") or m["blurb"]) if en else m["blurb"],
-                            list(m["tags"]) + (["RU"] if en else []),
+                            tags_for(m, lang) + (["RU"] if en else []),
                             "Read the concept →" if en else "Читать концепт →"))
     sections = ("  <h2>%s</h2>\n  " % sec["stacks"] + "\n  ".join(scards)
                 + "\n\n  <h2>%s</h2>\n  " % sec["digests"] + "\n  ".join(dcards)
                 + "\n\n  <h2>%s</h2>\n  " % sec["docs"] + "\n  ".join(mcards))
     if en:
         prov = _card(
-            "provenance/",
+            root + "provenance/",
             "Archive provenance: what is verified and what is still owed",
             "Verbatim quotes from primary sources, machine-checked against the source text; “read in full / index "
             "level” marks; dead links; an open list of entries without a quote; machine-readable access "

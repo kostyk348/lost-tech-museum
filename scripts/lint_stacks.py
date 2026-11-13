@@ -218,6 +218,66 @@ def lint_cross(data):
                         % (meta["slug"], cid, ref["stack"], ref["card"]))
 
 
+def lint_i18n(meta, st):
+    """Английский перевод: сидекар должен совпадать по форме с оригиналом, а страница — собираться."""
+    slug = meta["slug"]
+    tr = build.load_i18n(slug)
+    if not tr:
+        warn(slug, "нет перевода stacks/%s/i18n/en.json — английской страницы нет" % slug)
+        return
+    cards = {c["id"]: c for c in st.get("cards", [])}
+    for cid, t in (tr.get("cards") or {}).items():
+        c = cards.get(cid)
+        if not c:
+            err(slug, "перевод карточки %s не находит карточку в stack.json" % cid)
+            continue
+        if not t.get("title"):
+            err(slug, "карточка %s: нет английского заголовка" % cid)
+        nf_ru, nf_en = len(c.get("fields") or []), len(t.get("fields") or [])
+        if nf_ru != nf_en:
+            err(slug, "карточка %s: в переводе %d полей, в оригинале %d — правь перевод" % (cid, nf_en, nf_ru))
+        na_ru, na_en = len(c.get("actions") or []), len(t.get("actions") or [])
+        if na_ru != na_en:
+            err(slug, "карточка %s: в переводе %d действий, в оригинале %d" % (cid, na_en, na_ru))
+        for key in (t.get("links") or {}):
+            if key not in {l["to"] for l in c.get("links") or []}:
+                err(slug, "карточка %s: перевод связи %s, которой нет в оригинале" % (cid, key))
+        keys = {"%s/%s" % (r["stack"], r["card"]) for r in c.get("other") or []}
+        for key in (t.get("other") or {}):
+            if key not in keys:
+                err(slug, "карточка %s: перевод межстековой связи %s, которой нет" % (cid, key))
+    for cid in cards:
+        if cid not in (tr.get("cards") or {}):
+            warn(slug, "карточка %s не переведена" % cid)
+    page = os.path.join(build.ROOT, "en", "stacks", slug, "index.html")
+    if not os.path.exists(page):
+        err(slug, "английская страница en/stacks/%s/index.html не собрана" % slug)
+        return
+    with open(page, encoding="utf-8") as fh:
+        html = fh.read()
+    for marker in ("__STACK__", "__CROSS__", "__LANG__", "__SWITCH__", "__FOOTERNOTE__", "__ROOT__"):
+        if marker in html:
+            err(slug, "в английской странице остался плейсхолдер %s" % marker)
+    if '<html lang="en">' not in html:
+        err(slug, "английская страница без атрибута lang=\"en\"")
+    if "Карточка архива" in html:
+        err(slug, "в английской странице остались русские подписи источников")
+
+
+def lint_hub():
+    page = os.path.join(build.ROOT, "en", "index.html")
+    if not os.path.exists(page):
+        err("hub", "en/index.html не собран")
+        return
+    with open(page, encoding="utf-8") as fh:
+        html = fh.read()
+    for marker in ("__SECTIONS__", "__LEDE__", "__HOWNOTE__", "__HOWSECT__", "__SWITCH__", "__LANG__"):
+        if marker in html:
+            err("hub", "в английском хабе остался плейсхолдер %s" % marker)
+    if '<html lang="en">' not in html:
+        err("hub", "английский хаб без атрибута lang=\"en\"")
+
+
 def main():
     data = {}
     for meta in build.STACKS:
@@ -225,7 +285,9 @@ def main():
         if st:
             data[meta["slug"]] = st
             lint_built(meta["slug"], st)
+            lint_i18n(meta, st)
     lint_cross(data)
+    lint_hub()
     for line in WARNINGS:
         print(line)
     for line in ERRORS:
