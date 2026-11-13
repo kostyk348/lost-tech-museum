@@ -850,11 +850,15 @@ def main():
     if args and args[0] == "--widget":
         out = args[1] if len(args) > 1 else os.path.join(ROOT, "widget.html")
         want = args[2] if len(args) > 2 else None
+        lang = "en" if want and want.endswith(":en") else "ru"
+        if want and want.endswith(":en"):
+            want = want[:-3]
         for meta in STACKS:
             if want == meta["slug"]:
                 st = stack_data(meta["slug"])
-                open(out, "w", encoding="utf-8").write(render_stack(meta, st, mode="widget"))
-                print("widget:", out, os.path.getsize(out), "| stack:", meta["slug"])
+                open(out, "w", encoding="utf-8").write(
+                    render_stack(meta, st, mode="widget", lang=lang, depth=3 if lang == "en" else 2))
+                print("widget:", out, os.path.getsize(out), "| stack:", meta["slug"], "| lang:", lang)
                 return
         dg = next((g for g in DIGESTS if want and g["slug"] == want), DIGESTS[0])
         d = json.loads(_read("data/%s.json" % dg["slug"]))
