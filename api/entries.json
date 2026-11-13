@@ -20,7 +20,7 @@
    "death": "BTRON был несовместим с DOS-миром: NEC держал 80–90% образовательного рынка Японии на DOS, и переход означал выбросить всю инфраструктуру и софт. Прототипы BTRON286 тестировали в школах (1988), массового внедрения не случилось.",
    "now": "Ветка ITRON победила незаметно (миллиарды устройств). BTRON — история; проект живёт как TRON Forum + T-Kernel/T-Engine.",
    "pitch": "Вернуть «сквозную» архитектуру: один контракт на уровне компонентов (сегодня это WASM Component Model + WASI) поверх RTOS, чтобы код устройства и облака собирался из одних интерфейсов.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-tron",
    "src": [
@@ -44,7 +44,7 @@
      "url": "https://en.wikipedia.org/wiki/BTRON",
      "title": "Wikipedia: BTRON",
      "read": true,
-     "quote": null,
+     "quote": "However, in June of the same year, the mass media reported \"abandonment of BTRON adoption for educational PCs\".",
      "link_state": "alive",
      "link_code": 200
     }
@@ -69,7 +69,7 @@
    "death": "Как продукт она никогда не была брендом: победа невидима, обучение и сообщество остались в Японии, а в мире выиграли FreeRTOS/Zephyr/VxWorks.",
    "now": "Жив (T-Kernel, TOPPERS); актуален как база для edge-AI на микроконтроллерах.",
    "pitch": "Открытая спецификация RTOS как «POSIX для железа» + WASM-песочница для обновляемых моделей на устройстве: переносимость между MCU и обновления без vendor lock-in.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-itron",
    "src": [
@@ -77,7 +77,7 @@
      "url": "https://en.wikipedia.org/wiki/ITRON_project",
      "title": "Wikipedia: ITRON project",
      "read": true,
-     "quote": null,
+     "quote": "Even after μITRON is no longer used as the main OS for mobile phones, it may still be running in microprocessrs for camera control, etc.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -181,7 +181,7 @@
    "death": "Экспорт провалился: Nokia и другие мировые вендоры отказались делать i-mode-аппараты, а операторы зависели от японских производителей без международного опыта. Пик в Японии — около 2008; DoCoMo объявила об окончании 29.10.2019, сервис отключён 31.03.2026.",
    "now": "Мёртв с марта 2026. Идеи продолжают жить в магазинах приложений и супер-приложениях.",
    "pitch": "Операторский биллинг как API + «контент, а не урезанный веб»: cHTML обыграл WAP именно потому, что не требовал отдельного интернета. Сегодня — про единый счёт для агентов и подписок без комиссии магазина.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 4,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-imode",
    "src": [
@@ -189,7 +189,7 @@
      "url": "https://en.wikipedia.org/wiki/I-mode",
      "title": "Wikipedia: i-mode",
      "read": true,
-     "quote": null,
+     "quote": "On 29 October 2019, DoCoMo announced that i-mode would end on 31 March 2026, after which it was discontinued.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -348,7 +348,7 @@
    "death": "DOS/V (1990) позволил IBM-клонам рисовать японский текст программно — и изоляция обернулась крахом: рынок ушёл к глобальному стандарту, NEC не смогла этому помешать. Снят с производства 30.09.2003.",
    "now": "Мёртв; платформа — объект коллекционирования и эмуляции.",
    "pitch": "Разделить локализацию и ядро: раскладки, типографика, юридические форматы — плагинный слой; шина, API, форматы данных — глобальные. Протекционизм на уровне форматов проигрывает всегда.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-pc98",
    "src": [
@@ -356,7 +356,7 @@
      "url": "https://en.wikipedia.org/wiki/PC-98",
      "title": "Wikipedia: PC-98",
      "read": true,
-     "quote": null,
+     "quote": "NEC announced that the PC-98 would be discontinued in 2003.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -642,7 +642,7 @@
    "death": "Сложность реализации в 70–80-х, собственническая модель, годы без выпуска; веб выбрал односторонние ссылки и — как оказалось — сделал правильную сделку.",
    "now": "Частично: двусторонние ссылки в графовых заметках (Obsidian/Roam), transclusion — в блоках Notion, но без версионирования источника.",
    "pitch": "Транс-включение и версионирование как обязательные свойства: content-addressed фрагменты + двусторонние ссылки + история происхождения каждого куска. В эпоху генеративного контента это единственный честный способ показывать провенанс.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-xanadu",
    "src": [
@@ -650,7 +650,7 @@
      "url": "https://en.wikipedia.org/wiki/Project_Xanadu",
      "title": "Wikipedia: Project Xanadu",
      "read": true,
-     "quote": null,
+     "quote": "The 1995 Wired Magazine article \"The Curse of Xanadu\" provoked a harsh rebuttal from Nelson, but contention largely faded as the Web dominated Xanadu.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -730,7 +730,7 @@
    "death": "Коммерчески провалилась (Vita Nuova), проиграла Java/JVM по экосистеме и инструментам.",
    "now": "Жива как нишевая ОС и учебный проект; идеи полностью совпали с тем, что делает WASM.",
    "pitch": "Собрать WASM + 9P/HTTP: единица развёртывания — байткод, единица интеграции — смонтированное пространство имён. Это основа локально-первичных приложений с честной миграцией между устройствами.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 1,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-inferno",
    "src": [
@@ -738,7 +738,7 @@
      "url": "https://en.wikipedia.org/wiki/Inferno_(operating_system)",
      "title": "Wikipedia: Inferno (operating system)",
      "read": true,
-     "quote": null,
+     "quote": "The Inferno business unit ceased operations in 2000 within three years of its founding, and Lucent sold Inferno to Vita Nuova Holdings based in York , England.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -761,7 +761,7 @@
    "death": "Не хватило доли рынка и денег: продажи шли плохо, платформа проиграла Windows/Apple, активы распроданы.",
    "now": "Мёртв, но Haiku продолжает разработку; live queries и атрибуты частично переизобретены в Spotlight, SQLite, Datomic.",
    "pitch": "Живой запрос как первоклассный объект интерфейса (папка/доска, обновляющаяся сама) + расширенные атрибуты как системный слой метаданных над локальными файлами: локальный граф данных вместо «папок-помоек».",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-beos",
    "src": [
@@ -769,7 +769,7 @@
      "url": "https://en.wikipedia.org/wiki/BeOS",
      "title": "Wikipedia: BeOS",
      "read": true,
-     "quote": null,
+     "quote": "Be was ultimately unable to achieve a significant market share and ended development with dwindling finances, so Palm acquired the BeOS assets in 2001.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -944,7 +944,7 @@
    "death": "Разрыв с 8086 по цене и производительности, отсутствие компиляторов, обратная несовместимость; capability-механику стали считать «накладными расходами».",
    "now": "Мёртв, но идеи переродились: CHERI и ARM Morello, seL4, EROS/KeyKOS, WASI capabilities, Fuchsia.",
    "pitch": "Права как передаваемые ссылки вместо bearer-токенов: агент может вызвать только то, что ему явно передали, и не может «достать» ничего по имени. Прямой ответ на класс prompt-injection-атак и на агента с полным root-доступом.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 1,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-iapx432",
    "src": [
@@ -952,7 +952,7 @@
      "url": "https://en.wikipedia.org/wiki/Intel_iAPX_432",
      "title": "Wikipedia: Intel iAPX 432",
      "read": true,
-     "quote": null,
+     "quote": "It is considered a commercial failure for Intel, and was discontinued in 1986.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -1182,7 +1182,7 @@
    "death": "Eternal September, спам, бинарные вложения и рост объёмов; обсуждения ушли в веб-форумы, затем в соцсети. Централизованные сервисы оказались удобнее.",
    "now": "Жив как узкая инфраструктура (архивы, бинарные группы), но не как сообщество.",
    "pitch": "Проблема федеративных сетей не в протоколе, а в репутации и модерации: вернуть «moderation as protocol» — наследование доверия и правил между инстансами плюс умная репликация (не пересылать всё, как делает Nostr). Паттерн готов из Usenet-иерархий.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 1,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-usenet",
    "src": [
@@ -1190,7 +1190,7 @@
      "url": "https://en.wikipedia.org/wiki/Usenet",
      "title": "Wikipedia: Usenet",
      "read": true,
-     "quote": null,
+     "quote": "AOL announced that it would discontinue its integrated Usenet service in early 2005, citing the growing popularity of weblogs, chat forums and on-line conferencing.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -1213,7 +1213,7 @@
    "death": "Веб победил гипертекстом, картинками и бесплатным просмотром; Gopher угас до энтузиастов.",
    "now": "Небольшое сообщество серверов; идейный наследник — протокол Gemini.",
    "pitch": "Тонкий протокол как ценность: документы с типами и метаданными, поиск как часть протокола, клиент за выходные. Ориентир для машинно-читаемого веба и агентных интерфейсов вместо тяжёлых SPA-обёрток.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-gopher",
    "src": [
@@ -1221,7 +1221,7 @@
      "url": "https://en.wikipedia.org/wiki/Gopher_(protocol)",
      "title": "Wikipedia: Gopher (protocol), RFC 1436",
      "read": true,
-     "quote": null,
+     "quote": "By the late 1990s, Gopher had ceased expanding.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -1252,7 +1252,7 @@
    "death": "Индустриальная инерция и политика: двоичное направление получило поддержку промышленности, троичная линия осталась без производства и развития.",
    "now": "Мёртв (кроме академических реконструкций).",
    "pitch": "Троичность вернулась в ML иначе: веса {-1, 0, +1} в 1.58-битных моделях — это Setun в новой обёртке. Дальше: железо для тернарного и тернарно-квантованного инференса плюс тернарное голосование в системах консенсуса и рекомендаций.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 1,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-setun",
    "src": [
@@ -1260,7 +1260,7 @@
      "url": "https://en.wikipedia.org/wiki/Setun",
      "title": "Wikipedia: Setun",
      "read": true,
-     "quote": null,
+     "quote": "Fifty computers were built from 1959 until 1965, when production was halted.",
      "link_state": "alive",
      "link_code": 200
     }
@@ -1283,7 +1283,7 @@
    "death": "Бюрократические войны: военные не хотели делиться информацией, ведомства — терять контроль; в итоге получили поддержку только локальные системы управления.",
    "now": "Мёртв; часть идей растворена в ведомственных системах.",
    "pitch": "Урок для «цифрового государства»: централизованная система не выживает без распределённой собственности на данные и без локальных точек правды. И — как показал Minitel — дешёвый терминал и платёжный слой важнее амбициозного протокола.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 3,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-ogas",
    "src": [
@@ -1291,7 +1291,7 @@
      "url": "https://en.wikipedia.org/wiki/OGAS",
      "title": "Wikipedia: OGAS",
      "read": true,
-     "quote": null,
+     "quote": "But by the early 1970s the idea of transcending the status quo was abandoned by the Soviet leadership, who felt the system threatened Party control of the economy.",
      "link_state": "alive",
      "link_code": 200
     },
@@ -1331,7 +1331,7 @@
    "death": "Apple не нашла ему места в веб-эпоху и не перенесла на Mac OS X; после возвращения Джобса продукт заморозили.",
    "now": "Мёртв; наследие — LiveCode, FileMaker, «notebooks» и сама идея citizen developer.",
    "pitch": "HyperCard для LLM: пользователь собирает личный инструмент из карточек, данных и агентных шагов, исполняемый локально. Возвращает «программу, которую можно потрогать», вместо чата, где результат растворяется.",
-   "quotes": 0,
+   "quotes": 1,
    "sources": 2,
    "url": "https://kostyk348.github.io/lost-tech-museum/digests/lost-ideas-1980s-2000s/#c-hypercard",
    "src": [
@@ -1339,7 +1339,7 @@
      "url": "https://en.wikipedia.org/wiki/HyperCard",
      "title": "Wikipedia: HyperCard (release 1987, final 1998, withdrawn 2004)",
      "read": true,
-     "quote": null,
+     "quote": "In 2000, the HyperCard engineering team was reassigned to other tasks after Jobs decided to abandon the product.",
      "link_state": "alive",
      "link_code": 200
     },

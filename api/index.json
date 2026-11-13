@@ -10,8 +10,8 @@
   "quote": "дословная цитата из источника (src[].q), сверяется scripts/quotes.py",
   "quote_audit": {
    "generated": "2026-11-13",
-   "checked": 35,
-   "confirmed": 35,
+   "checked": 48,
+   "confirmed": 48,
    "failed": [],
    "missing": []
   },
@@ -35,8 +35,8 @@
    "pitches": 8,
    "sources": 75,
    "sources_read": 40,
-   "quotes": 1,
-   "entries_with_quote": 1
+   "quotes": 14,
+   "entries_with_quote": 14
   },
   {
    "slug": "portfolio-review",

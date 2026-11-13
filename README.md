@@ -16,6 +16,12 @@
 
 **Сайт (GitHub Pages):** https://kostyk348.github.io/lost-tech-museum/
 
+**Что проверено, а что в долгу:** https://kostyk348.github.io/lost-tech-museum/provenance/ ·
+**Машиночитаемо:** [api/index.json](https://kostyk348.github.io/lost-tech-museum/api/index.json),
+[api/entries.json](https://kostyk348.github.io/lost-tech-museum/api/entries.json),
+[feed.xml](https://kostyk348.github.io/lost-tech-museum/feed.xml),
+[sitemap.xml](https://kostyk348.github.io/lost-tech-museum/sitemap.xml)
+
 ## Дайджесты
 
 | Дайджест | Что внутри |
@@ -41,7 +47,12 @@ stacks/<slug>/stack.json   данные стека: карточки, фоны, 
 templates/dashboard.html   шаблон страницы дайджеста (page / widget режимы)
 templates/stack.html       шаблон страницы стека (карточки-фоны page / widget)
 templates/index.html       шаблон главной страницы-хаба
-scripts/build.py           сборка: index.html + digests/<slug>/ + docs/<slug>/ + stacks/<slug>/ (+ --widget)
+scripts/build.py           сборка: index.html + digests/<slug>/ + docs/<slug>/ + stacks/<slug>/ + provenance/ (+ --widget)
+scripts/machine.py         api/index.json, api/entries.json, feed.xml, sitemap.xml, robots.txt (из тех же данных)
+scripts/quotes.py          сверка дословных цитат с первоисточниками (+ data/quote-audit.json)
+scripts/audit_links.py     живость всех ссылок архива (+ data/link-audit.json), 1 запрос/с на хост
+scripts/suggest_quotes.py  кандидаты цитат из первоисточников для записей, где цитаты нет
+scripts/check_site.py      проверка страниц, API и целостности данных (код 1 — публиковать нельзя)
 scripts/lint_stacks.py     проверка целостности стеков: связи, фон, источники, белый список инструментов
 digests/<slug>/index.html  результат сборки, его не правят руками
 stacks/<slug>/index.html   результат сборки, его не правят руками

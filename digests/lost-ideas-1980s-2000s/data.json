@@ -31,7 +31,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/BTRON",
      "t": "Wikipedia: BTRON",
-     "r": 1
+     "r": 1,
+     "q": "However, in June of the same year, the mass media reported \"abandonment of BTRON adoption for educational PCs\"."
     }
    ]
   },
@@ -56,7 +57,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/ITRON_project",
      "t": "Wikipedia: ITRON project",
-     "r": 1
+     "r": 1,
+     "q": "Even after μITRON is no longer used as the main OS for mobile phones, it may still be running in microprocessrs for camera control, etc."
     },
     {
      "u": "https://www.tron.org/ja/wp-content/uploads/sites/2/2023/12/ieeemilestone-en.pdf",
@@ -138,7 +140,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/I-mode",
      "t": "Wikipedia: i-mode",
-     "r": 1
+     "r": 1,
+     "q": "On 29 October 2019, DoCoMo announced that i-mode would end on 31 March 2026, after which it was discontinued."
     },
     {
      "u": "https://computerworld.com/article/1366318/ntt-docomo-launches-first-java-cellphones.html",
@@ -258,7 +261,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/PC-98",
      "t": "Wikipedia: PC-98",
-     "r": 1
+     "r": 1,
+     "q": "NEC announced that the PC-98 would be discontinued in 2003."
     },
     {
      "u": "https://consortiuminfo.org/metalibrary/innovation-and-control-in-standards-architectures-the-rise-and-fall-of-japans-pc-98",
@@ -469,7 +473,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/Project_Xanadu",
      "t": "Wikipedia: Project Xanadu",
-     "r": 1
+     "r": 1,
+     "q": "The 1995 Wired Magazine article \"The Curse of Xanadu\" provoked a harsh rebuttal from Nelson, but contention largely faded as the Web dominated Xanadu."
     },
     {
      "u": "https://news.ycombinator.com/item?id=45323901",
@@ -532,7 +537,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/Inferno_(operating_system)",
      "t": "Wikipedia: Inferno (operating system)",
-     "r": 1
+     "r": 1,
+     "q": "The Inferno business unit ceased operations in 2000 within three years of its founding, and Lucent sold Inferno to Vita Nuova Holdings based in York , England."
     }
    ]
   },
@@ -555,7 +561,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/BeOS",
      "t": "Wikipedia: BeOS",
-     "r": 1
+     "r": 1,
+     "q": "Be was ultimately unable to achieve a significant market share and ended development with dwindling finances, so Palm acquired the BeOS assets in 2001."
     },
     {
      "u": "https://arstechnica.com/information-technology/2018/07/the-beos-filesystem/",
@@ -685,7 +692,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/Intel_iAPX_432",
      "t": "Wikipedia: Intel iAPX 432",
-     "r": 1
+     "r": 1,
+     "q": "It is considered a commercial failure for Intel, and was discontinued in 1986."
     }
    ]
   },
@@ -858,7 +866,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/Usenet",
      "t": "Wikipedia: Usenet",
-     "r": 1
+     "r": 1,
+     "q": "AOL announced that it would discontinue its integrated Usenet service in early 2005, citing the growing popularity of weblogs, chat forums and on-line conferencing."
     }
    ]
   },
@@ -881,7 +890,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/Gopher_(protocol)",
      "t": "Wikipedia: Gopher (protocol), RFC 1436",
-     "r": 1
+     "r": 1,
+     "q": "By the late 1990s, Gopher had ceased expanding."
     },
     {
      "u": "https://commons.lib.jmu.edu/cgi/viewcontent.cgi?article=1196&context=selectedworks",
@@ -909,7 +919,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/Setun",
      "t": "Wikipedia: Setun",
-     "r": 1
+     "r": 1,
+     "q": "Fifty computers were built from 1959 until 1965, when production was halted."
     }
    ]
   },
@@ -932,7 +943,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/OGAS",
      "t": "Wikipedia: OGAS",
-     "r": 1
+     "r": 1,
+     "q": "But by the early 1970s the idea of transcending the status quo was abandoned by the Soviet leadership, who felt the system threatened Party control of the economy."
     },
     {
      "u": "https://bbc.com/future/story/20161026-why-the-forgotten-soviet-internet-was-doomed-from-the-start",
@@ -966,7 +978,8 @@
     {
      "u": "https://en.wikipedia.org/wiki/HyperCard",
      "t": "Wikipedia: HyperCard (release 1987, final 1998, withdrawn 2004)",
-     "r": 1
+     "r": 1,
+     "q": "In 2000, the HyperCard engineering team was reassigned to other tasks after Jobs decided to abandon the product."
     },
     {
      "u": "https://www.wired.com/2002/08/hypercard-forgotten-but-not-gone",
