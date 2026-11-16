@@ -5,35 +5,42 @@
   <link href="https://kostyk348.github.io/lost-tech-museum/feed.xml" rel="self"/>
   <link href="https://kostyk348.github.io/lost-tech-museum/"/>
   <id>https://kostyk348.github.io/lost-tech-museum/</id>
-  <updated>2026-11-13T00:00:00Z</updated>
+  <updated>2026-11-16T00:00:00Z</updated>
   <author><name>Archivessa (музей)</name></author>
   <entry>
     <title>Глоссарий: capability, tuple space, performatives и другие термины архива</title>
     <link href="https://kostyk348.github.io/lost-tech-museum/docs/glossary/"/>
     <id>https://kostyk348.github.io/lost-tech-museum/docs/glossary/</id>
-    <updated>2026-11-13T00:00:00Z</updated>
+    <updated>2026-11-16T00:00:00Z</updated>
     <summary>Короткие определения терминов, без которых записи читаются тяжело, со ссылками на записи, где термин работает по делу. Определения — объяснение агента, факты — в первоисточниках</summary>
   </entry>
   <entry>
     <title>Куда развивать музей: состояние, долг по цитатам и что начать дальше</title>
     <link href="https://kostyk348.github.io/lost-tech-museum/docs/roadmap/"/>
     <id>https://kostyk348.github.io/lost-tech-museum/docs/roadmap/</id>
-    <updated>2026-11-13T00:00:00Z</updated>
+    <updated>2026-11-16T00:00:00Z</updated>
     <summary>План, а не находка: где архив сейчас, какие записи ждут дословной цитаты, патентный срез, рубрика «зазор», ночной смотритель, маршруты и экспорт</summary>
   </entry>
   <entry>
     <title>Два бота, которые делают музей: Archivessa и Chartessa</title>
     <link href="https://kostyk348.github.io/lost-tech-museum/docs/museum-bots/"/>
     <id>https://kostyk348.github.io/lost-tech-museum/docs/museum-bots/</id>
-    <updated>2026-11-13T00:00:00Z</updated>
+    <updated>2026-11-16T00:00:00Z</updated>
     <summary>Концепт: автономный конвейер проверенных находок + бот личных стеков-карточек поверх архива</summary>
   </entry>
   <entry>
     <title>Инженерный инструмент на egui и электротехнический слой в CAD</title>
     <link href="https://kostyk348.github.io/lost-tech-museum/docs/instrumentation-on-egui/"/>
     <id>https://kostyk348.github.io/lost-tech-museum/docs/instrumentation-on-egui/</id>
-    <updated>2026-11-13T00:00:00Z</updated>
+    <updated>2026-11-16T00:00:00Z</updated>
     <summary>Практики egui для плотных инженерных интерфейсов, три варианта дизайна аналога Modbus Poll и что делает EPLAN незаменимым — плюс чего в CAD делать не надо</summary>
+  </entry>
+  <entry>
+    <title>ОПЛОТ: защищённый профиль для Modbus — из идей 90-х и наших собственных</title>
+    <link href="https://kostyk348.github.io/lost-tech-museum/docs/ot-guard/"/>
+    <id>https://kostyk348.github.io/lost-tech-museum/docs/ot-guard/</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <summary>Разбор реальных атак на ПЛК 2024–2026 (CISA AA26-097A, FrostyGoop, CVE-2025-41729), почему TLS-профиль Modbus этого не закрывает, и конструкция протокола: STS, тикеты Kerberos, engineBoots из SNMPv3, двойная подпись SET — плюс Plumber как политика, ucode как идентичность, mbrs как верификатор, PHASE как обратимая запись и тернарная логика как третье решение «в безопасное»</summary>
   </entry>
   <entry>
     <title>Идеи, которые не дожили: японский и мировой софт 1980–2006</title>

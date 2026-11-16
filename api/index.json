@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13",
+ "generated": "2026-11-16",
  "museum": "Музей потерянных идей",
  "repo": "https://github.com/kostyk348/lost-tech-museum",
  "site": "https://kostyk348.github.io/lost-tech-museum",
@@ -87,6 +87,11 @@
    "slug": "instrumentation-on-egui",
    "title": "Инженерный инструмент на egui и электротехнический слой в CAD",
    "url": "https://kostyk348.github.io/lost-tech-museum/docs/instrumentation-on-egui/"
+  },
+  {
+   "slug": "ot-guard",
+   "title": "ОПЛОТ: защищённый профиль для Modbus — из идей 90-х и наших собственных",
+   "url": "https://kostyk348.github.io/lost-tech-museum/docs/ot-guard/"
   }
  ],
  "stacks": [
