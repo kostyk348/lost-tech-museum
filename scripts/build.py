@@ -103,6 +103,20 @@ DOCS = [
         "blurb_en": "egui practices for dense engineering interfaces, three designs for a Modbus Poll analogue, and what "
                     "makes EPLAN irreplaceable — plus what not to do in CAD. Content is Russian.",
     },
+    {
+        "slug": "ot-guard",
+        "title": "ОПЛОТ: защищённый профиль для Modbus — из идей 90-х и наших собственных",
+        "blurb": "Разбор реальных атак на ПЛК 2024–2026 (CISA AA26-097A, FrostyGoop, CVE-2025-41729), почему "
+                 "TLS-профиль Modbus этого не закрывает, и конструкция протокола: STS, тикеты Kerberos, "
+                 "engineBoots из SNMPv3, двойная подпись SET — плюс Plumber как политика, ucode как идентичность, "
+                 "mbrs как верификатор, PHASE как обратимая запись и тернарная логика как третье решение «в безопасное»",
+        "tags": ["протокол", "безопасность", "Modbus", "ПЛК", "проект"],
+        "title_en": "OPLOT: a secure Modbus profile built from 1990s ideas and our own",
+        "blurb_en": "Real PLC attacks of 2024–2026 (CISA AA26-097A, FrostyGoop, CVE-2025-41729), why the TLS profile of "
+                    "Modbus does not cover them, and a protocol design: STS, Kerberos tickets, SNMPv3 engineBoots, SET's "
+                    "double signature — plus Plumber as policy, ucode as identity, mbrs as verifier, PHASE as reversible "
+                    "writes and three-valued logic as the “make it safe” outcome. Content is Russian.",
+    },
 ]
 
 # Стеки карточек (Chartessa). Источник правды — stacks/<slug>/stack.json, здесь только витрина.

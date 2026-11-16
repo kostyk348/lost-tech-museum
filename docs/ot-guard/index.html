@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ОПЛОТ: защищённый профиль для Modbus — из идей 90-х и наших собственных — Музей потерянных идей</title>
+<meta name="description" content="Разбор реальных атак на ПЛК 2024–2026 (CISA AA26-097A, FrostyGoop, CVE-2025-41729), почему TLS-профиль Modbus этого не закрывает, и конструкция протокола: STS, тикеты Kerberos, engineBoots из SNMPv3, двойная подпись SET — плюс Plumber как политика, ucode как идентичность, mbrs как верификатор, PHASE как обратимая запись и тернарная логика как третье решение «в безопасное»">
+<style>
+:root{--bg:#0b0e14;--card:#141a24;--line:#242d3d;--fg:#e6edf7;--mut:#8b98ad;--cy:#22d3ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15.5px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif}
+a{color:#7cc4ff;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:26px 20px 70px}
+.crumb{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.crumb a{color:var(--mut)}
+h1{font-size:30px;line-height:1.18;margin:.4em 0 .3em;letter-spacing:-.015em}
+h2{font-size:20px;margin:1.9em 0 .5em;padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:16.5px;margin:1.5em 0 .4em;color:#cfe0f5}
+p{margin:.75em 0;color:#cfd9e8}
+ul,ol{margin:.7em 0 .7em 1.2em;padding:0;color:#cfd9e8}
+li{margin:.32em 0}
+strong{color:#fff}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:#111722;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:#bfe9f2}
+pre{background:#0e141d;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto}
+pre code{background:none;border:none;padding:0;color:#c7d6e8}
+blockquote{margin:1em 0;padding:.4em 0 .4em 16px;border-left:3px solid var(--cy);color:var(--mut)}
+table{width:100%;border-collapse:collapse;margin:1em 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#111722;color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#101620}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--mut);font-size:13.5px;margin:0 0 26px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+.actions{margin:26px 0 0}
+.actions a{display:inline-block;font-size:13.5px;border:1px solid var(--line);background:#111722;border-radius:999px;padding:7px 14px;color:#bfe9f2;margin-right:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumb"><a href="../../">← Музей потерянных идей</a></div>
+  <h1>ОПЛОТ: защищённый профиль для Modbus — из идей 90-х и наших собственных</h1>
+  <p class="meta">Разбор реальных атак на ПЛК 2024–2026 (CISA AA26-097A, FrostyGoop, CVE-2025-41729), почему TLS-профиль Modbus этого не закрывает, и конструкция протокола: STS, тикеты Kerberos, engineBoots из SNMPv3, двойная подпись SET — плюс Plumber как политика, ucode как идентичность, mbrs как верификатор, PHASE как обратимая запись и тернарная логика как третье решение «в безопасное» · концепт, собрано 2026-10-14</p>
+  <p>Записка о том, что именно ломают в ПЛК сегодня, почему TLS-профиль Modbus этого не закрывает, и какой протокол мы могли бы собрать — не с нуля, а из двух источников: криптографической инженерии девяностых и вещей, которые мы уже сделали (Plumber, ucode, mbrs, DSO, PHASE, тернарная логика).</p>
+<p>Это план и разбор, а не готовый стандарт. Кода пока нет — есть конструкция, из которой код следует без домыслов.</p>
+<h2>1. Что происходит на самом деле</h2>
+<p><strong>CISA AA26-097A</strong>, «Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers Across US Critical Infrastructure»: опубликован 7 апреля 2026, обновлён 22 июля 2026. Иранские акторы, работающие через интернет-подключённые ПЛК, нарушили работу нескольких секторов критической инфраструктуры США. Техника в отчёте названа прямо: <strong>взаимодействие с вредоносными файлами проектов</strong> и <strong>манипуляция данными на дисплеях HMI и SCADA</strong>. Затронутые производители — Rockwell Automation/Allen-Bradley, Schneider Electric, Siemens и, формулировка отчёта, «потенциально все ПЛК с выходом в интернет». Порты, по которым велят искать аномалии: <code>44818</code>, <code>2222</code>, <code>102</code> и <code>502</code>.</p>
+<p><strong>FrostyGoop</strong> (Dragos, апрель 2024): девятый известный ICS-малварь и первый, который сам говорит по <strong>Modbus TCP на порт 502</strong>, чтобы влиять на технологический процесс. Случай во Львове: в районной энергокомпании отопление пропало на двое суток, восстановление заняло почти два дня. Вход — предположительно через уязвимость в маршрутизаторе, обращённом наружу; сеть, серверы управления и контроллеры не были сегментированы. Малварь на Golang, большая часть антивирусов её тогда не видела.</p>
+<p><strong>Уязвимости в самих устройствах за 2024–2025</strong>: Schneider Modicon (CISA ICSA-24-352-04, CVSS 9.3), Modicon M340 и модули связи (ICSA-25-238-03), Janitza UMG 96-PA — <strong>неаутентифицированная команда чтения по Modbus</strong> приводит к отказу в обслуживании (CVE-2025-41729, CVSS 7.5), Socomec DIRIS — DoS через Modbus TCP.</p>
+<p><strong>Состояние стандартов</strong>: для Modbus TCP существует ровно один стандартизованный защищённый профиль — <strong>Modbus Security</strong> (Modbus Organization, 2018; в Китае принят как GB/T 41868-2022), построенный на TLS. Для последовательных линий стандарта нет вообще, и это признано в IETF: <code>draft-liu-iotops-modbus-seriallink-sec-spec-02</code> (10 декабря 2025, истекает 13 июня 2026) прямо пишет, что «в отрасли стандартизован только TLS-профиль для Modbus TCP», а RS-485 с линиями до 1000 метров остаётся без защиты от повторов, MITM и несанкционированного доступа.</p>
+<h2>2. Что из этого следует — требования, а не лозунги</h2>
+<table><thead><tr><th>№</th><th>Требование</th><th>Из какого факта</th></tr></thead><tbody><tr><td>R1</td><td>каждый запрос и ответ аутентифицирован, а не только «сессия»</td><td>FrostyGoop: чужой, но валидный Modbus-клиент на 502</td></tr><tr><td>R2</td><td>защита от повтора сохраняется <strong>после перезагрузки</strong> ПЛК</td><td>классическая проблема: счётчики в RAM обнуляются</td></tr><tr><td>R3</td><td>авторизация по смыслу запроса: функция, диапазон адресов, unit id</td><td>запись в опасный регистр не равна чтению телеметрии</td></tr><tr><td>R4</td><td>двойное подтверждение для опасных записей</td><td>инсайдер и украденный ноутбук инженера</td></tr><tr><td>R5</td><td>защита не только канала: файлы проектов и то, что видел оператор</td><td>AA26-097A: подменяли проект и данные HMI</td></tr><tr><td>R6</td><td>запись можно <strong>отменить</strong></td><td>двое суток без отопления во Львове</td></tr><tr><td>R7</td><td>работает на serial: 9600 бод, кадры ≤ 256 байт, без TLS</td><td>IETF-драфт: на RS-485 стандарта нет</td></tr><tr><td>R8</td><td>проверка с ограниченным и предсказуемым временем</td><td>цикл реального времени нельзя ломать</td></tr><tr><td>R9</td><td>журнал, который нельзя тихо переписать, и который переживает обрыв</td><td>разбор инцидента задним числом</td></tr><tr><td>R10</td><td>внедряется без замены ПЛК</td><td>на объекте стоят Siemens S7-200 и Modicon 2005 года</td></tr></tbody></table>
+<h2>3. Почему TLS-профиля недостаточно</h2>
+<p>Modbus Security — правильный шаг, но он отвечает на один вопрос из пяти.</p>
+<ul><li><strong>Он про канал, а не про операцию.</strong> Взаимно аутентифицированный клиент с валидным сертификатом</li></ul>
+<p>имеет право на любую функцию Modbus. Запись в регистр, который останавливает насос, и чтение температуры выглядят для TLS одинаково.</p>
+<ul><li><strong>Нет двойного подтверждения.</strong> Одна подпись — одна воля. В безопасности процессов двадцать лет</li></ul>
+<p>живёт dual control, в Modbus его нет.</p>
+<ul><li><strong>Нет отмены.</strong> Протокол не знает, что такое «вернуть как было».</li><li><strong>Нет серийного профиля.</strong> TLS на 9600 бод с кадрами по 256 байт — это не «тяжело», это</li></ul>
+<p>невозможно.</p>
+<ul><li><strong>Не защищает проект и HMI.</strong> Основная техника AA26-097A лежит выше канала: подменённый файл</li></ul>
+<p>проекта и подменённые цифры на экране оператора. Канал при этом может быть идеально шифрован.</p>
+<ul><li><strong>Сертификат на устройстве, которое живёт 20 лет</strong> — это отдельная проблема эксплуатации,</li></ul>
+<p>которую в цеху никто не хочет.</p>
+<h2>4. Идеи девяностых, которые всё ещё лучшие в своём классе</h2>
+<table><thead><tr><th>Идея</th><th>Год</th><th>Что берём</th><th>Почему это до сих пор уместно</th></tr></thead><tbody><tr><td><strong>STS</strong> (Diffie, van Oorschot, Wiener)</td><td>1992</td><td>взаимная аутентификация и обмен ключами на предъявителе/PSK, с forward secrecy</td><td>не нужен PKI и X.509: ПЛК и инженерная станция договариваются на общем секрете, а прослушанный сеанс не раскрывает следующие</td></tr><tr><td><strong>Kerberos V5</strong></td><td>1993 (RFC 1510)</td><td>короткоживущий тикет на операцию вместо «постоянного доступа»</td><td>украденный ноутбук инженера даёт доступ на минуты, а не на годы</td></tr><tr><td><strong>IPsec AH/ESP</strong></td><td>1995 (RFC 1825–1827)</td><td>разделение «целостность» и «конфиденциальность», окно анти-повтора</td><td>в цеху чаще нужна именно целостность: телеметрию скрывать не от кого, а подменять — есть кому</td></tr><tr><td><strong>SNMPv3 USM</strong></td><td>1998 (RFC 2574 / 3414)</td><td><code>engineBoots</code> + <code>engineTime</code>: счётчик, переживающий перезагрузку</td><td>ровно наша боль: ПЛК перезагрузили — окно повторов сбросилось</td></tr><tr><td><strong>SET, двойная подпись</strong></td><td>1997</td><td>две подписи на одну операцию, каждая сторона не видит чужую половину</td><td>двойное подтверждение записи: оператор и супервизор, без раскрытия лишнего</td></tr><tr><td><strong>Хеш-цепочки в аудите</strong> (Bellare–Yee)</td><td>1997</td><td>журнал, где каждая запись связана с предыдущей</td><td>«тихо переписать историю» становится вычислительно заметным</td></tr></tbody></table>
+<h2>5. Наши идеи — и что именно они делают в ОПЛОТе</h2>
+<p>Это не украшение: каждый пункт закрывает требование, которое иначе пришлось бы изобретать заново.</p>
+<table><thead><tr><th>Наш проект</th><th>Механизм в ОПЛОТе</th><th>Какое требование закрывает</th></tr></thead><tbody><tr><td><strong>Plumber</strong></td><td>политика — это файл правил над «что за PDU»: функция, диапазон адресов, unit id, роль. Первое совпавшее правило выигрывает, по умолчанию — запрет. Правила лежат в git и ревьюятся как код; есть сухой прогон политики до включения (как <code>plumb test</code>)</td><td>R3, R10</td></tr><tr><td><strong>ucode (RFC 6588)</strong></td><td>идентичность оборудования: 128-битный номер без внутреннего смысла + запись резолвинга (какие функции разрешены, какие диапазоны, хеш прошивки, класс безопасности). Номер переживает смерть вендора и смену владельца — политика выводится из резолвинга, а не из разъехавшейся конфигурации</td><td>R3, R10</td></tr><tr><td><strong>mbrs</strong> (наш сканер Modbus)</td><td>пассивный верификатор и «обучатель»: слушает 502, строит базовую линию «кто что читал и писал», из неё генерирует черновик политики; в бою — детектор неподписанного и неожиданного трафика</td><td>R3, R9</td></tr><tr><td><strong>DSO, детерминированный рантайм</strong></td><td>проверка кадра без аллокаций, фиксированное время, предсказуемый худший случай; бюджет миллисекунд на кадр, никаких пауз сборщика мусора в цикле</td><td>R8</td></tr><tr><td><strong>PHASE, обратимость</strong></td><td>каждая пачка записей несёт <strong>обратную операцию</strong>; хранится снапшот и журнал, поэтому <code>revoke &lt;batch&gt;</code> возвращает ровно предыдущее состояние за ограниченное время, а журнал в хеш-цепочке делает откат проверяемым</td><td>R6</td></tr><tr><td><strong>Тернарная логика / MPTC</strong></td><td>решение не бинарное, а трёхзначное: <strong>РАЗРЕШИТЬ / ЗАПРЕТИТЬ / В БЕЗОПАСНОЕ</strong>. Бинарное «нет» не умеет главного для OT исхода — «приведи в безопасное состояние и скажи об этом»</td><td>R1, R3</td></tr><tr><td><strong>mime-os / .eml</strong></td><td>аудит как подписанные письма в store-and-forward: переживают обрыв связи, читаются человеком, реплицируются, не требуют syslog-сервера</td><td>R9</td></tr><tr><td><strong>Hermes-агенты</strong></td><td>агент действует только как держатель тикета: может предложить запись, но опасная запись требует второй подписи человека</td><td>R4</td></tr></tbody></table>
+<h2>6. Конструкция</h2>
+<p><strong>Форма внедрения — «сторож на проводе» (bump-in-the-wire).</strong> ПЛК не меняется: с южной стороны обычный Modbus на 502, с северной — ОПЛОТ. Сторож — единственное место, где живёт политика и ключи.</p>
+<pre><code>  HMI / SCADA / агент            ОПЛОТ                  сторож                 ПЛК
+  ─────────────────────  ────────────────────  ─────────────────────  ─────────────
+  подписанный кадр  ───▶  проверка MAC+seq  ───▶  политика (правила) ──▶  Modbus 502
+                          (boots/time)            + двойная подпись        (как есть)
+                          + трёхзначный ответ  ◀── откат, журнал</code></pre>
+<p><strong>Кадр</strong> (фиксированный заголовок, чтобы время проверки было ограничено):</p>
+<pre><code>OP1 | ver | flags | sess_id | seq | boots | time | fc | unit | addr | qty | len | payload | mac16</code></pre>
+<p><code>mac16</code> — усечённый HMAC (BLAKE2s или SHA-256) по заголовку и полезной нагрузке, вместе с неявными <code>boots</code>/<code>time</code>/<code>seq</code>. Сессионный ключ — из STS-рукопожатия; ключ привязан к ucode устройства и к записи резолвинга.</p>
+<p><strong>Рукопожатие</strong> — четыре сообщения по мотивам STS: <code>HELLO</code> (sess_id, ucode, nonce) → <code>CHALLENGE</code> (nonce, boots/time) → <code>RESPONSE</code> (подпись на общем секрете + подтверждение ключа) → <code>CONFIRM</code>. Прослушанный сеанс не даёт следующих ключей.</p>
+<p><strong>Политика</strong> — файл, как у Plumber:</p>
+<pre><code># читать телеметрию можно всем в цеховой сети
+fc in {3,4} addr 0..499 unit 1 role in {reader,operator,supervisor} → allow
+
+# писать уставки — только оператору, и только в рабочий диапазон
+fc in {6,16} addr 40001..40010 role operator value in 0..1000 → allow
+
+# менять дискретные выходы — только с двойной подписью
+fc in {5,15} addr 0..99 role supervisor need 2 signatures → allow
+
+# всё прочее — запрет, а не «как получится»
+* → deny</code></pre>
+<p>Третье значение живёт в действии, а не в правиле: <code>allow</code>, <code>deny</code>, <code>safe</code> (перевести выход в последнее известное безопасное состояние и записать это в журнал как событие).</p>
+<p><strong>Обратимая запись.</strong> Каждая пачка записей превращается в транзакцию: снапшот затронутых регистров + обратные операции. <code>revoke</code> возвращает состояние и оставляет в журнале запись «откат пачки N», связанную хешем с записью «пачка N применена». Мошенник может удалить файл журнала, но не сможет незаметно переписать его середину.</p>
+<p><strong>Аудит как письма.</strong> Каждое событие — подписанное <code>.eml</code>-письмо с заголовками <code>X-Oplot-Batch</code>, <code>X-Oplot-Prev-Hash</code>, <code>X-Oplot-Decision</code>. Переживает разрыв сети, читается человеком в любом почтовом клиенте и складывается в store-and-forward очередь.</p>
+<h2>7. Угроза → механизм</h2>
+<table><thead><tr><th>Угроза (из инцидентов)</th><th>Чем закрывается</th></tr></thead><tbody><tr><td>FrostyGoop: запись по Modbus снаружи</td><td>deny-by-default политика + MAC на каждом кадре + сторож не пускает «просто валидного» клиента</td></tr><tr><td>AA26-097A: подмена файла проекта</td><td>подпись артефактов проекта; сторож фиксирует, что именно было загружено, с хешем и ucode устройства</td></tr><tr><td>AA26-097A: подмена данных на HMI</td><td>подписанные ответы: HMI показывает только то, что подписано ПЛК (или сторожем), и расхождение с журналом — событие</td></tr><tr><td>Повтор записанного кадра в serial</td><td><code>boots</code>/<code>time</code> из USM + <code>seq</code> + окно; повтор отвергается, даже если ПЛК перезагружали</td></tr><tr><td>Украденный ноутбук инженера</td><td>тикет на операцию с коротким TTL, а не постоянный ключ</td></tr><tr><td>Инсайдер</td><td>двойная подпись на опасные адреса, обе подписи в журнале</td></tr><tr><td>DoS мусорными кадрами (Janitza CVE-2025-41729)</td><td>сторож отбрасывает неразобранное до ПЛК + лимит частоты</td></tr><tr><td>«Мы всё откатили руками, но не знаем, что было»</td><td>обратимая пачка + журнал-цепочка</td></tr></tbody></table>
+<h2>8. Чего ОПЛОТ не делает</h2>
+<ul><li><strong>Не заменяет сегментацию.</strong> FrostyGoop пришёл через маршрутизатор и неразделённую сеть; протокол</li></ul>
+<p>такого не лечит.</p>
+<ul><li><strong>Не спасает от заражённого проектного файла до момента подписи.</strong> Он фиксирует и проверяет, но</li></ul>
+<p>если инженер сам собрал и подписал вредоносный проект — это не протокол.</p>
+<ul><li><strong>Не обещает конфиденциальность в serial-профиле.</strong> На 9600 бод — целостность и подлинность,</li></ul>
+<p>шифрование опционально и отдельным профилем.</p>
+<ul><li><strong>Не защищает от вредоносной прошивки</strong> самого ПЛК.</li><li><strong>Сторож — единая точка отказа</strong>, поэтому их два в горячем резерве; это надо мерить, а не</li></ul>
+<p>декларировать.</p>
+<h2>9. План работ</h2>
+<ul><li><strong>M0 — уже есть.</strong> <code>mbrs</code> (разбор Modbus), движок правил из <code>plumber</code>, <code>ucode</code> (идентичность),</li></ul>
+<p><code>troncode</code> (не пригодится, но пусть лежит).</p>
+<ul><li><strong>M1 — кадр, MAC, счётчики, политика, откат</strong> как офлайн-библиотека с тестами: повтор отвергается,</li></ul>
+<p>перезагрузка не сбрасывает окно, правило без роли не срабатывает, <code>revoke</code> возвращает состояние, журнал ловит переписанную середину.</p>
+<ul><li><strong>M2 — сторож-прокси</strong> 502 ↔ ОПЛОТ и фейковый ПЛК для сквозных тестов (клиент — наш же <code>mbrs</code>).</li><li><strong>M3 — обучение политики</strong> из трафика <code>mbrs</code> и сухой прогон политики до включения.</li><li><strong>M4 — serial-профиль</strong> (9600, кадр ≤ 256 байт) и аудит письмами.</li></ul>
+<h2>10. Первоисточники</h2>
+<ul><li>CISA AA26-097A, «Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers Across US</li></ul>
+<p>Critical Infrastructure», 7 апреля 2026, обновление 22 июля 2026.</p>
+<ul><li>Dragos, «How to Protect Against FrostyGoop: ICS Malware Targeting Operational Technology», 23 июля</li></ul>
+<p>2024; Intelligence Brief по FrostyGoop.</p>
+<ul><li>CISA ICSA-24-352-04 (Schneider Modicon, CVSS 9.3), ICSA-25-238-03 (Modicon M340), бюллетень</li></ul>
+<p>SB25-335 (Janitza UMG 96-PA, CVE-2025-41729).</p>
+<ul><li>Modbus Organization, «MODBUS/TCP Security Protocol Specification», 2018; GB/T 41868-2022.</li><li>IETF, <code>draft-liu-iotops-modbus-seriallink-sec-spec-02</code>, 10 декабря 2025.</li><li>W. Diffie, P. van Oorschot, M. Wiener, «Authentication and Authenticated Key Exchanges», 1992.</li><li>RFC 1510 (Kerberos V5), RFC 1825–1827 (IPsec), RFC 2574/3414 (SNMPv3 USM), SET (1997),</li></ul>
+<p>M. Bellare, B. Yee, «Forward Integrity for Secure Audit Logs», 1997.</p>
+  <div class="actions">
+    <a href="source.md">Исходный Markdown</a>
+    <a href="https://github.com/kostyk348/lost-tech-museum">Репозиторий</a>
+  </div>
+  <footer>Документ сгенерирован из <code>docs/ot-guard.md</code> скриптом <code>scripts/build.py</code>. HTML руками не правится.</footer>
+</div>
+</body>
+</html>
