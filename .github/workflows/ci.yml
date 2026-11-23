@@ -1,0 +1,27 @@
+name: ci
+
+# Проверки без записи в зону публикации: build.py пересобирает index.html,
+# feed.xml, sitemap.xml, api/ и en/ — этот результат публикует координатор,
+# поэтому полная сборка в CI не запускается (у build.py нет режима --check).
+# Те же два скрипта, которыми сборка проверяется руками.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  checks:
+    name: site + stacks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Byte-compile scripts
+        run: python -m compileall -q scripts
+      - name: Check built pages, API and data consistency
+        run: python scripts/check_site.py
+      - name: Lint card stacks
+        run: python scripts/lint_stacks.py
